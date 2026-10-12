@@ -1,0 +1,195 @@
+{
+  "aggregates": {
+    "test": {
+      "metrics": {
+        "fixed_minus_float_mean_angular_error_deg": {
+          "mean": 0.0069794569030427415,
+          "sample_standard_deviation": 0.00554838056386982
+        },
+        "fixed_minus_float_mean_pixel_error": {
+          "mean": 0.11280365766307371,
+          "sample_standard_deviation": 0.08480599984323722
+        },
+        "fixed_point_mean_angular_error_deg": {
+          "mean": 0.7671216582654974,
+          "sample_standard_deviation": 0.02128910073224999
+        },
+        "fixed_point_mean_pixel_error": {
+          "mean": 15.095054247383034,
+          "sample_standard_deviation": 0.4319370988234461
+        },
+        "float_sinabs_cpu_mean_angular_error_deg": {
+          "mean": 0.7601422013624547,
+          "sample_standard_deviation": 0.016277982663878116
+        },
+        "float_sinabs_cpu_mean_pixel_error": {
+          "mean": 14.98225058971996,
+          "sample_standard_deviation": 0.35507498437862217
+        }
+      },
+      "runtime_range_audit": {
+        "accumulator_saturated_values": 0,
+        "maximum_accumulator_absolute_before_saturation": 3858769,
+        "maximum_spike_before_saturation": 124,
+        "spike_saturated_values": 0
+      },
+      "samples_per_seed": [
+        426,
+        426,
+        426
+      ]
+    },
+    "train": {
+      "metrics": {
+        "fixed_minus_float_mean_angular_error_deg": {
+          "mean": -0.0014154468636301796,
+          "sample_standard_deviation": 0.0034193352644454416
+        },
+        "fixed_minus_float_mean_pixel_error": {
+          "mean": -0.028667316610689945,
+          "sample_standard_deviation": 0.07449981503158196
+        },
+        "fixed_point_mean_angular_error_deg": {
+          "mean": 0.39181339562603523,
+          "sample_standard_deviation": 0.009028985879397393
+        },
+        "fixed_point_mean_pixel_error": {
+          "mean": 7.467366351907376,
+          "sample_standard_deviation": 0.18287268967596118
+        },
+        "float_sinabs_cpu_mean_angular_error_deg": {
+          "mean": 0.39322884248966544,
+          "sample_standard_deviation": 0.007379128433790881
+        },
+        "float_sinabs_cpu_mean_pixel_error": {
+          "mean": 7.496033668518066,
+          "sample_standard_deviation": 0.16350781484935606
+        }
+      },
+      "runtime_range_audit": {
+        "accumulator_saturated_values": 0,
+        "maximum_accumulator_absolute_before_saturation": 5045700,
+        "maximum_spike_before_saturation": 173,
+        "spike_saturated_values": 0
+      },
+      "samples_per_seed": [
+        2961,
+        2961,
+        2961
+      ]
+    },
+    "validation": {
+      "metrics": {
+        "fixed_minus_float_mean_angular_error_deg": {
+          "mean": 0.002987421361120281,
+          "sample_standard_deviation": 0.013974880966026849
+        },
+        "fixed_minus_float_mean_pixel_error": {
+          "mean": 0.043777949373487016,
+          "sample_standard_deviation": 0.24982623220672487
+        },
+        "fixed_point_mean_angular_error_deg": {
+          "mean": 0.7495940597217781,
+          "sample_standard_deviation": 0.011720111963269636
+        },
+        "fixed_point_mean_pixel_error": {
+          "mean": 14.915727570583003,
+          "sample_standard_deviation": 0.24530798352750696
+        },
+        "float_sinabs_cpu_mean_angular_error_deg": {
+          "mean": 0.7466066383606578,
+          "sample_standard_deviation": 0.022555766398831407
+        },
+        "float_sinabs_cpu_mean_pixel_error": {
+          "mean": 14.871949621209517,
+          "sample_standard_deviation": 0.37600426918998237
+        }
+      },
+      "runtime_range_audit": {
+        "accumulator_saturated_values": 0,
+        "maximum_accumulator_absolute_before_saturation": 3186440,
+        "maximum_spike_before_saturation": 89,
+        "spike_saturated_values": 0
+      },
+      "samples_per_seed": [
+        426,
+        426,
+        426
+      ]
+    }
+  },
+  "analysis_code": {
+    "path": "/datanaco/xuzx/project/ebv-eye/code/hardware/evaluate_pursuit_fixed_point.py",
+    "sha256": "e5bee480c50724a82374959405eb7cfcdef967e2409f31977f7976d9c8dfda00"
+  },
+  "arithmetic_contract": {
+    "accumulator_bits": 24,
+    "accumulator_saturation": "symmetric two-complement limits after complete dot product",
+    "alpha": "0.75 implemented as rounded (3 * signed_membrane_integer) / 4",
+    "alpha_rounding": "floor",
+    "constant_bits": 24,
+    "input_count_bits": 9,
+    "maximum_fraction_bits": 15,
+    "readout": "integer H2 temporal sum times quantized weights, followed by exact divide by two",
+    "readout_weight_bits": 16,
+    "reset": "subtractive reset followed by clamp to -1.0",
+    "scale": "positive power of two per layer or output channel",
+    "scale_mode": "per_output_channel",
+    "scale_policy": "no_clipping",
+    "spike": "unsigned floor(max(u,0)) with explicit saturation",
+    "spike_bits": 8,
+    "state_guard_bits": 0,
+    "static_parameter_rounding": "nearest, ties away from zero",
+    "weight_bits": 16
+  },
+  "interpretation_limit": "The float comparison uses the Sinabs CPU backend in the same evaluator; it does not replace the official Exodus endpoint.",
+  "schema_version": 1,
+  "scope": "three_seed_fixed_point_summary_for_frozen_arithmetic_contract",
+  "seeds": [
+    2021,
+    2022,
+    2023
+  ],
+  "source_reports": {
+    "seed2021_test": {
+      "path": "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/hardware/fixed_point_reference_20261006/seed2021_test.json",
+      "sha256": "c53ca3575ab51364b7a63aca8d28047fa78bad7496f268e6a36081d2e8347395"
+    },
+    "seed2021_train": {
+      "path": "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/hardware/fixed_point_reference_20261006/seed2021_train.json",
+      "sha256": "b065affb8199c02c03c44f9e2c9bc826249b38f0629d0ec751a8e82926be913f"
+    },
+    "seed2021_validation": {
+      "path": "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/hardware/fixed_point_reference_20261006/seed2021_validation.json",
+      "sha256": "1afb75ecf76f36e14233681ff513cb7834c83a99dd874bd006fd5e454ece060d"
+    },
+    "seed2022_test": {
+      "path": "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/hardware/fixed_point_reference_20261006/seed2022_test.json",
+      "sha256": "2696ef415a378b00394213fdf63fc1bd419ac318e9a2793baf2d6f95ba97650d"
+    },
+    "seed2022_train": {
+      "path": "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/hardware/fixed_point_reference_20261006/seed2022_train.json",
+      "sha256": "f35da27ae8d0bfa2c22608af76a4298501bc95f91d3d15af79773bf7021f53bc"
+    },
+    "seed2022_validation": {
+      "path": "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/hardware/fixed_point_reference_20261006/seed2022_validation.json",
+      "sha256": "9d422d8a9681ec99413455e0414b3f97bd5c22fa9e6a33aa8dec30b1976a9269"
+    },
+    "seed2023_test": {
+      "path": "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/hardware/fixed_point_reference_20261006/seed2023_test.json",
+      "sha256": "051107ab814182c196f3edf1d2f44a832977bc84505e7b5831d5f0f547c024b5"
+    },
+    "seed2023_train": {
+      "path": "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/hardware/fixed_point_reference_20261006/seed2023_train.json",
+      "sha256": "7ab0074abca269c0b1f6190bbc9d8eec659a26f5e98a5e3279a8526967df5f0a"
+    },
+    "seed2023_validation": {
+      "path": "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/hardware/fixed_point_reference_20261006/seed2023_validation.json",
+      "sha256": "c1f1744320d98a0baef1edec1a825127bcf0f7a1bcfd05b8257fa2e6b43531cf"
+    }
+  },
+  "summarizer": {
+    "path": "/datanaco/xuzx/project/ebv-eye/code/hardware/summarize_pursuit_fixed_point.py",
+    "sha256": "c4b0b969e3d6e2c95dbdc27b37e8c2d63c1921e8f354ce61fabe94f4f1922a7a"
+  }
+}

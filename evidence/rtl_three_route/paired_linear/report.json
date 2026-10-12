@@ -1,0 +1,204 @@
+{
+  "compile": {
+    "command": [
+      "/data/xuzx/env/ebv-eye-hardware/bin/iverilog",
+      "-g2012",
+      "-Wall",
+      "-s",
+      "tb_paired_linear_lif_layer_engine",
+      "-o",
+      "/tmp/ebv_paired_linear_rtl_check_20261008_7/tb_paired_linear_lif_layer_engine.vvp",
+      "code/hardware/rtl/lif_multispike.sv",
+      "code/hardware/rtl/paired_linear_lif_layer_engine.sv",
+      "code/hardware/rtl/tb/tb_paired_linear_lif_layer_engine.sv"
+    ],
+    "log": "/tmp/ebv_paired_linear_rtl_check_20261008_7/iverilog.log",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "return_code": 0,
+    "runtime_seconds": 0.03572471626102924,
+    "status": "passed"
+  },
+  "contract": {
+    "arithmetic": "16 shared S16xU8 lanes, separate t0/t1 S40 accumulators, S24 current, S16 membrane, U8 spike",
+    "schedule": "output-group-major; each 256-bit weight beat is read once and used on consecutive t0/t1 multiplier cycles",
+    "state": "t0 LIF membrane directly feeds t1 LIF"
+  },
+  "golden_manifest": {
+    "path": "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/hardware/golden_vectors_seed2022_20261006/manifest.json",
+    "sha256": "b873015885084a197818e28a5d35ab115c70bd610abca739852430b8c0e64351"
+  },
+  "hardware_image": {
+    "path": "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/hardware/hardware_image_stateless_seed2022_20261006/layout.json",
+    "sha256": "9b7a0395ca16519a04bda874b89b3e6240fae64ce5226ac3a42cf009e3171616"
+  },
+  "lint": {
+    "command": [
+      "/data/xuzx/env/ebv-eye-hardware/bin/verilator",
+      "--lint-only",
+      "--Wall",
+      "--top-module",
+      "paired_linear_lif_layer_engine",
+      "code/hardware/rtl/lif_multispike.sv",
+      "code/hardware/rtl/paired_linear_lif_layer_engine.sv"
+    ],
+    "log": "/tmp/ebv_paired_linear_rtl_check_20261008_7/verilator.log",
+    "log_sha256": "02011964e7ec474aa287312a99b2248207ce4154294cb2022432f3bce0d0253b",
+    "return_code": 0,
+    "runtime_seconds": 0.16651937272399664,
+    "status": "passed"
+  },
+  "mapping": {
+    "command": [
+      "/data/xuzx/env/ebv-eye-hardware/bin/yosys",
+      "-q",
+      "-p",
+      "read_verilog -sv code/hardware/rtl/lif_multispike.sv code/hardware/rtl/paired_linear_lif_layer_engine.sv; hierarchy -top paired_linear_lif_layer_engine; synth_xilinx -family xcup -noiopad -top paired_linear_lif_layer_engine; tee -o /tmp/ebv_paired_linear_rtl_check_20261008_7/paired_linear_lif_layer_engine_stat.json stat -json"
+    ],
+    "design_statistics": {
+      "num_cells": 11531,
+      "num_cells_by_type": {
+        "$paramod$248455d04f5f1c4a4631489acf9d62705faeae1c\\lif_multispike": 16,
+        "BUFG": 1,
+        "CARRY4": 965,
+        "DSP48E2": 16,
+        "FDRE": 2875,
+        "INV": 64,
+        "LUT2": 1894,
+        "LUT3": 1349,
+        "LUT4": 1982,
+        "LUT5": 755,
+        "LUT6": 1391,
+        "MUXF7": 170,
+        "MUXF8": 69
+      },
+      "num_memories": 0,
+      "num_memory_bits": 0,
+      "num_port_bits": 2326,
+      "num_ports": 187,
+      "num_processes": 0,
+      "num_pub_wire_bits": 13379,
+      "num_pub_wires": 538,
+      "num_submodules": 16,
+      "num_wire_bits": 32508,
+      "num_wires": 11913
+    },
+    "log": "/tmp/ebv_paired_linear_rtl_check_20261008_7/yosys.log",
+    "log_sha256": "390c22d150b33e30b794cb2a497142d4eb9cd25607d5d3f8ecc779bb02a9b666",
+    "return_code": 0,
+    "runtime_seconds": 21.01644326420501,
+    "scope": "Yosys synth_xilinx xcup primitive mapping without I/O pads; no placement, routing, timing, or power",
+    "statistics_file": "/tmp/ebv_paired_linear_rtl_check_20261008_7/paired_linear_lif_layer_engine_stat.json",
+    "statistics_sha256": "e8cddfaff02019a040d57021a3c3ab59b30c19cdfeed68c36a2726f8c8534bf8",
+    "status": "passed",
+    "summary": {
+      "carry4": 965,
+      "dsp48e2": 16,
+      "flip_flops": 2875,
+      "luts": 7371,
+      "ramb18e2": 0,
+      "ramb36e2": 0
+    }
+  },
+  "replays": [
+    {
+      "cycles_start_to_done": 3928,
+      "input_values_read": 3840,
+      "layer": "H1",
+      "run": {
+        "command": [
+          "/data/xuzx/env/ebv-eye-hardware/bin/vvp",
+          "/tmp/ebv_paired_linear_rtl_check_20261008_7/tb_paired_linear_lif_layer_engine.vvp",
+          "+WEIGHT_FILE=/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/hardware/hardware_image_stateless_seed2022_20261006/linear_weights_input_major_256.mem",
+          "+CONSTANT_FILE=/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/hardware/hardware_image_stateless_seed2022_20261006/layer_constants_s24.mem",
+          "+FRACTION_FILE=/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/hardware/hardware_image_stateless_seed2022_20261006/layer_fraction_bits_u5.mem",
+          "+INPUT_T0_FILE=/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/hardware/golden_vectors_seed2022_20261006/mem/vector_t0_L8_spike_integer.mem",
+          "+INPUT_T1_FILE=/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/hardware/golden_vectors_seed2022_20261006/mem/vector_t1_L8_spike_integer.mem",
+          "+EXPECTED_CURRENT_T0_FILE=/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/hardware/golden_vectors_seed2022_20261006/mem/vector_t0_H1_current_integer.mem",
+          "+EXPECTED_CURRENT_T1_FILE=/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/hardware/golden_vectors_seed2022_20261006/mem/vector_t1_H1_current_integer.mem",
+          "+EXPECTED_SPIKE_T0_FILE=/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/hardware/golden_vectors_seed2022_20261006/mem/vector_t0_H1_spike_integer.mem",
+          "+EXPECTED_SPIKE_T1_FILE=/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/hardware/golden_vectors_seed2022_20261006/mem/vector_t1_H1_spike_integer.mem",
+          "+EXPECTED_MEMBRANE_T0_FILE=/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/hardware/golden_vectors_seed2022_20261006/mem/vector_t0_H1_membrane_integer.mem",
+          "+EXPECTED_MEMBRANE_T1_FILE=/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/hardware/golden_vectors_seed2022_20261006/mem/vector_t1_H1_membrane_integer.mem",
+          "+INPUT_FEATURES=480",
+          "+OUTPUT_FEATURES=60",
+          "+OUTPUT_GROUPS=4",
+          "+WEIGHT_BASE=0",
+          "+PARAMETER_BASE=240",
+          "+TIMEOUT_CYCLES=10000"
+        ],
+        "log": "/tmp/ebv_paired_linear_rtl_check_20261008_7/h1_paired.log",
+        "log_sha256": "f4a33d014448f07b964d175d48cc1c30bdfc1ecff80edcc640416c16496e6d77",
+        "return_code": 0,
+        "runtime_seconds": 0.3357808329164982,
+        "status": "passed"
+      },
+      "transactions": 8,
+      "values_checked": 360,
+      "weight_beats_read": 1920
+    },
+    {
+      "cycles_start_to_done": 142,
+      "input_values_read": 120,
+      "layer": "H2",
+      "run": {
+        "command": [
+          "/data/xuzx/env/ebv-eye-hardware/bin/vvp",
+          "/tmp/ebv_paired_linear_rtl_check_20261008_7/tb_paired_linear_lif_layer_engine.vvp",
+          "+WEIGHT_FILE=/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/hardware/hardware_image_stateless_seed2022_20261006/linear_weights_input_major_256.mem",
+          "+CONSTANT_FILE=/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/hardware/hardware_image_stateless_seed2022_20261006/layer_constants_s24.mem",
+          "+FRACTION_FILE=/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/hardware/hardware_image_stateless_seed2022_20261006/layer_fraction_bits_u5.mem",
+          "+INPUT_T0_FILE=/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/hardware/golden_vectors_seed2022_20261006/mem/vector_t0_H1_spike_integer.mem",
+          "+INPUT_T1_FILE=/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/hardware/golden_vectors_seed2022_20261006/mem/vector_t1_H1_spike_integer.mem",
+          "+EXPECTED_CURRENT_T0_FILE=/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/hardware/golden_vectors_seed2022_20261006/mem/vector_t0_H2_current_integer.mem",
+          "+EXPECTED_CURRENT_T1_FILE=/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/hardware/golden_vectors_seed2022_20261006/mem/vector_t1_H2_current_integer.mem",
+          "+EXPECTED_SPIKE_T0_FILE=/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/hardware/golden_vectors_seed2022_20261006/mem/vector_t0_H2_spike_integer.mem",
+          "+EXPECTED_SPIKE_T1_FILE=/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/hardware/golden_vectors_seed2022_20261006/mem/vector_t1_H2_spike_integer.mem",
+          "+EXPECTED_MEMBRANE_T0_FILE=/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/hardware/golden_vectors_seed2022_20261006/mem/vector_t0_H2_membrane_integer.mem",
+          "+EXPECTED_MEMBRANE_T1_FILE=/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/hardware/golden_vectors_seed2022_20261006/mem/vector_t1_H2_membrane_integer.mem",
+          "+INPUT_FEATURES=60",
+          "+OUTPUT_FEATURES=12",
+          "+OUTPUT_GROUPS=1",
+          "+WEIGHT_BASE=1920",
+          "+PARAMETER_BASE=304",
+          "+TIMEOUT_CYCLES=10000"
+        ],
+        "log": "/tmp/ebv_paired_linear_rtl_check_20261008_7/h2_paired.log",
+        "log_sha256": "806dd8568251b29aa456c122302d2231e3780a08a793543ee827fd14a7200d6f",
+        "return_code": 0,
+        "runtime_seconds": 0.045213870238512754,
+        "status": "passed"
+      },
+      "transactions": 2,
+      "values_checked": 72,
+      "weight_beats_read": 60
+    }
+  ],
+  "schema_version": 1,
+  "scope": "paired_time_h1_h2_golden_replay_before_vivado",
+  "sources": [
+    {
+      "path": "code/hardware/rtl/lif_multispike.sv",
+      "sha256": "ad0c41456be4057ea7dd9f4806d2241d75b4fe729718beebd1971fe8da4a2cc6"
+    },
+    {
+      "path": "code/hardware/rtl/paired_linear_lif_layer_engine.sv",
+      "sha256": "7ad1e50e0aeae80efb9b6ff4716a8d2aeaaa004b8f879b3c1459dcce08dfb20b"
+    },
+    {
+      "path": "code/hardware/rtl/tb/tb_paired_linear_lif_layer_engine.sv",
+      "sha256": "2a54ddda43556a0e0ab2f06dae2c32e85abba7f8c134b37c471187a3f70dfb32"
+    }
+  ],
+  "tools": {
+    "iverilog": "Icarus Verilog version 13.0 (stable) (v13_0)",
+    "verilator": "Verilator 5.052 2026-09-05 rev conda-forge build",
+    "vvp": "Icarus Verilog runtime version 13.0 (stable) (v13_0)",
+    "yosys": "Yosys 0.69+ (git sha1 9f09efcdb-dirty, Release, GNU /home/conda/feedstock_root/build_artifacts/bld/rattler-build_yosys_1788957668/build_env/bin/x86_64-conda-linux-gnu-c++ 15.3.0) [github.com/conda-forge/yosys-feedstock at main]"
+  },
+  "totals": {
+    "cycles_start_to_done_sum": 4070,
+    "input_values_read": 3960,
+    "values_checked": 432,
+    "weight_beats_read": 1980
+  }
+}

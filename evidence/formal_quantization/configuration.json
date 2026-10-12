@@ -1,0 +1,61 @@
+{
+  "scope": "Post-training quantization of formal L40S-trained seed2021 final models",
+  "execution": {
+    "host": "carbonite",
+    "device": "cpu",
+    "torch": "2.13.0+cu130",
+    "threads": 4,
+    "batch_size": 16
+  },
+  "arithmetic": {
+    "weight_bits": 16,
+    "readout_weight_bits": 16,
+    "constant_bits": 24,
+    "accumulator_bits": 24,
+    "spike_bits": 8,
+    "scale_mode": "per_output_channel",
+    "scale_policy": "no_clipping",
+    "maximum_fraction_bits": 15,
+    "state_guard_bits": 0,
+    "alpha_rounding": "floor"
+  },
+  "state_bits": 16,
+  "tasks": [
+    "pursuit",
+    "saccade"
+  ],
+  "users": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+  ],
+  "split": "test",
+  "aggregation": "Mean within each subject, then equally across subjects",
+  "source_sha256": {
+    "/datanaco/xuzx/project/ebv-eye/code/hardware/evaluate_formal_quantization.py": "cb4fd396eed4751587142f6ca309947d4420a6d4cacceea727c106dfe7e0d808",
+    "/datanaco/xuzx/project/ebv-eye/code/hardware/evaluate_pursuit_fixed_point.py": "ff570ae5ea4524719a08245b93746eab96fa9446084103f5ec72a55f5d4b043d",
+    "/datanaco/xuzx/project/ebv-eye/code/pursuit/fixed_event_window/snn/model.py": "23fa147e9949878802f71b1128e29a6f8fa5c55bd61d4aefa891b5976be623b8",
+    "/datanaco/xuzx/project/ebv-eye/code/pursuit/fixed_event_window/snn/training.py": "582d3d163385c5b2ee2fa045e1d409e965a94e9be29d78c0616d86a0d7034c2b"
+  }
+}
