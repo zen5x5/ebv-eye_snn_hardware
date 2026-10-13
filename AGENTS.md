@@ -4,8 +4,9 @@
 
 1. `README.md`；
 2. `docs/hardware/07_advisor_hardware_progress.md`；
-3. `evidence/README.md`；
-4. 需要深入某项实现时，再读 `docs/hardware/01...06` 和对应源码。
+3. `docs/hardware/figures/ebv_eye_final_pe_bram_dataflow.svg`；
+4. `evidence/README.md`；
+5. 需要深入某项实现时，再读 `docs/hardware/01...06` 和对应源码。
 
 对外描述三种整网组织时使用以下中文名称：
 

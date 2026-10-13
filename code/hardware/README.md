@@ -42,6 +42,8 @@
   两步”完整顶层，检查逐层trace、周期、lint和Yosys primitive mapping；
 - `draw_advisor_hardware_architecture.py`：生成“浅层事件驱动＋深层逐层相邻
   执行双时间步”最终硬件架构图的SVG、PDF和高清PNG，用于导师汇报与报告内嵌；
+- `draw_final_pe_bram_dataflow.py`：生成最终RTL的PE阵列、逻辑片上存储、
+  A/B特征回写和逐权重tile执行顺序细化图，同步导出SVG、PDF和高清PNG；
 - `rtl/`：计数乘法、逐单位加法、单bit移位项、逐级流水核心、位精确LIF、
   稀疏L1/L2三行九bank核心、规则与成对卷积/H1/H2/readout、激活/状态/
   电流缓存，以及稠密、Sparse-TM和Sparse-LM-A三套完整整网控制器；

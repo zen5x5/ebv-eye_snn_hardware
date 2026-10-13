@@ -7,6 +7,11 @@ RTL 正确性、AUP-ZU3 资源映射和已有工作的性能定位。
 
 ![最终硬件架构](docs/hardware/figures/ebv_eye_event_driven_layer_adjacent_architecture.svg)
 
+下面的细化图进一步展开最终RTL中的PE阵列、逻辑片上存储、A/B特征回写和
+每个权重tile内的双时间步执行顺序。
+
+![最终RTL的PE阵列与片上存储dataflow](docs/hardware/figures/ebv_eye_final_pe_bram_dataflow.svg)
+
 ## 项目对象
 
 EBV-Eye 由朝向眼睛的事件相机产生异步事件。每个推理样本连续取得 400 个 ROI 事件，
@@ -42,7 +47,7 @@ SNN 包含八个 3×3 卷积脉冲层、两个脉冲全连接层和一个连续�
 |---|---|
 | `docs/hardware/07_advisor_hardware_progress.md` | 自包含的导师汇报，主阅读入口 |
 | `docs/hardware/01...06` | 数据流、定点、完整 RTL 和正式量化的技术报告 |
-| `docs/hardware/figures/` | 架构图 SVG、PDF、PNG 及生成说明 |
+| `docs/hardware/figures/` | 总体架构图与PE/片上存储细化图的SVG、PDF、PNG |
 | `docs/related_work/` | FPGA/SNN 加速器文献复核与比较边界 |
 | `docs/model/` | 输入组织、ANN 基线与 SNN 时间参数的算法背景 |
 | `code/hardware/rtl/` | L1～readout RTL、三套完整顶层和 testbench |

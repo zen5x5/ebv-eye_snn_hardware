@@ -71,6 +71,20 @@ L1/L2的空间稀疏性，只处理真正出现的事件和脉冲包；从L3开�
 图A是完整数据通路，图B展开深层两个时间步的执行顺序。一个样本的实际计算
 过程如下。
 
+### PE阵列与片上存储细化图
+
+![最终RTL的PE与片上存储dataflow](figures/ebv_eye_final_pe_bram_dataflow.svg)
+
+这张图把同一最终方案进一步展开：图A给出L1的72路LUT加法阵列、L2的48路
+DSP计数乘法阵列、L2完整平面、深层共享核心和稠密头之间的数据流；图B展开
+一个深层权重tile内的288路count-MAC、双S40部分和存储、LIF状态和L3局部
+电流tile；图C给出每个权重tile的实际执行顺序。深层输出写入`t0/t1 × A/B`
+四组特征存储，L4～L8交替读写A/B，L8结果再由H1读取。
+
+图中的存储框表示RTL中的逻辑片上buffer。当前Yosys整顶层映射合计为80.5块
+BRAM36等效；每个逻辑buffer最终怎样在BRAM36、BRAM18和LUTRAM之间打包，
+仍由Vivado综合与布局布线决定。
+
 ### 第1步：接收400个排序事件
 
 每个样本含400个ROI事件。原算法的2×2 SumPool在硬件入口表现为行、列坐标
@@ -355,6 +369,9 @@ BRAM36等效，即50.3%；相对FireFly v2多98个DSP、少22.5块BRAM。本项�
 - 最新版硬件架构图：
   `docs/hardware/figures/ebv_eye_event_driven_layer_adjacent_architecture.svg`
   （同目录另有PDF和高清PNG）；
+- 最终RTL的PE阵列与片上存储细化图：
+  `docs/hardware/figures/ebv_eye_final_pe_bram_dataflow.svg`
+  （同目录另有PDF、高清PNG和可重生成脚本）；
 - 最终dataflow、周期、访存和资源的技术细节：
   `docs/hardware/05_pursuit_sparse_frontend_and_layer_major_rtl.md`；
 - 正式48模型量化：`docs/hardware/06_formal_l40s_quantization.md`；

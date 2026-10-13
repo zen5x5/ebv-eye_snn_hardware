@@ -30,8 +30,9 @@ scheduled-lane口径，两条事件驱动路线平均7.911147M，相对稠密扫
 - [Pursuit整网稠密基线RTL与Vivado前验证](04_pursuit_complete_pre_vivado_rtl.md)：完整L1～readout数据通路、三条时间dataflow逐值回放、稠密RTL周期、lean/full开源映射及其证据边界。
 - [Pursuit浅层事件驱动与深层逐层双时间步复用整网RTL](05_pursuit_sparse_frontend_and_layer_major_rtl.md)：排序事件入口、L1 add-only/L2 count-MAC、L2默认平面、三种整网实现的算术/访存/周期对照、完整validation位精确证据及Vivado前边界。
 - [L40S正式模型双任务24用户16位量化](06_formal_l40s_quantization.md)：48个seed2021模型完整test评估、浮点/定点精度、数值验证与可复现产物。
-- [导师硬件进展汇报](07_advisor_hardware_progress.md)：集中展示最终混合dataflow、48模型定点、L1～readout完整RTL、三路线周期/访存/资源消融、逐值正确性和已有硬件定位。
+- [导师硬件进展汇报](07_advisor_hardware_progress.md)：先介绍事件输入、监督任务和完整SNN结构，再集中展示最终混合dataflow、48模型定点、L1～readout完整RTL、三路线周期/访存/资源消融、逐值正确性和已有硬件定位。
 - [最终硬件架构图：浅层事件驱动＋深层逐层相邻执行双时间步](figures/ebv_eye_event_driven_layer_adjacent_architecture.svg)：整网数据通路、片上权重与局部状态，以及每层内`t0/t1`相邻执行；同目录提供PDF和高清PNG。
+- [最终RTL的PE阵列与片上存储细化图](figures/ebv_eye_final_pe_bram_dataflow.svg)：展开L1/L2稀疏前端、288-DSP深层核心、逻辑BRAM/状态buffer、A/B回写路径和每个权重tile内的`t0/t1`执行顺序；同目录提供PDF和高清PNG。
 - 数值范围工具：`code/hardware/profile_snn_numeric_ranges.py`。
 - 12组机器结果：`/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/hardware/numeric_range_profile_20261006/`。
 - 逐通道机器结果：`/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/hardware/channel_profile_20261006/`。
