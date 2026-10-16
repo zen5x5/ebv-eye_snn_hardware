@@ -13,4 +13,5 @@
 - scripts/replay_current.py 使用 Vivado 自带的 XSim；scripts/verify_evidence.py 检查标准资产；MANIFEST.sha256 核验仓库文件。
 - 解释按实际顺序展开，用清楚、具体的中文；公式使用纯文本。用户询问概念时再展开额外背景。
 - 按已经确认的数据、接口与条件实现，针对已查明的错误修正。
+- 2026-10-17 按用户要求扩展 docs/hardware/comparison.md：7 篇 FPGA 实现或原型、8 篇 SNN 研究及 Tan，共 16 篇独立外部工作。SEE-C/D 属于同一论文。NeuroEye 为 40 nm 布局布线后评估；Retina 的毫瓦值覆盖芯片传感器和处理器；Paredes-Valles 的每眼低于 5 mW 为 Speck2f 功率，微控制器另列约 13.6 mW；Sui 的 300 Hz 取 GPU/CPU 算法时间，102.2 mW 为另一套硬件条件的估算。保留各项原文来源与核读范围，实际硬件指标未改。
 

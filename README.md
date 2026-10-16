@@ -22,7 +22,7 @@
 ## 阅读顺序
 
 1. [当前设计与逐层数据流](docs/hardware/current_design.md)。
-2. [与 Tan 和 FPGA 眼动追踪工作的性能比较](docs/hardware/comparison.md)。
+2. [FPGA、专用芯片与 SNN 眼动追踪性能比较](docs/hardware/comparison.md)：2026-10-17 更新，收录 7 篇 FPGA 实现或原型、8 篇 SNN 研究与 Tan 芯片，分别注明实测和估算。
 3. [机器证据与来源](evidence/README.md)、[本次验证](VALIDATION.md)。
 4. [早期实现记录](docs/history/pre_vivado_20261013.md)和[本机 Vivado 优化过程](docs/history/vivado_development_20261015.md)。
 
