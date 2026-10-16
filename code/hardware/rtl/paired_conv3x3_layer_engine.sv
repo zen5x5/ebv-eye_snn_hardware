@@ -299,28 +299,18 @@ module paired_conv3x3_layer_engine #(
         .window_flat(line_window_flat)
     );
 
-    reg [OUTPUT_PES*ACCUMULATOR_BITS-1:0]
+    (* ram_style = "block" *) reg [OUTPUT_PES*ACCUMULATOR_BITS-1:0]
         partial_sum_memory_t0 [0:MAX_PARTIAL_SPATIAL-1];
-    reg [OUTPUT_PES*ACCUMULATOR_BITS-1:0]
+    (* ram_style = "block" *) reg [OUTPUT_PES*ACCUMULATOR_BITS-1:0]
         partial_sum_memory_t1 [0:MAX_PARTIAL_SPATIAL-1];
-    reg [OUTPUT_PES*ACCUMULATOR_BITS-1:0] partial_sum_read_data;
+    reg [OUTPUT_PES*ACCUMULATOR_BITS-1:0] partial_sum_read_data_t0;
+    reg [OUTPUT_PES*ACCUMULATOR_BITS-1:0] partial_sum_read_data_t1;
     reg mac_issue_valid;
     reg [TAG_BITS:0] mac_issue_tag;
+    wire [OUTPUT_PES*ACCUMULATOR_BITS-1:0] partial_sum_read_data =
+        mac_issue_tag[TAG_BITS]
+        ? partial_sum_read_data_t1 : partial_sum_read_data_t0;
     reg [LANES*COUNT_BITS-1:0] mac_issue_window;
-
-    always @(posedge clk) begin
-        if (line_valid) begin
-            if (scan_time_index) begin
-                partial_sum_read_data <= partial_sum_memory_t1[
-                    line_tag[PARTIAL_ADDRESS_BITS-1:0]
-                ];
-            end else begin
-                partial_sum_read_data <= partial_sum_memory_t0[
-                    line_tag[PARTIAL_ADDRESS_BITS-1:0]
-                ];
-            end
-        end
-    end
 
     always @(posedge clk) begin
         if (rst) begin
@@ -369,16 +359,28 @@ module paired_conv3x3_layer_engine #(
 
     wire final_input_tile = input_tile_index == (input_tiles_register - 1'b1);
     always @(posedge clk) begin
-        if (mac_output_valid && !final_input_tile) begin
-            if (mac_output_time) begin
-                partial_sum_memory_t1[
-                    mac_output_tag[PARTIAL_ADDRESS_BITS-1:0]
-                ] <= mac_output_flat;
-            end else begin
-                partial_sum_memory_t0[
-                    mac_output_tag[PARTIAL_ADDRESS_BITS-1:0]
-                ] <= mac_output_flat;
-            end
+        if (line_valid && !scan_time_index) begin
+            partial_sum_read_data_t0 <= partial_sum_memory_t0[
+                line_tag[PARTIAL_ADDRESS_BITS-1:0]
+            ];
+        end
+        if (mac_output_valid && !final_input_tile && !mac_output_time) begin
+            partial_sum_memory_t0[
+                mac_output_tag[PARTIAL_ADDRESS_BITS-1:0]
+            ] <= mac_output_flat;
+        end
+    end
+
+    always @(posedge clk) begin
+        if (line_valid && scan_time_index) begin
+            partial_sum_read_data_t1 <= partial_sum_memory_t1[
+                line_tag[PARTIAL_ADDRESS_BITS-1:0]
+            ];
+        end
+        if (mac_output_valid && !final_input_tile && mac_output_time) begin
+            partial_sum_memory_t1[
+                mac_output_tag[PARTIAL_ADDRESS_BITS-1:0]
+            ] <= mac_output_flat;
         end
     end
 
@@ -540,7 +542,8 @@ module paired_conv3x3_layer_engine #(
                 .CURRENT_BITS(CURRENT_BITS),
                 .STATE_BITS(STATE_BITS),
                 .SPIKE_BITS(SPIKE_BITS),
-                .FRACTION_BITS_WIDTH(FRACTION_BITS_WIDTH)
+                .FRACTION_BITS_WIDTH(FRACTION_BITS_WIDTH),
+                .PIPELINE_PRE_RESET(1)
             ) neuron (
                 .clk(clk),
                 .rst(rst),
@@ -566,21 +569,40 @@ module paired_conv3x3_layer_engine #(
         end
     endgenerate
 
+    reg lif_pre_valid;
+    reg [TAG_BITS-1:0] lif_tag_pre_delayed;
+    reg [CHANNEL_BITS-1:0] lif_channel_base_pre_delayed;
+    reg [OUTPUT_PES*CURRENT_BITS-1:0] lif_currents_pre_delayed;
+    reg lif_time_pre_delayed;
     reg [TAG_BITS-1:0] lif_tag_delayed;
     reg [CHANNEL_BITS-1:0] lif_channel_base_delayed;
     reg [OUTPUT_PES*CURRENT_BITS-1:0] lif_currents_delayed;
     reg lif_time_delayed;
     always @(posedge clk) begin
         if (rst) begin
+            lif_pre_valid <= 1'b0;
+            lif_tag_pre_delayed <= 0;
+            lif_channel_base_pre_delayed <= 0;
+            lif_currents_pre_delayed <= 0;
+            lif_time_pre_delayed <= 1'b0;
             lif_tag_delayed <= 0;
             lif_channel_base_delayed <= 0;
             lif_currents_delayed <= 0;
             lif_time_delayed <= 1'b0;
-        end else if (neuron_delay_valid) begin
-            lif_tag_delayed <= neuron_tag_delayed;
-            lif_channel_base_delayed <= neuron_channel_base_delayed;
-            lif_currents_delayed <= neuron_currents_delayed;
-            lif_time_delayed <= neuron_time_delayed;
+        end else begin
+            lif_pre_valid <= neuron_delay_valid;
+            if (neuron_delay_valid) begin
+                lif_tag_pre_delayed <= neuron_tag_delayed;
+                lif_channel_base_pre_delayed <= neuron_channel_base_delayed;
+                lif_currents_pre_delayed <= neuron_currents_delayed;
+                lif_time_pre_delayed <= neuron_time_delayed;
+            end
+            if (lif_pre_valid) begin
+                lif_tag_delayed <= lif_tag_pre_delayed;
+                lif_channel_base_delayed <= lif_channel_base_pre_delayed;
+                lif_currents_delayed <= lif_currents_pre_delayed;
+                lif_time_delayed <= lif_time_pre_delayed;
+            end
         end
     end
 

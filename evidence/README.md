@@ -1,39 +1,28 @@
-# 机器证据说明
+# 机器证据
 
-这里保存导师或后续 Codex 可直接检查的机器可读结果。目录名已缩短，数值内容来自主
-工程的冻结硬件产物。
+## 当前实现
 
-| 目录 | 范围 |
+当前模型为 Pursuit user17/seed2022，第 193 轮 checkpoint。参数和标准数值在复制时逐文件检查，数据文件内容保持一致。
+
+| 位置 | 内容 |
 |---|---|
-| `formal_quantization/` | 48 个正式模型、54,105 个 test 输入的配置、汇总结果与独立核验 |
-| `fixed_point_reference/` | Pursuit user15 三 seed、全 split 的浮点/定点对照与算术合同 |
-| `golden_vectors_seed2022/` | seed2022 validation 样本 0 的参数、逐层 trace、MEM 和 NPZ |
-| `hardware_image_stateless_seed2022/` | RTL 使用的 256-bit 权重流、逐通道常量和 fraction bits |
-| `rtl_three_route/` | 三种整网组织的汇总、周期分布、顶层回放和 Yosys 统计 |
+| current/golden_vectors/ | 16 个样本的标准数值，以及回放样本 0 的 MEM、参数 |
+| current/hardware_image/ | 256 位权重流、通道常量和小数位设置 |
+| current/quantization/ | user17 完整 1,364 个 test 样本的量化报告 |
+| current/rtl_replay/ | 2026-10-16 的本机整网回放和 L1 逐状态计数 |
+| current/vivado/reports/ | 最新布线后资源、200/160 MHz 时序、工具功率报告 |
+| current/metrics.json | 当前指标与数值来源 |
+| current/update_provenance.json | 此次代码来源、资产校验与旧文件清理记录 |
 
-`rtl_three_route/comparison.json` 是硬件指标的首要机器入口。它同时记录三条路线的
-scheduled lane、周期、逻辑访存、权重读取、状态访问、Yosys primitive mapping、
-相对变化和证据边界。`analysis/three_route_pooled_validation_schema3.json` 保存三个 seed、
-1,278 个 seed—样本的逐样本前端 FSM 周期及汇总。
+manifest 和 layout 中的资产路径使用仓库相对路径；外部训练记录使用 external:// 标记原来源。MEM、NPZ 和权重镜像逐字节保留。
 
-三条路线目录只保留最终 `report.json`、primitive stat、仿真/lint 摘要和 400 事件输入。
-生成的 `.vvp`、大体积 Yosys 文本日志及与 golden 重复的拼接 trace 没有再次纳入仓库；
-它们可由 `code/hardware/` 和随仓库提供的 golden 重新生成。
+复核资产：python -B scripts/verify_evidence.py。复核整网：python -B scripts/replay_current.py --output-dir build/replay。
 
-为使仓库移动后仍能运行，`golden_vectors_seed2022/manifest.json` 与
-`hardware_image_stateless_seed2022/layout.json` 中指向已复制文件的 `path` 字段改为
-从仓库根目录出发的相对路径，并同步更新 layout 对 portable manifest 的 SHA-256。
-参数、trace、权重镜像及其逐文件 SHA-256 均未改变。
+## 历史及正式多用户结果
 
-最强的整网 RTL 复核命令见根目录 `README.md`。预期最终顶层结果为：
+formal_quantization/ 保留 48 个模型的正式软件定点评估。fixed_point_reference/ 和 rtl_three_route/ 保留原 user15 的三种硬件组织对照；其中 67,929 拍和 Yosys 映射属于 2026-10-13 的历史结构。
 
-```text
-checked values: 159408
-mismatches:     0
-range errors:   0
-cycles:         67929
-```
+旧 user15 标准向量及权重镜像可从 Git 提交 3fef30e 取得，与该提交的代码共同复现早期对照。
 
-正式量化结果与 RTL 证据覆盖对象不同：前者覆盖 Pursuit/Saccade 各 24 个最终模型；
-后者针对 Pursuit user15 eye0 的一套最终模型做完整 RTL 实现和逐拍回放。
+Vivado 的 DCP 大文件保存在原工作目录，仓库提供报告和运行入口。当前功率为工具估算，真实活动记录和板上测量留待接入。
 

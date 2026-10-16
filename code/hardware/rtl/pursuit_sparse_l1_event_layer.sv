@@ -6,9 +6,10 @@
 // The 400 input packets are unit events after the model's 2x2 spatial
 // SumPool.  They must be sorted by nondecreasing pooled row; sorting does not
 // change the frozen model because its L1 input is the accumulated count image.
-// All nine kernel taps and all eight output channels are evaluated in one
-// update cycle (72 signed additions, no multiplier).  Pool/LIF results are
-// serialized into nonzero (address, channel, U8 count) packets for L2.
+// Three kernel taps and all eight output channels are evaluated per update
+// cycle (24 signed additions, no multiplier).  Each event therefore takes
+// three update cycles.  Pool/LIF results are serialized into nonzero
+// (address, channel, U8 count) packets for L2.
 module pursuit_sparse_l1_event_layer #(
     parameter integer INPUT_WIDTH = 128,
     parameter integer INPUT_HEIGHT = 96,
@@ -94,7 +95,7 @@ module pursuit_sparse_l1_event_layer #(
         .INPUT_HEIGHT(INPUT_HEIGHT),
         .COUNT_BITS(1),
         .UNIT_INPUT(1),
-        .KERNEL_TAPS_PER_CYCLE(9),
+        .KERNEL_TAPS_PER_CYCLE(3),
         .WEIGHT_BITS(WEIGHT_BITS),
         .ACCUMULATOR_BITS(ACCUMULATOR_BITS),
         .CURRENT_BITS(CURRENT_BITS),

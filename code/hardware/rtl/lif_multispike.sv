@@ -13,7 +13,8 @@ module lif_multispike #(
     parameter integer CURRENT_BITS = 24,
     parameter integer STATE_BITS = 16,
     parameter integer SPIKE_BITS = 8,
-    parameter integer FRACTION_BITS_WIDTH = 5
+    parameter integer FRACTION_BITS_WIDTH = 5,
+    parameter integer PIPELINE_PRE_RESET = 0
 ) (
     input  wire                                  clk,
     input  wire                                  rst,
@@ -46,27 +47,60 @@ module lif_multispike #(
     wire signed [WORK_BITS-1:0] leak_numerator =
         (previous_extended <<< 1) + previous_extended;
     wire signed [WORK_BITS-1:0] leaked_membrane = leak_numerator >>> 2;
-    wire signed [WORK_BITS-1:0] pre_reset = leaked_membrane + current_extended;
+    wire signed [WORK_BITS-1:0] computed_pre_reset =
+        leaked_membrane + current_extended;
+    reg signed [WORK_BITS-1:0] registered_pre_reset;
+    reg [FRACTION_BITS_WIDTH-1:0] registered_fraction_bits;
+    reg registered_valid;
+    always @(posedge clk) begin
+        if (rst) begin
+            registered_pre_reset <= 0;
+            registered_fraction_bits <= 0;
+            registered_valid <= 1'b0;
+        end else begin
+            registered_valid <= in_valid;
+            if (in_valid) begin
+                registered_pre_reset <= computed_pre_reset;
+                registered_fraction_bits <= fraction_bits;
+            end
+        end
+    end
+    wire signed [WORK_BITS-1:0] pre_reset = PIPELINE_PRE_RESET
+        ? registered_pre_reset : computed_pre_reset;
+    wire [FRACTION_BITS_WIDTH-1:0] active_fraction_bits =
+        PIPELINE_PRE_RESET ? registered_fraction_bits : fraction_bits;
+    wire active_valid = PIPELINE_PRE_RESET ? registered_valid : in_valid;
     wire signed [WORK_BITS-1:0] threshold_integer =
-        $signed({{(WORK_BITS-1){1'b0}}, 1'b1}) <<< fraction_bits;
+        $signed({{(WORK_BITS-1){1'b0}}, 1'b1}) <<< active_fraction_bits;
     wire signed [WORK_BITS-1:0] unsaturated_spike =
-        (pre_reset > 0) ? (pre_reset >>> fraction_bits) : 0;
+        (pre_reset > 0) ? (pre_reset >>> active_fraction_bits) : 0;
     wire spike_overflow = unsaturated_spike > $signed({
         {(WORK_BITS-SPIKE_BITS){1'b0}}, SPIKE_MAXIMUM
     });
     wire [SPIKE_BITS-1:0] clamped_spike = spike_overflow
         ? SPIKE_MAXIMUM
         : unsaturated_spike[SPIKE_BITS-1:0];
-    wire signed [WORK_BITS-1:0] reset_amount =
-        $signed({{(WORK_BITS-SPIKE_BITS){1'b0}}, clamped_spike})
-        <<< fraction_bits;
+    // For a non-overflowing positive value, subtracting the whole-number
+    // spike contribution is exactly the low fractional remainder.  Compute
+    // the saturated case in parallel so the membrane path does not wait for
+    // spike clipping before performing its subtraction.
+    wire signed [WORK_BITS-1:0] fractional_mask =
+        threshold_integer - 1'b1;
+    wire signed [WORK_BITS-1:0] normal_residual =
+        pre_reset & fractional_mask;
+    wire signed [WORK_BITS-1:0] overflow_reset_amount =
+        $signed({{(WORK_BITS-SPIKE_BITS){1'b0}}, SPIKE_MAXIMUM})
+        <<< active_fraction_bits;
+    wire signed [WORK_BITS-1:0] overflow_residual =
+        pre_reset - overflow_reset_amount;
     wire signed [WORK_BITS-1:0] membrane_before_floor =
-        pre_reset - reset_amount;
+        spike_overflow ? overflow_residual
+                       : ((pre_reset > 0) ? normal_residual : pre_reset);
     wire signed [WORK_BITS-1:0] membrane_after_floor =
         (membrane_before_floor < -threshold_integer)
         ? -threshold_integer
         : membrane_before_floor;
-    wire fraction_error = fraction_bits > MAX_FRACTION_BITS;
+    wire fraction_error = active_fraction_bits > MAX_FRACTION_BITS;
     wire state_overflow =
         (membrane_after_floor < STATE_MINIMUM)
         || (membrane_after_floor > STATE_MAXIMUM);
@@ -84,8 +118,8 @@ module lif_multispike #(
             membrane_integer <= {STATE_BITS{1'b0}};
             range_error <= 1'b0;
         end else begin
-            out_valid <= in_valid;
-            if (in_valid) begin
+            out_valid <= active_valid;
+            if (active_valid) begin
                 spike_integer <= clamped_spike;
                 membrane_integer <= clamped_membrane;
                 range_error <= fraction_error || spike_overflow || state_overflow;

@@ -9,8 +9,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFESTS = (
-    ROOT / "evidence/golden_vectors_seed2022/manifest.json",
-    ROOT / "evidence/hardware_image_stateless_seed2022/layout.json",
+    ROOT / "evidence/current/golden_vectors/manifest.json",
+    ROOT / "evidence/current/hardware_image/layout.json",
 )
 
 

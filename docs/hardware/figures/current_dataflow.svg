@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1260" height="520" viewBox="0 0 1260 520">
+  <title>EBV-Eye current FPGA core, 2026-10-16</title>
+  <desc>400 sorted events pass through L1, L2, a shared deep convolution engine, paired linear layers and readout. Current routed resources are 61657 LUT, 24835 FF, 308 DSP, 151 BRAM36 equivalents.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="#34465d"/></marker>
+
+  </defs>
+  <rect width="1260" height="520" fill="#f3f6fa"/>
+  <text font-family="Arial,sans-serif" fill="#182a42" font-size="26" font-weight="bold" x="28" y="40">EBV-Eye: current 400-event SNN accelerator</text>
+  <text font-family="Arial,sans-serif" fill="#182a42" font-size="15" x="28" y="68">user17 / seed2022 · T=2 · 160 MHz routed-core timing · 104,005 cycles / sample</text>
+  <rect fill="white" stroke="#66809b" stroke-width="1.5" rx="9" x="188" y="94" width="1040" height="45" style="fill:#fff2d7"/>
+  <text font-family="Arial,sans-serif" fill="#182a42" font-size="15" x="216" y="122">On-chip weights and channel parameters · deep-engine tile loading: 256 bits / beat</text>
+  <path fill="none" stroke="#34465d" stroke-width="2" marker-end="url(#arrow)" d="M278 139 V174"/><path fill="none" stroke="#34465d" stroke-width="2" marker-end="url(#arrow)" d="M466 139 V174"/>
+  <path fill="none" stroke="#34465d" stroke-width="2" marker-end="url(#arrow)" d="M708 139 V174"/><path fill="none" stroke="#34465d" stroke-width="2" marker-end="url(#arrow)" d="M961 139 V174"/>
+  <path fill="none" stroke="#34465d" stroke-width="2" marker-end="url(#arrow)" d="M1151 139 V174"/>
+  <rect fill="white" stroke="#66809b" stroke-width="1.5" rx="9" x="26" y="174" width="141" height="153"/>
+  <text font-family="Arial,sans-serif" fill="#182a42" font-size="18" font-weight="bold" x="44" y="203">400 events</text>
+  <text font-family="Arial,sans-serif" fill="#182a42" font-size="15" x="44" y="233">row, column,</text><text font-family="Arial,sans-serif" fill="#182a42" font-size="15" x="44" y="255">polarity</text>
+  <text font-family="Arial,sans-serif" fill="#41546d" font-size="13" x="44" y="289">sorted by row</text><text font-family="Arial,sans-serif" fill="#41546d" font-size="13" x="44" y="309">2 × 96 × 128</text>
+  <rect fill="white" stroke="#66809b" stroke-width="1.5" rx="9" x="190" y="174" width="176" height="153" style="fill:#e4f3eb"/>
+  <text font-family="Arial,sans-serif" fill="#182a42" font-size="18" font-weight="bold" x="210" y="203">L1</text>
+  <text font-family="Arial,sans-serif" fill="#182a42" font-size="15" x="210" y="229">24 add lanes</text><text font-family="Arial,sans-serif" fill="#182a42" font-size="15" x="210" y="252">3 taps × 8 outputs</text>
+  <text font-family="Arial,sans-serif" fill="#41546d" font-size="13" x="210" y="279">3 reads + 3 updates</text><text font-family="Arial,sans-serif" fill="#41546d" font-size="13" x="210" y="301">Pool + 8 neurons</text>
+  <rect fill="white" stroke="#66809b" stroke-width="1.5" rx="9" x="388" y="174" width="176" height="153" style="fill:#e4f3eb"/>
+  <text font-family="Arial,sans-serif" fill="#182a42" font-size="18" font-weight="bold" x="408" y="203">L2</text>
+  <text font-family="Arial,sans-serif" fill="#182a42" font-size="15" x="408" y="229">48 count×weight</text><text font-family="Arial,sans-serif" fill="#182a42" font-size="15" x="408" y="252">3 taps × 16 outputs</text>
+  <text font-family="Arial,sans-serif" fill="#41546d" font-size="13" x="408" y="279">LUT arithmetic</text><text font-family="Arial,sans-serif" fill="#41546d" font-size="13" x="408" y="301">one shared neuron</text>
+  <rect fill="white" stroke="#66809b" stroke-width="1.5" rx="9" x="586" y="174" width="244" height="153" style="fill:#e3ecfa"/>
+  <text font-family="Arial,sans-serif" fill="#182a42" font-size="18" font-weight="bold" x="604" y="203">L3–L8 shared engine</text>
+  <text font-family="Arial,sans-serif" fill="#182a42" font-size="15" x="604" y="229">288 multiply lanes</text><text font-family="Arial,sans-serif" fill="#182a42" font-size="15" x="604" y="252">8 OC × 4 IC × 9 taps</text>
+  <text font-family="Arial,sans-serif" fill="#41546d" font-size="13" x="604" y="279">L3: current computed once</text><text font-family="Arial,sans-serif" fill="#41546d" font-size="13" x="604" y="301">L4–L8: tile serves t0 then t1</text>
+  <rect fill="white" stroke="#66809b" stroke-width="1.5" rx="9" x="852" y="174" width="218" height="153" style="fill:#eee7f7"/>
+  <text font-family="Arial,sans-serif" fill="#182a42" font-size="18" font-weight="bold" x="870" y="203">H1 / H2</text>
+  <text font-family="Arial,sans-serif" fill="#182a42" font-size="15" x="870" y="229">16 integer lanes</text><text font-family="Arial,sans-serif" fill="#182a42" font-size="15" x="870" y="252">480 → 60 → 12</text>
+  <text font-family="Arial,sans-serif" fill="#41546d" font-size="13" x="870" y="279">same weight beat</text><text font-family="Arial,sans-serif" fill="#41546d" font-size="13" x="870" y="301">serves t0 then t1</text>
+  <rect fill="white" stroke="#66809b" stroke-width="1.5" rx="9" x="1092" y="174" width="136" height="153"/>
+  <text font-family="Arial,sans-serif" fill="#182a42" font-size="18" font-weight="bold" x="1106" y="203">Readout</text>
+  <text font-family="Arial,sans-serif" fill="#182a42" font-size="15" x="1106" y="229">12 → 2</text><text font-family="Arial,sans-serif" fill="#182a42" font-size="15" x="1106" y="252">integer result</text>
+  <text font-family="Arial,sans-serif" fill="#41546d" font-size="13" x="1106" y="279">plus scaling</text><text font-family="Arial,sans-serif" fill="#41546d" font-size="13" x="1106" y="301">→ gaze (x,y)</text>
+  <path fill="none" stroke="#34465d" stroke-width="2" marker-end="url(#arrow)" d="M167 246 H190"/><path fill="none" stroke="#34465d" stroke-width="2" marker-end="url(#arrow)" d="M366 246 H388"/>
+  <path fill="none" stroke="#34465d" stroke-width="2" marker-end="url(#arrow)" d="M564 246 H586"/><path fill="none" stroke="#34465d" stroke-width="2" marker-end="url(#arrow)" d="M830 246 H852"/>
+  <path fill="none" stroke="#34465d" stroke-width="2" marker-end="url(#arrow)" d="M1070 246 H1092"/>
+  <rect fill="white" stroke="#66809b" stroke-width="1.5" rx="9" x="190" y="350" width="176" height="74" style="fill:#fff2d7"/>
+  <text font-family="Arial,sans-serif" fill="#41546d" font-size="13" x="203" y="374">L1: 3-row S40 BRAM</text><text font-family="Arial,sans-serif" fill="#41546d" font-size="13" x="203" y="395">15.12 KiB logical</text><text font-family="Arial,sans-serif" fill="#41546d" font-size="13" x="203" y="413">2.5 KiB pool line</text>
+  <rect fill="white" stroke="#66809b" stroke-width="1.5" rx="9" x="388" y="350" width="176" height="74" style="fill:#fff2d7"/>
+  <text font-family="Arial,sans-serif" fill="#41546d" font-size="13" x="401" y="374">L2: S40 LUTRAM</text><text font-family="Arial,sans-serif" fill="#41546d" font-size="13" x="401" y="395">15.47 KiB logical</text><text font-family="Arial,sans-serif" fill="#41546d" font-size="13" x="401" y="413">12 KiB output BRAM</text>
+  <rect fill="white" stroke="#66809b" stroke-width="1.5" rx="9" x="586" y="350" width="484" height="74" style="fill:#fff2d7"/>
+  <text font-family="Arial,sans-serif" fill="#41546d" font-size="13" x="601" y="374">Deep engine: paired S40 sums + local S16 membrane</text>
+  <text font-family="Arial,sans-serif" fill="#41546d" font-size="13" x="601" y="396">L3 current tile: 4.5 KiB · t0/t1 × A/B features: 18 KiB</text>
+  <path fill="none" stroke="#34465d" stroke-width="2" marker-end="url(#arrow)" d="M278 327 V350"/><path fill="none" stroke="#34465d" stroke-width="2" marker-end="url(#arrow)" d="M476 327 V350"/>
+  <path fill="none" stroke="#34465d" stroke-width="2" marker-end="url(#arrow)" d="M708 327 V350"/>
+  <text font-family="Arial,sans-serif" fill="#182a42" font-size="15" x="28" y="461">Post-route core: 61,657 LUT · 24,835 FF · 308 DSP · 124 RAMB36 + 54 RAMB18</text>
+  <text font-family="Arial,sans-serif" fill="#41546d" font-size="13" x="28" y="490">Deep layers share one engine; layers and samples run sequentially. Physical resource counts: Vivado 2025.2.1 OOC.</text>
+</svg>

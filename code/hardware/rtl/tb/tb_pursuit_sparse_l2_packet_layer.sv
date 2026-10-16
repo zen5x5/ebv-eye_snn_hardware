@@ -368,7 +368,7 @@ module tb_pursuit_sparse_l2_packet_layer;
         pulse_start();
         pulse_end();
         timeout_cycles = 0;
-        while (!done && timeout_cycles < 10000) begin
+        while (!done && timeout_cycles < 50000) begin
             @(posedge clk);
             timeout_cycles = timeout_cycles + 1;
         end

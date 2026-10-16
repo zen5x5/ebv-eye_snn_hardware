@@ -1,88 +1,32 @@
-# Vivado OOC implementation
+# Vivado 核心实现
 
-These scripts target the RealDigital AUP-ZU3 device
-`xczu3eg-sfvc784-2-e` and constrain the compute clock to 200 MHz. They run
-protocol-neutral accelerator tops out of context, so no board pins, PS block
-design, or physical board are required.
+工具：Vivado 2025.2.1。器件：xczu3eg-sfvc784-2-e（AUP-ZU3）。
 
-There are two entry points. `run_ooc.sh` retains the dense-raster correctness
-and state-memory baseline. `run_sparse_ooc.sh` implements the two current
-L1/L2 event-driven candidates.
-
-## Sparse candidates
-
-Run the sparse front end with the old time-major deep schedule:
+在仓库根目录运行：
 
 ```bash
-code/hardware/vivado/run_sparse_ooc.sh \
-  /absolute/output/sparse_tm sparse_tm
+source /opt/amd/2025.2.1/Vivado/settings64.sh
+bash code/hardware/vivado/run_sparse_ooc.sh build/route160 sparse_lm_a
 ```
 
-Run the selected layer-adjacent schedule, called plan A in the design report:
-
-```bash
-code/hardware/vivado/run_sparse_ooc.sh \
-  /absolute/output/sparse_lm_a sparse_lm_a
-```
-
-Both tops consume sorted unit-event packets in L1, use a 72-lane LUT add-only
-scatter, use 48 DSP count multipliers in L2, and share a 288-DSP core for
-L3--L8. Sixteen DSPs implement H1/H2 and two implement readout, giving a
-total of 354 DSP48E2 in both complete Yosys mappings, versus 360 on the
-XCZU3EG. This 98.3% allocation is a placement and routing risk; only the
-routed report can establish whether the 5 ns constraint is practical. The
-Yosys physical-LUT bounds also straddle the device capacity for both routes,
-so open-source mapping does not establish that either top fits.
-
-`sparse_tm` retains the full-layer L3 current cache and top-level on-chip
-deep-state RAM. `sparse_lm_a` loads each L4--L8 weight tile once for adjacent `t0/t1`
-scans, keeps the intermediate membrane local, and uses a 4.5 KiB tile-local
-L3 current buffer. It is one sequential shared core, not a cross-layer or
-inter-sample wavefront.
-
-## Dense baseline
-
-Run the final L1/L2-stateless dense-raster baseline with:
-
-```bash
-code/hardware/vivado/run_ooc.sh /absolute/output/dense_stateless 0
-```
-
-Run the matched full-state FS-TM comparison with:
-
-```bash
-code/hardware/vivado/run_ooc.sh /absolute/output/dense_full_state 1
-```
-
-The `FULL_STATE` generic changes only the convolution state-store depth.
-Dense build `0` supports SL-TM and SL-HYB. Build `1` adds the L1/L2 state
-capacity required by FS-TM. Both retain the same 288-lane convolution,
-16-lane dense, and 2-lane readout datapaths. They do not skip zero spikes and
-remain correctness, state-memory, and temporal-reuse baselines.
-
-## Reports and evidence boundary
-
-Each run refuses a nonempty output directory, then writes post-synthesis and
-post-route checkpoints plus hierarchical utilization, timing, DRC,
-methodology, clock, critical-warning, and vectorless power reports. Its
-manifest records the Vivado version, top, part, 5 ns constraint, and SHA-256
-for the Tcl, XDC, and route-specific RTL sources. The batch fails on negative
-routed setup or hold slack, `no_clock`, absent or partial I/O-delay coverage,
-or any unconstrained internal endpoint; critical warnings are retained as a
-separate review artifact. Optional third and fourth arguments override the
-part and job count:
+完整参数：
 
 ```text
-run_sparse_ooc.sh OUTPUT_DIR {sparse_tm|sparse_lm_a} [PART] [JOBS]
+run_sparse_ooc.sh OUTPUT_DIR VARIANT [PART] [JOBS] [PERIOD_NS]
 ```
 
-The server where these files were prepared has no Vivado. The shell entry
-points and Tcl source/control flow were syntax-checked, while device
-elaboration, inferred-memory shape, placed-and-routed utilization, WNS, and
-Fmax remain unmeasured. The 200 MHz latency values in the hardware report are
-therefore conditional on nonnegative routed WNS.
+默认 PART 为 xczu3eg-sfvc784-2-e、JOBS 为 8、PERIOD_NS 为 6.250。VARIANT 使用 sparse_lm_a 运行当前顶层。运行 200 MHz 对照时显式传入 5.000 ns：
 
-The generated vectorless power report is not an acceptance criterion and can
-only be labeled a preliminary estimate. A paper power number needs a validation replay captured as SAIF/VCD
-or a defined board-level measurement. Accelerator-kernel latency also excludes
-event arrival, ROI filtering, sorting, PS/AXI transfer, and sensor time.
+```bash
+bash code/hardware/vivado/run_sparse_ooc.sh build/route200 sparse_lm_a xczu3eg-sfvc784-2-e 8 5.000
+```
+
+输出包含综合、布局布线 checkpoint、资源、时序、功率、DRC 和源码校验值。时序检查不通过时，脚本保留报告并返回失败状态。输出目录使用新的空路径。
+
+## 已有证据
+
+evidence/current/vivado/ 保存已布线核心的报告。原实现按 5.000 ns 布线，setup 余量为 -1.109 ns；相同布线覆盖为 6.250 ns 后，setup/hold 余量为 +0.141/+0.040 ns。
+
+本次仓库更新把稀疏实现入口的默认目标设置为 160 MHz；新的完整实现会重新执行布局和布线。归档报告仍保留原始 200 MHz 运行说明和单独的 160 MHz 复核文件。
+
+OOC 表示单独实现加速器核心。PS、AXI、板级引脚和时钟连接需要在后续板级封装中接入。用于开源历史基线的 run_ooc.sh 保留原 200 MHz 约束。

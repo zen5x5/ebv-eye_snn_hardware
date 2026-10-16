@@ -1,20 +1,24 @@
 # Usage:
 # vivado -mode batch -source run_sparse_ooc.tcl \
-#   -tclargs OUTPUT_DIR VARIANT PART JOBS
+#   -tclargs OUTPUT_DIR VARIANT PART JOBS PERIOD_NS
 # VARIANT is sparse_tm or sparse_lm_a.
 
-if {$argc < 2 || $argc > 4} {
-    error "usage: run_sparse_ooc.tcl OUTPUT_DIR VARIANT ?PART=xczu3eg-sfvc784-2-e? ?JOBS=8?"
+if {$argc < 2 || $argc > 5} {
+    error "usage: run_sparse_ooc.tcl OUTPUT_DIR VARIANT ?PART=xczu3eg-sfvc784-2-e? ?JOBS=8? ?PERIOD_NS=6.250?"
 }
 set output_directory [file normalize [lindex $argv 0]]
 set sparse_variant [lindex $argv 1]
 set target_part "xczu3eg-sfvc784-2-e"
 set jobs 8
+set clock_period_ns 6.250
 if {$argc >= 3} {
     set target_part [lindex $argv 2]
 }
 if {$argc >= 4} {
     set jobs [lindex $argv 3]
+}
+if {$argc >= 5} {
+    set clock_period_ns [lindex $argv 4]
 }
 if {$sparse_variant eq "sparse_tm"} {
     set top_module pursuit_sparse_time_major_accelerator_top
@@ -53,6 +57,7 @@ set shell_script_path [file join $vivado_script_directory run_sparse_ooc.sh]
 set source_script_path [file join $vivado_script_directory sources_sparse.tcl]
 set constraint_path [file join $vivado_script_directory constraints compute_ooc.xdc]
 source $source_script_path
+create_clock -name compute_clock -period $clock_period_ns [get_ports clk]
 
 proc sha256_file {path} {
     if {![file isfile $path]} {
@@ -93,7 +98,7 @@ puts $provenance_channel "vivado_version=[version -short]"
 puts $provenance_channel "variant=$sparse_variant"
 puts $provenance_channel "top=$top_module"
 puts $provenance_channel "part=$target_part"
-puts $provenance_channel "target_clock_period_ns=5.000"
+puts $provenance_channel "target_clock_period_ns=$clock_period_ns"
 puts $provenance_channel "jobs=$jobs"
 puts $provenance_channel "source_sha256_manifest=$source_hash_file"
 puts $provenance_channel "power_scope=vectorless_estimate_only_not_acceptance_evidence"
@@ -183,7 +188,7 @@ close $check_timing_channel
 
 set critical_warning_file \
     [file join $report_directory post_route_critical_warnings.rpt]
-write_messages -force -severity {CRITICAL WARNING} $critical_warning_file
+write_messages -force -severity {{CRITICAL WARNING}} $critical_warning_file
 set critical_warning_count \
     [get_msg_config -severity {CRITICAL WARNING} -count]
 
@@ -200,7 +205,7 @@ set summary [open $summary_file w]
 puts $summary "variant=$sparse_variant"
 puts $summary "top=$top_module"
 puts $summary "part=$target_part"
-puts $summary "target_clock_period_ns=5.000"
+puts $summary "target_clock_period_ns=$clock_period_ns"
 puts $summary "worst_setup_slack_ns=$worst_setup_slack"
 puts $summary "worst_hold_slack_ns=$worst_hold_slack"
 puts $summary "unconstrained_timing_issue_count=$unconstrained_issue_count"

@@ -1,4 +1,4 @@
-"""Verify the complete Sparse-LM-A pursuit accelerator against seed2022."""
+"""Verify the current Sparse-LM-A accelerator against user17/seed2022."""
 
 from __future__ import annotations
 
@@ -25,9 +25,9 @@ QUANTITIES = ("current", "spike", "membrane")
 EXPECTED_TRACE_VALUES = 159_408
 EXPECTED_TRACE_TRANSACTIONS = 5_866
 EXPECTED_SIMULATION_COUNTS = {
-    "total_cycles": 67_929,
-    "frontend_cycles": 15_259,
-    "convolution_cycles": 48_579,
+    "total_cycles": 104_005,
+    "frontend_cycles": 51_305,
+    "convolution_cycles": 48_609,
     "dense_cycles": 4_074,
     "conv_weight_read_beats": 4_068,
     "linear_weight_read_beats": 1_980,

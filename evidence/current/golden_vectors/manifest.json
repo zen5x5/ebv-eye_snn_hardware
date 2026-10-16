@@ -1,0 +1,2283 @@
+{
+  "arithmetic_contract": {
+    "alpha": "floor((3 * signed_membrane_integer) / 4)",
+    "constant_bits": 24,
+    "current_bits_after_complete_dot_product": 24,
+    "input_count_bits": 9,
+    "internal_running_accumulator_requirement": "at least 33 signed bits by worst-case layer bound; use DSP48/40+ bits",
+    "maximum_fraction_bits": 15,
+    "readout_weight_bits": 16,
+    "reset": "max(u - spike * scale, -scale)",
+    "scale_mode": "per_output_channel_power_of_two",
+    "scale_policy": "maximum precision without weight clipping",
+    "spike": "min(floor(max(u,0)), 255)",
+    "spike_bits": 8,
+    "state_bits": 16,
+    "state_mode": "l1_l2_stateless",
+    "static_rounding": "nearest, ties away from zero",
+    "tensor_order": "NCHW; convolution weights OIHW; linear weights OI",
+    "weight_bits": 16
+  },
+  "artifacts": {
+    "memory_files": {
+      "H1.constant_integer": {
+        "elements": 60,
+        "path": "evidence/current/golden_vectors/mem/parameter_H1_constant_integer.mem",
+        "scope": "complete_parameter_tensor",
+        "sha256": "e2b7b99f3d982a8c6ce6a6a897a687dd86fb19fbbf53643cab7c83f0213f1581",
+        "word_bits": 24
+      },
+      "H1.current_and_state_fraction_bits": {
+        "elements": 60,
+        "path": "evidence/current/golden_vectors/mem/parameter_H1_current_and_state_fraction_bits.mem",
+        "scope": "complete_parameter_tensor",
+        "sha256": "73ae57e8c577ca008e16c1da2d1064338c593f23498663ba0cd803b5c3bb3070",
+        "word_bits": 8
+      },
+      "H1.weight_fraction_bits": {
+        "elements": 60,
+        "path": "evidence/current/golden_vectors/mem/parameter_H1_weight_fraction_bits.mem",
+        "scope": "complete_parameter_tensor",
+        "sha256": "73ae57e8c577ca008e16c1da2d1064338c593f23498663ba0cd803b5c3bb3070",
+        "word_bits": 8
+      },
+      "H1.weight_integer": {
+        "elements": 28800,
+        "path": "evidence/current/golden_vectors/mem/parameter_H1_weight_integer.mem",
+        "scope": "complete_parameter_tensor",
+        "sha256": "57ac85b346da8197a5c5464088c90cd8ffbdc635ea5cc8d44adfbb0eacf78c02",
+        "word_bits": 16
+      },
+      "H2.constant_integer": {
+        "elements": 12,
+        "path": "evidence/current/golden_vectors/mem/parameter_H2_constant_integer.mem",
+        "scope": "complete_parameter_tensor",
+        "sha256": "75bc42796b146966dbc39373cd20085617c31778c171a27d336fc5c65383e21e",
+        "word_bits": 24
+      },
+      "H2.current_and_state_fraction_bits": {
+        "elements": 12,
+        "path": "evidence/current/golden_vectors/mem/parameter_H2_current_and_state_fraction_bits.mem",
+        "scope": "complete_parameter_tensor",
+        "sha256": "07942a2cae7e8ecae7e6f16660bdd25211874aadc4630f802dc94c87c8f45401",
+        "word_bits": 8
+      },
+      "H2.weight_fraction_bits": {
+        "elements": 12,
+        "path": "evidence/current/golden_vectors/mem/parameter_H2_weight_fraction_bits.mem",
+        "scope": "complete_parameter_tensor",
+        "sha256": "07942a2cae7e8ecae7e6f16660bdd25211874aadc4630f802dc94c87c8f45401",
+        "word_bits": 8
+      },
+      "H2.weight_integer": {
+        "elements": 720,
+        "path": "evidence/current/golden_vectors/mem/parameter_H2_weight_integer.mem",
+        "scope": "complete_parameter_tensor",
+        "sha256": "ea6781398c17121e7fb0dc076e3ceea50a7fde3fe2c696ef37b04f44e05dfe6e",
+        "word_bits": 16
+      },
+      "L1.constant_integer": {
+        "elements": 8,
+        "path": "evidence/current/golden_vectors/mem/parameter_L1_constant_integer.mem",
+        "scope": "complete_parameter_tensor",
+        "sha256": "cabf0b75a8674c01a830fd675890c94e50f147cbeb2c41bba6775bac800366a5",
+        "word_bits": 24
+      },
+      "L1.current_and_state_fraction_bits": {
+        "elements": 8,
+        "path": "evidence/current/golden_vectors/mem/parameter_L1_current_and_state_fraction_bits.mem",
+        "scope": "complete_parameter_tensor",
+        "sha256": "9c4e7dd1ab626dfb156bc637e5ce82ee2aaa7f14b8353ea61f8ccd56488adf06",
+        "word_bits": 8
+      },
+      "L1.weight_fraction_bits": {
+        "elements": 8,
+        "path": "evidence/current/golden_vectors/mem/parameter_L1_weight_fraction_bits.mem",
+        "scope": "complete_parameter_tensor",
+        "sha256": "9c4e7dd1ab626dfb156bc637e5ce82ee2aaa7f14b8353ea61f8ccd56488adf06",
+        "word_bits": 8
+      },
+      "L1.weight_integer": {
+        "elements": 144,
+        "path": "evidence/current/golden_vectors/mem/parameter_L1_weight_integer.mem",
+        "scope": "complete_parameter_tensor",
+        "sha256": "85c66b996aaf513947eaa5ee04b02d6844ff24c5ba6a21e67c200263bbc4d917",
+        "word_bits": 16
+      },
+      "L2.constant_integer": {
+        "elements": 16,
+        "path": "evidence/current/golden_vectors/mem/parameter_L2_constant_integer.mem",
+        "scope": "complete_parameter_tensor",
+        "sha256": "5bc39883832e12c7ddf042db773107956deda3b2beec19a9b5f7c76102675680",
+        "word_bits": 24
+      },
+      "L2.current_and_state_fraction_bits": {
+        "elements": 16,
+        "path": "evidence/current/golden_vectors/mem/parameter_L2_current_and_state_fraction_bits.mem",
+        "scope": "complete_parameter_tensor",
+        "sha256": "6fc5bb8606b93b03c043fbf5b2ed204b49889ccb6023b6b3aa4bc65a52e3e00a",
+        "word_bits": 8
+      },
+      "L2.weight_fraction_bits": {
+        "elements": 16,
+        "path": "evidence/current/golden_vectors/mem/parameter_L2_weight_fraction_bits.mem",
+        "scope": "complete_parameter_tensor",
+        "sha256": "6fc5bb8606b93b03c043fbf5b2ed204b49889ccb6023b6b3aa4bc65a52e3e00a",
+        "word_bits": 8
+      },
+      "L2.weight_integer": {
+        "elements": 1152,
+        "path": "evidence/current/golden_vectors/mem/parameter_L2_weight_integer.mem",
+        "scope": "complete_parameter_tensor",
+        "sha256": "7e3189b34f85a5a583b81ba019429ed2818f6b6efbb7ef8d26e9dce63cd020b7",
+        "word_bits": 16
+      },
+      "L3.constant_integer": {
+        "elements": 24,
+        "path": "evidence/current/golden_vectors/mem/parameter_L3_constant_integer.mem",
+        "scope": "complete_parameter_tensor",
+        "sha256": "401b1ece43a7a2a9525da860e45258f307a652e5fea0fdcf2a10cbc6d33831b7",
+        "word_bits": 24
+      },
+      "L3.current_and_state_fraction_bits": {
+        "elements": 24,
+        "path": "evidence/current/golden_vectors/mem/parameter_L3_current_and_state_fraction_bits.mem",
+        "scope": "complete_parameter_tensor",
+        "sha256": "c08945d2c37da161af476e5ce11060587b55abb10f6e512c75245b055c86fbc9",
+        "word_bits": 8
+      },
+      "L3.weight_fraction_bits": {
+        "elements": 24,
+        "path": "evidence/current/golden_vectors/mem/parameter_L3_weight_fraction_bits.mem",
+        "scope": "complete_parameter_tensor",
+        "sha256": "c08945d2c37da161af476e5ce11060587b55abb10f6e512c75245b055c86fbc9",
+        "word_bits": 8
+      },
+      "L3.weight_integer": {
+        "elements": 3456,
+        "path": "evidence/current/golden_vectors/mem/parameter_L3_weight_integer.mem",
+        "scope": "complete_parameter_tensor",
+        "sha256": "084014657c6d0bab4ee5595821f37551d744a388ea5eb6a2c8ad79c7aae13e8f",
+        "word_bits": 16
+      },
+      "L4.constant_integer": {
+        "elements": 32,
+        "path": "evidence/current/golden_vectors/mem/parameter_L4_constant_integer.mem",
+        "scope": "complete_parameter_tensor",
+        "sha256": "7b7669699325b899664d92d8b505a00602d5ad40301e668612090af8f1133517",
+        "word_bits": 24
+      },
+      "L4.current_and_state_fraction_bits": {
+        "elements": 32,
+        "path": "evidence/current/golden_vectors/mem/parameter_L4_current_and_state_fraction_bits.mem",
+        "scope": "complete_parameter_tensor",
+        "sha256": "b0891c6884ff35cb8bd0b1482b5dc41bbf30b0af4cdd5c39f30ce684d17c1018",
+        "word_bits": 8
+      },
+      "L4.weight_fraction_bits": {
+        "elements": 32,
+        "path": "evidence/current/golden_vectors/mem/parameter_L4_weight_fraction_bits.mem",
+        "scope": "complete_parameter_tensor",
+        "sha256": "b0891c6884ff35cb8bd0b1482b5dc41bbf30b0af4cdd5c39f30ce684d17c1018",
+        "word_bits": 8
+      },
+      "L4.weight_integer": {
+        "elements": 6912,
+        "path": "evidence/current/golden_vectors/mem/parameter_L4_weight_integer.mem",
+        "scope": "complete_parameter_tensor",
+        "sha256": "5d4421e6a7eba0f0ed78da19e8e004b006b4abf4bdd33ce018a15fe56df0871d",
+        "word_bits": 16
+      },
+      "L5.constant_integer": {
+        "elements": 40,
+        "path": "evidence/current/golden_vectors/mem/parameter_L5_constant_integer.mem",
+        "scope": "complete_parameter_tensor",
+        "sha256": "c121a72b6981fe83ecc63985cbece8aa46780b1c4dfae10b5ca35e0c82f9e0ad",
+        "word_bits": 24
+      },
+      "L5.current_and_state_fraction_bits": {
+        "elements": 40,
+        "path": "evidence/current/golden_vectors/mem/parameter_L5_current_and_state_fraction_bits.mem",
+        "scope": "complete_parameter_tensor",
+        "sha256": "f7d18d6bd7045d0adc25e79d302b7fabaae6d21d6d9d0d03aa0d70428a391eae",
+        "word_bits": 8
+      },
+      "L5.weight_fraction_bits": {
+        "elements": 40,
+        "path": "evidence/current/golden_vectors/mem/parameter_L5_weight_fraction_bits.mem",
+        "scope": "complete_parameter_tensor",
+        "sha256": "f7d18d6bd7045d0adc25e79d302b7fabaae6d21d6d9d0d03aa0d70428a391eae",
+        "word_bits": 8
+      },
+      "L5.weight_integer": {
+        "elements": 11520,
+        "path": "evidence/current/golden_vectors/mem/parameter_L5_weight_integer.mem",
+        "scope": "complete_parameter_tensor",
+        "sha256": "324f8098affd3f5c8e8ca57c9bcba9ae4d2b00cb791974269faaf325aa8b73ca",
+        "word_bits": 16
+      },
+      "L6.constant_integer": {
+        "elements": 40,
+        "path": "evidence/current/golden_vectors/mem/parameter_L6_constant_integer.mem",
+        "scope": "complete_parameter_tensor",
+        "sha256": "2ce616afdec1cc30f0f69076cae70c64de28ed161bfa024f483d230db25bed08",
+        "word_bits": 24
+      },
+      "L6.current_and_state_fraction_bits": {
+        "elements": 40,
+        "path": "evidence/current/golden_vectors/mem/parameter_L6_current_and_state_fraction_bits.mem",
+        "scope": "complete_parameter_tensor",
+        "sha256": "f7d18d6bd7045d0adc25e79d302b7fabaae6d21d6d9d0d03aa0d70428a391eae",
+        "word_bits": 8
+      },
+      "L6.weight_fraction_bits": {
+        "elements": 40,
+        "path": "evidence/current/golden_vectors/mem/parameter_L6_weight_fraction_bits.mem",
+        "scope": "complete_parameter_tensor",
+        "sha256": "f7d18d6bd7045d0adc25e79d302b7fabaae6d21d6d9d0d03aa0d70428a391eae",
+        "word_bits": 8
+      },
+      "L6.weight_integer": {
+        "elements": 14400,
+        "path": "evidence/current/golden_vectors/mem/parameter_L6_weight_integer.mem",
+        "scope": "complete_parameter_tensor",
+        "sha256": "07f94a7ce73ba34472b90827c857a12851707acca1179a70c6bef46180f5831f",
+        "word_bits": 16
+      },
+      "L7.constant_integer": {
+        "elements": 40,
+        "path": "evidence/current/golden_vectors/mem/parameter_L7_constant_integer.mem",
+        "scope": "complete_parameter_tensor",
+        "sha256": "8a0354e6a497ebef8ea9f14811498914ade0389d2771b737921f2e177acaa68b",
+        "word_bits": 24
+      },
+      "L7.current_and_state_fraction_bits": {
+        "elements": 40,
+        "path": "evidence/current/golden_vectors/mem/parameter_L7_current_and_state_fraction_bits.mem",
+        "scope": "complete_parameter_tensor",
+        "sha256": "f7d18d6bd7045d0adc25e79d302b7fabaae6d21d6d9d0d03aa0d70428a391eae",
+        "word_bits": 8
+      },
+      "L7.weight_fraction_bits": {
+        "elements": 40,
+        "path": "evidence/current/golden_vectors/mem/parameter_L7_weight_fraction_bits.mem",
+        "scope": "complete_parameter_tensor",
+        "sha256": "f7d18d6bd7045d0adc25e79d302b7fabaae6d21d6d9d0d03aa0d70428a391eae",
+        "word_bits": 8
+      },
+      "L7.weight_integer": {
+        "elements": 14400,
+        "path": "evidence/current/golden_vectors/mem/parameter_L7_weight_integer.mem",
+        "scope": "complete_parameter_tensor",
+        "sha256": "f21a9a74f3dec810451f94af172f3e40622613969f7c397410655be29d739630",
+        "word_bits": 16
+      },
+      "L8.constant_integer": {
+        "elements": 40,
+        "path": "evidence/current/golden_vectors/mem/parameter_L8_constant_integer.mem",
+        "scope": "complete_parameter_tensor",
+        "sha256": "ef98e7587adf384f25514714930690206a6994378fab7b0ce73ebb4db785d302",
+        "word_bits": 24
+      },
+      "L8.current_and_state_fraction_bits": {
+        "elements": 40,
+        "path": "evidence/current/golden_vectors/mem/parameter_L8_current_and_state_fraction_bits.mem",
+        "scope": "complete_parameter_tensor",
+        "sha256": "f7d18d6bd7045d0adc25e79d302b7fabaae6d21d6d9d0d03aa0d70428a391eae",
+        "word_bits": 8
+      },
+      "L8.weight_fraction_bits": {
+        "elements": 40,
+        "path": "evidence/current/golden_vectors/mem/parameter_L8_weight_fraction_bits.mem",
+        "scope": "complete_parameter_tensor",
+        "sha256": "f7d18d6bd7045d0adc25e79d302b7fabaae6d21d6d9d0d03aa0d70428a391eae",
+        "word_bits": 8
+      },
+      "L8.weight_integer": {
+        "elements": 14400,
+        "path": "evidence/current/golden_vectors/mem/parameter_L8_weight_integer.mem",
+        "scope": "complete_parameter_tensor",
+        "sha256": "98851887248b899bf29696945284114f9cd3795e1db1c625a1ad7efde3b8aacf",
+        "word_bits": 16
+      },
+      "input.event_count_integer": {
+        "elements": 24576,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_input_event_count_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "9faeed347c58fe37bee7dac75b94693dc1ce57803d9a1e7570c3d37dd85c034b",
+        "word_bits": 9
+      },
+      "readout.output_integer_before_temporal_divide": {
+        "elements": 2,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_readout_output_integer_before_temporal_divide.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "9d6d3b3df215a557bcb24358828881c891fa8181314b3555425dd874c2830141",
+        "word_bits": 64
+      },
+      "readout.temporal_sum_integer": {
+        "elements": 12,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_readout_temporal_sum_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "497d5e2647024a3340615045a85c4e3907281665e9c3aecd44437a57d42532b9",
+        "word_bits": 9
+      },
+      "readout.weight_fraction_bits": {
+        "elements": 2,
+        "path": "evidence/current/golden_vectors/mem/parameter_readout_weight_fraction_bits.mem",
+        "scope": "complete_parameter_tensor",
+        "sha256": "fa4ab1fc185550a1c093c3aabdc1efeafe36192a2cafda56d838104bd7f98879",
+        "word_bits": 8
+      },
+      "readout.weight_integer": {
+        "elements": 24,
+        "path": "evidence/current/golden_vectors/mem/parameter_readout_weight_integer.mem",
+        "scope": "complete_parameter_tensor",
+        "sha256": "ffc45daf1c9f2954acc0be08888113d05e2ee56eb94f4ac8646f77424a769631",
+        "word_bits": 16
+      },
+      "t0.H1.current_integer": {
+        "elements": 60,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t0_H1_current_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "55fd324b14f8d23e205b157ab61969d177bd874c1872c04ae4124481c1ff1563",
+        "word_bits": 24
+      },
+      "t0.H1.membrane_integer": {
+        "elements": 60,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t0_H1_membrane_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "616a24fee23e98f77f881a8414cbd797fcd305e21520103d559cfbea19779591",
+        "word_bits": 16
+      },
+      "t0.H1.spike_integer": {
+        "elements": 60,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t0_H1_spike_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "f6a46529ba995ee481d35e108dd0b4374cc4f0d3ae3d02d8ee219c665389c159",
+        "word_bits": 8
+      },
+      "t0.H2.current_integer": {
+        "elements": 12,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t0_H2_current_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "262ed4ee2f96e0577f3e5fdd4ce2d82cf9b7b68bf4c43da388831ac0ccf3d029",
+        "word_bits": 24
+      },
+      "t0.H2.membrane_integer": {
+        "elements": 12,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t0_H2_membrane_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "65779f156e694da5aa53ca48aab941d616e3b8f85d00f1639a8b41616d050497",
+        "word_bits": 16
+      },
+      "t0.H2.spike_integer": {
+        "elements": 12,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t0_H2_spike_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "ac8ea91f5f8162f619ccbcbd81c2e6c47b0fd37085c0271cb2688ac6481a6986",
+        "word_bits": 8
+      },
+      "t0.L1.current_integer": {
+        "elements": 24576,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t0_L1_current_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "664893cd4de5b5d9f4204c8a7bb226278f79e56568300495789e2f0168cf344e",
+        "word_bits": 24
+      },
+      "t0.L1.membrane_integer": {
+        "elements": 24576,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t0_L1_membrane_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "ac2ab7f0d3e8ace017f521fe7b04682237b21b9cd9c143a275ab619530c1007d",
+        "word_bits": 16
+      },
+      "t0.L1.spike_integer": {
+        "elements": 24576,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t0_L1_spike_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "4edfa10292ee73c4fa2a931d6cbb6bf13894ec5b001ac85b3ed62c49812bfa70",
+        "word_bits": 8
+      },
+      "t0.L2.current_integer": {
+        "elements": 12288,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t0_L2_current_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "d2854dce56af166fbee51adf08ce3cb367af043c2206c3b01128c9d7ba04beb0",
+        "word_bits": 24
+      },
+      "t0.L2.membrane_integer": {
+        "elements": 12288,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t0_L2_membrane_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "81ef4e5122428f19c637ac8f8197b984e71408672ba64487e86bfa6c0e6f6c50",
+        "word_bits": 16
+      },
+      "t0.L2.spike_integer": {
+        "elements": 12288,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t0_L2_spike_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "0c1d6a5f5fc1b221de1c34afde2c5fba436bec09e08e3217f14a27fe10cdf54c",
+        "word_bits": 8
+      },
+      "t0.L3.current_integer": {
+        "elements": 4608,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t0_L3_current_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "d447541f92f4261109b2928a6ef1dff657d71305be1a1981641245c3528bade6",
+        "word_bits": 24
+      },
+      "t0.L3.membrane_integer": {
+        "elements": 4608,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t0_L3_membrane_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "34eb38292f7567879b138233e2534f308d1014c42376d3480786eab5f9aa8b99",
+        "word_bits": 16
+      },
+      "t0.L3.spike_integer": {
+        "elements": 4608,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t0_L3_spike_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "63022830dc5d9e8fa1fe554e7235078985bd617d320ff536df2a678baf76d1a6",
+        "word_bits": 8
+      },
+      "t0.L4.current_integer": {
+        "elements": 1536,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t0_L4_current_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "b615418ffd2c4ec6ed836a9276b60e9b0d80b9945fe2910ed2fa2ab275dad1be",
+        "word_bits": 24
+      },
+      "t0.L4.membrane_integer": {
+        "elements": 1536,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t0_L4_membrane_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "07acf09c9fe72a3bf53f434b6afccefcdbb1c13eb18139955fb3216fa63862a4",
+        "word_bits": 16
+      },
+      "t0.L4.spike_integer": {
+        "elements": 1536,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t0_L4_spike_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "5286c989c57af69a1559e2f1685713ce368cea4c0f5e6e6e1defbd6db2cabbc8",
+        "word_bits": 8
+      },
+      "t0.L5.current_integer": {
+        "elements": 480,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t0_L5_current_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "1b5737392913d4ba1c7e8e5ddc2144e1b2acf19ed590b48aa4136f93bf80b160",
+        "word_bits": 24
+      },
+      "t0.L5.membrane_integer": {
+        "elements": 480,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t0_L5_membrane_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "5487b9d2663da662a1292ca18237fcdd69a1281582397e20793c388fdafee0a5",
+        "word_bits": 16
+      },
+      "t0.L5.spike_integer": {
+        "elements": 480,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t0_L5_spike_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "9a849cff9616363934f423b3af0cc297ff585546e781d889b76f8d6138b7749f",
+        "word_bits": 8
+      },
+      "t0.L6.current_integer": {
+        "elements": 480,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t0_L6_current_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "70af2cbb75f02b935fea1d6cc061316deb8da79fe8b104c9743bcc3e3d41a303",
+        "word_bits": 24
+      },
+      "t0.L6.membrane_integer": {
+        "elements": 480,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t0_L6_membrane_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "31efe5173271017dd79d0f06209fb4db61720387cc6e596d6903a44b4ce786b5",
+        "word_bits": 16
+      },
+      "t0.L6.spike_integer": {
+        "elements": 480,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t0_L6_spike_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "94e18da821d2ae33b10b9f560b678a7c85c84e1c510c75740f359acc78581da3",
+        "word_bits": 8
+      },
+      "t0.L7.current_integer": {
+        "elements": 480,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t0_L7_current_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "f8c786ee0931117ff1605fcceb9cde0ca951dc4002b61cfa438def1da7c1d535",
+        "word_bits": 24
+      },
+      "t0.L7.membrane_integer": {
+        "elements": 480,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t0_L7_membrane_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "15a543a2be16fd92604a4543f5e616f60a74a3c8ccde2720a20c895ebf4c6441",
+        "word_bits": 16
+      },
+      "t0.L7.spike_integer": {
+        "elements": 480,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t0_L7_spike_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "d570af9271913c6ffd7bbd0b64e405ca6e83b08a515e610f58f15f2293e3121f",
+        "word_bits": 8
+      },
+      "t0.L8.current_integer": {
+        "elements": 480,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t0_L8_current_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "3db8ccd74f3f5d37988c336c9d2f55aa327c330c87d8936fbe620c80e693527c",
+        "word_bits": 24
+      },
+      "t0.L8.membrane_integer": {
+        "elements": 480,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t0_L8_membrane_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "03dd93ade061c522ab05f0092a12fbdef3190fb93f7f0d067fb5a355b824aa1a",
+        "word_bits": 16
+      },
+      "t0.L8.spike_integer": {
+        "elements": 480,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t0_L8_spike_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "b0813f01d098999d6d4185722fa31ca26e8111c418803daa62d9140dc66d4812",
+        "word_bits": 8
+      },
+      "t1.H1.current_integer": {
+        "elements": 60,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t1_H1_current_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "6368980fb13bb15344553c892b1ca73a02dea89c4b6c7d27fe3b2ce513dda524",
+        "word_bits": 24
+      },
+      "t1.H1.membrane_integer": {
+        "elements": 60,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t1_H1_membrane_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "c1a9386cdc0f490eea8e1aeb19f9dab040525f5a3eb0410d529404118f9533a5",
+        "word_bits": 16
+      },
+      "t1.H1.spike_integer": {
+        "elements": 60,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t1_H1_spike_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "fbdeb55095471cf242a8e9f2f63881b4cae714d11ccc4ad2033852b06cd70745",
+        "word_bits": 8
+      },
+      "t1.H2.current_integer": {
+        "elements": 12,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t1_H2_current_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "0c2602bc1c71bd879cf756e5c1d21654479d4081aa0b5eb6684722c93eb063de",
+        "word_bits": 24
+      },
+      "t1.H2.membrane_integer": {
+        "elements": 12,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t1_H2_membrane_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "28174a2dcbde6971235c4496d0c1eba757fa8a35c46bd6abab281d5636554bd5",
+        "word_bits": 16
+      },
+      "t1.H2.spike_integer": {
+        "elements": 12,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t1_H2_spike_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "b20a22acd612786bf0968c732a9ef92b6eb79931c285ba9ff73fd54ac7b12b2a",
+        "word_bits": 8
+      },
+      "t1.L1.current_integer": {
+        "elements": 24576,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t1_L1_current_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "664893cd4de5b5d9f4204c8a7bb226278f79e56568300495789e2f0168cf344e",
+        "word_bits": 24
+      },
+      "t1.L1.membrane_integer": {
+        "elements": 24576,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t1_L1_membrane_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "ac2ab7f0d3e8ace017f521fe7b04682237b21b9cd9c143a275ab619530c1007d",
+        "word_bits": 16
+      },
+      "t1.L1.spike_integer": {
+        "elements": 24576,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t1_L1_spike_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "4edfa10292ee73c4fa2a931d6cbb6bf13894ec5b001ac85b3ed62c49812bfa70",
+        "word_bits": 8
+      },
+      "t1.L2.current_integer": {
+        "elements": 12288,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t1_L2_current_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "d2854dce56af166fbee51adf08ce3cb367af043c2206c3b01128c9d7ba04beb0",
+        "word_bits": 24
+      },
+      "t1.L2.membrane_integer": {
+        "elements": 12288,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t1_L2_membrane_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "81ef4e5122428f19c637ac8f8197b984e71408672ba64487e86bfa6c0e6f6c50",
+        "word_bits": 16
+      },
+      "t1.L2.spike_integer": {
+        "elements": 12288,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t1_L2_spike_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "0c1d6a5f5fc1b221de1c34afde2c5fba436bec09e08e3217f14a27fe10cdf54c",
+        "word_bits": 8
+      },
+      "t1.L3.current_integer": {
+        "elements": 4608,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t1_L3_current_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "d447541f92f4261109b2928a6ef1dff657d71305be1a1981641245c3528bade6",
+        "word_bits": 24
+      },
+      "t1.L3.membrane_integer": {
+        "elements": 4608,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t1_L3_membrane_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "66eba88dd53aaf2d58a6b52de0e9f00082c396fb4a33a2381f25829e8071b248",
+        "word_bits": 16
+      },
+      "t1.L3.spike_integer": {
+        "elements": 4608,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t1_L3_spike_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "1f6b538f42f94e60c884172992ca509ac5c33f7040dcbd8ceac201142e303bc9",
+        "word_bits": 8
+      },
+      "t1.L4.current_integer": {
+        "elements": 1536,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t1_L4_current_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "bbb9f587c6d10f395c3ecb73485c222e608fc293d51cfe8db67a0d711d70893d",
+        "word_bits": 24
+      },
+      "t1.L4.membrane_integer": {
+        "elements": 1536,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t1_L4_membrane_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "dff540d7e135de41cf95125078a908140f0c0a5099b262a162412e8103c66f88",
+        "word_bits": 16
+      },
+      "t1.L4.spike_integer": {
+        "elements": 1536,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t1_L4_spike_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "1af9825afffb6a149f0fe639905422a4c6162e4045fe9b7a91ae1c448dda3405",
+        "word_bits": 8
+      },
+      "t1.L5.current_integer": {
+        "elements": 480,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t1_L5_current_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "430b1b6e262762ac1fd18bc9d5497e60775823814e9cca02fef56d007e00f2ce",
+        "word_bits": 24
+      },
+      "t1.L5.membrane_integer": {
+        "elements": 480,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t1_L5_membrane_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "d9b282f975e6c31e098d96d113efc28ca235a1370ce3c1e8dad701e2bb2f187c",
+        "word_bits": 16
+      },
+      "t1.L5.spike_integer": {
+        "elements": 480,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t1_L5_spike_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "254e64a2df9415387feaed67f30efe2354924ccfef7404fa7edafaf9d1b9e304",
+        "word_bits": 8
+      },
+      "t1.L6.current_integer": {
+        "elements": 480,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t1_L6_current_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "9af6b48686fa9e0009610c98b4eda43943bd40ef00a63caaaabc0a1838d5e62f",
+        "word_bits": 24
+      },
+      "t1.L6.membrane_integer": {
+        "elements": 480,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t1_L6_membrane_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "2a5adf64723ace9a812031bf58a7032c9d94a39858fda2c35ac43bdf008e9f24",
+        "word_bits": 16
+      },
+      "t1.L6.spike_integer": {
+        "elements": 480,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t1_L6_spike_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "01c81040019b8f75a68175af83ecf9b67f4391d45ce976049add8874d1c497b7",
+        "word_bits": 8
+      },
+      "t1.L7.current_integer": {
+        "elements": 480,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t1_L7_current_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "6ca0cfe9b57b4288d04000c5faf5752519e61991dfe90d09d425c1582ed7ea94",
+        "word_bits": 24
+      },
+      "t1.L7.membrane_integer": {
+        "elements": 480,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t1_L7_membrane_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "fe9ebc9757262551f4751c222d3dfd87eef5afba6600cd75b4a0ba9f1b4ab4a4",
+        "word_bits": 16
+      },
+      "t1.L7.spike_integer": {
+        "elements": 480,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t1_L7_spike_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "1d061d5bbca39a91e3c526bd7c3181ee616682c6555c8f16cdc815d69d24a178",
+        "word_bits": 8
+      },
+      "t1.L8.current_integer": {
+        "elements": 480,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t1_L8_current_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "e0916fd70df68407e4c390ef7fe4ede57f859554aeed3de9545adf7e84688e95",
+        "word_bits": 24
+      },
+      "t1.L8.membrane_integer": {
+        "elements": 480,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t1_L8_membrane_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "e87ab6935536d7d983de53b91052614b5ad0c459aaa2bb8fb1fcd2a12e2b8f3e",
+        "word_bits": 16
+      },
+      "t1.L8.spike_integer": {
+        "elements": 480,
+        "flattening": "NumPy C order",
+        "path": "evidence/current/golden_vectors/mem/vector_t1_L8_spike_integer.mem",
+        "sample_index": 0,
+        "scope": "one_replay_sample",
+        "sha256": "9af4ac282a37100dbf0296480562e6815099da749def967e7308df7968275b54",
+        "word_bits": 8
+      }
+    },
+    "parameters_npz": {
+      "arrays": {
+        "H1.constant_integer": {
+          "dtype": "int32",
+          "elements": 60,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 28116.0,
+          "minimum": -2620.0,
+          "shape": [
+            60
+          ]
+        },
+        "H1.current_and_state_fraction_bits": {
+          "dtype": "uint8",
+          "elements": 60,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 15.0,
+          "minimum": 12.0,
+          "shape": [
+            60
+          ]
+        },
+        "H1.weight_fraction_bits": {
+          "dtype": "uint8",
+          "elements": 60,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 15.0,
+          "minimum": 12.0,
+          "shape": [
+            60
+          ]
+        },
+        "H1.weight_integer": {
+          "dtype": "int16",
+          "elements": 28800,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 27880.0,
+          "minimum": -32182.0,
+          "shape": [
+            60,
+            480
+          ]
+        },
+        "H2.constant_integer": {
+          "dtype": "int32",
+          "elements": 12,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 33467.0,
+          "minimum": -5311.0,
+          "shape": [
+            12
+          ]
+        },
+        "H2.current_and_state_fraction_bits": {
+          "dtype": "uint8",
+          "elements": 12,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 15.0,
+          "minimum": 15.0,
+          "shape": [
+            12
+          ]
+        },
+        "H2.weight_fraction_bits": {
+          "dtype": "uint8",
+          "elements": 12,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 15.0,
+          "minimum": 15.0,
+          "shape": [
+            12
+          ]
+        },
+        "H2.weight_integer": {
+          "dtype": "int16",
+          "elements": 720,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 9982.0,
+          "minimum": -26726.0,
+          "shape": [
+            12,
+            60
+          ]
+        },
+        "L1.constant_integer": {
+          "dtype": "int32",
+          "elements": 8,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 10704.0,
+          "minimum": 286.0,
+          "shape": [
+            8
+          ]
+        },
+        "L1.current_and_state_fraction_bits": {
+          "dtype": "uint8",
+          "elements": 8,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 14.0,
+          "minimum": 12.0,
+          "shape": [
+            8
+          ]
+        },
+        "L1.weight_fraction_bits": {
+          "dtype": "uint8",
+          "elements": 8,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 14.0,
+          "minimum": 12.0,
+          "shape": [
+            8
+          ]
+        },
+        "L1.weight_integer": {
+          "dtype": "int16",
+          "elements": 144,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 29014.0,
+          "minimum": -32541.0,
+          "shape": [
+            8,
+            2,
+            3,
+            3
+          ]
+        },
+        "L2.constant_integer": {
+          "dtype": "int32",
+          "elements": 16,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 106941.0,
+          "minimum": -14025.0,
+          "shape": [
+            16
+          ]
+        },
+        "L2.current_and_state_fraction_bits": {
+          "dtype": "uint8",
+          "elements": 16,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 15.0,
+          "minimum": 15.0,
+          "shape": [
+            16
+          ]
+        },
+        "L2.weight_fraction_bits": {
+          "dtype": "uint8",
+          "elements": 16,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 15.0,
+          "minimum": 15.0,
+          "shape": [
+            16
+          ]
+        },
+        "L2.weight_integer": {
+          "dtype": "int16",
+          "elements": 1152,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 5846.0,
+          "minimum": -10980.0,
+          "shape": [
+            16,
+            8,
+            3,
+            3
+          ]
+        },
+        "L3.constant_integer": {
+          "dtype": "int32",
+          "elements": 24,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 181410.0,
+          "minimum": -46128.0,
+          "shape": [
+            24
+          ]
+        },
+        "L3.current_and_state_fraction_bits": {
+          "dtype": "uint8",
+          "elements": 24,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 15.0,
+          "minimum": 15.0,
+          "shape": [
+            24
+          ]
+        },
+        "L3.weight_fraction_bits": {
+          "dtype": "uint8",
+          "elements": 24,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 15.0,
+          "minimum": 15.0,
+          "shape": [
+            24
+          ]
+        },
+        "L3.weight_integer": {
+          "dtype": "int16",
+          "elements": 3456,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 10021.0,
+          "minimum": -15273.0,
+          "shape": [
+            24,
+            16,
+            3,
+            3
+          ]
+        },
+        "L4.constant_integer": {
+          "dtype": "int32",
+          "elements": 32,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 214287.0,
+          "minimum": -44625.0,
+          "shape": [
+            32
+          ]
+        },
+        "L4.current_and_state_fraction_bits": {
+          "dtype": "uint8",
+          "elements": 32,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 15.0,
+          "minimum": 15.0,
+          "shape": [
+            32
+          ]
+        },
+        "L4.weight_fraction_bits": {
+          "dtype": "uint8",
+          "elements": 32,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 15.0,
+          "minimum": 15.0,
+          "shape": [
+            32
+          ]
+        },
+        "L4.weight_integer": {
+          "dtype": "int16",
+          "elements": 6912,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 8439.0,
+          "minimum": -9673.0,
+          "shape": [
+            32,
+            24,
+            3,
+            3
+          ]
+        },
+        "L5.constant_integer": {
+          "dtype": "int32",
+          "elements": 40,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 192065.0,
+          "minimum": -127955.0,
+          "shape": [
+            40
+          ]
+        },
+        "L5.current_and_state_fraction_bits": {
+          "dtype": "uint8",
+          "elements": 40,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 15.0,
+          "minimum": 15.0,
+          "shape": [
+            40
+          ]
+        },
+        "L5.weight_fraction_bits": {
+          "dtype": "uint8",
+          "elements": 40,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 15.0,
+          "minimum": 15.0,
+          "shape": [
+            40
+          ]
+        },
+        "L5.weight_integer": {
+          "dtype": "int16",
+          "elements": 11520,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 8922.0,
+          "minimum": -7812.0,
+          "shape": [
+            40,
+            32,
+            3,
+            3
+          ]
+        },
+        "L6.constant_integer": {
+          "dtype": "int32",
+          "elements": 40,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 164456.0,
+          "minimum": -61679.0,
+          "shape": [
+            40
+          ]
+        },
+        "L6.current_and_state_fraction_bits": {
+          "dtype": "uint8",
+          "elements": 40,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 15.0,
+          "minimum": 15.0,
+          "shape": [
+            40
+          ]
+        },
+        "L6.weight_fraction_bits": {
+          "dtype": "uint8",
+          "elements": 40,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 15.0,
+          "minimum": 15.0,
+          "shape": [
+            40
+          ]
+        },
+        "L6.weight_integer": {
+          "dtype": "int16",
+          "elements": 14400,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 10317.0,
+          "minimum": -8093.0,
+          "shape": [
+            40,
+            40,
+            3,
+            3
+          ]
+        },
+        "L7.constant_integer": {
+          "dtype": "int32",
+          "elements": 40,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 289161.0,
+          "minimum": -34464.0,
+          "shape": [
+            40
+          ]
+        },
+        "L7.current_and_state_fraction_bits": {
+          "dtype": "uint8",
+          "elements": 40,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 15.0,
+          "minimum": 15.0,
+          "shape": [
+            40
+          ]
+        },
+        "L7.weight_fraction_bits": {
+          "dtype": "uint8",
+          "elements": 40,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 15.0,
+          "minimum": 15.0,
+          "shape": [
+            40
+          ]
+        },
+        "L7.weight_integer": {
+          "dtype": "int16",
+          "elements": 14400,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 9115.0,
+          "minimum": -20813.0,
+          "shape": [
+            40,
+            40,
+            3,
+            3
+          ]
+        },
+        "L8.constant_integer": {
+          "dtype": "int32",
+          "elements": 40,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 162079.0,
+          "minimum": 13600.0,
+          "shape": [
+            40
+          ]
+        },
+        "L8.current_and_state_fraction_bits": {
+          "dtype": "uint8",
+          "elements": 40,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 15.0,
+          "minimum": 15.0,
+          "shape": [
+            40
+          ]
+        },
+        "L8.weight_fraction_bits": {
+          "dtype": "uint8",
+          "elements": 40,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 15.0,
+          "minimum": 15.0,
+          "shape": [
+            40
+          ]
+        },
+        "L8.weight_integer": {
+          "dtype": "int16",
+          "elements": 14400,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 16976.0,
+          "minimum": -14392.0,
+          "shape": [
+            40,
+            40,
+            3,
+            3
+          ]
+        },
+        "readout.weight_fraction_bits": {
+          "dtype": "uint8",
+          "elements": 2,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 15.0,
+          "minimum": 15.0,
+          "shape": [
+            2
+          ]
+        },
+        "readout.weight_integer": {
+          "dtype": "int16",
+          "elements": 24,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 883.0,
+          "minimum": -674.0,
+          "shape": [
+            2,
+            12
+          ]
+        }
+      },
+      "path": "evidence/current/golden_vectors/parameters.npz",
+      "sha256": "3c34b8ae0202f7d6f77975d8e13b5ca7dd5e8361ee294fcfb4b69d36ea93ce13"
+    },
+    "vectors_npz": {
+      "arrays": {
+        "fixed.prediction_normalized_xy": {
+          "dtype": "float32",
+          "elements": 32,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 0.842926025390625,
+          "minimum": -0.830352783203125,
+          "shape": [
+            16,
+            2
+          ]
+        },
+        "float_sinabs_cpu.prediction_normalized_xy": {
+          "dtype": "float32",
+          "elements": 32,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 0.8440549969673157,
+          "minimum": -0.8298500776290894,
+          "shape": [
+            16,
+            2
+          ]
+        },
+        "input.event_count_integer": {
+          "dtype": "uint16",
+          "elements": 393216,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 12.0,
+          "minimum": 0.0,
+          "shape": [
+            16,
+            2,
+            96,
+            128
+          ]
+        },
+        "readout.output_integer_before_temporal_divide": {
+          "dtype": "int64",
+          "elements": 32,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 55242.0,
+          "minimum": -54418.0,
+          "shape": [
+            16,
+            2
+          ]
+        },
+        "readout.prediction_normalized_xy": {
+          "dtype": "float32",
+          "elements": 32,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 0.842926025390625,
+          "minimum": -0.830352783203125,
+          "shape": [
+            16,
+            2
+          ]
+        },
+        "readout.temporal_sum_integer": {
+          "dtype": "uint16",
+          "elements": 192,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 130.0,
+          "minimum": 0.0,
+          "shape": [
+            16,
+            12
+          ]
+        },
+        "sample_indices": {
+          "dtype": "int64",
+          "elements": 16,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 1363.0,
+          "minimum": 0.0,
+          "shape": [
+            16
+          ]
+        },
+        "t0.H1.current_integer": {
+          "dtype": "int32",
+          "elements": 960,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 1042493.0,
+          "minimum": -1607342.0,
+          "shape": [
+            16,
+            60
+          ]
+        },
+        "t0.H1.membrane_integer": {
+          "dtype": "int32",
+          "elements": 960,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 32708.0,
+          "minimum": -32768.0,
+          "shape": [
+            16,
+            60
+          ]
+        },
+        "t0.H1.spike_integer": {
+          "dtype": "uint8",
+          "elements": 960,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 85.0,
+          "minimum": 0.0,
+          "shape": [
+            16,
+            60
+          ]
+        },
+        "t0.H2.current_integer": {
+          "dtype": "int32",
+          "elements": 192,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 1952954.0,
+          "minimum": -1342444.0,
+          "shape": [
+            16,
+            12
+          ]
+        },
+        "t0.H2.membrane_integer": {
+          "dtype": "int32",
+          "elements": 192,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 32658.0,
+          "minimum": -32768.0,
+          "shape": [
+            16,
+            12
+          ]
+        },
+        "t0.H2.spike_integer": {
+          "dtype": "uint8",
+          "elements": 192,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 59.0,
+          "minimum": 0.0,
+          "shape": [
+            16,
+            12
+          ]
+        },
+        "t0.L1.current_integer": {
+          "dtype": "int32",
+          "elements": 393216,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 536008.0,
+          "minimum": -440302.0,
+          "shape": [
+            16,
+            8,
+            48,
+            64
+          ]
+        },
+        "t0.L1.membrane_integer": {
+          "dtype": "int32",
+          "elements": 393216,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 16375.0,
+          "minimum": -16384.0,
+          "shape": [
+            16,
+            8,
+            48,
+            64
+          ]
+        },
+        "t0.L1.spike_integer": {
+          "dtype": "uint8",
+          "elements": 393216,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 114.0,
+          "minimum": 0.0,
+          "shape": [
+            16,
+            8,
+            48,
+            64
+          ]
+        },
+        "t0.L2.current_integer": {
+          "dtype": "int32",
+          "elements": 196608,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 1944758.0,
+          "minimum": -3366658.0,
+          "shape": [
+            16,
+            16,
+            24,
+            32
+          ]
+        },
+        "t0.L2.membrane_integer": {
+          "dtype": "int32",
+          "elements": 196608,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 32767.0,
+          "minimum": -32768.0,
+          "shape": [
+            16,
+            16,
+            24,
+            32
+          ]
+        },
+        "t0.L2.spike_integer": {
+          "dtype": "uint8",
+          "elements": 196608,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 59.0,
+          "minimum": 0.0,
+          "shape": [
+            16,
+            16,
+            24,
+            32
+          ]
+        },
+        "t0.L3.current_integer": {
+          "dtype": "int32",
+          "elements": 73728,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 1163169.0,
+          "minimum": -1508236.0,
+          "shape": [
+            16,
+            24,
+            12,
+            16
+          ]
+        },
+        "t0.L3.membrane_integer": {
+          "dtype": "int32",
+          "elements": 73728,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 32766.0,
+          "minimum": -32768.0,
+          "shape": [
+            16,
+            24,
+            12,
+            16
+          ]
+        },
+        "t0.L3.spike_integer": {
+          "dtype": "uint8",
+          "elements": 73728,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 35.0,
+          "minimum": 0.0,
+          "shape": [
+            16,
+            24,
+            12,
+            16
+          ]
+        },
+        "t0.L4.current_integer": {
+          "dtype": "int32",
+          "elements": 24576,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 1167854.0,
+          "minimum": -878492.0,
+          "shape": [
+            16,
+            32,
+            6,
+            8
+          ]
+        },
+        "t0.L4.membrane_integer": {
+          "dtype": "int32",
+          "elements": 24576,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 32765.0,
+          "minimum": -32768.0,
+          "shape": [
+            16,
+            32,
+            6,
+            8
+          ]
+        },
+        "t0.L4.spike_integer": {
+          "dtype": "uint8",
+          "elements": 24576,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 35.0,
+          "minimum": 0.0,
+          "shape": [
+            16,
+            32,
+            6,
+            8
+          ]
+        },
+        "t0.L5.current_integer": {
+          "dtype": "int32",
+          "elements": 7680,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 972199.0,
+          "minimum": -254976.0,
+          "shape": [
+            16,
+            40,
+            3,
+            4
+          ]
+        },
+        "t0.L5.membrane_integer": {
+          "dtype": "int32",
+          "elements": 7680,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 32754.0,
+          "minimum": -32768.0,
+          "shape": [
+            16,
+            40,
+            3,
+            4
+          ]
+        },
+        "t0.L5.spike_integer": {
+          "dtype": "uint8",
+          "elements": 7680,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 29.0,
+          "minimum": 0.0,
+          "shape": [
+            16,
+            40,
+            3,
+            4
+          ]
+        },
+        "t0.L6.current_integer": {
+          "dtype": "int32",
+          "elements": 7680,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 626208.0,
+          "minimum": -765552.0,
+          "shape": [
+            16,
+            40,
+            3,
+            4
+          ]
+        },
+        "t0.L6.membrane_integer": {
+          "dtype": "int32",
+          "elements": 7680,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 32766.0,
+          "minimum": -32768.0,
+          "shape": [
+            16,
+            40,
+            3,
+            4
+          ]
+        },
+        "t0.L6.spike_integer": {
+          "dtype": "uint8",
+          "elements": 7680,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 19.0,
+          "minimum": 0.0,
+          "shape": [
+            16,
+            40,
+            3,
+            4
+          ]
+        },
+        "t0.L7.current_integer": {
+          "dtype": "int32",
+          "elements": 7680,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 566199.0,
+          "minimum": -1032104.0,
+          "shape": [
+            16,
+            40,
+            3,
+            4
+          ]
+        },
+        "t0.L7.membrane_integer": {
+          "dtype": "int32",
+          "elements": 7680,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 32737.0,
+          "minimum": -32768.0,
+          "shape": [
+            16,
+            40,
+            3,
+            4
+          ]
+        },
+        "t0.L7.spike_integer": {
+          "dtype": "uint8",
+          "elements": 7680,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 17.0,
+          "minimum": 0.0,
+          "shape": [
+            16,
+            40,
+            3,
+            4
+          ]
+        },
+        "t0.L8.current_integer": {
+          "dtype": "int32",
+          "elements": 7680,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 415623.0,
+          "minimum": -414076.0,
+          "shape": [
+            16,
+            40,
+            3,
+            4
+          ]
+        },
+        "t0.L8.membrane_integer": {
+          "dtype": "int32",
+          "elements": 7680,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 32763.0,
+          "minimum": -32768.0,
+          "shape": [
+            16,
+            40,
+            3,
+            4
+          ]
+        },
+        "t0.L8.spike_integer": {
+          "dtype": "uint8",
+          "elements": 7680,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 12.0,
+          "minimum": 0.0,
+          "shape": [
+            16,
+            40,
+            3,
+            4
+          ]
+        },
+        "t1.H1.current_integer": {
+          "dtype": "int32",
+          "elements": 960,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 1181049.0,
+          "minimum": -1820622.0,
+          "shape": [
+            16,
+            60
+          ]
+        },
+        "t1.H1.membrane_integer": {
+          "dtype": "int32",
+          "elements": 960,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 32007.0,
+          "minimum": -32768.0,
+          "shape": [
+            16,
+            60
+          ]
+        },
+        "t1.H1.spike_integer": {
+          "dtype": "uint8",
+          "elements": 960,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 100.0,
+          "minimum": 0.0,
+          "shape": [
+            16,
+            60
+          ]
+        },
+        "t1.H2.current_integer": {
+          "dtype": "int32",
+          "elements": 192,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 2323609.0,
+          "minimum": -1531943.0,
+          "shape": [
+            16,
+            12
+          ]
+        },
+        "t1.H2.membrane_integer": {
+          "dtype": "int32",
+          "elements": 192,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 32388.0,
+          "minimum": -32768.0,
+          "shape": [
+            16,
+            12
+          ]
+        },
+        "t1.H2.spike_integer": {
+          "dtype": "uint8",
+          "elements": 192,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 71.0,
+          "minimum": 0.0,
+          "shape": [
+            16,
+            12
+          ]
+        },
+        "t1.L1.current_integer": {
+          "dtype": "int32",
+          "elements": 393216,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 536008.0,
+          "minimum": -440302.0,
+          "shape": [
+            16,
+            8,
+            48,
+            64
+          ]
+        },
+        "t1.L1.membrane_integer": {
+          "dtype": "int32",
+          "elements": 393216,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 16375.0,
+          "minimum": -16384.0,
+          "shape": [
+            16,
+            8,
+            48,
+            64
+          ]
+        },
+        "t1.L1.spike_integer": {
+          "dtype": "uint8",
+          "elements": 393216,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 114.0,
+          "minimum": 0.0,
+          "shape": [
+            16,
+            8,
+            48,
+            64
+          ]
+        },
+        "t1.L2.current_integer": {
+          "dtype": "int32",
+          "elements": 196608,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 1944758.0,
+          "minimum": -3366658.0,
+          "shape": [
+            16,
+            16,
+            24,
+            32
+          ]
+        },
+        "t1.L2.membrane_integer": {
+          "dtype": "int32",
+          "elements": 196608,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 32767.0,
+          "minimum": -32768.0,
+          "shape": [
+            16,
+            16,
+            24,
+            32
+          ]
+        },
+        "t1.L2.spike_integer": {
+          "dtype": "uint8",
+          "elements": 196608,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 59.0,
+          "minimum": 0.0,
+          "shape": [
+            16,
+            16,
+            24,
+            32
+          ]
+        },
+        "t1.L3.current_integer": {
+          "dtype": "int32",
+          "elements": 73728,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 1163169.0,
+          "minimum": -1508236.0,
+          "shape": [
+            16,
+            24,
+            12,
+            16
+          ]
+        },
+        "t1.L3.membrane_integer": {
+          "dtype": "int32",
+          "elements": 73728,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 32767.0,
+          "minimum": -32768.0,
+          "shape": [
+            16,
+            24,
+            12,
+            16
+          ]
+        },
+        "t1.L3.spike_integer": {
+          "dtype": "uint8",
+          "elements": 73728,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 35.0,
+          "minimum": 0.0,
+          "shape": [
+            16,
+            24,
+            12,
+            16
+          ]
+        },
+        "t1.L4.current_integer": {
+          "dtype": "int32",
+          "elements": 24576,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 1196689.0,
+          "minimum": -917707.0,
+          "shape": [
+            16,
+            32,
+            6,
+            8
+          ]
+        },
+        "t1.L4.membrane_integer": {
+          "dtype": "int32",
+          "elements": 24576,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 32765.0,
+          "minimum": -32768.0,
+          "shape": [
+            16,
+            32,
+            6,
+            8
+          ]
+        },
+        "t1.L4.spike_integer": {
+          "dtype": "uint8",
+          "elements": 24576,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 37.0,
+          "minimum": 0.0,
+          "shape": [
+            16,
+            32,
+            6,
+            8
+          ]
+        },
+        "t1.L5.current_integer": {
+          "dtype": "int32",
+          "elements": 7680,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 971696.0,
+          "minimum": -241207.0,
+          "shape": [
+            16,
+            40,
+            3,
+            4
+          ]
+        },
+        "t1.L5.membrane_integer": {
+          "dtype": "int32",
+          "elements": 7680,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 32760.0,
+          "minimum": -32768.0,
+          "shape": [
+            16,
+            40,
+            3,
+            4
+          ]
+        },
+        "t1.L5.spike_integer": {
+          "dtype": "uint8",
+          "elements": 7680,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 30.0,
+          "minimum": 0.0,
+          "shape": [
+            16,
+            40,
+            3,
+            4
+          ]
+        },
+        "t1.L6.current_integer": {
+          "dtype": "int32",
+          "elements": 7680,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 659485.0,
+          "minimum": -809608.0,
+          "shape": [
+            16,
+            40,
+            3,
+            4
+          ]
+        },
+        "t1.L6.membrane_integer": {
+          "dtype": "int32",
+          "elements": 7680,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 32765.0,
+          "minimum": -32768.0,
+          "shape": [
+            16,
+            40,
+            3,
+            4
+          ]
+        },
+        "t1.L6.spike_integer": {
+          "dtype": "uint8",
+          "elements": 7680,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 20.0,
+          "minimum": 0.0,
+          "shape": [
+            16,
+            40,
+            3,
+            4
+          ]
+        },
+        "t1.L7.current_integer": {
+          "dtype": "int32",
+          "elements": 7680,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 533821.0,
+          "minimum": -1110503.0,
+          "shape": [
+            16,
+            40,
+            3,
+            4
+          ]
+        },
+        "t1.L7.membrane_integer": {
+          "dtype": "int32",
+          "elements": 7680,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 32766.0,
+          "minimum": -32768.0,
+          "shape": [
+            16,
+            40,
+            3,
+            4
+          ]
+        },
+        "t1.L7.spike_integer": {
+          "dtype": "uint8",
+          "elements": 7680,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 16.0,
+          "minimum": 0.0,
+          "shape": [
+            16,
+            40,
+            3,
+            4
+          ]
+        },
+        "t1.L8.current_integer": {
+          "dtype": "int32",
+          "elements": 7680,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 475944.0,
+          "minimum": -567662.0,
+          "shape": [
+            16,
+            40,
+            3,
+            4
+          ]
+        },
+        "t1.L8.membrane_integer": {
+          "dtype": "int32",
+          "elements": 7680,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 32764.0,
+          "minimum": -32768.0,
+          "shape": [
+            16,
+            40,
+            3,
+            4
+          ]
+        },
+        "t1.L8.spike_integer": {
+          "dtype": "uint8",
+          "elements": 7680,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 15.0,
+          "minimum": 0.0,
+          "shape": [
+            16,
+            40,
+            3,
+            4
+          ]
+        },
+        "target.row_col_px": {
+          "dtype": "float32",
+          "elements": 32,
+          "layout": "NumPy C order; model tensors retain PyTorch OIHW/OI conventions",
+          "maximum": 1770.0,
+          "minimum": 150.0,
+          "shape": [
+            16,
+            2
+          ]
+        }
+      },
+      "path": "evidence/current/golden_vectors/vectors.npz",
+      "sha256": "ebf4abd8815b6c22b837634d73125db3619d02bc2bbfbae66c29199b34fd769a"
+    }
+  },
+  "checkpoint": {
+    "epoch": 193,
+    "path": "external://data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user17/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_stateless_continue_epoch100_to200/seed2022/best_checkpoint.pt",
+    "sha256": "04dfaabd03ed87a2ca8068a68c08b23b2bdcb5375580ac2441f63adf7ab2cd66"
+  },
+  "configuration": {
+    "path": "external://data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user17/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_stateless_continue_epoch100_to200/seed2022/configuration.json",
+    "sha256": "ace12a05c03813c30c582dc6dcf007c8041472c7b9fa6768e3e51f1bea91da4e"
+  },
+  "data": {
+    "cache_file": "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user17/eye0/validation.npz",
+    "cache_file_sha256": "2684117850a72cd7004cf357e8bfe3ec085e81aefadf9d92d79916467407dcbd",
+    "mem_replay_sample_index": 0,
+    "sample_indices": [
+      0,
+      90,
+      181,
+      272,
+      363,
+      454,
+      545,
+      636,
+      726,
+      817,
+      908,
+      999,
+      1090,
+      1181,
+      1272,
+      1363
+    ],
+    "split": "validation"
+  },
+  "fixed_reference": {
+    "path": "external://datanaco/xuzx/project/ebv-eye/code/hardware/evaluate_pursuit_fixed_point.py",
+    "sha256": "ff570ae5ea4524719a08245b93746eab96fa9446084103f5ec72a55f5d4b043d"
+  },
+  "generator": {
+    "path": "external://datanaco/xuzx/project/ebv-eye/code/hardware/generate_pursuit_golden_vectors.py",
+    "sha256": "af013b8fb0936fe200736be5e17a2e191021d504fb10439c7a2719b3a26dbd2d"
+  },
+  "runtime_counters": {
+    "accumulator_maximum_absolute_before_saturation": {
+      "H1": 1820622,
+      "H2": 2323609,
+      "L1": 815046,
+      "L2": 3916480,
+      "L3": 2449094,
+      "L4": 1927456,
+      "L5": 972199,
+      "L6": 809608,
+      "L7": 1110503,
+      "L8": 567662
+    },
+    "accumulator_saturated_values": {
+      "H1": 0,
+      "H2": 0,
+      "L1": 0,
+      "L2": 0,
+      "L3": 0,
+      "L4": 0,
+      "L5": 0,
+      "L6": 0,
+      "L7": 0,
+      "L8": 0
+    },
+    "spike_maximum_before_saturation": {
+      "H1": 100,
+      "H2": 71,
+      "L1": 114,
+      "L2": 59,
+      "L3": 35,
+      "L4": 37,
+      "L5": 30,
+      "L6": 20,
+      "L7": 17,
+      "L8": 15
+    },
+    "spike_saturated_values": {
+      "H1": 0,
+      "H2": 0,
+      "L1": 0,
+      "L2": 0,
+      "L3": 0,
+      "L4": 0,
+      "L5": 0,
+      "L6": 0,
+      "L7": 0,
+      "L8": 0
+    }
+  },
+  "schema_version": 1,
+  "scope": "pursuit_fixed_point_parameters_and_full_layer_golden_vectors"
+}

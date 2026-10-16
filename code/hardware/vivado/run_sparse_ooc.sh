@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-if [[ $# -lt 2 || $# -gt 4 ]]; then
-    echo "usage: $0 OUTPUT_DIR {sparse_tm|sparse_lm_a} [PART=xczu3eg-sfvc784-2-e] [JOBS=8]" >&2
+if [[ $# -lt 2 || $# -gt 5 ]]; then
+    echo "usage: $0 OUTPUT_DIR {sparse_tm|sparse_lm_a} [PART=xczu3eg-sfvc784-2-e] [JOBS=8] [PERIOD_NS=6.250]" >&2
     exit 2
 fi
 script_directory="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -10,6 +10,7 @@ output_directory="$1"
 variant="$2"
 target_part="${3:-xczu3eg-sfvc784-2-e}"
 jobs="${4:-8}"
+period_ns="${5:-6.250}"
 
 if [[ -e "$output_directory" && ! -d "$output_directory" ]]; then
     echo "OUTPUT_DIR exists and is not a directory: $output_directory" >&2
@@ -31,4 +32,4 @@ fi
 
 exec vivado -mode batch -nojournal -nolog \
     -source "$script_directory/run_sparse_ooc.tcl" \
-    -tclargs "$output_directory" "$variant" "$target_part" "$jobs"
+    -tclargs "$output_directory" "$variant" "$target_part" "$jobs" "$period_ns"

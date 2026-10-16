@@ -1,0 +1,36 @@
+
+****** xsim v2025.2.1 (64-bit)
+  **** SW Build 6403652 on Thu Mar 19 13:47:00 MDT 2026
+  **** IP Build 6403511 on Thu Mar 19 12:41:45 MDT 2026
+  **** SharedData Build 6403650 on Thu Mar 19 14:02:13 MDT 2026
+  **** Start of session at: Fri Oct 16 23:39:30 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/current_replay/xsim_script.tcl
+# xsim {current_replay} -testplusarg L1_WEIGHT_FILE=/home/xen/project/02_eb_snn_gaze_system/ebv-eye_snn_hardware/evidence/current/golden_vectors/mem/parameter_L1_weight_integer.mem -testplusarg L1_CONSTANT_FILE=/home/xen/project/02_eb_snn_gaze_system/ebv-eye_snn_hardware/evidence/current/golden_vectors/mem/parameter_L1_constant_integer.mem -testplusarg L1_FRACTION_FILE=/home/xen/project/02_eb_snn_gaze_system/ebv-eye_snn_hardware/evidence/current/golden_vectors/mem/parameter_L1_current_and_state_fraction_bits.mem -testplusarg L2_WEIGHT_FILE=/home/xen/project/02_eb_snn_gaze_system/ebv-eye_snn_hardware/evidence/current/golden_vectors/mem/parameter_L2_weight_integer.mem -testplusarg L2_CONSTANT_FILE=/home/xen/project/02_eb_snn_gaze_system/ebv-eye_snn_hardware/evidence/current/golden_vectors/mem/parameter_L2_constant_integer.mem -testplusarg L2_FRACTION_FILE=/home/xen/project/02_eb_snn_gaze_system/ebv-eye_snn_hardware/evidence/current/golden_vectors/mem/parameter_L2_current_and_state_fraction_bits.mem -testplusarg CONV_WEIGHT_FILE=/home/xen/project/02_eb_snn_gaze_system/ebv-eye_snn_hardware/evidence/current/hardware_image/conv_weights_tiled_256.mem -testplusarg LINEAR_WEIGHT_FILE=/home/xen/project/02_eb_snn_gaze_system/ebv-eye_snn_hardware/evidence/current/hardware_image/linear_weights_input_major_256.mem -testplusarg CONSTANT_FILE=/home/xen/project/02_eb_snn_gaze_system/ebv-eye_snn_hardware/evidence/current/hardware_image/layer_constants_s24.mem -testplusarg FRACTION_FILE=/home/xen/project/02_eb_snn_gaze_system/ebv-eye_snn_hardware/evidence/current/hardware_image/layer_fraction_bits_u5.mem -testplusarg READOUT_FRACTION_FILE=/home/xen/project/02_eb_snn_gaze_system/ebv-eye_snn_hardware/evidence/current/hardware_image/readout_fraction_bits_u5.mem -testplusarg EVENT_FILE=/home/xen/project/02_eb_snn_gaze_system/ebv-eye_snn_hardware/build/current_replay_verified/input_events_sorted_row_column_polarity.mem -testplusarg EXPECTED_CURRENT_FILE=/home/xen/project/02_eb_snn_gaze_system/ebv-eye_snn_hardware/build/current_replay_verified/all_current.mem -testplusarg EXPECTED_SPIKE_FILE=/home/xen/project/02_eb_snn_gaze_system/ebv-eye_snn_hardware/build/current_replay_verified/all_spike.mem -testplusarg EXPECTED_MEMBRANE_FILE=/home/xen/project/02_eb_snn_gaze_system/ebv-eye_snn_hardware/build/current_replay_verified/all_membrane.mem -testplusarg EXPECTED_RESULT_FILE=/home/xen/project/02_eb_snn_gaze_system/ebv-eye_snn_hardware/evidence/current/golden_vectors/mem/vector_readout_output_integer_before_temporal_divide.mem -testplusarg EXPECTED_L1_PACKETS=3315 -testplusarg TIMEOUT_CYCLES=200000 -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+PASS: transactions=5866 values=159408 total_cycles=104005 frontend_cycles=51305 convolution_cycles=48609 dense_cycles=4074 conv_weight_reads=4068 linear_weight_reads=1980 readout_weight_reads=12 feature_reads=25872 feature_writes=2016 events=400 l1_packets=3315 l2_packets=3315 frontend_trace_collisions=0
+WALKTHROUGH_FULL l1_wrapper_cycles=47320 l1_core_cycles=47318 l2_cycles=51305 last_input=42975 first_l1=200 first_packet=281 last_packet=44322 packet_wait_for_l2=27538
+WALKTHROUGH_FULL state=0 cycles=0
+WALKTHROUGH_FULL state=1 cycles=43
+WALKTHROUGH_FULL state=2 cycles=156
+WALKTHROUGH_FULL state=3 cycles=1200
+WALKTHROUGH_FULL state=4 cycles=35405
+WALKTHROUGH_FULL state=5 cycles=98
+WALKTHROUGH_FULL state=6 cycles=1200
+WALKTHROUGH_FULL state=7 cycles=6144
+WALKTHROUGH_FULL state=8 cycles=0
+WALKTHROUGH_FULL state=9 cycles=3072
+WALKTHROUGH_FULL state=10 cycles=0
+WALKTHROUGH_FULL state=11 cycles=0
+WALKTHROUGH_FULL state=12 cycles=0
+WALKTHROUGH_FULL state=13 cycles=0
+WALKTHROUGH_FULL state=14 cycles=0
+WALKTHROUGH_FULL state=15 cycles=0
+$finish called at time : 559063500 ps : File "/home/xen/project/02_eb_snn_gaze_system/ebv-eye_snn_hardware/code/hardware/rtl/tb/tb_pursuit_sparse_layer_major_accelerator_top.sv" Line 570
+run: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:10 . Memory (MB): peak = 1469.234 ; gain = 0.000 ; free physical = 8345 ; free virtual = 30167
+exit
+INFO: xsimkernel Simulation Memory Usage: 301240 KB (Peak: 345700 KB), Simulation CPU Usage: 11420 ms
+INFO: [Common 17-206] Exiting xsim at Fri Oct 16 23:39:44 2026...

@@ -10,29 +10,41 @@
 /* verilator lint_off UNUSEDPARAM */
 /* verilator lint_off DECLFILENAME */
 
-// One physical single-write-port distributed-RAM bank.  Keeping the memory in
-// its own instance makes the nine-bank structure explicit to synthesis; a
-// flattened multi-write array cannot be legally inferred as LUT RAM.
+// One physical read-first accumulator bank.  The core fetches each word one
+// clock before updating or finalizing it; USE_BLOCK selects the RAM primitive.
 module sparse_accumulator_vector_bank #(
     parameter integer DATA_BITS = 320,
     parameter integer DEPTH = 43,
-    parameter integer ADDRESS_BITS = 6
+    parameter integer ADDRESS_BITS = 6,
+    parameter integer USE_BLOCK = 1
 ) (
     input  wire                         clk,
     input  wire [ADDRESS_BITS-1:0]      address,
-    output wire [DATA_BITS-1:0]         read_data,
+    output reg  [DATA_BITS-1:0]         read_data,
     input  wire                         write_enable,
     input  wire [DATA_BITS-1:0]         write_data
 );
-    (* ram_style = "distributed" *) reg [DATA_BITS-1:0] memory [0:DEPTH-1];
-
-    assign read_data = memory[address];
-
-    always @(posedge clk) begin
-        if (write_enable) begin
-            memory[address] <= write_data;
+    generate
+        if (USE_BLOCK) begin : block_memory
+            (* ram_style = "block" *) reg [DATA_BITS-1:0]
+                memory [0:DEPTH-1];
+            always @(posedge clk) begin
+                read_data <= memory[address];
+                if (write_enable) begin
+                    memory[address] <= write_data;
+                end
+            end
+        end else begin : distributed_memory
+            (* ram_style = "distributed" *) reg [DATA_BITS-1:0]
+                memory [0:DEPTH-1];
+            always @(posedge clk) begin
+                read_data <= memory[address];
+                if (write_enable) begin
+                    memory[address] <= write_data;
+                end
+            end
         end
-    end
+    endgenerate
 endmodule
 
 // One output-channel/tap-lane weight bank.  Parallel compute lanes each read
@@ -82,7 +94,7 @@ module sparse_conv3x3_pool_lif_core #(
     parameter integer INPUT_HEIGHT = 96,
     parameter integer COUNT_BITS = 1,
     parameter integer UNIT_INPUT = 1,
-    // Legal values divide the nine kernel taps.  L1 uses 9 (72 parallel
+    // Legal values divide the nine kernel taps.  L1 uses 3 (24 parallel
     // add lanes); L2 uses 3 (48 parallel count-times-weight lanes).
     parameter integer KERNEL_TAPS_PER_CYCLE = 9,
     parameter integer WEIGHT_BITS = 16,
@@ -175,12 +187,17 @@ module sparse_conv3x3_pool_lif_core #(
     localparam integer NEURON_RESULT_BITS =
         1 + STATE_BITS + SPIKE_BITS + CURRENT_BITS;
 
-    localparam [2:0] STATE_IDLE = 3'd0;
-    localparam [2:0] STATE_CLEAR = 3'd1;
-    localparam [2:0] STATE_WAIT_PACKET = 3'd2;
-    localparam [2:0] STATE_UPDATE = 3'd3;
-    localparam [2:0] STATE_FINALIZE = 3'd4;
-    localparam [2:0] STATE_FINALIZE_DRAIN = 3'd5;
+    localparam [3:0] STATE_IDLE = 4'd0;
+    localparam [3:0] STATE_CLEAR = 4'd1;
+    localparam [3:0] STATE_WAIT_PACKET = 4'd2;
+    localparam [3:0] STATE_UPDATE = 4'd3;
+    localparam [3:0] STATE_FINALIZE = 4'd4;
+    localparam [3:0] STATE_FINALIZE_DRAIN = 4'd5;
+    localparam [3:0] STATE_UPDATE_READ = 4'd6;
+    localparam [3:0] STATE_FINALIZE_READ = 4'd7;
+    localparam [3:0] STATE_L2_NEURON = 4'd8;
+    localparam [3:0] STATE_L1_NEURON = 4'd9;
+    localparam [3:0] STATE_L2_NEURON_DRAIN = 4'd10;
 
     localparam signed [ACCUMULATOR_BITS-1:0] CURRENT_MAXIMUM = {
         {(ACCUMULATOR_BITS-CURRENT_BITS){1'b0}},
@@ -305,7 +322,7 @@ module sparse_conv3x3_pool_lif_core #(
         end
     endfunction
 
-    reg [2:0] control_state;
+    reg [3:0] control_state;
     reg [COLUMN_BANK_ADDRESS_BITS-1:0] clear_index;
     reg [CURSOR_BITS-1:0] input_row_cursor;
     reg [1:0] input_row_cursor_modulo_three;
@@ -328,6 +345,8 @@ module sparse_conv3x3_pool_lif_core #(
     reg [COLUMN_BANK_ADDRESS_BITS-1:0] finalize_even_column_index;
     reg [COLUMN_BANK_ADDRESS_BITS-1:0] finalize_odd_column_index;
     reg finalize_is_last_row;
+    reg [OUTPUT_CHANNEL_BITS-1:0] neuron_channel_cursor;
+    reg [VECTOR_ACCUMULATOR_BITS-1:0] pooled_word_register;
 
     reg output_valid_register;
     reg [OUTPUT_ADDRESS_BITS-1:0] output_address_register;
@@ -365,7 +384,8 @@ module sparse_conv3x3_pool_lif_core #(
             sparse_accumulator_vector_bank #(
                 .DATA_BITS(VECTOR_ACCUMULATOR_BITS),
                 .DEPTH(COLUMN_BANK_DEPTH),
-                .ADDRESS_BITS(COLUMN_BANK_ADDRESS_BITS)
+                .ADDRESS_BITS(COLUMN_BANK_ADDRESS_BITS),
+                .USE_BLOCK(UNIT_INPUT)
             ) bank (
                 .clk(clk),
                 .address(accumulator_bank_address[
@@ -384,8 +404,7 @@ module sparse_conv3x3_pool_lif_core #(
         end
     endgenerate
 
-    (* ram_style = "distributed" *) reg [VECTOR_ACCUMULATOR_BITS-1:0]
-        horizontal_pool_memory [0:HALF_WIDTH-1];
+    wire [VECTOR_ACCUMULATOR_BITS-1:0] horizontal_pool_read_data;
 
     reg [3:0] weight_write_bank_selector;
     reg [3:0] weight_write_group;
@@ -991,6 +1010,36 @@ module sparse_conv3x3_pool_lif_core #(
     reg signed [ACCUMULATOR_BITS-1:0] finalize_horizontal_value;
     reg signed [ACCUMULATOR_BITS-1:0] finalize_previous_value;
 
+    generate
+        if (UNIT_INPUT) begin : distributed_horizontal_pool
+            (* ram_style = "distributed" *) reg
+                [VECTOR_ACCUMULATOR_BITS-1:0]
+                memory [0:HALF_WIDTH-1];
+            assign horizontal_pool_read_data = memory[finalize_pair_column];
+            always @(posedge clk) begin
+                if (control_state == STATE_FINALIZE
+                        && !finalize_output_row[0]) begin
+                    memory[finalize_pair_column] <= finalize_horizontal_word;
+                end
+            end
+        end else begin : block_horizontal_pool
+            (* ram_style = "block" *) reg
+                [VECTOR_ACCUMULATOR_BITS-1:0]
+                memory [0:HALF_WIDTH-1];
+            reg [VECTOR_ACCUMULATOR_BITS-1:0] read_word;
+            assign horizontal_pool_read_data = read_word;
+            always @(posedge clk) begin
+                if (control_state == STATE_FINALIZE_READ) begin
+                    read_word <= memory[finalize_pair_column];
+                end
+                if (control_state == STATE_FINALIZE
+                        && !finalize_output_row[0]) begin
+                    memory[finalize_pair_column] <= finalize_horizontal_word;
+                end
+            end
+        end
+    endgenerate
+
     always @* begin
         finalize_even_bank_index = three_by_three_index(
             finalize_output_row_remainder,
@@ -1024,9 +1073,7 @@ module sparse_conv3x3_pool_lif_core #(
                 finalize_channel_index*ACCUMULATOR_BITS
                 +: ACCUMULATOR_BITS
             ] = finalize_horizontal_value;
-            finalize_previous_value = $signed(horizontal_pool_memory[
-                finalize_pair_column
-            ][
+            finalize_previous_value = $signed(horizontal_pool_read_data[
                 finalize_channel_index*ACCUMULATOR_BITS
                 +: ACCUMULATOR_BITS
             ]);
@@ -1059,27 +1106,29 @@ module sparse_conv3x3_pool_lif_core #(
                     accumulator_bank_write_enable[bank_control_index] = 1'b1;
                 end
             end
-            STATE_UPDATE: begin
+            STATE_UPDATE_READ, STATE_UPDATE: begin
                 for (bank_control_index = 0;
                         bank_control_index < ACCUMULATOR_BANKS;
                         bank_control_index = bank_control_index + 1) begin
                     accumulator_bank_address[bank_control_index] =
                         update_bank_column_index[bank_control_index];
                     accumulator_bank_write_enable[bank_control_index] =
-                        update_bank_active[bank_control_index];
+                        control_state == STATE_UPDATE
+                        && update_bank_active[bank_control_index];
                     accumulator_bank_write_data[bank_control_index] =
                         update_new_bank_word[bank_control_index];
                 end
             end
-            STATE_FINALIZE: begin
+            STATE_FINALIZE_READ, STATE_FINALIZE: begin
                 for (bank_control_index = 0;
                         bank_control_index < ACCUMULATOR_BANKS;
                         bank_control_index = bank_control_index + 1) begin
                     if (bank_control_index == finalize_even_bank_index) begin
                         accumulator_bank_address[bank_control_index] =
                             finalize_even_column_index;
-                        if (!finalize_output_row[0]
-                                || !output_valid_register || output_ready) begin
+                        if (control_state == STATE_FINALIZE
+                                && (!finalize_output_row[0]
+                                || !output_valid_register || output_ready)) begin
                             accumulator_bank_write_enable[
                                 bank_control_index
                             ] = 1'b1;
@@ -1088,8 +1137,9 @@ module sparse_conv3x3_pool_lif_core #(
                             == finalize_odd_bank_index) begin
                         accumulator_bank_address[bank_control_index] =
                             finalize_odd_column_index;
-                        if (!finalize_output_row[0]
-                                || !output_valid_register || output_ready) begin
+                        if (control_state == STATE_FINALIZE
+                                && (!finalize_output_row[0]
+                                || !output_valid_register || output_ready)) begin
                             accumulator_bank_write_enable[
                                 bank_control_index
                             ] = 1'b1;
@@ -1101,37 +1151,25 @@ module sparse_conv3x3_pool_lif_core #(
         endcase
     end
 
-    function automatic [NEURON_RESULT_BITS-1:0] stateless_neuron;
-        input signed [ACCUMULATOR_BITS-1:0] pooled_dot;
-        input signed [CURRENT_BITS-1:0] folded_constant;
+    function automatic [NEURON_RESULT_BITS-1:0]
+            stateless_neuron_from_current;
+        input signed [CURRENT_BITS-1:0] clamped_current;
         input [FRACTION_BITS_WIDTH-1:0] fraction_bits;
-        reg signed [ACCUMULATOR_BITS-1:0] constant_extended;
-        reg signed [ACCUMULATOR_BITS-1:0] biased_dot;
-        reg signed [CURRENT_BITS-1:0] clamped_current;
         reg signed [NEURON_WORK_BITS-1:0] pre_reset;
         reg signed [NEURON_WORK_BITS-1:0] threshold_integer;
         reg signed [NEURON_WORK_BITS-1:0] unsaturated_spike;
         reg spike_overflow;
         reg [SPIKE_BITS-1:0] clamped_spike;
-        reg signed [NEURON_WORK_BITS-1:0] reset_amount;
+        reg signed [NEURON_WORK_BITS-1:0] fractional_mask;
+        reg signed [NEURON_WORK_BITS-1:0] normal_residual;
+        reg signed [NEURON_WORK_BITS-1:0] overflow_reset_amount;
+        reg signed [NEURON_WORK_BITS-1:0] overflow_residual;
         reg signed [NEURON_WORK_BITS-1:0] membrane_before_floor;
         reg signed [NEURON_WORK_BITS-1:0] membrane_after_floor;
         reg state_overflow;
         reg signed [STATE_BITS-1:0] clamped_membrane;
         reg range_error;
         begin
-            constant_extended = {
-                {(ACCUMULATOR_BITS-CURRENT_BITS){
-                    folded_constant[CURRENT_BITS-1]
-                }},
-                folded_constant
-            };
-            biased_dot = pooled_dot + constant_extended;
-            clamped_current = (biased_dot > CURRENT_MAXIMUM)
-                ? CURRENT_MAXIMUM[CURRENT_BITS-1:0]
-                : ((biased_dot < CURRENT_MINIMUM)
-                    ? CURRENT_MINIMUM[CURRENT_BITS-1:0]
-                    : biased_dot[CURRENT_BITS-1:0]);
             pre_reset = {
                 {(NEURON_WORK_BITS-CURRENT_BITS){
                     clamped_current[CURRENT_BITS-1]
@@ -1149,10 +1187,15 @@ module sparse_conv3x3_pool_lif_core #(
             clamped_spike = spike_overflow
                 ? SPIKE_MAXIMUM
                 : unsaturated_spike[SPIKE_BITS-1:0];
-            reset_amount = $signed({
-                {(NEURON_WORK_BITS-SPIKE_BITS){1'b0}}, clamped_spike
+            fractional_mask = threshold_integer - 1'b1;
+            normal_residual = pre_reset & fractional_mask;
+            overflow_reset_amount = $signed({
+                {(NEURON_WORK_BITS-SPIKE_BITS){1'b0}}, SPIKE_MAXIMUM
             }) <<< fraction_bits;
-            membrane_before_floor = pre_reset - reset_amount;
+            overflow_residual = pre_reset - overflow_reset_amount;
+            membrane_before_floor = spike_overflow
+                ? overflow_residual
+                : ((pre_reset > 0) ? normal_residual : pre_reset);
             membrane_after_floor =
                 (membrane_before_floor < -threshold_integer)
                 ? -threshold_integer : membrane_before_floor;
@@ -1165,12 +1208,38 @@ module sparse_conv3x3_pool_lif_core #(
                     : membrane_after_floor[STATE_BITS-1:0]);
             range_error = (fraction_bits > MAX_FRACTION_BITS)
                 || spike_overflow || state_overflow;
-            stateless_neuron = {
+            stateless_neuron_from_current = {
                 range_error,
                 clamped_membrane,
                 clamped_spike,
                 clamped_current
             };
+        end
+    endfunction
+
+    function automatic [NEURON_RESULT_BITS-1:0] stateless_neuron;
+        input signed [ACCUMULATOR_BITS-1:0] pooled_dot;
+        input signed [CURRENT_BITS-1:0] folded_constant;
+        input [FRACTION_BITS_WIDTH-1:0] fraction_bits;
+        reg signed [ACCUMULATOR_BITS-1:0] constant_extended;
+        reg signed [ACCUMULATOR_BITS-1:0] biased_dot;
+        reg signed [CURRENT_BITS-1:0] clamped_current;
+        begin
+            constant_extended = {
+                {(ACCUMULATOR_BITS-CURRENT_BITS){
+                    folded_constant[CURRENT_BITS-1]
+                }},
+                folded_constant
+            };
+            biased_dot = pooled_dot + constant_extended;
+            clamped_current = (biased_dot > CURRENT_MAXIMUM)
+                ? CURRENT_MAXIMUM[CURRENT_BITS-1:0]
+                : ((biased_dot < CURRENT_MINIMUM)
+                    ? CURRENT_MINIMUM[CURRENT_BITS-1:0]
+                    : biased_dot[CURRENT_BITS-1:0]);
+            stateless_neuron = stateless_neuron_from_current(
+                clamped_current, fraction_bits
+            );
         end
     endfunction
 
@@ -1182,6 +1251,32 @@ module sparse_conv3x3_pool_lif_core #(
         finalize_membrane_flat;
     reg finalize_range_error;
     reg [NEURON_RESULT_BITS-1:0] neuron_result;
+    wire signed [ACCUMULATOR_BITS-1:0] serial_pooled_dot = $signed(
+        pooled_word_register[
+            neuron_channel_cursor*ACCUMULATOR_BITS +: ACCUMULATOR_BITS
+        ]
+    );
+    wire signed [ACCUMULATOR_BITS-1:0] serial_constant_extended = {
+        {(ACCUMULATOR_BITS-CURRENT_BITS){
+            constant_registers[neuron_channel_cursor][CURRENT_BITS-1]
+        }},
+        constant_registers[neuron_channel_cursor]
+    };
+    wire signed [ACCUMULATOR_BITS-1:0] serial_biased_dot =
+        serial_pooled_dot + serial_constant_extended;
+    wire signed [CURRENT_BITS-1:0] serial_clamped_current =
+        (serial_biased_dot > CURRENT_MAXIMUM)
+        ? CURRENT_MAXIMUM[CURRENT_BITS-1:0]
+        : ((serial_biased_dot < CURRENT_MINIMUM)
+            ? CURRENT_MINIMUM[CURRENT_BITS-1:0]
+            : serial_biased_dot[CURRENT_BITS-1:0]);
+    reg signed [CURRENT_BITS-1:0] serial_current_pipeline;
+    reg [FRACTION_BITS_WIDTH-1:0] serial_fraction_pipeline;
+    reg [OUTPUT_CHANNEL_BITS-1:0] serial_channel_pipeline;
+    wire [NEURON_RESULT_BITS-1:0] serial_neuron_result =
+        stateless_neuron_from_current(
+            serial_current_pipeline, serial_fraction_pipeline
+        );
 
     always @* begin
         finalize_current_flat = {OUTPUT_CHANNELS*CURRENT_BITS{1'b0}};
@@ -1189,35 +1284,38 @@ module sparse_conv3x3_pool_lif_core #(
         finalize_membrane_flat = {OUTPUT_CHANNELS*STATE_BITS{1'b0}};
         finalize_range_error = 1'b0;
         neuron_result = {NEURON_RESULT_BITS{1'b0}};
-        for (finalize_channel_index = 0;
-                finalize_channel_index < OUTPUT_CHANNELS;
-                finalize_channel_index = finalize_channel_index + 1) begin
-            neuron_result = stateless_neuron(
-                $signed(finalize_pooled_word[
-                    finalize_channel_index*ACCUMULATOR_BITS
-                    +: ACCUMULATOR_BITS
-                ]),
-                constant_registers[finalize_channel_index],
-                fraction_bits_registers[finalize_channel_index]
-            );
-            finalize_current_flat[
-                finalize_channel_index*CURRENT_BITS +: CURRENT_BITS
-            ] = neuron_result[0 +: CURRENT_BITS];
-            finalize_spike_flat[
-                finalize_channel_index*SPIKE_BITS +: SPIKE_BITS
-            ] = neuron_result[CURRENT_BITS +: SPIKE_BITS];
-            finalize_membrane_flat[
-                finalize_channel_index*STATE_BITS +: STATE_BITS
-            ] = neuron_result[
-                CURRENT_BITS + SPIKE_BITS +: STATE_BITS
-            ];
-            finalize_range_error = finalize_range_error
-                || neuron_result[NEURON_RESULT_BITS-1];
+        if (UNIT_INPUT) begin
+            for (finalize_channel_index = 0;
+                    finalize_channel_index < OUTPUT_CHANNELS;
+                    finalize_channel_index = finalize_channel_index + 1) begin
+                neuron_result = stateless_neuron(
+                    $signed(pooled_word_register[
+                        finalize_channel_index*ACCUMULATOR_BITS
+                        +: ACCUMULATOR_BITS
+                    ]),
+                    constant_registers[finalize_channel_index],
+                    fraction_bits_registers[finalize_channel_index]
+                );
+                finalize_current_flat[
+                    finalize_channel_index*CURRENT_BITS +: CURRENT_BITS
+                ] = neuron_result[0 +: CURRENT_BITS];
+                finalize_spike_flat[
+                    finalize_channel_index*SPIKE_BITS +: SPIKE_BITS
+                ] = neuron_result[CURRENT_BITS +: SPIKE_BITS];
+                finalize_membrane_flat[
+                    finalize_channel_index*STATE_BITS +: STATE_BITS
+                ] = neuron_result[
+                    CURRENT_BITS + SPIKE_BITS +: STATE_BITS
+                ];
+                finalize_range_error = finalize_range_error
+                    || neuron_result[NEURON_RESULT_BITS-1];
+            end
         end
     end
 
     task automatic advance_finalize_columns;
         begin
+            control_state <= STATE_FINALIZE_READ;
             finalize_pair_column <= finalize_pair_column + 1'b1;
             case (finalize_even_column_bank)
                 2'd0: finalize_even_column_bank <= 2'd2;
@@ -1291,6 +1389,11 @@ module sparse_conv3x3_pool_lif_core #(
             finalize_odd_column_index <=
                 {COLUMN_BANK_ADDRESS_BITS{1'b0}};
             finalize_is_last_row <= 1'b0;
+            neuron_channel_cursor <= {OUTPUT_CHANNEL_BITS{1'b0}};
+            serial_current_pipeline <= {CURRENT_BITS{1'b0}};
+            serial_fraction_pipeline <= {FRACTION_BITS_WIDTH{1'b0}};
+            serial_channel_pipeline <= {OUTPUT_CHANNEL_BITS{1'b0}};
+            pooled_word_register <= {VECTOR_ACCUMULATOR_BITS{1'b0}};
             output_valid_register <= 1'b0;
             output_address_register <= {OUTPUT_ADDRESS_BITS{1'b0}};
             next_output_address <= {OUTPUT_ADDRESS_BITS{1'b0}};
@@ -1314,6 +1417,29 @@ module sparse_conv3x3_pool_lif_core #(
             end
             if (output_valid_register && output_ready) begin
                 output_valid_register <= 1'b0;
+            end
+            if (!UNIT_INPUT
+                    && ((control_state == STATE_L2_NEURON
+                            && neuron_channel_cursor != 0)
+                        || control_state == STATE_L2_NEURON_DRAIN)) begin
+                output_current_register[
+                    serial_channel_pipeline*CURRENT_BITS +: CURRENT_BITS
+                ] <= serial_neuron_result[0 +: CURRENT_BITS];
+                output_spike_register[
+                    serial_channel_pipeline*SPIKE_BITS +: SPIKE_BITS
+                ] <= serial_neuron_result[
+                    CURRENT_BITS +: SPIKE_BITS
+                ];
+                output_membrane_register[
+                    serial_channel_pipeline*STATE_BITS +: STATE_BITS
+                ] <= serial_neuron_result[
+                    CURRENT_BITS + SPIKE_BITS +: STATE_BITS
+                ];
+                output_range_error_register <=
+                    (serial_channel_pipeline == 0)
+                    ? serial_neuron_result[NEURON_RESULT_BITS-1]
+                    : (output_range_error_register
+                        || serial_neuron_result[NEURON_RESULT_BITS-1]);
             end
 
             case (control_state)
@@ -1367,7 +1493,7 @@ module sparse_conv3x3_pool_lif_core #(
                         tap_base <= 4'd0;
                         accepted_packet_count
                             <= accepted_packet_count + 1'b1;
-                        control_state <= STATE_UPDATE;
+                        control_state <= STATE_UPDATE_READ;
                     end else if ((input_valid
                                     && input_row > input_row_cursor)
                                 || end_seen || input_end) begin
@@ -1393,7 +1519,7 @@ module sparse_conv3x3_pool_lif_core #(
                             finalize_odd_column_index <=
                                 {COLUMN_BANK_ADDRESS_BITS{1'b0}};
                             finalize_is_last_row <= 1'b0;
-                            control_state <= STATE_FINALIZE;
+                            control_state <= STATE_FINALIZE_READ;
                         end else begin
                             finalize_output_row <= INPUT_ROW_BITS'(INPUT_HEIGHT-1);
                             finalize_output_row_remainder <=
@@ -1409,9 +1535,13 @@ module sparse_conv3x3_pool_lif_core #(
                             finalize_odd_column_index <=
                                 {COLUMN_BANK_ADDRESS_BITS{1'b0}};
                             finalize_is_last_row <= 1'b1;
-                            control_state <= STATE_FINALIZE;
+                            control_state <= STATE_FINALIZE_READ;
                         end
                     end
+                end
+
+                STATE_UPDATE_READ: begin
+                    control_state <= STATE_UPDATE;
                 end
 
                 STATE_UPDATE: begin
@@ -1437,6 +1567,7 @@ module sparse_conv3x3_pool_lif_core #(
                                 ? {{(COUNT_BITS-1){1'b0}}, 1'b1}
                                 : input_count;
                             tap_base <= 4'd0;
+                            control_state <= STATE_UPDATE_READ;
                             accepted_packet_count
                                 <= accepted_packet_count + 1'b1;
                         end else begin
@@ -1444,32 +1575,69 @@ module sparse_conv3x3_pool_lif_core #(
                         end
                     end else begin
                         tap_base <= tap_base + KERNEL_TAPS_PER_CYCLE;
+                        control_state <= STATE_UPDATE_READ;
                     end
+                end
+
+                STATE_FINALIZE_READ: begin
+                    control_state <= STATE_FINALIZE;
                 end
 
                 STATE_FINALIZE: begin
                     if (!finalize_output_row[0]) begin
-                        horizontal_pool_memory[finalize_pair_column]
-                            <= finalize_horizontal_word;
                         if (finalize_pair_column == HALF_WIDTH-1) begin
                             complete_finalized_row();
                         end else begin
                             advance_finalize_columns();
                         end
                     end else if (!output_valid_register || output_ready) begin
-                        output_valid_register <= 1'b1;
-                        output_address_register <= next_output_address;
-                        next_output_address <= next_output_address + 1'b1;
-                        output_current_register <= finalize_current_flat;
-                        output_spike_register <= finalize_spike_flat;
-                        output_membrane_register <= finalize_membrane_flat;
-                        output_range_error_register
-                            <= finalize_range_error;
-                        if (finalize_pair_column == HALF_WIDTH-1) begin
-                            control_state <= STATE_FINALIZE_DRAIN;
+                        if (UNIT_INPUT) begin
+                            pooled_word_register <= finalize_pooled_word;
+                            control_state <= STATE_L1_NEURON;
                         end else begin
-                            advance_finalize_columns();
+                            pooled_word_register <= finalize_pooled_word;
+                            neuron_channel_cursor <=
+                                {OUTPUT_CHANNEL_BITS{1'b0}};
+                            control_state <= STATE_L2_NEURON;
                         end
+                    end
+                end
+
+                STATE_L1_NEURON: begin
+                    output_valid_register <= 1'b1;
+                    output_address_register <= next_output_address;
+                    next_output_address <= next_output_address + 1'b1;
+                    output_current_register <= finalize_current_flat;
+                    output_spike_register <= finalize_spike_flat;
+                    output_membrane_register <= finalize_membrane_flat;
+                    output_range_error_register <= finalize_range_error;
+                    if (finalize_pair_column == HALF_WIDTH-1) begin
+                        control_state <= STATE_FINALIZE_DRAIN;
+                    end else begin
+                        advance_finalize_columns();
+                    end
+                end
+
+                STATE_L2_NEURON: begin
+                    serial_current_pipeline <= serial_clamped_current;
+                    serial_fraction_pipeline <=
+                        fraction_bits_registers[neuron_channel_cursor];
+                    serial_channel_pipeline <= neuron_channel_cursor;
+                    if (neuron_channel_cursor == OUTPUT_CHANNELS-1) begin
+                        control_state <= STATE_L2_NEURON_DRAIN;
+                    end else begin
+                        neuron_channel_cursor <= neuron_channel_cursor + 1'b1;
+                    end
+                end
+
+                STATE_L2_NEURON_DRAIN: begin
+                    output_valid_register <= 1'b1;
+                    output_address_register <= next_output_address;
+                    next_output_address <= next_output_address + 1'b1;
+                    if (finalize_pair_column == HALF_WIDTH-1) begin
+                        control_state <= STATE_FINALIZE_DRAIN;
+                    end else begin
+                        advance_finalize_columns();
                     end
                 end
 

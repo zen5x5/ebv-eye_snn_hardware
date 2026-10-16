@@ -1,0 +1,60 @@
+{
+  "model": "Pursuit user17 seed2022",
+  "simulator": "Vivado XSim",
+  "scope": "RTL functional simulation",
+  "status": "passed",
+  "mismatches": 0,
+  "simulation_summary": {
+    "trace_transactions": 5866,
+    "values_checked": 159408,
+    "total_cycles": 104005,
+    "frontend_cycles": 51305,
+    "convolution_cycles": 48609,
+    "dense_cycles": 4074,
+    "conv_weight_read_beats": 4068,
+    "linear_weight_read_beats": 1980,
+    "readout_weight_read_beats": 12,
+    "feature_read_requests": 25872,
+    "feature_write_transactions": 2016,
+    "accepted_events": 400,
+    "l1_emitted_packets": 3315,
+    "l2_accepted_packets": 3315,
+    "frontend_trace_collisions": 0
+  },
+  "event_stream": {
+    "source_count_tensor": {
+      "path": "evidence/current/golden_vectors/mem/vector_input_event_count_integer.mem",
+      "sha256": "9faeed347c58fe37bee7dac75b94693dc1ce57803d9a1e7570c3d37dd85c034b",
+      "lines": 24576
+    },
+    "generated_event_stream": {
+      "path": "/home/xen/project/02_eb_snn_gaze_system/ebv-eye_snn_hardware/build/current_replay_verified/input_events_sorted_row_column_polarity.mem",
+      "sha256": "e8380fc0a7fc024e7cb087eb6e8a7583130cd189b0d8a6cd5ce209f16e2d4ac1",
+      "lines": 400
+    },
+    "order": "row, column, polarity; repeated entries preserve count",
+    "events": 400,
+    "unique_polarity_positions": 362,
+    "maximum_multiplicity": 3
+  },
+  "source_sha256": {
+    "code/hardware/rtl/sparse_conv3x3_pool_lif_core.sv": "7ff763c729f789ba721c362a07f571db0261fdc15cc510ec6503359364ee4369",
+    "code/hardware/rtl/pursuit_sparse_l1_event_layer.sv": "180ae611767022628dc5e9f9792a8f0491a9154057f06a7b9954a79ca3337c08",
+    "code/hardware/rtl/pursuit_sparse_l2_packet_layer.sv": "687b1b59353888b808987a6489e2c4b6dea1e95f3c9f333f58d608f608fd6957",
+    "code/hardware/rtl/pursuit_sparse_frontend.sv": "2cd3889f455612788aa3f9c544bf5cf35755b8b20d983e4e46f1519b70347e40",
+    "code/hardware/rtl/programmable_padded_line_buffer_3x3.sv": "9adeed419406808f51748570831132177778a7b073f391079efd46dc9df8287f",
+    "code/hardware/rtl/programmable_maxpool2x2_stream.sv": "78b890025283657351f27b71eddcea248147b3333a2a9c017b6088ebc3567203",
+    "code/hardware/rtl/pipelined_count_mac_array.sv": "6b8557b01afb71ca20bfa8d47070add84ef52894c11bef13f7138f776c59803a",
+    "code/hardware/rtl/lif_multispike.sv": "3b8d1efa546e98695a7af0f9c3c9ebd3f08aaf5cb65b79c0d0db819d8c289ef9",
+    "code/hardware/rtl/paired_conv3x3_layer_engine.sv": "ed5bba151f6831a907fd9103e51ea44fdf55eb69273ee7cb7c824655e30009ff",
+    "code/hardware/rtl/pursuit_paired_feature_store.sv": "476e714167d845b5a9b883bc2a20ff791bba08d8dd11a67ce224e4b7eb1b272e",
+    "code/hardware/rtl/paired_linear_lif_layer_engine.sv": "7ad1e50e0aeae80efb9b6ff4716a8d2aeaaa004b8f879b3c1459dcce08dfb20b",
+    "code/hardware/rtl/readout_engine.sv": "bbfb01e469918b9198e00805da29b77c6ba1acd818f38f96002d46215e6d090b",
+    "code/hardware/rtl/pursuit_sparse_layer_major_accelerator_top.sv": "b873a5b85a31eae67c9b72a669c33f175885d541186d01118d845e267dc4a866",
+    "code/hardware/rtl/tb/tb_pursuit_sparse_layer_major_accelerator_top.sv": "e53244e07add7ad2ca16796e609236c19e9599b18fa3f2cfef3e92c0f74438f8",
+    "evidence/current/rtl_replay/full_walkthrough_monitor.sv": "49f7580aeee133e1ec86d390b5f3674f014d168102f8e5f3803dfc1f3b14273f"
+  },
+  "golden_manifest_sha256": "863659a5ff47e7a300770c463a06e6cf3fb34eddb2435e7adbef83ff167c9e52",
+  "image_layout_sha256": "e6abc3b98cc69e4edf818f2797a6c5ef159200af1a8680a4c48b625110e38d05",
+  "simulation_log_sha256": "632cea34e1b4aa07ca7175a0de982cc0e7a0f1ca6daa4819dfdc93ab920c4843"
+}

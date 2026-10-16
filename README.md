@@ -1,101 +1,73 @@
 # EBV-Eye SNN Hardware
 
-这个仓库保存 EBV-Eye 连续注视回归 SNN 的硬件交付件，供导师阅读、复核和继续研究。
-建议先读[导师硬件进展汇报](docs/hardware/07_advisor_hardware_progress.md)：报告从任务、
-400 事件输入和模型结构讲起，随后完整说明最终数据流、定点精度、三种硬件组织对照、
-RTL 正确性、AUP-ZU3 资源映射和已有工作的性能定位。
+当前交付版本：Pursuit user17/seed2022，2026-10-16。
 
-![最终硬件架构](docs/hardware/figures/ebv_eye_event_driven_layer_adjacent_architecture.svg)
+加速器接收一个样本的 400 个排序事件，依次完成八层卷积、两个脉冲全连接层和连续坐标读出。权重和中间数据保存在 FPGA 片上。当前实现已完成整网功能验证及 AUP-ZU3 对应器件的核心布局布线。
 
-下面的细化图进一步展开最终RTL中的PE阵列、逻辑片上存储、A/B特征回写和
-每个权重tile内的双时间步执行顺序。
+| 指标 | 当前结果 | 来源 |
+|---|---:|---|
+| 定点 test 平均角误差 | 0.488592°，1,364 个样本 | user17 软件量化 |
+| 整网检查 | 159,408 个值，零失配 | Vivado XSim |
+| 样本周期 | 104,005 拍 | 整网仿真 |
+| 核心频率 | 160 MHz | 已布线核心时序复核 |
+| 核心处理时间 | 0.65003125 ms | 周期 / 频率 |
+| 连续串行处理能力 | 约 1,538 样本/秒 | 按当前样本周期换算 |
+| LUT / FF | 61,657 / 24,835 | 布线后统计 |
+| DSP / BRAM36 等效 | 308 / 151 | 布线后统计 |
+| 片上功率估算 | 1.835 W | Vivado，无真实活动文件 |
+| 每次推理能量估算 | 约 1.193 mJ | 工具功率 × 核心处理时间 |
 
-![最终RTL的PE阵列与片上存储dataflow](docs/hardware/figures/ebv_eye_final_pe_bram_dataflow.svg)
+时间覆盖权重装载完成后的加速器核心；相机采集、事件成窗与排序、处理器传输及板级接口留待系统集成。当前已完成核心实现，板上推理和功率测量尚待完成。
 
-## 项目对象
+## 阅读顺序
 
-EBV-Eye 由朝向眼睛的事件相机产生异步事件。每个推理样本连续取得 400 个 ROI 事件，
-经 2×2 坐标缩减后等价为 `2×96×128` 的 ON/OFF 整数计数图，网络直接输出屏幕连续
-坐标 `(x, y)`。同一位置允许堆叠多个事件，因此输入不是二值图。
+1. [当前设计与逐层数据流](docs/hardware/current_design.md)。
+2. [与 Tan 和 FPGA 眼动追踪工作的性能比较](docs/hardware/comparison.md)。
+3. [机器证据与来源](evidence/README.md)、[本次验证](VALIDATION.md)。
+4. [早期实现记录](docs/history/pre_vivado_20261013.md)和[本机 Vivado 优化过程](docs/history/vivado_development_20261015.md)。
 
-SNN 包含八个 3×3 卷积脉冲层、两个脉冲全连接层和一个连续读出层，共 96,792 个参数。
-同一完整 400 事件表示重复为 `t0/t1` 两步；L1/L2 不保存跨步膜状态，L3 到 H2 保存
-状态。当前最终硬件采用：
+![当前数据通路](docs/hardware/figures/current_dataflow.svg)
 
-1. L1 直接消费 400 个单位事件，以 72 个 LUT 加法 lane 做稀疏散射；
-2. L2 仅消费 L1 的非零 U8 MultiSpike 包，以 48 个 DSP 做计数乘权重；
-3. L3～L8 共用一个 288-DSP 卷积核心，每层内相邻执行 `t0/t1`；
-4. H1/H2 共用 16-DSP 线性引擎，readout 用 2 个 DSP 输出连续坐标。
+## 复现当前整网
 
-## 已完成结果
-
-- 48 个正式模型、54,105 个 test 输入完成 16 位定点评估：Pursuit 为
-  `0.823945° -> 0.825481°`，Saccade 连续回归为 `1.325509° -> 1.326037°`。
-- 三个 seed、426 个 validation 样本的软件位精确稀疏回放检查
-  `345,080,448` 个中间值，失配为 0。
-- seed2022 validation 样本 0 的最终整网 RTL 检查 `159,408` 个值，失配为 0，
-  完成时间为 67,929 拍。
-- 最终组织相对稠密扫描基线将 scheduled lane slot 减少 45.79%，平均周期减少
-  18.42%；在 200 MHz 设计点下对应 0.340 ms 和 2,943.6 sample/s。
-- Yosys UltraScale+ primitive mapping 为 354 DSP48E2、80.5 BRAM36 等效和
-  36,124 FF。现有结果覆盖位精确定点、可综合 RTL、Icarus/Verilator 验证、周期、
-  访存和 Yosys 映射；没有 Vivado 布局布线后的 Fmax、功率或板上测量。
-
-## 仓库导航
-
-| 目录 | 内容 |
-|---|---|
-| `docs/hardware/07_advisor_hardware_progress.md` | 自包含的导师汇报，主阅读入口 |
-| `docs/hardware/01...06` | 数据流、定点、完整 RTL 和正式量化的技术报告 |
-| `docs/hardware/figures/` | 总体架构图与PE/片上存储细化图的SVG、PDF、PNG |
-| `docs/related_work/` | FPGA/SNN 加速器文献复核与比较边界 |
-| `docs/model/` | 输入组织、ANN 基线与 SNN 时间参数的算法背景 |
-| `code/hardware/rtl/` | L1～readout RTL、三套完整顶层和 testbench |
-| `code/hardware/*.py` | 定点参考、golden 生成、统计和 RTL 回放脚本 |
-| `code/hardware/vivado/` | AUP-ZU3 OOC 综合与实现入口，当前未执行 |
-| `code/pursuit/fixed_event_window/` | 与硬件语义对应的 ANN/SNN 模型和训练代码 |
-| `evidence/` | 可移植 golden、硬件镜像及已验收机器结果 |
-| `VALIDATION.md` | 独立仓库导出后的实际 RTL 复核记录 |
-
-最终整网顶层是
-`code/hardware/rtl/pursuit_sparse_layer_major_accelerator_top.sv`。代码中的
-`dense_tm`、`sparse_tm` 和 `sparse_lm_a` 是历史机器标识；报告使用更直观的
-“稠密扫描基线”“仅浅层事件驱动”“浅层事件驱动＋深层逐层相邻执行双时间步”。
-
-## 复核最终整网 RTL
-
-在仓库根目录创建独立开源 RTL 环境：
+在仓库根目录，启用 Vivado 2025.2.1 后运行：
 
 ```bash
-micromamba create -y -p ./.env-rtl -f code/hardware/environment.yml
+source /opt/amd/2025.2.1/Vivado/settings64.sh
+python -B scripts/verify_evidence.py
+python -B scripts/replay_current.py --output-dir build/replay
 ```
 
-然后运行最终顶层的完整逐拍回放。输出目录必须事先不存在：
+回放入口只使用 Python 标准库和 Vivado 自带的 xvlog、xelab、xsim。它检查随仓库提供的真实样本、参数和逐层标准结果，预期得到 104,005 拍、159,408 个值零失配。输出目录使用新的空路径。
+
+重新执行核心综合、布局和布线：
 
 ```bash
-./.env-rtl/bin/python -m code.hardware.run_sparse_layer_major_golden_check \
-  --golden-dir evidence/golden_vectors_seed2022 \
-  --image-dir evidence/hardware_image_stateless_seed2022 \
-  --output-dir /tmp/ebv-eye-final-rtl-replay \
-  --skip-mapping
+bash code/hardware/vivado/run_sparse_ooc.sh build/route160 sparse_lm_a
 ```
 
-该命令会重建 400 事件流和全部逐层 trace，运行 Icarus 仿真与 Verilator lint。
-预期 `report.json` 记录 159,408 个检查值、0 个失配和 67,929 拍；删除
-`--skip-mapping` 后还会运行耗时更长的 Yosys UltraScale+ primitive mapping。
+该入口默认 6.250 ns，即 160 MHz。详细参数见 [Vivado 入口](code/hardware/vivado/README.md)。已归档的时序证据来自 200 MHz 目标下布线后，在相同布线结果上覆盖为 160 MHz 的时序复核。
 
-仓库文件清单可用下列命令检查：
+检查仓库文件：
 
 ```bash
 sha256sum -c MANIFEST.sha256
 ```
 
-golden manifest 内部逐文件哈希可另行检查：
+## 目录
 
-```bash
-python scripts/verify_evidence.py
-```
+| 位置 | 内容 |
+|---|---|
+| code/hardware/rtl/ | 当前硬件描述、单元测试和历史基线 |
+| code/hardware/vivado/ | 器件相关综合、实现与时序脚本 |
+| code/hardware/*.py | 定点参考和数值验证工具 |
+| code/pursuit/ | 与硬件语义对应的模型代码 |
+| scripts/ | 当前 XSim 回放和资产检查 |
+| evidence/current/ | user17 标准向量、权重、量化、仿真、布线报告 |
+| evidence/formal_quantization/ | 48 模型正式量化结果 |
+| evidence/rtl_three_route/ | user15 早期三路线对照 |
+| docs/hardware/ | 当前设计和外部比较 |
+| docs/history/ | 两篇保留的历史阶段记录 |
 
-`evidence/README.md`说明每组机器证据的范围和复现关系。原始 EBV-Eye 数据、正式缓存
-与训练 checkpoint 未复制到这个仓库；它们不影响随仓库提供的 RTL golden 回放。
+本次整理用当前 user17 资产替换旧 user15 回放资产，合并重复设计说明，并移除旧架构图及其生成器。早期完整版本可从 Git 提交 3fef30e 恢复。
 
