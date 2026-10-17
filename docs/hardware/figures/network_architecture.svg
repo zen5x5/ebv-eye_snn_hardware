@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="430" viewBox="0 0 1280 430" role="img" aria-labelledby="title description">
+  <title id="title">EBV-Eye SNN 网络结构</title>
+  <desc id="description">400 个事件形成两个极性的 96 乘 128 空间表示，依次经过 L1 至 L5 五个卷积池化脉冲层、L6 至 L8 三个卷积脉冲层、480 到 60 到 12 的脉冲全连接层、两个时间步平均及 12 到 2 的线性读出，输出连续屏幕注视坐标。共 96792 个参数，两个逻辑时间步。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10Z" fill="#52687b"/>
+    </marker>
+  </defs>
+  <rect width="1280" height="430" rx="16" fill="#f5f7fb"/>
+  <g font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" fill="#203449">
+    <text x="24" y="42" font-size="27" font-weight="700">400 事件输入 → 脉冲神经网络 → 连续注视坐标</text>
+    <text x="24" y="75" font-size="18" fill="#536578">8 层卷积 · 2 层脉冲全连接 · 96,792 个参数 · T = 2</text>
+
+    <rect x="20" y="108" width="168" height="228" rx="12" fill="#ffffff" stroke="#b5c2d0"/>
+    <text x="38" y="143" font-size="21" font-weight="700">输入</text>
+    <text x="38" y="193" font-size="19">400 个眼部事件</text>
+    <text x="38" y="230" font-size="19">2 × 96 × 128</text>
+    <text x="38" y="264" font-size="16" fill="#536578">2 个极性通道</text>
+    <text x="38" y="308" font-size="15" fill="#536578">事件按行排序</text>
+
+    <rect x="212" y="108" width="382" height="228" rx="12" fill="#e8f3ee" stroke="#a2c7b6"/>
+    <text x="230" y="143" font-size="21" font-weight="700">L1–L5：卷积与空间缩小</text>
+    <text x="230" y="173" font-size="15" fill="#425e50">3×3 卷积＋归一化＋2×2 最大池化＋脉冲</text>
+    <text x="230" y="210" font-size="18">L1　2 → 8</text>
+    <text x="423" y="210" font-size="18">8 × 48 × 64</text>
+    <text x="230" y="236" font-size="18">L2　8 → 16</text>
+    <text x="423" y="236" font-size="18">16 × 24 × 32</text>
+    <text x="230" y="262" font-size="18">L3　16 → 24</text>
+    <text x="423" y="262" font-size="18">24 × 12 × 16</text>
+    <text x="230" y="288" font-size="18">L4　24 → 32</text>
+    <text x="423" y="288" font-size="18">32 × 6 × 8</text>
+    <text x="230" y="314" font-size="18">L5　32 → 40</text>
+    <text x="423" y="314" font-size="18">40 × 3 × 4</text>
+
+    <rect x="618" y="108" width="176" height="228" rx="12" fill="#e8eefb" stroke="#adbee4"/>
+    <text x="636" y="143" font-size="21" font-weight="700">L6–L8</text>
+    <text x="636" y="176" font-size="16">3×3 卷积</text>
+    <text x="636" y="202" font-size="16">＋归一化＋脉冲</text>
+    <text x="636" y="239" font-size="18">每层 40 → 40</text>
+    <text x="636" y="277" font-size="18">40 × 3 × 4</text>
+    <text x="636" y="311" font-size="15" fill="#536578">空间尺寸保持</text>
+
+    <rect x="818" y="108" width="210" height="228" rx="12" fill="#f0eafa" stroke="#c5b3df"/>
+    <text x="836" y="143" font-size="21" font-weight="700">H1 / H2</text>
+    <text x="836" y="181" font-size="18">展平为 480 个值</text>
+    <text x="836" y="223" font-size="19">H1　480 → 60</text>
+    <text x="836" y="262" font-size="19">H2　60 → 12</text>
+    <text x="836" y="308" font-size="14" fill="#655578">全连接＋归一化＋脉冲</text>
+
+    <rect x="1052" y="108" width="208" height="228" rx="12" fill="#fff3df" stroke="#dcc49c"/>
+    <text x="1070" y="143" font-size="21" font-weight="700">坐标读出</text>
+    <text x="1070" y="190" font-size="17">两个时间步取均值</text>
+    <text x="1070" y="232" font-size="19">线性层 12 → 2</text>
+    <text x="1070" y="274" font-size="19">屏幕坐标 (x, y)</text>
+    <text x="1070" y="311" font-size="15" fill="#756043">连续坐标回归</text>
+
+    <text x="24" y="374" font-size="17">同一个 400 事件表示用于 t0、t1；L1/L2 无跨步膜状态，L3–H2 保留两步之间的膜状态。</text>
+    <text x="24" y="405" font-size="16" fill="#536578">尺寸记法：通道数 × 高 × 宽；归一化参数在硬件推理前合入权重与常量。</text>
+  </g>
+  <g fill="none" stroke="#52687b" stroke-width="2" marker-end="url(#arrow)">
+    <path d="M188 222 H210"/>
+    <path d="M594 222 H616"/>
+    <path d="M794 222 H816"/>
+    <path d="M1028 222 H1050"/>
+  </g>
+</svg>
