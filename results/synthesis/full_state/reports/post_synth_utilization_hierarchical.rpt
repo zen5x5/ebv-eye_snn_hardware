@@ -1,0 +1,64 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2.1 (lin64) Build 6403652 Thu Mar 19 13:47:00 MDT 2026
+| Date         : Sat Oct 17 22:38:53 2026
+| Host         : xen-dell-g15-5520 running 64-bit Ubuntu 24.04.5 LTS
+| Command      : report_utilization -hierarchical -file /home/xen/project/02_eb_snn_gaze_system/results/vivado/20261017_state_depth_trained_seed2021_synthesis/full_state/reports/post_synth_utilization_hierarchical.rpt
+| Design       : pursuit_state_depth_timing_top
+| Device       : xczu3eg-sfvc784-2-e
+| Speed File   : -2
+| Design State : Synthesized
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++------------------------------------+-------------------------------------+------------+------------+---------+------+-------+--------+--------+------+------------+
+|              Instance              |                Module               | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs  | RAMB36 | RAMB18 | URAM | DSP Blocks |
++------------------------------------+-------------------------------------+------------+------------+---------+------+-------+--------+--------+------+------------+
+| pursuit_state_depth_timing_top     |                               (top) |      30228 |      29732 |      40 |  456 | 17120 |    159 |     23 |    0 |        308 |
+|   (pursuit_state_depth_timing_top) |                               (top) |        477 |        477 |       0 |    0 |  1324 |      0 |      0 |    0 |          0 |
+|   core                             | pursuit_state_depth_accelerator_top |      29751 |      29255 |      40 |  456 | 15796 |    159 |     23 |    0 |        308 |
+|     (core)                         | pursuit_state_depth_accelerator_top |         65 |         25 |      40 |    0 |  1640 |     56 |      2 |    0 |          0 |
+|     convolution_engine             |       dense_state_depth_conv_engine |      17317 |      16861 |       0 |  456 | 11020 |     87 |      5 |    0 |        308 |
+|       (convolution_engine)         |       dense_state_depth_conv_engine |        280 |        280 |       0 |    0 |  2092 |     83 |      2 |    0 |          0 |
+|       gen_lif[0].neuron            |                      lif_multispike |        293 |        293 |       0 |    0 |    58 |      0 |      0 |    0 |          0 |
+|       gen_lif[1].neuron            |                   lif_multispike_15 |        268 |        268 |       0 |    0 |    55 |      0 |      0 |    0 |          0 |
+|       gen_lif[2].neuron            |                   lif_multispike_16 |        269 |        269 |       0 |    0 |    55 |      0 |      0 |    0 |          0 |
+|       gen_lif[3].neuron            |                   lif_multispike_17 |        268 |        268 |       0 |    0 |    55 |      0 |      0 |    0 |          0 |
+|       gen_lif[4].neuron            |                   lif_multispike_18 |        268 |        268 |       0 |    0 |    55 |      0 |      0 |    0 |          0 |
+|       gen_lif[5].neuron            |                   lif_multispike_19 |        269 |        269 |       0 |    0 |    55 |      0 |      0 |    0 |          0 |
+|       gen_lif[6].neuron            |                   lif_multispike_20 |        268 |        268 |       0 |    0 |    55 |      0 |      0 |    0 |          0 |
+|       gen_lif[7].neuron            |                   lif_multispike_21 |        268 |        268 |       0 |    0 |    55 |      0 |      0 |    0 |          0 |
+|       line_buffer                  | programmable_padded_line_buffer_3x3 |         98 |         98 |       0 |    0 |   456 |      0 |      2 |    0 |          0 |
+|       mac_array                    |           pipelined_count_mac_array |      13302 |      12846 |       0 |  456 |  6718 |      0 |      0 |    0 |        308 |
+|       max_pool                     |      programmable_maxpool2x2_stream |       1586 |       1586 |       0 |    0 |  1311 |      4 |      1 |    0 |          0 |
+|     feature_store                  |   pursuit_state_depth_feature_store |        660 |        660 |       0 |    0 |     6 |     16 |     16 |    0 |          0 |
+|     linear_engine                  |      paired_linear_lif_layer_engine |      11143 |      11143 |       0 |    0 |  2860 |      0 |      0 |    0 |          0 |
+|       (linear_engine)              |      paired_linear_lif_layer_engine |       4230 |       4230 |       0 |    0 |  2458 |      0 |      0 |    0 |          0 |
+|       gen_neurons[0].neuron        |      lif_multispike__parameterized0 |        438 |        438 |       0 |    0 |    25 |      0 |      0 |    0 |          0 |
+|       gen_neurons[10].neuron       |    lif_multispike__parameterized0_0 |        423 |        423 |       0 |    0 |    25 |      0 |      0 |    0 |          0 |
+|       gen_neurons[11].neuron       |    lif_multispike__parameterized0_1 |        424 |        424 |       0 |    0 |    25 |      0 |      0 |    0 |          0 |
+|       gen_neurons[12].neuron       |    lif_multispike__parameterized0_2 |        431 |        431 |       0 |    0 |    25 |      0 |      0 |    0 |          0 |
+|       gen_neurons[13].neuron       |    lif_multispike__parameterized0_3 |        429 |        429 |       0 |    0 |    25 |      0 |      0 |    0 |          0 |
+|       gen_neurons[14].neuron       |    lif_multispike__parameterized0_4 |        428 |        428 |       0 |    0 |    25 |      0 |      0 |    0 |          0 |
+|       gen_neurons[15].neuron       |    lif_multispike__parameterized0_5 |        434 |        434 |       0 |    0 |    25 |      0 |      0 |    0 |          0 |
+|       gen_neurons[1].neuron        |    lif_multispike__parameterized0_6 |        436 |        436 |       0 |    0 |    25 |      0 |      0 |    0 |          0 |
+|       gen_neurons[2].neuron        |    lif_multispike__parameterized0_7 |        437 |        437 |       0 |    0 |    25 |      0 |      0 |    0 |          0 |
+|       gen_neurons[3].neuron        |    lif_multispike__parameterized0_8 |        436 |        436 |       0 |    0 |    25 |      0 |      0 |    0 |          0 |
+|       gen_neurons[4].neuron        |    lif_multispike__parameterized0_9 |        445 |        445 |       0 |    0 |    26 |      0 |      0 |    0 |          0 |
+|       gen_neurons[5].neuron        |   lif_multispike__parameterized0_10 |        437 |        437 |       0 |    0 |    25 |      0 |      0 |    0 |          0 |
+|       gen_neurons[6].neuron        |   lif_multispike__parameterized0_11 |        437 |        437 |       0 |    0 |    25 |      0 |      0 |    0 |          0 |
+|       gen_neurons[7].neuron        |   lif_multispike__parameterized0_12 |        434 |        434 |       0 |    0 |    25 |      0 |      0 |    0 |          0 |
+|       gen_neurons[8].neuron        |   lif_multispike__parameterized0_13 |        422 |        422 |       0 |    0 |    25 |      0 |      0 |    0 |          0 |
+|       gen_neurons[9].neuron        |   lif_multispike__parameterized0_14 |        422 |        422 |       0 |    0 |    26 |      0 |      0 |    0 |          0 |
+|     output_engine                  |                      readout_engine |        600 |        600 |       0 |    0 |   270 |      0 |      0 |    0 |          0 |
++------------------------------------+-------------------------------------+------------+------------+---------+------+-------+--------+--------+------+------------+
+
+

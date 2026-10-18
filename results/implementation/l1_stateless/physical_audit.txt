@@ -1,0 +1,15 @@
+vivado_version=2025.2.1
+part=xczu3eg-sfvc784-2-e
+clock_period_ns=6.250
+clock_net=compute_clk
+clock_route_status=ROUTED
+clock_buffer_site=BUFGCE_X0Y25
+clock_package_pin=K4
+core_register_count=18300
+critical_warning_count=0
+core_to_core -setup slack=0.021 start=core/linear_engine/FSM_onehot_control_state_reg[3]_replica_1/C end=core/linear_engine/gen_neurons[10].neuron/membrane_integer_reg[2]/D
+core_to_core -hold slack=0.010 start=core/convolution_engine/lif_channel_base_pre_delayed_reg[4]/C end=core/convolution_engine/lif_channel_base_delayed_reg[4]/D
+input_to_registers -setup slack=3.282 start=host_write_data[21] end=write_data_reg[21]/D
+input_to_registers -hold slack=0.039 start=host_address[4] end=address_reg[4]/D
+registers_to_output -setup slack=0.322 start=host_read_data_reg[1]/C end=host_read_data[1]
+registers_to_output -hold slack=2.772 start=host_read_data_reg[23]/C end=host_read_data[23]

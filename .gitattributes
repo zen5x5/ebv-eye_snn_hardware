@@ -1,2 +1,10 @@
-# Preserve the original formatting and bytes of generated Vivado reports.
-evidence/current/vivado/reports/*.rpt -text -whitespace
+# Preserve the exact bytes of measured RTL, models and published evidence.
+hardware/rtl/*.sv -text -whitespace
+tests/rtl/*.sv -text -whitespace
+models/** -text
+fixtures/** -text
+results/** -text -whitespace
+*.py text eol=lf
+*.tcl text eol=lf
+*.md text eol=lf
+hardware/quantization/integer_reference.py -whitespace

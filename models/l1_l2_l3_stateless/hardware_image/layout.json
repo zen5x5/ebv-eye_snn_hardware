@@ -1,0 +1,253 @@
+{
+  "artifacts": {
+    "constants": {
+      "lines": 320,
+      "path": "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/hardware/state_depth_trained_seed2021_20261017/l1_l2_l3_stateless/hardware_image/layer_constants_s24.mem",
+      "sha256": "a48bdaeb777bdf2c5866ec873dce0b70d94d00ba2472eb1ee0290bbb9ae01173"
+    },
+    "convolution_beats": {
+      "lines": 4158,
+      "path": "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/hardware/state_depth_trained_seed2021_20261017/l1_l2_l3_stateless/hardware_image/conv_weights_tiled_256.mem",
+      "sha256": "b5728842727115cb610de00af39fd9c2260f3cdac86ff61cc42370d3f264243c"
+    },
+    "convolution_words": {
+      "lines": 66528,
+      "path": "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/hardware/state_depth_trained_seed2021_20261017/l1_l2_l3_stateless/hardware_image/conv_weights_tiled_s16.mem",
+      "sha256": "3cfea23358e7be929407c7abbd6500f4990a0d588aacf87a16226d2a662ce28d"
+    },
+    "fractions": {
+      "lines": 320,
+      "path": "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/hardware/state_depth_trained_seed2021_20261017/l1_l2_l3_stateless/hardware_image/layer_fraction_bits_u5.mem",
+      "sha256": "94375ee3d2346dd131c06e3c75f63c34c4a26f9fb8115af1cbc38f6a7db800b8"
+    },
+    "linear_beats": {
+      "lines": 1992,
+      "path": "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/hardware/state_depth_trained_seed2021_20261017/l1_l2_l3_stateless/hardware_image/linear_weights_input_major_256.mem",
+      "sha256": "0850e2876b47674320b9050264253cd47208a1f7cac1498509e4c40cb08e11ac"
+    },
+    "linear_words": {
+      "lines": 31872,
+      "path": "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/hardware/state_depth_trained_seed2021_20261017/l1_l2_l3_stateless/hardware_image/linear_weights_input_major_s16.mem",
+      "sha256": "6c4ce347d982fb1e6dc1ac99e8123bbf0e7828fb7589e68c7e23c7a871b68c41"
+    },
+    "readout_fractions": {
+      "lines": 2,
+      "path": "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/hardware/state_depth_trained_seed2021_20261017/l1_l2_l3_stateless/hardware_image/readout_fraction_bits_u5.mem",
+      "sha256": "fa4ab1fc185550a1c093c3aabdc1efeafe36192a2cafda56d838104bd7f98879"
+    }
+  },
+  "channel_parameters": {
+    "constant_bits": 24,
+    "fraction_bits": 5,
+    "layers": {
+      "H1": {
+        "record_offset": 240,
+        "records": 64,
+        "valid_records": 60
+      },
+      "H2": {
+        "record_offset": 304,
+        "records": 16,
+        "valid_records": 12
+      },
+      "L1": {
+        "record_offset": 0,
+        "records": 8,
+        "valid_records": 8
+      },
+      "L2": {
+        "record_offset": 8,
+        "records": 16,
+        "valid_records": 16
+      },
+      "L3": {
+        "record_offset": 24,
+        "records": 24,
+        "valid_records": 24
+      },
+      "L4": {
+        "record_offset": 48,
+        "records": 32,
+        "valid_records": 32
+      },
+      "L5": {
+        "record_offset": 80,
+        "records": 40,
+        "valid_records": 40
+      },
+      "L6": {
+        "record_offset": 120,
+        "records": 40,
+        "valid_records": 40
+      },
+      "L7": {
+        "record_offset": 160,
+        "records": 40,
+        "valid_records": 40
+      },
+      "L8": {
+        "record_offset": 200,
+        "records": 40,
+        "valid_records": 40
+      }
+    },
+    "order": "L1..L8,H1,H2; each padded to a multiple of 8 outputs"
+  },
+  "convolution": {
+    "beat_bits": 256,
+    "input_channel_lanes": 4,
+    "kernel_taps": 9,
+    "layers": {
+      "L1": {
+        "beat_offset": 0,
+        "beats_per_tile": 18,
+        "input_channels": 2,
+        "input_tiles": 1,
+        "output_channels": 8,
+        "output_tiles": 1,
+        "tiles": 1,
+        "word_offset": 0,
+        "words_per_tile": 288
+      },
+      "L2": {
+        "beat_offset": 18,
+        "beats_per_tile": 18,
+        "input_channels": 8,
+        "input_tiles": 2,
+        "output_channels": 16,
+        "output_tiles": 2,
+        "tiles": 4,
+        "word_offset": 288,
+        "words_per_tile": 288
+      },
+      "L3": {
+        "beat_offset": 90,
+        "beats_per_tile": 18,
+        "input_channels": 16,
+        "input_tiles": 4,
+        "output_channels": 24,
+        "output_tiles": 3,
+        "tiles": 12,
+        "word_offset": 1440,
+        "words_per_tile": 288
+      },
+      "L4": {
+        "beat_offset": 306,
+        "beats_per_tile": 18,
+        "input_channels": 24,
+        "input_tiles": 6,
+        "output_channels": 32,
+        "output_tiles": 4,
+        "tiles": 24,
+        "word_offset": 4896,
+        "words_per_tile": 288
+      },
+      "L5": {
+        "beat_offset": 738,
+        "beats_per_tile": 18,
+        "input_channels": 32,
+        "input_tiles": 8,
+        "output_channels": 40,
+        "output_tiles": 5,
+        "tiles": 40,
+        "word_offset": 11808,
+        "words_per_tile": 288
+      },
+      "L6": {
+        "beat_offset": 1458,
+        "beats_per_tile": 18,
+        "input_channels": 40,
+        "input_tiles": 10,
+        "output_channels": 40,
+        "output_tiles": 5,
+        "tiles": 50,
+        "word_offset": 23328,
+        "words_per_tile": 288
+      },
+      "L7": {
+        "beat_offset": 2358,
+        "beats_per_tile": 18,
+        "input_channels": 40,
+        "input_tiles": 10,
+        "output_channels": 40,
+        "output_tiles": 5,
+        "tiles": 50,
+        "word_offset": 37728,
+        "words_per_tile": 288
+      },
+      "L8": {
+        "beat_offset": 3258,
+        "beats_per_tile": 18,
+        "input_channels": 40,
+        "input_tiles": 10,
+        "output_channels": 40,
+        "output_tiles": 5,
+        "tiles": 50,
+        "word_offset": 52128,
+        "words_per_tile": 288
+      }
+    },
+    "order": "layer, output_tile, input_tile, output_lane, input_lane, kernel_row_major",
+    "output_pes": 8,
+    "weight_bits": 16,
+    "weights_per_beat": 16
+  },
+  "linear": {
+    "beat_bits": 256,
+    "layers": {
+      "H1": {
+        "beat_offset": 0,
+        "beats_per_input": 4,
+        "input_features": 480,
+        "output_features": 60,
+        "output_groups": 4,
+        "word_offset": 0,
+        "words_per_input": 64
+      },
+      "H2": {
+        "beat_offset": 1920,
+        "beats_per_input": 1,
+        "input_features": 60,
+        "output_features": 12,
+        "output_groups": 1,
+        "word_offset": 30720,
+        "words_per_input": 16
+      },
+      "readout": {
+        "beat_offset": 1980,
+        "beats_per_input": 1,
+        "input_features": 12,
+        "output_features": 2,
+        "output_groups": 1,
+        "word_offset": 31680,
+        "words_per_input": 16
+      }
+    },
+    "order": "layer, input_index, output_group, output_lane",
+    "output_lanes": 16,
+    "weight_bits": 16,
+    "weights_per_beat": 16
+  },
+  "packer": {
+    "path": "/data/xuzx/project/ebv-eye/code/hardware/pack_pursuit_hardware_image.py",
+    "sha256": "660e1eb20bd4c7eaac747ef2ad755aa20338d258f0aaf81ac3294ac97f900a64"
+  },
+  "readout": {
+    "fraction_bits_artifact": "readout_fractions",
+    "normalization": "raw_integer / 2^(fraction_bits + 1)",
+    "outputs": 2
+  },
+  "schema_version": 1,
+  "scope": "pursuit_fixed_point_hardware_streaming_parameter_image",
+  "self_check": "every packed convolution and linear tensor reconstructed exactly",
+  "source": {
+    "golden_manifest": {
+      "path": "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/hardware/state_depth_trained_seed2021_20261017/l1_l2_l3_stateless/golden/manifest.json",
+      "sha256": "c1b71ac31cf617575932a92546a38b3c27a69e9f04192c25faebd82f2ea7ce05"
+    },
+    "parameters_npz": {
+      "path": "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/hardware/state_depth_trained_seed2021_20261017/l1_l2_l3_stateless/golden/parameters.npz",
+      "sha256": "46a30f4ab9c030d4a787888918b18d154f91b279f89d979ddfda9e548ec14dcb"
+    }
+  }
+}

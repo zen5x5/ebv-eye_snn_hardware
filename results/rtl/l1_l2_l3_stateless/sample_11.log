@@ -1,0 +1,42 @@
+#-----------------------------------------------------------
+# xsim v2025.2.1 (64-bit)
+# SW Build 6403652 on Thu Mar 19 13:47:00 MDT 2026
+# IP Build 6403511 on Thu Mar 19 12:41:45 MDT 2026
+# SharedData Build 6403650 on Thu Mar 19 14:02:13 MDT 2026
+# Start of session at: Sat Oct 17 22:39:53 2026
+# Process ID         : 104516
+# Current directory  : /home/xen/project/02_eb_snn_gaze_system/results/rtl_validation/state_depth_trained_seed2021_20261017/rtl/l1_l2_l3_stateless
+# Command line       : xsim -log /home/xen/project/02_eb_snn_gaze_system/results/rtl_validation/state_depth_trained_seed2021_20261017/rtl/l1_l2_l3_stateless/sample_11.log -mode tcl -source {xsim.dir/state_depth_3/xsim_script.tcl}
+# Log file           : /home/xen/project/02_eb_snn_gaze_system/results/rtl_validation/state_depth_trained_seed2021_20261017/rtl/l1_l2_l3_stateless/sample_11.log
+# Journal file       : /home/xen/project/02_eb_snn_gaze_system/results/rtl_validation/state_depth_trained_seed2021_20261017/rtl/l1_l2_l3_stateless/xsim.jou
+# Running On         : xen-dell-g15-5520
+# Platform           : Ubuntu
+# Operating System   : Ubuntu 24.04.5 LTS
+# Processor Detail   : 12th Gen Intel(R) Core(TM) i7-12700H
+# CPU Frequency      : 2202.763 MHz
+# CPU Physical cores : 14
+# CPU Logical cores  : 20
+# Host memory        : 33322 MB
+# Swap memory        : 2147 MB
+# Total Virtual      : 35469 MB
+# Available Virtual  : 26005 MB
+#-----------------------------------------------------------
+source xsim.dir/state_depth_3/xsim_script.tcl
+# xsim {state_depth_3} -testplusarg IMAGE_DIRECTORY=/home/xen/project/02_eb_snn_gaze_system/results/rtl_validation/state_depth_trained_seed2021_20261017/l1_l2_l3_stateless/hardware_image -testplusarg SAMPLE_DIRECTORY=/home/xen/project/02_eb_snn_gaze_system/results/rtl_validation/state_depth_trained_seed2021_20261017/l1_l2_l3_stateless/golden/sample_11 -autoloadwcfg -tclbatch {/home/xen/project/02_eb_snn_gaze_system/results/rtl_validation/state_depth_trained_seed2021_20261017/rtl/source_snapshot/run_xsim_all.tcl}
+Time resolution is 1 ps
+source /home/xen/project/02_eb_snn_gaze_system/results/rtl_validation/state_depth_trained_seed2021_20261017/rtl/source_snapshot/run_xsim_all.tcl
+## run all
+PASS: state-depth register-bus replay transactions=6058 values=145584 core_cycles=72101
+LAYER layer=1 cycles=12779 state_write_groups=0 state_read_groups=0 mac_issue_groups=12288
+LAYER layer=2 cycles=13340 state_write_groups=0 state_read_groups=0 mac_issue_groups=12288
+LAYER layer=3 cycles=11009 state_write_groups=0 state_read_groups=0 mac_issue_groups=9216
+LAYER layer=4 cycles=7046 state_write_groups=192 state_read_groups=192 mac_issue_groups=4608
+LAYER layer=5 cycles=8187 state_write_groups=60 state_read_groups=60 mac_issue_groups=3840
+LAYER layer=6 cycles=5217 state_write_groups=60 state_read_groups=60 mac_issue_groups=1200
+LAYER layer=7 cycles=5217 state_write_groups=60 state_read_groups=60 mac_issue_groups=1200
+LAYER layer=8 cycles=5217 state_write_groups=60 state_read_groups=60 mac_issue_groups=1200
+$finish called at time : 1148484475 ps : File "/home/xen/project/02_eb_snn_gaze_system/results/rtl_validation/state_depth_trained_seed2021_20261017/rtl/source_snapshot/tb_pursuit_state_depth_timing_top.sv" Line 180
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 1389.414 ; gain = 0.000 ; free physical = 21351 ; free virtual = 24712
+## quit
+INFO: xsimkernel Simulation Memory Usage: 292896 KB (Peak: 345360 KB), Simulation CPU Usage: 8160 ms
+INFO: [Common 17-206] Exiting xsim at Sat Oct 17 22:40:04 2026...

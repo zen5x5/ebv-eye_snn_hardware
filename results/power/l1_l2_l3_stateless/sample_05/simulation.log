@@ -1,0 +1,92 @@
+#-----------------------------------------------------------
+# xsim v2025.2.1 (64-bit)
+# SW Build 6403652 on Thu Mar 19 13:47:00 MDT 2026
+# IP Build 6403511 on Thu Mar 19 12:41:45 MDT 2026
+# SharedData Build 6403650 on Thu Mar 19 14:02:13 MDT 2026
+# Start of session at: Sun Oct 18 10:57:45 2026
+# Process ID         : 141771
+# Current directory  : /home/xen/project/02_eb_snn_gaze_system/results/vivado/20261017_state_depth_trained_seed2021_physical_power/activity_functional/l1_l2_l3_stateless
+# Command line       : xsim -log /home/xen/project/02_eb_snn_gaze_system/results/vivado/20261017_state_depth_trained_seed2021_physical_power/activity_functional/l1_l2_l3_stateless/sample_05/simulation.log -mode tcl -source {xsim.dir/power_netlist/xsim_script.tcl}
+# Log file           : /home/xen/project/02_eb_snn_gaze_system/results/vivado/20261017_state_depth_trained_seed2021_physical_power/activity_functional/l1_l2_l3_stateless/sample_05/simulation.log
+# Journal file       : /home/xen/project/02_eb_snn_gaze_system/results/vivado/20261017_state_depth_trained_seed2021_physical_power/activity_functional/l1_l2_l3_stateless/xsim.jou
+# Running On         : xen-dell-g15-5520
+# Platform           : Ubuntu
+# Operating System   : Ubuntu 24.04.5 LTS
+# Processor Detail   : 12th Gen Intel(R) Core(TM) i7-12700H
+# CPU Frequency      : 4438.993 MHz
+# CPU Physical cores : 14
+# CPU Logical cores  : 20
+# Host memory        : 33322 MB
+# Swap memory        : 2147 MB
+# Total Virtual      : 35469 MB
+# Available Virtual  : 29951 MB
+#-----------------------------------------------------------
+source xsim.dir/power_netlist/xsim_script.tcl
+# xsim {power_netlist} -testplusarg IMAGE_DIRECTORY=/home/xen/project/02_eb_snn_gaze_system/results/rtl_validation/state_depth_trained_seed2021_20261017/l1_l2_l3_stateless/hardware_image -testplusarg SAMPLE_DIRECTORY=/home/xen/project/02_eb_snn_gaze_system/results/rtl_validation/state_depth_trained_seed2021_20261017/l1_l2_l3_stateless/golden/sample_05 -testplusarg EXPECTED_CYCLES=72101 -autoloadwcfg -tclbatch {/home/xen/project/02_eb_snn_gaze_system/results/vivado/20261017_state_depth_trained_seed2021_physical_power/activity_functional/source_snapshot/run_state_depth_saif.tcl}
+Time resolution is 1 ps
+source /home/xen/project/02_eb_snn_gaze_system/results/vivado/20261017_state_depth_trained_seed2021_physical_power/activity_functional/source_snapshot/run_state_depth_saif.tcl
+## set scope_file [open netlist_signal_scopes.txt]
+## set netlist_scopes [split [string trim [read $scope_file]] "\n"]
+## close $scope_file
+## add_condition -name power_start {/tb_state_depth_power/power_active == 1} {
+##     open_saif inference.saif
+##     set signal_count 0
+##     foreach name $netlist_scopes {
+##         if {$name eq "."} {
+##             current_scope /tb_state_depth_power/dut
+##         } else {
+##             current_scope /tb_state_depth_power/dut/$name
+##         }
+##         set signals [get_objects]
+##         log_saif $signals
+##         incr signal_count [llength $signals]
+##     }
+##     current_scope /tb_state_depth_power
+##     puts "SAIF_NETLIST_OBJECTS $signal_count"
+##     puts "SAIF_STARTED [current_time]"
+## }
+## add_condition -name power_end {/tb_state_depth_power/power_active == 0} {
+##     if {[current_time] > 0} {
+##         close_saif
+##         puts "SAIF_CLOSED [current_time]"
+##     }
+## }
+## run all
+
+    open_saif inference.saif
+    set signal_count 0
+    foreach name $netlist_scopes {
+        if {$name eq "."} {
+            current_scope /tb_state_depth_power/dut
+        } else {
+            current_scope /tb_state_depth_power/dut/$name
+        }
+        set signals [get_objects]
+        log_saif $signals
+        incr signal_count [llength $signals]
+    }
+    current_scope /tb_state_depth_power
+    puts "SAIF_NETLIST_OBJECTS $signal_count"
+    puts "SAIF_STARTED [current_time]"
+
+SAIF_NETLIST_OBJECTS 89835
+SAIF_STARTED 697753225 ps
+POWER_START time_ns=697753.225
+POWER_PROGRESS clocks=16000 time_ns=797753.125
+POWER_PROGRESS clocks=32000 time_ns=897753.125
+POWER_PROGRESS clocks=48000 time_ns=997753.125
+POWER_PROGRESS clocks=64000 time_ns=1097753.125
+
+    if {[current_time] > 0} {
+        close_saif
+        puts "SAIF_CLOSED [current_time]"
+    }
+
+SAIF_CLOSED 1148384475 ps
+POWER_END time_ns=1148384.475 duration_ns=450631.250
+PASS: post-route power replay core_cycles=72101
+$finish called at time : 1148540624 ps : File "/home/xen/project/02_eb_snn_gaze_system/results/vivado/20261017_state_depth_trained_seed2021_physical_power/activity_functional/source_snapshot/tb_state_depth_power.sv" Line 115
+run: Time (s): cpu = 00:00:03 ; elapsed = 00:25:01 . Memory (MB): peak = 1533.234 ; gain = 0.000 ; free physical = 18480 ; free virtual = 27832
+## quit
+INFO: xsimkernel Simulation Memory Usage: 962940 KB (Peak: 974308 KB), Simulation CPU Usage: 1502730 ms
+INFO: [Common 17-206] Exiting xsim at Sun Oct 18 11:22:49 2026...

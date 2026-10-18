@@ -1,1 +1,0 @@
-"""EBV-Eye source package."""

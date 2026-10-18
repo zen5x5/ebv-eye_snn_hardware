@@ -1,0 +1,796 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2.1 (lin64) Build 6403652 Thu Mar 19 13:47:00 MDT 2026
+| Date         : Sat Oct 17 23:20:48 2026
+| Host         : xen-dell-g15-5520 running 64-bit Ubuntu 24.04.5 LTS
+| Command      : report_drc -file /home/xen/project/02_eb_snn_gaze_system/results/vivado/20261017_state_depth_trained_seed2021_physical_power/l1_l2_stateless/reports/post_route_drc.rpt
+| Design       : pursuit_state_depth_timing_top
+| Device       : xczu3eg-sfvc784-2-e
+| Speed File   : -2
+| Design State : Fully Routed
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Report DRC
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: checkpoint_post_synth
+      Design limits: <entire design considered>
+           Ruledeck: default
+             Max checks: <unlimited>
+             Checks found: 152
++--------+----------+------------------+--------+
+| Rule   | Severity | Description      | Checks |
++--------+----------+------------------+--------+
+| DPIP-2 | Warning  | Input pipelining | 152    |
++--------+----------+------------------+--------+
+
+2. REPORT DETAILS
+-----------------
+DPIP-2#1 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[0].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[0][2][0] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[0].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[0][2][0]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#2 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[0].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[0][2][0] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[0].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[0][2][0]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#3 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[0].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[0][2][1] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[0].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[0][2][1]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#4 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[0].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[0][2][1] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[0].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[0][2][1]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#5 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[0].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[0][2][2] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[0].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[0][2][2]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#6 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[0].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[0][2][2] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[0].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[0][2][2]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#7 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[0].gen_tree_node[3].gen_active_node.gen_pair.tree_pipeline_reg[0][2][3] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[0].gen_tree_node[3].gen_active_node.gen_pair.tree_pipeline_reg[0][2][3]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#8 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[0].gen_tree_node[3].gen_active_node.gen_pair.tree_pipeline_reg[0][2][3] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[0].gen_tree_node[3].gen_active_node.gen_pair.tree_pipeline_reg[0][2][3]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#9 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[0].gen_tree_node[4].gen_active_node.gen_pair.tree_pipeline_reg[0][2][4] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[0].gen_tree_node[4].gen_active_node.gen_pair.tree_pipeline_reg[0][2][4]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#10 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[0].gen_tree_node[4].gen_active_node.gen_pair.tree_pipeline_reg[0][2][4] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[0].gen_tree_node[4].gen_active_node.gen_pair.tree_pipeline_reg[0][2][4]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#11 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[0].gen_tree_node[5].gen_active_node.gen_pair.tree_pipeline_reg[0][2][5] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[0].gen_tree_node[5].gen_active_node.gen_pair.tree_pipeline_reg[0][2][5]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#12 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[0].gen_tree_node[5].gen_active_node.gen_pair.tree_pipeline_reg[0][2][5] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[0].gen_tree_node[5].gen_active_node.gen_pair.tree_pipeline_reg[0][2][5]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#13 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[0].gen_tree_node[6].gen_active_node.gen_pair.tree_pipeline_reg[0][2][6] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[0].gen_tree_node[6].gen_active_node.gen_pair.tree_pipeline_reg[0][2][6]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#14 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[0].gen_tree_node[6].gen_active_node.gen_pair.tree_pipeline_reg[0][2][6] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[0].gen_tree_node[6].gen_active_node.gen_pair.tree_pipeline_reg[0][2][6]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#15 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[0].gen_tree_node[7].gen_active_node.gen_pair.tree_pipeline_reg[0][2][7] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[0].gen_tree_node[7].gen_active_node.gen_pair.tree_pipeline_reg[0][2][7]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#16 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[0].gen_tree_node[7].gen_active_node.gen_pair.tree_pipeline_reg[0][2][7] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[0].gen_tree_node[7].gen_active_node.gen_pair.tree_pipeline_reg[0][2][7]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#17 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[0].gen_tree_node[8].gen_active_node.gen_pair.tree_pipeline_reg[0][2][8] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[0].gen_tree_node[8].gen_active_node.gen_pair.tree_pipeline_reg[0][2][8]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#18 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[0].gen_tree_node[8].gen_active_node.gen_pair.tree_pipeline_reg[0][2][8] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[0].gen_tree_node[8].gen_active_node.gen_pair.tree_pipeline_reg[0][2][8]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#19 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[1].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[1][2][0] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[1].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[1][2][0]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#20 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[1].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[1][2][0] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[1].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[1][2][0]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#21 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[1].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[1][2][1] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[1].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[1][2][1]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#22 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[1].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[1][2][1] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[1].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[1][2][1]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#23 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[1].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[1][2][2] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[1].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[1][2][2]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#24 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[1].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[1][2][2] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[1].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[1][2][2]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#25 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[1].gen_tree_node[3].gen_active_node.gen_pair.tree_pipeline_reg[1][2][3] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[1].gen_tree_node[3].gen_active_node.gen_pair.tree_pipeline_reg[1][2][3]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#26 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[1].gen_tree_node[3].gen_active_node.gen_pair.tree_pipeline_reg[1][2][3] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[1].gen_tree_node[3].gen_active_node.gen_pair.tree_pipeline_reg[1][2][3]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#27 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[1].gen_tree_node[4].gen_active_node.gen_pair.tree_pipeline_reg[1][2][4] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[1].gen_tree_node[4].gen_active_node.gen_pair.tree_pipeline_reg[1][2][4]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#28 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[1].gen_tree_node[4].gen_active_node.gen_pair.tree_pipeline_reg[1][2][4] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[1].gen_tree_node[4].gen_active_node.gen_pair.tree_pipeline_reg[1][2][4]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#29 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[1].gen_tree_node[5].gen_active_node.gen_pair.tree_pipeline_reg[1][2][5] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[1].gen_tree_node[5].gen_active_node.gen_pair.tree_pipeline_reg[1][2][5]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#30 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[1].gen_tree_node[5].gen_active_node.gen_pair.tree_pipeline_reg[1][2][5] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[1].gen_tree_node[5].gen_active_node.gen_pair.tree_pipeline_reg[1][2][5]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#31 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[1].gen_tree_node[6].gen_active_node.gen_pair.tree_pipeline_reg[1][2][6] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[1].gen_tree_node[6].gen_active_node.gen_pair.tree_pipeline_reg[1][2][6]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#32 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[1].gen_tree_node[6].gen_active_node.gen_pair.tree_pipeline_reg[1][2][6] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[1].gen_tree_node[6].gen_active_node.gen_pair.tree_pipeline_reg[1][2][6]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#33 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[1].gen_tree_node[7].gen_active_node.gen_pair.tree_pipeline_reg[1][2][7] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[1].gen_tree_node[7].gen_active_node.gen_pair.tree_pipeline_reg[1][2][7]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#34 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[1].gen_tree_node[7].gen_active_node.gen_pair.tree_pipeline_reg[1][2][7] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[1].gen_tree_node[7].gen_active_node.gen_pair.tree_pipeline_reg[1][2][7]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#35 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[1].gen_tree_node[8].gen_active_node.gen_pair.tree_pipeline_reg[1][2][8] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[1].gen_tree_node[8].gen_active_node.gen_pair.tree_pipeline_reg[1][2][8]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#36 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[1].gen_tree_node[8].gen_active_node.gen_pair.tree_pipeline_reg[1][2][8] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[1].gen_tree_node[8].gen_active_node.gen_pair.tree_pipeline_reg[1][2][8]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#37 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[2].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[2][2][0] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[2].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[2][2][0]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#38 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[2].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[2][2][0] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[2].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[2][2][0]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#39 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[2].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[2][2][1] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[2].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[2][2][1]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#40 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[2].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[2][2][1] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[2].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[2][2][1]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#41 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[2].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[2][2][2] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[2].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[2][2][2]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#42 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[2].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[2][2][2] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[2].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[2][2][2]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#43 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[2].gen_tree_node[3].gen_active_node.gen_pair.tree_pipeline_reg[2][2][3] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[2].gen_tree_node[3].gen_active_node.gen_pair.tree_pipeline_reg[2][2][3]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#44 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[2].gen_tree_node[3].gen_active_node.gen_pair.tree_pipeline_reg[2][2][3] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[2].gen_tree_node[3].gen_active_node.gen_pair.tree_pipeline_reg[2][2][3]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#45 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[2].gen_tree_node[4].gen_active_node.gen_pair.tree_pipeline_reg[2][2][4] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[2].gen_tree_node[4].gen_active_node.gen_pair.tree_pipeline_reg[2][2][4]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#46 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[2].gen_tree_node[4].gen_active_node.gen_pair.tree_pipeline_reg[2][2][4] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[2].gen_tree_node[4].gen_active_node.gen_pair.tree_pipeline_reg[2][2][4]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#47 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[2].gen_tree_node[5].gen_active_node.gen_pair.tree_pipeline_reg[2][2][5] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[2].gen_tree_node[5].gen_active_node.gen_pair.tree_pipeline_reg[2][2][5]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#48 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[2].gen_tree_node[5].gen_active_node.gen_pair.tree_pipeline_reg[2][2][5] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[2].gen_tree_node[5].gen_active_node.gen_pair.tree_pipeline_reg[2][2][5]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#49 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[2].gen_tree_node[6].gen_active_node.gen_pair.tree_pipeline_reg[2][2][6] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[2].gen_tree_node[6].gen_active_node.gen_pair.tree_pipeline_reg[2][2][6]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#50 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[2].gen_tree_node[6].gen_active_node.gen_pair.tree_pipeline_reg[2][2][6] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[2].gen_tree_node[6].gen_active_node.gen_pair.tree_pipeline_reg[2][2][6]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#51 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[2].gen_tree_node[7].gen_active_node.gen_pair.tree_pipeline_reg[2][2][7] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[2].gen_tree_node[7].gen_active_node.gen_pair.tree_pipeline_reg[2][2][7]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#52 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[2].gen_tree_node[7].gen_active_node.gen_pair.tree_pipeline_reg[2][2][7] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[2].gen_tree_node[7].gen_active_node.gen_pair.tree_pipeline_reg[2][2][7]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#53 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[2].gen_tree_node[8].gen_active_node.gen_pair.tree_pipeline_reg[2][2][8] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[2].gen_tree_node[8].gen_active_node.gen_pair.tree_pipeline_reg[2][2][8]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#54 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[2].gen_tree_node[8].gen_active_node.gen_pair.tree_pipeline_reg[2][2][8] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[2].gen_tree_node[8].gen_active_node.gen_pair.tree_pipeline_reg[2][2][8]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#55 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[3].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[3][2][0] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[3].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[3][2][0]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#56 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[3].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[3][2][0] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[3].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[3][2][0]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#57 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[3].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[3][2][1] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[3].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[3][2][1]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#58 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[3].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[3][2][1] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[3].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[3][2][1]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#59 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[3].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[3][2][2] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[3].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[3][2][2]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#60 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[3].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[3][2][2] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[3].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[3][2][2]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#61 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[3].gen_tree_node[3].gen_active_node.gen_pair.tree_pipeline_reg[3][2][3] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[3].gen_tree_node[3].gen_active_node.gen_pair.tree_pipeline_reg[3][2][3]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#62 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[3].gen_tree_node[3].gen_active_node.gen_pair.tree_pipeline_reg[3][2][3] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[3].gen_tree_node[3].gen_active_node.gen_pair.tree_pipeline_reg[3][2][3]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#63 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[3].gen_tree_node[4].gen_active_node.gen_pair.tree_pipeline_reg[3][2][4] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[3].gen_tree_node[4].gen_active_node.gen_pair.tree_pipeline_reg[3][2][4]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#64 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[3].gen_tree_node[4].gen_active_node.gen_pair.tree_pipeline_reg[3][2][4] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[3].gen_tree_node[4].gen_active_node.gen_pair.tree_pipeline_reg[3][2][4]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#65 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[3].gen_tree_node[5].gen_active_node.gen_pair.tree_pipeline_reg[3][2][5] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[3].gen_tree_node[5].gen_active_node.gen_pair.tree_pipeline_reg[3][2][5]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#66 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[3].gen_tree_node[5].gen_active_node.gen_pair.tree_pipeline_reg[3][2][5] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[3].gen_tree_node[5].gen_active_node.gen_pair.tree_pipeline_reg[3][2][5]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#67 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[3].gen_tree_node[6].gen_active_node.gen_pair.tree_pipeline_reg[3][2][6] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[3].gen_tree_node[6].gen_active_node.gen_pair.tree_pipeline_reg[3][2][6]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#68 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[3].gen_tree_node[6].gen_active_node.gen_pair.tree_pipeline_reg[3][2][6] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[3].gen_tree_node[6].gen_active_node.gen_pair.tree_pipeline_reg[3][2][6]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#69 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[3].gen_tree_node[7].gen_active_node.gen_pair.tree_pipeline_reg[3][2][7] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[3].gen_tree_node[7].gen_active_node.gen_pair.tree_pipeline_reg[3][2][7]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#70 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[3].gen_tree_node[7].gen_active_node.gen_pair.tree_pipeline_reg[3][2][7] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[3].gen_tree_node[7].gen_active_node.gen_pair.tree_pipeline_reg[3][2][7]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#71 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[3].gen_tree_node[8].gen_active_node.gen_pair.tree_pipeline_reg[3][2][8] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[3].gen_tree_node[8].gen_active_node.gen_pair.tree_pipeline_reg[3][2][8]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#72 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[3].gen_tree_node[8].gen_active_node.gen_pair.tree_pipeline_reg[3][2][8] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[3].gen_tree_node[8].gen_active_node.gen_pair.tree_pipeline_reg[3][2][8]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#73 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[4].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[4][2][0] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[4].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[4][2][0]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#74 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[4].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[4][2][0] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[4].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[4][2][0]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#75 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[4].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[4][2][1] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[4].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[4][2][1]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#76 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[4].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[4][2][1] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[4].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[4][2][1]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#77 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[4].gen_tree_node[3].gen_active_node.gen_pair.tree_pipeline_reg[4][2][3] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[4].gen_tree_node[3].gen_active_node.gen_pair.tree_pipeline_reg[4][2][3]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#78 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[4].gen_tree_node[3].gen_active_node.gen_pair.tree_pipeline_reg[4][2][3] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[4].gen_tree_node[3].gen_active_node.gen_pair.tree_pipeline_reg[4][2][3]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#79 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[4].gen_tree_node[4].gen_active_node.gen_pair.tree_pipeline_reg[4][2][4] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[4].gen_tree_node[4].gen_active_node.gen_pair.tree_pipeline_reg[4][2][4]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#80 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[4].gen_tree_node[4].gen_active_node.gen_pair.tree_pipeline_reg[4][2][4] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[4].gen_tree_node[4].gen_active_node.gen_pair.tree_pipeline_reg[4][2][4]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#81 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[4].gen_tree_node[5].gen_active_node.gen_pair.tree_pipeline_reg[4][2][5] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[4].gen_tree_node[5].gen_active_node.gen_pair.tree_pipeline_reg[4][2][5]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#82 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[4].gen_tree_node[5].gen_active_node.gen_pair.tree_pipeline_reg[4][2][5] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[4].gen_tree_node[5].gen_active_node.gen_pair.tree_pipeline_reg[4][2][5]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#83 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[4].gen_tree_node[6].gen_active_node.gen_pair.tree_pipeline_reg[4][2][6] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[4].gen_tree_node[6].gen_active_node.gen_pair.tree_pipeline_reg[4][2][6]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#84 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[4].gen_tree_node[6].gen_active_node.gen_pair.tree_pipeline_reg[4][2][6] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[4].gen_tree_node[6].gen_active_node.gen_pair.tree_pipeline_reg[4][2][6]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#85 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[4].gen_tree_node[7].gen_active_node.gen_pair.tree_pipeline_reg[4][2][7] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[4].gen_tree_node[7].gen_active_node.gen_pair.tree_pipeline_reg[4][2][7]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#86 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[4].gen_tree_node[7].gen_active_node.gen_pair.tree_pipeline_reg[4][2][7] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[4].gen_tree_node[7].gen_active_node.gen_pair.tree_pipeline_reg[4][2][7]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#87 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[4].gen_tree_node[8].gen_active_node.gen_pair.tree_pipeline_reg[4][2][8] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[4].gen_tree_node[8].gen_active_node.gen_pair.tree_pipeline_reg[4][2][8]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#88 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[4].gen_tree_node[8].gen_active_node.gen_pair.tree_pipeline_reg[4][2][8] input core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[4].gen_tree_node[8].gen_active_node.gen_pair.tree_pipeline_reg[4][2][8]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#89 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[0].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[0][3][0] input core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[0].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[0][3][0]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#90 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[0].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[0][3][0] input core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[0].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[0][3][0]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#91 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[0].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[0][3][1] input core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[0].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[0][3][1]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#92 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[0].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[0][3][1] input core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[0].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[0][3][1]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#93 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[0].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[0][3][2] input core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[0].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[0][3][2]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#94 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[0].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[0][3][2] input core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[0].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[0][3][2]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#95 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[0].gen_tree_node[3].gen_active_node.gen_pair.tree_pipeline_reg[0][3][3] input core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[0].gen_tree_node[3].gen_active_node.gen_pair.tree_pipeline_reg[0][3][3]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#96 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[0].gen_tree_node[3].gen_active_node.gen_pair.tree_pipeline_reg[0][3][3] input core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[0].gen_tree_node[3].gen_active_node.gen_pair.tree_pipeline_reg[0][3][3]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#97 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[1].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[1][3][0] input core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[1].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[1][3][0]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#98 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[1].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[1][3][0] input core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[1].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[1][3][0]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#99 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[1].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[1][3][1] input core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[1].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[1][3][1]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#100 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[1].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[1][3][1] input core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[1].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[1][3][1]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#101 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[1].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[1][3][2] input core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[1].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[1][3][2]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#102 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[1].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[1][3][2] input core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[1].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[1][3][2]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#103 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[1].gen_tree_node[3].gen_active_node.gen_pair.tree_pipeline_reg[1][3][3] input core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[1].gen_tree_node[3].gen_active_node.gen_pair.tree_pipeline_reg[1][3][3]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#104 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[1].gen_tree_node[3].gen_active_node.gen_pair.tree_pipeline_reg[1][3][3] input core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[1].gen_tree_node[3].gen_active_node.gen_pair.tree_pipeline_reg[1][3][3]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#105 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[2].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[2][3][0] input core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[2].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[2][3][0]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#106 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[2].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[2][3][0] input core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[2].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[2][3][0]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#107 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[2].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[2][3][1] input core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[2].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[2][3][1]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#108 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[2].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[2][3][1] input core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[2].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[2][3][1]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#109 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[2].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[2][3][2] input core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[2].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[2][3][2]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#110 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[2].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[2][3][2] input core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[2].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[2][3][2]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#111 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[2].gen_tree_node[3].gen_active_node.gen_pair.tree_pipeline_reg[2][3][3] input core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[2].gen_tree_node[3].gen_active_node.gen_pair.tree_pipeline_reg[2][3][3]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#112 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[2].gen_tree_node[3].gen_active_node.gen_pair.tree_pipeline_reg[2][3][3] input core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[2].gen_tree_node[3].gen_active_node.gen_pair.tree_pipeline_reg[2][3][3]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#113 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[3].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[3][3][0] input core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[3].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[3][3][0]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#114 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[3].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[3][3][0] input core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[3].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[3][3][0]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#115 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[3].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[3][3][1] input core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[3].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[3][3][1]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#116 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[3].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[3][3][1] input core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[3].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[3][3][1]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#117 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[3].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[3][3][2] input core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[3].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[3][3][2]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#118 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[3].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[3][3][2] input core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[3].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[3][3][2]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#119 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[3].gen_tree_node[3].gen_active_node.gen_pair.tree_pipeline_reg[3][3][3] input core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[3].gen_tree_node[3].gen_active_node.gen_pair.tree_pipeline_reg[3][3][3]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#120 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[3].gen_tree_node[3].gen_active_node.gen_pair.tree_pipeline_reg[3][3][3] input core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[3].gen_tree_node[3].gen_active_node.gen_pair.tree_pipeline_reg[3][3][3]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#121 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[4].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[4][3][0] input core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[4].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[4][3][0]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#122 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[4].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[4][3][0] input core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[4].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[4][3][0]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#123 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[4].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[4][3][2] input core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[4].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[4][3][2]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#124 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[4].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[4][3][2] input core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[4].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[4][3][2]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#125 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[4].gen_tree_node[3].gen_active_node.gen_pair.tree_pipeline_reg[4][3][3] input core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[4].gen_tree_node[3].gen_active_node.gen_pair.tree_pipeline_reg[4][3][3]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#126 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[4].gen_tree_node[3].gen_active_node.gen_pair.tree_pipeline_reg[4][3][3] input core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[4].gen_tree_node[3].gen_active_node.gen_pair.tree_pipeline_reg[4][3][3]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#127 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[0].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[0][4][0] input core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[0].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[0][4][0]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#128 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[0].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[0][4][0] input core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[0].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[0][4][0]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#129 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[0].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[0][4][1] input core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[0].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[0][4][1]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#130 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[0].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[0][4][1] input core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[0].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[0][4][1]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#131 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[1].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[1][4][0] input core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[1].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[1][4][0]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#132 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[1].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[1][4][0] input core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[1].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[1][4][0]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#133 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[1].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[1][4][1] input core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[1].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[1][4][1]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#134 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[1].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[1][4][1] input core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[1].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[1][4][1]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#135 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[2].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[2][4][0] input core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[2].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[2][4][0]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#136 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[2].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[2][4][0] input core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[2].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[2][4][0]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#137 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[2].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[2][4][1] input core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[2].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[2][4][1]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#138 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[2].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[2][4][1] input core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[2].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[2][4][1]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#139 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[3].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[3][4][0] input core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[3].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[3][4][0]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#140 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[3].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[3][4][0] input core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[3].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[3][4][0]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#141 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[3].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[3][4][1] input core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[3].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[3][4][1]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#142 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[3].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[3][4][1] input core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[3].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[3][4][1]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#143 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[4].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[4][4][1] input core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[4].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[4][4][1]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#144 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[4].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[4][4][1] input core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[4].gen_tree_node[1].gen_active_node.gen_pair.tree_pipeline_reg[4][4][1]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#145 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[5].gen_tree_output[0].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[0][5][0] input core/convolution_engine/mac_array/gen_tree_level[5].gen_tree_output[0].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[0][5][0]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#146 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[5].gen_tree_output[0].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[0][5][0] input core/convolution_engine/mac_array/gen_tree_level[5].gen_tree_output[0].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[0][5][0]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#147 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[5].gen_tree_output[1].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[1][5][0] input core/convolution_engine/mac_array/gen_tree_level[5].gen_tree_output[1].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[1][5][0]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#148 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[5].gen_tree_output[1].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[1][5][0] input core/convolution_engine/mac_array/gen_tree_level[5].gen_tree_output[1].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[1][5][0]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#149 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[5].gen_tree_output[2].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[2][5][0] input core/convolution_engine/mac_array/gen_tree_level[5].gen_tree_output[2].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[2][5][0]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#150 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[5].gen_tree_output[2].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[2][5][0] input core/convolution_engine/mac_array/gen_tree_level[5].gen_tree_output[2].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[2][5][0]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#151 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[5].gen_tree_output[3].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[3][5][0] input core/convolution_engine/mac_array/gen_tree_level[5].gen_tree_output[3].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[3][5][0]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-2#152 Warning
+Input pipelining  
+DSP core/convolution_engine/mac_array/gen_tree_level[5].gen_tree_output[3].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[3][5][0] input core/convolution_engine/mac_array/gen_tree_level[5].gen_tree_output[3].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[3][5][0]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+

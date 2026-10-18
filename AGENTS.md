@@ -1,18 +1,20 @@
-# 仓库工作说明
+# Hardware delivery project
 
-这是独立 Git 仓库 zen5x5/ebv-eye_snn_hardware。用户于 2026-10-16 明确要求在本机克隆、更新、精简并推送。父项目本身保持无 Git 管理。
+This repository is the independent hardware project zen5x5/ebv-eye_snn_hardware.
+Read README.md, docs/design.md, docs/results.md and results/README.md first.
 
-- 先读根 README，再按任务读 docs/hardware/current_design.md、docs/hardware/comparison.md 和 evidence/README.md。
-- 当前顶层：code/hardware/rtl/pursuit_sparse_layer_major_accelerator_top.sv；部署候选为 Pursuit user17/seed2022，标准输入和权重在 evidence/current/。
-- 当前整网样本：159,408 值零失配，104,005 拍。160 MHz OOC 布线时序通过，核心换算 0.65003125 ms；200 MHz setup WNS 为 -1.109 ns。
-- 当前资源以 evidence/current/vivado/reports/post_route_utilization.rpt 为准：61,657 LUT、24,835 FF、124 RAMB36 + 54 RAMB18、308 DSP。L1 为 24 路加法；每事件 3 次更新，每次包含 1 拍同步读取。
-- 功能仿真、布线时序、工具功率估算和板上实测分别标注。当前已有 1.835 W 无真实活动记录的工具估算；板上推理及功率测量尚待完成。
-- evidence/rtl_three_route/、evidence/fixed_point_reference/ 和 docs/history/ 保存 user15 的早期对照，其 67,929 拍及 354 DSP 属于历史版本。
-- 48 模型正式量化结果保留；Pursuit/Saccade 等权定点误差为 0.825481°/1.326037°，Saccade 使用连续坐标。当前 user17 单用户定点误差为 0.488592°。
-- 标准数值和权重文件逐字节保留。可移植 manifest 只重写路径及指向重写 manifest 的校验值，外部训练来源保留出处。
-- scripts/replay_current.py 使用 Vivado 自带的 XSim；scripts/verify_evidence.py 检查标准资产；MANIFEST.sha256 核验仓库文件。
-- 解释按实际顺序展开，用清楚、具体的中文；公式使用纯文本。用户询问概念时再展开额外背景。
-- 按已经确认的数据、接口与条件实现，针对已查明的错误修正。
-- 2026-10-17 按用户要求扩展 docs/hardware/comparison.md：7 篇 FPGA 实现或原型、8 篇 SNN 研究及 Tan，共 16 篇独立外部工作。SEE-C/D 属于同一论文。NeuroEye 为 40 nm 布局布线后评估；Retina 的毫瓦值覆盖芯片传感器和处理器；Paredes-Valles 的每眼低于 5 mW 为 Speck2f 功率，微控制器另列约 13.6 mW；Sui 的 300 Hz 取 GPU/CPU 算法时间，102.2 mW 为另一套硬件条件的估算。保留各项原文来源与核读范围，实际硬件指标未改。
-- README 为导师阅读入口，先展示 docs/hardware/figures/network_architecture.svg，再列同模型软件浮点/定点精度、当前器件性能与资源占比、外部性能对照。当前 LUT/FF/DSP/BRAM36 等效占比为 87.38%/17.60%/85.56%/69.91%，对应器件总量 70,560/141,120/360/216。资源使用数及总量由 Vivado 原始报告核对，文档调整保留代码和硬件证据原样。
+- Current implementation: hardware/rtl/pursuit_state_depth_timing_top.sv with STATELESS_DEPTH=0/1/2/3.
+- Formal model: seed2021 Pursuit user10, 400 events, aligned cache, T=2 repeated complete input.
+- Four independently trained variants: full_state, l1_stateless, l1_l2_stateless, l1_l2_l3_stateless.
+- All pass complete routed 160 MHz setup/hold/pulse timing. Cycles: 105305/90525/78817/72101.
+- LUT: 29894/29544/29546/29287; FF: 17142/17130/17113/17097; DSP:308; BRAM36eq:170.5/132.5/122/120.
+- Results, DCPs, 64 activity traces and power reports are retained. Total energy:402.257/331.583/285.527/258.212 uJ.
+- Power is a routed-functional-activity tool estimate at 25 C, typical process, nominal voltages, user10 and 16 matched inputs. No SDF; host loading and board peripherals excluded.
+- L1-L2 24-user fixed-point result already exists:0.8254806991646753 deg vs float0.8239446895575812. Other three variants currently have user10 fixed-point metrics; their other 23 users would total69 models, not92.
+- Sparse L1/L2 design is documentation and metrics only:docs/sparse_comparison.md. Sparse code/artifacts and failed attempts are removed.
+- No dependency on the neighboring software directory. hardware/quantization/ contains its own model and metric definitions.
+- Preserve raw result bytes and numeric provenance. Compression is lossless with original hashes. Do not regenerate results simply to make documentation or tables.
+- python scripts/verify.py --full validates evidence; scripts/report.py exports paper tables without simulation.
+- New runs must use a new explicit runs/ path. FPGA board deployment is outside this paper scope.
+- Explain in plain Chinese; formulas plain text; no defensive programming or defensive replies.
 

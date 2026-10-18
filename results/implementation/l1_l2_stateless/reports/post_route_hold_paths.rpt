@@ -1,0 +1,1478 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version      : Vivado v.2025.2.1 (lin64) Build 6403652 Thu Mar 19 13:47:00 MDT 2026
+| Date              : Sat Oct 17 23:20:41 2026
+| Host              : xen-dell-g15-5520 running 64-bit Ubuntu 24.04.5 LTS
+| Command           : report_timing -delay_type min -max_paths 20 -input_pins -file /home/xen/project/02_eb_snn_gaze_system/results/vivado/20261017_state_depth_trained_seed2021_physical_power/l1_l2_stateless/reports/post_route_hold_paths.rpt
+| Design            : pursuit_state_depth_timing_top
+| Device            : xczu3eg-sfvc784
+| Speed File        : -2  PRODUCTION 1.31 12-08-2025
+| Design State      : Routed
+| Temperature Grade : E
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (MET) :             0.011ns  (arrival time - required time)
+  Source:                 core/convolution_engine/max_pool/currents_delayed_reg[91]/C
+                            (rising edge-triggered cell FDRE clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Destination:            core/convolution_engine/max_pool/current_left_reg[2][11]/D
+                            (rising edge-triggered cell FDRE clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Path Group:             compute_clock
+  Path Type:              Hold (Min at Slow Process Corner)
+  Requirement:            0.000ns  (compute_clock rise@0.000ns - compute_clock rise@0.000ns)
+  Data Path Delay:        0.130ns  (logic 0.058ns (44.646%)  route 0.072ns (55.354%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.057ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.247ns
+    Source Clock Delay      (SCD):    1.760ns
+    Clock Pessimism Removal (CPR):    0.430ns
+  Clock Net Delay (Source):      1.178ns (routing 0.155ns, distribution 1.023ns)
+  Clock Net Delay (Destination): 1.372ns (routing 0.171ns, distribution 1.201ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.265     0.265 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.265    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.265 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.293     0.558    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     0.582 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19731, routed)       1.178     1.760    core/convolution_engine/max_pool/clk
+    SLICE_X18Y122        FDRE                                         r  core/convolution_engine/max_pool/currents_delayed_reg[91]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X18Y122        FDRE (Prop_HFF_SLICEL_C_Q)
+                                                      0.058     1.818 r  core/convolution_engine/max_pool/currents_delayed_reg[91]/Q
+                         net (fo=4, routed)           0.072     1.890    core/convolution_engine/max_pool/current_value[2]_75[11]
+    SLICE_X18Y123        FDRE                                         r  core/convolution_engine/max_pool/current_left_reg[2][11]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.515     0.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.332     0.847    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     0.875 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19731, routed)       1.372     2.247    core/convolution_engine/max_pool/clk
+    SLICE_X18Y123        FDRE                                         r  core/convolution_engine/max_pool/current_left_reg[2][11]/C
+                         clock pessimism             -0.430     1.817    
+    SLICE_X18Y123        FDRE (Hold_HFF2_SLICEL_C_D)
+                                                      0.062     1.879    core/convolution_engine/max_pool/current_left_reg[2][11]
+  -------------------------------------------------------------------
+                         required time                         -1.879    
+                         arrival time                           1.890    
+  -------------------------------------------------------------------
+                         slack                                  0.011    
+
+Slack (MET) :             0.011ns  (arrival time - required time)
+  Source:                 core/convolution_engine/max_pool/currents_delayed_reg[139]/C
+                            (rising edge-triggered cell FDRE clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Destination:            core/convolution_engine/max_pool/current_left_reg[3][19]/D
+                            (rising edge-triggered cell FDRE clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Path Group:             compute_clock
+  Path Type:              Hold (Min at Slow Process Corner)
+  Requirement:            0.000ns  (compute_clock rise@0.000ns - compute_clock rise@0.000ns)
+  Data Path Delay:        0.283ns  (logic 0.058ns (20.465%)  route 0.225ns (79.534%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.210ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.299ns
+    Source Clock Delay      (SCD):    1.780ns
+    Clock Pessimism Removal (CPR):    0.309ns
+  Clock Net Delay (Source):      1.198ns (routing 0.155ns, distribution 1.043ns)
+  Clock Net Delay (Destination): 1.424ns (routing 0.171ns, distribution 1.253ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.265     0.265 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.265    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.265 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.293     0.558    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     0.582 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19731, routed)       1.198     1.780    core/convolution_engine/max_pool/clk
+    SLICE_X9Y119         FDRE                                         r  core/convolution_engine/max_pool/currents_delayed_reg[139]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X9Y119         FDRE (Prop_BFF_SLICEM_C_Q)
+                                                      0.058     1.838 r  core/convolution_engine/max_pool/currents_delayed_reg[139]/Q
+                         net (fo=4, routed)           0.225     2.063    core/convolution_engine/max_pool/current_value[3]_74[19]
+    SLICE_X9Y120         FDRE                                         r  core/convolution_engine/max_pool/current_left_reg[3][19]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.515     0.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.332     0.847    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     0.875 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19731, routed)       1.424     2.299    core/convolution_engine/max_pool/clk
+    SLICE_X9Y120         FDRE                                         r  core/convolution_engine/max_pool/current_left_reg[3][19]/C
+                         clock pessimism             -0.309     1.990    
+    SLICE_X9Y120         FDRE (Hold_HFF2_SLICEM_C_D)
+                                                      0.062     2.052    core/convolution_engine/max_pool/current_left_reg[3][19]
+  -------------------------------------------------------------------
+                         required time                         -2.052    
+                         arrival time                           2.063    
+  -------------------------------------------------------------------
+                         slack                                  0.011    
+
+Slack (MET) :             0.015ns  (arrival time - required time)
+  Source:                 core/convolution_engine/mac_array/gen_tree_level[6].gen_tree_output[3].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[3][6][0][19]/C
+                            (rising edge-triggered cell FDRE clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Destination:            core/convolution_engine/mac_array/accumulators_out_flat_reg[144]/D
+                            (rising edge-triggered cell FDRE clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Path Group:             compute_clock
+  Path Type:              Hold (Min at Slow Process Corner)
+  Requirement:            0.000ns  (compute_clock rise@0.000ns - compute_clock rise@0.000ns)
+  Data Path Delay:        0.286ns  (logic 0.195ns (68.182%)  route 0.091ns (31.818%))
+  Logic Levels:           3  (CARRY8=2 LUT2=1)
+  Clock Path Skew:        0.211ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.240ns
+    Source Clock Delay      (SCD):    1.720ns
+    Clock Pessimism Removal (CPR):    0.309ns
+  Clock Net Delay (Source):      1.138ns (routing 0.155ns, distribution 0.983ns)
+  Clock Net Delay (Destination): 1.365ns (routing 0.171ns, distribution 1.194ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.265     0.265 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.265    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.265 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.293     0.558    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     0.582 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19731, routed)       1.138     1.720    core/convolution_engine/mac_array/clk
+    SLICE_X21Y119        FDRE                                         r  core/convolution_engine/mac_array/gen_tree_level[6].gen_tree_output[3].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[3][6][0][19]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X21Y119        FDRE (Prop_DFF_SLICEL_C_Q)
+                                                      0.059     1.779 r  core/convolution_engine/mac_array/gen_tree_level[6].gen_tree_output[3].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[3][6][0][19]/Q
+                         net (fo=1, routed)           0.058     1.837    core/convolution_engine/mac_array/gen_tree_level[6].gen_tree_output[3].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[3][6][0]_26[19]
+    SLICE_X20Y119                                                     r  core/convolution_engine/mac_array/accumulators_out_flat[143]_i_6/I1
+    SLICE_X20Y119        LUT2 (Prop_D6LUT_SLICEM_I1_O)
+                                                      0.022     1.859 r  core/convolution_engine/mac_array/accumulators_out_flat[143]_i_6/O
+                         net (fo=1, routed)           0.020     1.879    core/convolution_engine_n_6937
+    SLICE_X20Y119                                                     r  core/mac_array/accumulators_out_flat_reg[143]_i_1/S[3]
+    SLICE_X20Y119        CARRY8 (Prop_CARRY8_SLICEM_S[3]_CO[7])
+                                                      0.083     1.962 r  core/mac_array/accumulators_out_flat_reg[143]_i_1/CO[7]
+                         net (fo=1, routed)           0.004     1.966    core/mac_array/accumulators_out_flat_reg[143]_i_1_n_0
+    SLICE_X20Y120                                                     r  core/mac_array/accumulators_out_flat_reg[151]_i_1/CI
+    SLICE_X20Y120        CARRY8 (Prop_CARRY8_SLICEM_CI_O[0])
+                                                      0.031     1.997 r  core/mac_array/accumulators_out_flat_reg[151]_i_1/O[0]
+                         net (fo=1, routed)           0.009     2.006    core/convolution_engine/mac_array/accumulators_out_flat_reg[311]_0[120]
+    SLICE_X20Y120        FDRE                                         r  core/convolution_engine/mac_array/accumulators_out_flat_reg[144]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.515     0.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.332     0.847    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     0.875 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19731, routed)       1.365     2.240    core/convolution_engine/mac_array/clk
+    SLICE_X20Y120        FDRE                                         r  core/convolution_engine/mac_array/accumulators_out_flat_reg[144]/C
+                         clock pessimism             -0.309     1.931    
+    SLICE_X20Y120        FDRE (Hold_AFF_SLICEM_C_D)
+                                                      0.060     1.991    core/convolution_engine/mac_array/accumulators_out_flat_reg[144]
+  -------------------------------------------------------------------
+                         required time                         -1.991    
+                         arrival time                           2.006    
+  -------------------------------------------------------------------
+                         slack                                  0.015    
+
+Slack (MET) :             0.016ns  (arrival time - required time)
+  Source:                 core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[1].gen_tree_node[2].gen_active_node.gen_unpaired.tree_pipeline_reg[1][4][2][13]/C
+                            (rising edge-triggered cell FDRE clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Destination:            core/convolution_engine/mac_array/gen_tree_level[5].gen_tree_output[1].gen_tree_node[1].gen_active_node.gen_unpaired.tree_pipeline_reg[1][5][1][13]/D
+                            (rising edge-triggered cell FDRE clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Path Group:             compute_clock
+  Path Type:              Hold (Min at Slow Process Corner)
+  Requirement:            0.000ns  (compute_clock rise@0.000ns - compute_clock rise@0.000ns)
+  Data Path Delay:        0.188ns  (logic 0.060ns (31.915%)  route 0.128ns (68.085%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.110ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.248ns
+    Source Clock Delay      (SCD):    1.764ns
+    Clock Pessimism Removal (CPR):    0.375ns
+  Clock Net Delay (Source):      1.182ns (routing 0.155ns, distribution 1.027ns)
+  Clock Net Delay (Destination): 1.373ns (routing 0.171ns, distribution 1.202ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.265     0.265 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.265    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.265 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.293     0.558    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     0.582 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19731, routed)       1.182     1.764    core/convolution_engine/mac_array/clk
+    SLICE_X3Y99          FDRE                                         r  core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[1].gen_tree_node[2].gen_active_node.gen_unpaired.tree_pipeline_reg[1][4][2][13]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X3Y99          FDRE (Prop_GFF2_SLICEL_C_Q)
+                                                      0.060     1.824 r  core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[1].gen_tree_node[2].gen_active_node.gen_unpaired.tree_pipeline_reg[1][4][2][13]/Q
+                         net (fo=1, routed)           0.128     1.952    core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[1].gen_tree_node[2].gen_active_node.gen_unpaired.tree_pipeline_reg[1][4][2]_16[13]
+    SLICE_X6Y99          FDRE                                         r  core/convolution_engine/mac_array/gen_tree_level[5].gen_tree_output[1].gen_tree_node[1].gen_active_node.gen_unpaired.tree_pipeline_reg[1][5][1][13]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.515     0.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.332     0.847    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     0.875 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19731, routed)       1.373     2.248    core/convolution_engine/mac_array/clk
+    SLICE_X6Y99          FDRE                                         r  core/convolution_engine/mac_array/gen_tree_level[5].gen_tree_output[1].gen_tree_node[1].gen_active_node.gen_unpaired.tree_pipeline_reg[1][5][1][13]/C
+                         clock pessimism             -0.375     1.873    
+    SLICE_X6Y99          FDRE (Hold_GFF2_SLICEL_C_D)
+                                                      0.062     1.935    core/convolution_engine/mac_array/gen_tree_level[5].gen_tree_output[1].gen_tree_node[1].gen_active_node.gen_unpaired.tree_pipeline_reg[1][5][1][13]
+  -------------------------------------------------------------------
+                         required time                         -1.935    
+                         arrival time                           1.952    
+  -------------------------------------------------------------------
+                         slack                                  0.016    
+
+Slack (MET) :             0.017ns  (arrival time - required time)
+  Source:                 core/convolution_engine/max_pool/currents_delayed_reg[306]/C
+                            (rising edge-triggered cell FDRE clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Destination:            core/convolution_engine/max_pool/current_left_reg[7][26]/D
+                            (rising edge-triggered cell FDRE clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Path Group:             compute_clock
+  Path Type:              Hold (Min at Slow Process Corner)
+  Requirement:            0.000ns  (compute_clock rise@0.000ns - compute_clock rise@0.000ns)
+  Data Path Delay:        0.137ns  (logic 0.059ns (43.032%)  route 0.078ns (56.968%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.060ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.253ns
+    Source Clock Delay      (SCD):    1.765ns
+    Clock Pessimism Removal (CPR):    0.428ns
+  Clock Net Delay (Source):      1.183ns (routing 0.155ns, distribution 1.028ns)
+  Clock Net Delay (Destination): 1.378ns (routing 0.171ns, distribution 1.207ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.265     0.265 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.265    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.265 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.293     0.558    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     0.582 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19731, routed)       1.183     1.765    core/convolution_engine/max_pool/clk
+    SLICE_X11Y114        FDRE                                         r  core/convolution_engine/max_pool/currents_delayed_reg[306]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X11Y114        FDRE (Prop_BFF_SLICEL_C_Q)
+                                                      0.059     1.824 r  core/convolution_engine/max_pool/currents_delayed_reg[306]/Q
+                         net (fo=8, routed)           0.078     1.902    core/convolution_engine/max_pool/current_value[7]_70[26]
+    SLICE_X11Y113        FDRE                                         r  core/convolution_engine/max_pool/current_left_reg[7][26]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.515     0.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.332     0.847    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     0.875 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19731, routed)       1.378     2.253    core/convolution_engine/max_pool/clk
+    SLICE_X11Y113        FDRE                                         r  core/convolution_engine/max_pool/current_left_reg[7][26]/C
+                         clock pessimism             -0.428     1.825    
+    SLICE_X11Y113        FDRE (Hold_EFF_SLICEL_C_D)
+                                                      0.060     1.885    core/convolution_engine/max_pool/current_left_reg[7][26]
+  -------------------------------------------------------------------
+                         required time                         -1.885    
+                         arrival time                           1.902    
+  -------------------------------------------------------------------
+                         slack                                  0.017    
+
+Slack (MET) :             0.017ns  (arrival time - required time)
+  Source:                 core/convolution_engine/mac_array/gen_tree_level[6].gen_tree_output[5].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[5][6][0][9]/C
+                            (rising edge-triggered cell FDRE clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Destination:            core/convolution_engine/mac_array/accumulators_out_flat_reg[209]/D
+                            (rising edge-triggered cell FDRE clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Path Group:             compute_clock
+  Path Type:              Hold (Min at Slow Process Corner)
+  Requirement:            0.000ns  (compute_clock rise@0.000ns - compute_clock rise@0.000ns)
+  Data Path Delay:        0.192ns  (logic 0.109ns (56.771%)  route 0.083ns (43.229%))
+  Logic Levels:           2  (CARRY8=1 LUT2=1)
+  Clock Path Skew:        0.115ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.168ns
+    Source Clock Delay      (SCD):    1.687ns
+    Clock Pessimism Removal (CPR):    0.367ns
+  Clock Net Delay (Source):      1.105ns (routing 0.155ns, distribution 0.950ns)
+  Clock Net Delay (Destination): 1.293ns (routing 0.171ns, distribution 1.122ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.265     0.265 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.265    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.265 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.293     0.558    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     0.582 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19731, routed)       1.105     1.687    core/convolution_engine/mac_array/clk
+    SLICE_X33Y132        FDRE                                         r  core/convolution_engine/mac_array/gen_tree_level[6].gen_tree_output[5].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[5][6][0][9]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X33Y132        FDRE (Prop_BFF_SLICEL_C_Q)
+                                                      0.059     1.746 r  core/convolution_engine/mac_array/gen_tree_level[6].gen_tree_output[5].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[5][6][0][9]/Q
+                         net (fo=1, routed)           0.058     1.804    core/convolution_engine/mac_array/gen_tree_level[6].gen_tree_output[5].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[5][6][0]_31[9]
+    SLICE_X34Y132                                                     r  core/convolution_engine/mac_array/accumulators_out_flat[215]_i_8/I1
+    SLICE_X34Y132        LUT2 (Prop_B6LUT_SLICEM_I1_O)
+                                                      0.022     1.826 r  core/convolution_engine/mac_array/accumulators_out_flat[215]_i_8/O
+                         net (fo=1, routed)           0.015     1.841    core/convolution_engine_n_7123
+    SLICE_X34Y132                                                     r  core/mac_array/accumulators_out_flat_reg[215]_i_1/S[1]
+    SLICE_X34Y132        CARRY8 (Prop_CARRY8_SLICEM_S[1]_O[1])
+                                                      0.028     1.869 r  core/mac_array/accumulators_out_flat_reg[215]_i_1/O[1]
+                         net (fo=1, routed)           0.010     1.879    core/convolution_engine/mac_array/accumulators_out_flat_reg[311]_0[169]
+    SLICE_X34Y132        FDRE                                         r  core/convolution_engine/mac_array/accumulators_out_flat_reg[209]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.515     0.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.332     0.847    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     0.875 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19731, routed)       1.293     2.168    core/convolution_engine/mac_array/clk
+    SLICE_X34Y132        FDRE                                         r  core/convolution_engine/mac_array/accumulators_out_flat_reg[209]/C
+                         clock pessimism             -0.367     1.801    
+    SLICE_X34Y132        FDRE (Hold_BFF_SLICEM_C_D)
+                                                      0.060     1.861    core/convolution_engine/mac_array/accumulators_out_flat_reg[209]
+  -------------------------------------------------------------------
+                         required time                         -1.861    
+                         arrival time                           1.879    
+  -------------------------------------------------------------------
+                         slack                                  0.017    
+
+Slack (MET) :             0.017ns  (arrival time - required time)
+  Source:                 core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[1].gen_tree_node[2].gen_active_node.gen_unpaired.tree_pipeline_reg[1][4][2][7]/C
+                            (rising edge-triggered cell FDRE clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Destination:            core/convolution_engine/mac_array/gen_tree_level[5].gen_tree_output[1].gen_tree_node[1].gen_active_node.gen_unpaired.tree_pipeline_reg[1][5][1][7]/D
+                            (rising edge-triggered cell FDRE clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Path Group:             compute_clock
+  Path Type:              Hold (Min at Slow Process Corner)
+  Requirement:            0.000ns  (compute_clock rise@0.000ns - compute_clock rise@0.000ns)
+  Data Path Delay:        0.186ns  (logic 0.060ns (32.258%)  route 0.126ns (67.742%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.107ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.243ns
+    Source Clock Delay      (SCD):    1.762ns
+    Clock Pessimism Removal (CPR):    0.375ns
+  Clock Net Delay (Source):      1.180ns (routing 0.155ns, distribution 1.025ns)
+  Clock Net Delay (Destination): 1.368ns (routing 0.171ns, distribution 1.197ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.265     0.265 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.265    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.265 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.293     0.558    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     0.582 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19731, routed)       1.180     1.762    core/convolution_engine/mac_array/clk
+    SLICE_X3Y99          FDRE                                         r  core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[1].gen_tree_node[2].gen_active_node.gen_unpaired.tree_pipeline_reg[1][4][2][7]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X3Y99          FDRE (Prop_BFF2_SLICEL_C_Q)
+                                                      0.060     1.822 r  core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[1].gen_tree_node[2].gen_active_node.gen_unpaired.tree_pipeline_reg[1][4][2][7]/Q
+                         net (fo=1, routed)           0.126     1.948    core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[1].gen_tree_node[2].gen_active_node.gen_unpaired.tree_pipeline_reg[1][4][2]_16[7]
+    SLICE_X6Y99          FDRE                                         r  core/convolution_engine/mac_array/gen_tree_level[5].gen_tree_output[1].gen_tree_node[1].gen_active_node.gen_unpaired.tree_pipeline_reg[1][5][1][7]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.515     0.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.332     0.847    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     0.875 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19731, routed)       1.368     2.243    core/convolution_engine/mac_array/clk
+    SLICE_X6Y99          FDRE                                         r  core/convolution_engine/mac_array/gen_tree_level[5].gen_tree_output[1].gen_tree_node[1].gen_active_node.gen_unpaired.tree_pipeline_reg[1][5][1][7]/C
+                         clock pessimism             -0.375     1.868    
+    SLICE_X6Y99          FDRE (Hold_DFF2_SLICEL_C_D)
+                                                      0.062     1.930    core/convolution_engine/mac_array/gen_tree_level[5].gen_tree_output[1].gen_tree_node[1].gen_active_node.gen_unpaired.tree_pipeline_reg[1][5][1][7]
+  -------------------------------------------------------------------
+                         required time                         -1.930    
+                         arrival time                           1.948    
+  -------------------------------------------------------------------
+                         slack                                  0.017    
+
+Slack (MET) :             0.018ns  (arrival time - required time)
+  Source:                 core/convolution_engine/mac_array/accumulators_out_flat_reg[20]/C
+                            (rising edge-triggered cell FDRE clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Destination:            core/convolution_engine/max_pool/currents_delayed_reg[20]/D
+                            (rising edge-triggered cell FDRE clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Path Group:             compute_clock
+  Path Type:              Hold (Min at Slow Process Corner)
+  Requirement:            0.000ns  (compute_clock rise@0.000ns - compute_clock rise@0.000ns)
+  Data Path Delay:        0.165ns  (logic 0.059ns (35.670%)  route 0.106ns (64.330%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.086ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.097ns
+    Source Clock Delay      (SCD):    1.649ns
+    Clock Pessimism Removal (CPR):    0.363ns
+  Clock Net Delay (Source):      1.067ns (routing 0.155ns, distribution 0.912ns)
+  Clock Net Delay (Destination): 1.222ns (routing 0.171ns, distribution 1.051ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.265     0.265 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.265    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.265 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.293     0.558    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     0.582 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19731, routed)       1.067     1.649    core/convolution_engine/mac_array/clk
+    SLICE_X33Y107        FDRE                                         r  core/convolution_engine/mac_array/accumulators_out_flat_reg[20]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X33Y107        FDRE (Prop_EFF_SLICEL_C_Q)
+                                                      0.059     1.708 r  core/convolution_engine/mac_array/accumulators_out_flat_reg[20]/Q
+                         net (fo=7, routed)           0.106     1.814    core/convolution_engine/max_pool/mac_output_flat[20]
+    SLICE_X35Y108        FDRE                                         r  core/convolution_engine/max_pool/currents_delayed_reg[20]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.515     0.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.332     0.847    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     0.875 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19731, routed)       1.222     2.097    core/convolution_engine/max_pool/clk
+    SLICE_X35Y108        FDRE                                         r  core/convolution_engine/max_pool/currents_delayed_reg[20]/C
+                         clock pessimism             -0.363     1.734    
+    SLICE_X35Y108        FDRE (Hold_CFF2_SLICEL_C_D)
+                                                      0.062     1.796    core/convolution_engine/max_pool/currents_delayed_reg[20]
+  -------------------------------------------------------------------
+                         required time                         -1.796    
+                         arrival time                           1.814    
+  -------------------------------------------------------------------
+                         slack                                  0.018    
+
+Slack (MET) :             0.019ns  (arrival time - required time)
+  Source:                 core/convolution_engine/mac_array/gen_tree_level[6].gen_tree_output[4].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[4][6][0][35]/C
+                            (rising edge-triggered cell FDRE clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Destination:            core/convolution_engine/mac_array/accumulators_out_flat_reg[195]/D
+                            (rising edge-triggered cell FDRE clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Path Group:             compute_clock
+  Path Type:              Hold (Min at Slow Process Corner)
+  Requirement:            0.000ns  (compute_clock rise@0.000ns - compute_clock rise@0.000ns)
+  Data Path Delay:        0.271ns  (logic 0.111ns (40.959%)  route 0.160ns (59.041%))
+  Logic Levels:           2  (CARRY8=1 LUT2=1)
+  Clock Path Skew:        0.192ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.126ns
+    Source Clock Delay      (SCD):    1.625ns
+    Clock Pessimism Removal (CPR):    0.309ns
+  Clock Net Delay (Source):      1.043ns (routing 0.155ns, distribution 0.888ns)
+  Clock Net Delay (Destination): 1.251ns (routing 0.171ns, distribution 1.080ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.265     0.265 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.265    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.265 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.293     0.558    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     0.582 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19731, routed)       1.043     1.625    core/convolution_engine/mac_array/clk
+    SLICE_X39Y116        FDRE                                         r  core/convolution_engine/mac_array/gen_tree_level[6].gen_tree_output[4].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[4][6][0][35]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X39Y116        FDRE (Prop_DFF_SLICEM_C_Q)
+                                                      0.058     1.683 r  core/convolution_engine/mac_array/gen_tree_level[6].gen_tree_output[4].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[4][6][0][35]/Q
+                         net (fo=1, routed)           0.130     1.813    core/convolution_engine/mac_array/gen_tree_level[6].gen_tree_output[4].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[4][6][0]_30[35]
+    SLICE_X39Y121                                                     r  core/convolution_engine/mac_array/accumulators_out_flat[199]_i_6/I1
+    SLICE_X39Y121        LUT2 (Prop_D6LUT_SLICEM_I1_O)
+                                                      0.022     1.835 r  core/convolution_engine/mac_array/accumulators_out_flat[199]_i_6/O
+                         net (fo=1, routed)           0.020     1.855    core/convolution_engine/mac_array/accumulators_out_flat[199]_i_6_n_0
+    SLICE_X39Y121                                                     r  core/convolution_engine/mac_array/accumulators_out_flat_reg[199]_i_1/S[3]
+    SLICE_X39Y121        CARRY8 (Prop_CARRY8_SLICEM_S[3]_O[3])
+                                                      0.031     1.886 r  core/convolution_engine/mac_array/accumulators_out_flat_reg[199]_i_1/O[3]
+                         net (fo=1, routed)           0.010     1.896    core/convolution_engine/mac_array/accumulators_out_flat_reg[199]_i_1_n_12
+    SLICE_X39Y121        FDRE                                         r  core/convolution_engine/mac_array/accumulators_out_flat_reg[195]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.515     0.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.332     0.847    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     0.875 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19731, routed)       1.251     2.126    core/convolution_engine/mac_array/clk
+    SLICE_X39Y121        FDRE                                         r  core/convolution_engine/mac_array/accumulators_out_flat_reg[195]/C
+                         clock pessimism             -0.309     1.817    
+    SLICE_X39Y121        FDRE (Hold_DFF_SLICEM_C_D)
+                                                      0.060     1.877    core/convolution_engine/mac_array/accumulators_out_flat_reg[195]
+  -------------------------------------------------------------------
+                         required time                         -1.877    
+                         arrival time                           1.896    
+  -------------------------------------------------------------------
+                         slack                                  0.019    
+
+Slack (MET) :             0.020ns  (arrival time - required time)
+  Source:                 core/convolution_engine/mac_array/gen_tree_level[6].gen_tree_output[2].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[2][6][0][18]/C
+                            (rising edge-triggered cell FDRE clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Destination:            core/convolution_engine/mac_array/accumulators_out_flat_reg[104]/D
+                            (rising edge-triggered cell FDRE clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Path Group:             compute_clock
+  Path Type:              Hold (Min at Slow Process Corner)
+  Requirement:            0.000ns  (compute_clock rise@0.000ns - compute_clock rise@0.000ns)
+  Data Path Delay:        0.293ns  (logic 0.203ns (69.283%)  route 0.090ns (30.717%))
+  Logic Levels:           3  (CARRY8=2 LUT2=1)
+  Clock Path Skew:        0.213ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.263ns
+    Source Clock Delay      (SCD):    1.741ns
+    Clock Pessimism Removal (CPR):    0.309ns
+  Clock Net Delay (Source):      1.159ns (routing 0.155ns, distribution 1.004ns)
+  Clock Net Delay (Destination): 1.388ns (routing 0.171ns, distribution 1.217ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.265     0.265 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.265    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.265 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.293     0.558    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     0.582 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19731, routed)       1.159     1.741    core/convolution_engine/mac_array/clk
+    SLICE_X17Y119        FDRE                                         r  core/convolution_engine/mac_array/gen_tree_level[6].gen_tree_output[2].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[2][6][0][18]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X17Y119        FDRE (Prop_CFF_SLICEL_C_Q)
+                                                      0.058     1.799 r  core/convolution_engine/mac_array/gen_tree_level[6].gen_tree_output[2].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[2][6][0][18]/Q
+                         net (fo=1, routed)           0.058     1.857    core/convolution_engine/mac_array/gen_tree_level[6].gen_tree_output[2].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[2][6][0]_22[18]
+    SLICE_X16Y119                                                     r  core/convolution_engine/mac_array/accumulators_out_flat[103]_i_7/I1
+    SLICE_X16Y119        LUT2 (Prop_C6LUT_SLICEM_I1_O)
+                                                      0.022     1.879 r  core/convolution_engine/mac_array/accumulators_out_flat[103]_i_7/O
+                         net (fo=1, routed)           0.019     1.898    core/convolution_engine_n_6874
+    SLICE_X16Y119                                                     r  core/mac_array/accumulators_out_flat_reg[103]_i_1/S[2]
+    SLICE_X16Y119        CARRY8 (Prop_CARRY8_SLICEM_S[2]_CO[7])
+                                                      0.092     1.990 r  core/mac_array/accumulators_out_flat_reg[103]_i_1/CO[7]
+                         net (fo=1, routed)           0.004     1.994    core/mac_array/accumulators_out_flat_reg[103]_i_1_n_0
+    SLICE_X16Y120                                                     r  core/mac_array/accumulators_out_flat_reg[111]_i_1/CI
+    SLICE_X16Y120        CARRY8 (Prop_CARRY8_SLICEM_CI_O[0])
+                                                      0.031     2.025 r  core/mac_array/accumulators_out_flat_reg[111]_i_1/O[0]
+                         net (fo=1, routed)           0.009     2.034    core/convolution_engine/mac_array/accumulators_out_flat_reg[311]_0[88]
+    SLICE_X16Y120        FDRE                                         r  core/convolution_engine/mac_array/accumulators_out_flat_reg[104]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.515     0.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.332     0.847    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     0.875 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19731, routed)       1.388     2.263    core/convolution_engine/mac_array/clk
+    SLICE_X16Y120        FDRE                                         r  core/convolution_engine/mac_array/accumulators_out_flat_reg[104]/C
+                         clock pessimism             -0.309     1.954    
+    SLICE_X16Y120        FDRE (Hold_AFF_SLICEM_C_D)
+                                                      0.060     2.014    core/convolution_engine/mac_array/accumulators_out_flat_reg[104]
+  -------------------------------------------------------------------
+                         required time                         -2.014    
+                         arrival time                           2.034    
+  -------------------------------------------------------------------
+                         slack                                  0.020    
+
+Slack (MET) :             0.020ns  (arrival time - required time)
+  Source:                 core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[1].gen_tree_node[2].gen_active_node.gen_unpaired.tree_pipeline_reg[1][4][2][3]/C
+                            (rising edge-triggered cell FDRE clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Destination:            core/convolution_engine/mac_array/gen_tree_level[5].gen_tree_output[1].gen_tree_node[1].gen_active_node.gen_unpaired.tree_pipeline_reg[1][5][1][3]/D
+                            (rising edge-triggered cell FDRE clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Path Group:             compute_clock
+  Path Type:              Hold (Min at Slow Process Corner)
+  Requirement:            0.000ns  (compute_clock rise@0.000ns - compute_clock rise@0.000ns)
+  Data Path Delay:        0.187ns  (logic 0.059ns (31.551%)  route 0.128ns (68.449%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.105ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.243ns
+    Source Clock Delay      (SCD):    1.764ns
+    Clock Pessimism Removal (CPR):    0.375ns
+  Clock Net Delay (Source):      1.182ns (routing 0.155ns, distribution 1.027ns)
+  Clock Net Delay (Destination): 1.368ns (routing 0.171ns, distribution 1.197ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.265     0.265 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.265    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.265 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.293     0.558    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     0.582 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19731, routed)       1.182     1.764    core/convolution_engine/mac_array/clk
+    SLICE_X3Y99          FDRE                                         r  core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[1].gen_tree_node[2].gen_active_node.gen_unpaired.tree_pipeline_reg[1][4][2][3]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X3Y99          FDRE (Prop_HFF2_SLICEL_C_Q)
+                                                      0.059     1.823 r  core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[1].gen_tree_node[2].gen_active_node.gen_unpaired.tree_pipeline_reg[1][4][2][3]/Q
+                         net (fo=1, routed)           0.128     1.951    core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[1].gen_tree_node[2].gen_active_node.gen_unpaired.tree_pipeline_reg[1][4][2]_16[3]
+    SLICE_X6Y99          FDRE                                         r  core/convolution_engine/mac_array/gen_tree_level[5].gen_tree_output[1].gen_tree_node[1].gen_active_node.gen_unpaired.tree_pipeline_reg[1][5][1][3]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.515     0.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.332     0.847    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     0.875 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19731, routed)       1.368     2.243    core/convolution_engine/mac_array/clk
+    SLICE_X6Y99          FDRE                                         r  core/convolution_engine/mac_array/gen_tree_level[5].gen_tree_output[1].gen_tree_node[1].gen_active_node.gen_unpaired.tree_pipeline_reg[1][5][1][3]/C
+                         clock pessimism             -0.375     1.868    
+    SLICE_X6Y99          FDRE (Hold_BFF2_SLICEL_C_D)
+                                                      0.062     1.930    core/convolution_engine/mac_array/gen_tree_level[5].gen_tree_output[1].gen_tree_node[1].gen_active_node.gen_unpaired.tree_pipeline_reg[1][5][1][3]
+  -------------------------------------------------------------------
+                         required time                         -1.930    
+                         arrival time                           1.951    
+  -------------------------------------------------------------------
+                         slack                                  0.020    
+
+Slack (MET) :             0.021ns  (arrival time - required time)
+  Source:                 core/convolution_engine/lif_currents_delayed_reg[180]/C
+                            (rising edge-triggered cell FDRE clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Destination:            trace_snapshot_reg[180]/D
+                            (rising edge-triggered cell FDRE clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Path Group:             compute_clock
+  Path Type:              Hold (Min at Slow Process Corner)
+  Requirement:            0.000ns  (compute_clock rise@0.000ns - compute_clock rise@0.000ns)
+  Data Path Delay:        0.180ns  (logic 0.095ns (52.778%)  route 0.085ns (47.222%))
+  Logic Levels:           1  (LUT3=1)
+  Clock Path Skew:        0.099ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.206ns
+    Source Clock Delay      (SCD):    1.732ns
+    Clock Pessimism Removal (CPR):    0.375ns
+  Clock Net Delay (Source):      1.150ns (routing 0.155ns, distribution 0.995ns)
+  Clock Net Delay (Destination): 1.331ns (routing 0.171ns, distribution 1.160ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.265     0.265 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.265    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.265 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.293     0.558    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     0.582 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19731, routed)       1.150     1.732    core/convolution_engine/clk
+    SLICE_X15Y80         FDRE                                         r  core/convolution_engine/lif_currents_delayed_reg[180]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X15Y80         FDRE (Prop_GFF2_SLICEL_C_Q)
+                                                      0.060     1.792 r  core/convolution_engine/lif_currents_delayed_reg[180]/Q
+                         net (fo=1, routed)           0.062     1.854    core/linear_engine/trace_snapshot_reg[191][180]
+    SLICE_X17Y80                                                      r  core/linear_engine/trace_current_flat[180]_INST_0/I2
+    SLICE_X17Y80         LUT3 (Prop_A6LUT_SLICEL_I2_O)
+                                                      0.035     1.889 r  core/linear_engine/trace_current_flat[180]_INST_0/O
+                         net (fo=1, routed)           0.023     1.912    trace_current_flat[180]
+    SLICE_X17Y80         FDRE                                         r  trace_snapshot_reg[180]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.515     0.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.332     0.847    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     0.875 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19731, routed)       1.331     2.206    compute_clk
+    SLICE_X17Y80         FDRE                                         r  trace_snapshot_reg[180]/C
+                         clock pessimism             -0.375     1.831    
+    SLICE_X17Y80         FDRE (Hold_AFF_SLICEL_C_D)
+                                                      0.060     1.891    trace_snapshot_reg[180]
+  -------------------------------------------------------------------
+                         required time                         -1.891    
+                         arrival time                           1.912    
+  -------------------------------------------------------------------
+                         slack                                  0.021    
+
+Slack (MET) :             0.021ns  (arrival time - required time)
+  Source:                 core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[3].gen_tree_node[4].gen_active_node.gen_unpaired.tree_pipeline_reg[3][3][4][8]/C
+                            (rising edge-triggered cell FDRE clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Destination:            core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[3].gen_tree_node[2].gen_active_node.gen_unpaired.tree_pipeline_reg[3][4][2][8]/D
+                            (rising edge-triggered cell FDRE clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Path Group:             compute_clock
+  Path Type:              Hold (Min at Slow Process Corner)
+  Requirement:            0.000ns  (compute_clock rise@0.000ns - compute_clock rise@0.000ns)
+  Data Path Delay:        0.190ns  (logic 0.059ns (31.053%)  route 0.131ns (68.947%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.109ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.177ns
+    Source Clock Delay      (SCD):    1.759ns
+    Clock Pessimism Removal (CPR):    0.309ns
+  Clock Net Delay (Source):      1.177ns (routing 0.155ns, distribution 1.022ns)
+  Clock Net Delay (Destination): 1.302ns (routing 0.171ns, distribution 1.131ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.265     0.265 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.265    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.265 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.293     0.558    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     0.582 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19731, routed)       1.177     1.759    core/convolution_engine/mac_array/clk
+    SLICE_X22Y121        FDRE                                         r  core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[3].gen_tree_node[4].gen_active_node.gen_unpaired.tree_pipeline_reg[3][3][4][8]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X22Y121        FDRE (Prop_EFF_SLICEL_C_Q)
+                                                      0.059     1.818 r  core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[3].gen_tree_node[4].gen_active_node.gen_unpaired.tree_pipeline_reg[3][3][4][8]/Q
+                         net (fo=1, routed)           0.131     1.949    core/convolution_engine/mac_array/gen_tree_level[3].gen_tree_output[3].gen_tree_node[4].gen_active_node.gen_unpaired.tree_pipeline_reg[3][3][4]_23[8]
+    SLICE_X22Y117        FDRE                                         r  core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[3].gen_tree_node[2].gen_active_node.gen_unpaired.tree_pipeline_reg[3][4][2][8]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.515     0.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.332     0.847    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     0.875 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19731, routed)       1.302     2.177    core/convolution_engine/mac_array/clk
+    SLICE_X22Y117        FDRE                                         r  core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[3].gen_tree_node[2].gen_active_node.gen_unpaired.tree_pipeline_reg[3][4][2][8]/C
+                         clock pessimism             -0.309     1.868    
+    SLICE_X22Y117        FDRE (Hold_BFF_SLICEL_C_D)
+                                                      0.060     1.928    core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[3].gen_tree_node[2].gen_active_node.gen_unpaired.tree_pipeline_reg[3][4][2][8]
+  -------------------------------------------------------------------
+                         required time                         -1.928    
+                         arrival time                           1.949    
+  -------------------------------------------------------------------
+                         slack                                  0.021    
+
+Slack (MET) :             0.021ns  (arrival time - required time)
+  Source:                 core/convolution_engine/mac_array/gen_products[6].gen_product_lane[5].tree_pipeline_reg[6][0][5][11]/C
+                            (rising edge-triggered cell FDRE clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Destination:            core/convolution_engine/mac_array/gen_tree_level[1].gen_tree_output[6].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[6][1][2][11]/D
+                            (rising edge-triggered cell FDRE clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Path Group:             compute_clock
+  Path Type:              Hold (Min at Slow Process Corner)
+  Requirement:            0.000ns  (compute_clock rise@0.000ns - compute_clock rise@0.000ns)
+  Data Path Delay:        0.188ns  (logic 0.106ns (56.383%)  route 0.082ns (43.617%))
+  Logic Levels:           2  (CARRY8=1 LUT2=1)
+  Clock Path Skew:        0.107ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.153ns
+    Source Clock Delay      (SCD):    1.680ns
+    Clock Pessimism Removal (CPR):    0.367ns
+  Clock Net Delay (Source):      1.098ns (routing 0.155ns, distribution 0.943ns)
+  Clock Net Delay (Destination): 1.278ns (routing 0.171ns, distribution 1.107ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.265     0.265 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.265    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.265 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.293     0.558    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     0.582 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19731, routed)       1.098     1.680    core/convolution_engine/mac_array/clk
+    SLICE_X37Y136        FDRE                                         r  core/convolution_engine/mac_array/gen_products[6].gen_product_lane[5].tree_pipeline_reg[6][0][5][11]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X37Y136        FDRE (Prop_DFF_SLICEM_C_Q)
+                                                      0.058     1.738 r  core/convolution_engine/mac_array/gen_products[6].gen_product_lane[5].tree_pipeline_reg[6][0][5][11]/Q
+                         net (fo=1, routed)           0.063     1.801    core/convolution_engine/mac_array/gen_products[6].gen_product_lane[5].tree_pipeline_reg[6][0][5]_51[11]
+    SLICE_X36Y136                                                     r  core/convolution_engine/mac_array/gen_tree_level[1].gen_tree_output[6].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline[6][1][2][15]_i_6/I1
+    SLICE_X36Y136        LUT2 (Prop_D6LUT_SLICEL_I1_O)
+                                                      0.022     1.823 r  core/convolution_engine/mac_array/gen_tree_level[1].gen_tree_output[6].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline[6][1][2][15]_i_6/O
+                         net (fo=1, routed)           0.009     1.832    core/convolution_engine_n_10208
+    SLICE_X36Y136                                                     r  core/mac_array/gen_tree_level[1].gen_tree_output[6].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[6][1][2][15]_i_1/S[3]
+    SLICE_X36Y136        CARRY8 (Prop_CARRY8_SLICEL_S[3]_O[3])
+                                                      0.026     1.858 r  core/mac_array/gen_tree_level[1].gen_tree_output[6].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[6][1][2][15]_i_1/O[3]
+                         net (fo=1, routed)           0.010     1.868    core/convolution_engine/mac_array/gen_tree_level[1].gen_tree_output[6].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[6][1][2][31]_2[11]
+    SLICE_X36Y136        FDRE                                         r  core/convolution_engine/mac_array/gen_tree_level[1].gen_tree_output[6].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[6][1][2][11]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.515     0.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.332     0.847    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     0.875 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19731, routed)       1.278     2.153    core/convolution_engine/mac_array/clk
+    SLICE_X36Y136        FDRE                                         r  core/convolution_engine/mac_array/gen_tree_level[1].gen_tree_output[6].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[6][1][2][11]/C
+                         clock pessimism             -0.367     1.786    
+    SLICE_X36Y136        FDRE (Hold_DFF_SLICEL_C_D)
+                                                      0.060     1.846    core/convolution_engine/mac_array/gen_tree_level[1].gen_tree_output[6].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[6][1][2][11]
+  -------------------------------------------------------------------
+                         required time                         -1.846    
+                         arrival time                           1.868    
+  -------------------------------------------------------------------
+                         slack                                  0.021    
+
+Slack (MET) :             0.021ns  (arrival time - required time)
+  Source:                 core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[1].gen_tree_node[2].gen_active_node.gen_unpaired.tree_pipeline_reg[1][4][2][11]/C
+                            (rising edge-triggered cell FDRE clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Destination:            core/convolution_engine/mac_array/gen_tree_level[5].gen_tree_output[1].gen_tree_node[1].gen_active_node.gen_unpaired.tree_pipeline_reg[1][5][1][11]/D
+                            (rising edge-triggered cell FDRE clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Path Group:             compute_clock
+  Path Type:              Hold (Min at Slow Process Corner)
+  Requirement:            0.000ns  (compute_clock rise@0.000ns - compute_clock rise@0.000ns)
+  Data Path Delay:        0.193ns  (logic 0.060ns (31.088%)  route 0.133ns (68.912%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.110ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.248ns
+    Source Clock Delay      (SCD):    1.764ns
+    Clock Pessimism Removal (CPR):    0.375ns
+  Clock Net Delay (Source):      1.182ns (routing 0.155ns, distribution 1.027ns)
+  Clock Net Delay (Destination): 1.373ns (routing 0.171ns, distribution 1.202ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.265     0.265 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.265    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.265 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.293     0.558    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     0.582 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19731, routed)       1.182     1.764    core/convolution_engine/mac_array/clk
+    SLICE_X3Y99          FDRE                                         r  core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[1].gen_tree_node[2].gen_active_node.gen_unpaired.tree_pipeline_reg[1][4][2][11]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X3Y99          FDRE (Prop_FFF2_SLICEL_C_Q)
+                                                      0.060     1.824 r  core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[1].gen_tree_node[2].gen_active_node.gen_unpaired.tree_pipeline_reg[1][4][2][11]/Q
+                         net (fo=1, routed)           0.133     1.957    core/convolution_engine/mac_array/gen_tree_level[4].gen_tree_output[1].gen_tree_node[2].gen_active_node.gen_unpaired.tree_pipeline_reg[1][4][2]_16[11]
+    SLICE_X6Y99          FDRE                                         r  core/convolution_engine/mac_array/gen_tree_level[5].gen_tree_output[1].gen_tree_node[1].gen_active_node.gen_unpaired.tree_pipeline_reg[1][5][1][11]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.515     0.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.332     0.847    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     0.875 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19731, routed)       1.373     2.248    core/convolution_engine/mac_array/clk
+    SLICE_X6Y99          FDRE                                         r  core/convolution_engine/mac_array/gen_tree_level[5].gen_tree_output[1].gen_tree_node[1].gen_active_node.gen_unpaired.tree_pipeline_reg[1][5][1][11]/C
+                         clock pessimism             -0.375     1.873    
+    SLICE_X6Y99          FDRE (Hold_FFF2_SLICEL_C_D)
+                                                      0.062     1.935    core/convolution_engine/mac_array/gen_tree_level[5].gen_tree_output[1].gen_tree_node[1].gen_active_node.gen_unpaired.tree_pipeline_reg[1][5][1][11]
+  -------------------------------------------------------------------
+                         required time                         -1.935    
+                         arrival time                           1.957    
+  -------------------------------------------------------------------
+                         slack                                  0.021    
+
+Slack (MET) :             0.022ns  (arrival time - required time)
+  Source:                 core/h2_t0_spike_reg[12][4]/C
+                            (rising edge-triggered cell FDRE clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Destination:            core/temporal_sum_reg[12][4]/D
+                            (rising edge-triggered cell FDRE clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Path Group:             compute_clock
+  Path Type:              Hold (Min at Slow Process Corner)
+  Requirement:            0.000ns  (compute_clock rise@0.000ns - compute_clock rise@0.000ns)
+  Data Path Delay:        0.198ns  (logic 0.081ns (40.851%)  route 0.117ns (59.149%))
+  Logic Levels:           1  (LUT6=1)
+  Clock Path Skew:        0.117ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.111ns
+    Source Clock Delay      (SCD):    1.632ns
+    Clock Pessimism Removal (CPR):    0.363ns
+  Clock Net Delay (Source):      1.050ns (routing 0.155ns, distribution 0.895ns)
+  Clock Net Delay (Destination): 1.236ns (routing 0.171ns, distribution 1.065ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.265     0.265 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.265    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.265 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.293     0.558    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     0.582 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19731, routed)       1.050     1.632    core/clk
+    SLICE_X36Y87         FDRE                                         r  core/h2_t0_spike_reg[12][4]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X36Y87         FDRE (Prop_GFF_SLICEL_C_Q)
+                                                      0.059     1.691 r  core/h2_t0_spike_reg[12][4]/Q
+                         net (fo=3, routed)           0.093     1.784    core/linear_engine/gen_neurons[12].neuron/h2_t0_spike_reg[12][7][4]
+    SLICE_X35Y87                                                      r  core/linear_engine/gen_neurons[12].neuron/temporal_sum[12][4]_i_1/I1
+    SLICE_X35Y87         LUT6 (Prop_F6LUT_SLICEL_I1_O)
+                                                      0.022     1.806 r  core/linear_engine/gen_neurons[12].neuron/temporal_sum[12][4]_i_1/O
+                         net (fo=1, routed)           0.024     1.830    core/linear_engine_n_3243
+    SLICE_X35Y87         FDRE                                         r  core/temporal_sum_reg[12][4]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.515     0.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.332     0.847    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     0.875 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19731, routed)       1.236     2.111    core/clk
+    SLICE_X35Y87         FDRE                                         r  core/temporal_sum_reg[12][4]/C
+                         clock pessimism             -0.363     1.748    
+    SLICE_X35Y87         FDRE (Hold_FFF_SLICEL_C_D)
+                                                      0.060     1.808    core/temporal_sum_reg[12][4]
+  -------------------------------------------------------------------
+                         required time                         -1.808    
+                         arrival time                           1.830    
+  -------------------------------------------------------------------
+                         slack                                  0.022    
+
+Slack (MET) :             0.022ns  (arrival time - required time)
+  Source:                 core/convolution_engine/max_pool/currents_delayed_reg[70]/C
+                            (rising edge-triggered cell FDRE clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Destination:            core/convolution_engine/max_pool/current_left_reg[1][30]/D
+                            (rising edge-triggered cell FDRE clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Path Group:             compute_clock
+  Path Type:              Hold (Min at Slow Process Corner)
+  Requirement:            0.000ns  (compute_clock rise@0.000ns - compute_clock rise@0.000ns)
+  Data Path Delay:        0.299ns  (logic 0.058ns (19.385%)  route 0.241ns (80.615%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.217ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.234ns
+    Source Clock Delay      (SCD):    1.708ns
+    Clock Pessimism Removal (CPR):    0.309ns
+  Clock Net Delay (Source):      1.126ns (routing 0.155ns, distribution 0.971ns)
+  Clock Net Delay (Destination): 1.359ns (routing 0.171ns, distribution 1.188ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.265     0.265 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.265    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.265 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.293     0.558    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     0.582 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19731, routed)       1.126     1.708    core/convolution_engine/max_pool/clk
+    SLICE_X25Y118        FDRE                                         r  core/convolution_engine/max_pool/currents_delayed_reg[70]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X25Y118        FDRE (Prop_FFF_SLICEL_C_Q)
+                                                      0.058     1.766 r  core/convolution_engine/max_pool/currents_delayed_reg[70]/Q
+                         net (fo=8, routed)           0.241     2.007    core/convolution_engine/max_pool/current_value[1]_76[30]
+    SLICE_X25Y123        FDRE                                         r  core/convolution_engine/max_pool/current_left_reg[1][30]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.515     0.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.332     0.847    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     0.875 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19731, routed)       1.359     2.234    core/convolution_engine/max_pool/clk
+    SLICE_X25Y123        FDRE                                         r  core/convolution_engine/max_pool/current_left_reg[1][30]/C
+                         clock pessimism             -0.309     1.925    
+    SLICE_X25Y123        FDRE (Hold_EFF_SLICEL_C_D)
+                                                      0.060     1.985    core/convolution_engine/max_pool/current_left_reg[1][30]
+  -------------------------------------------------------------------
+                         required time                         -1.985    
+                         arrival time                           2.007    
+  -------------------------------------------------------------------
+                         slack                                  0.022    
+
+Slack (MET) :             0.022ns  (arrival time - required time)
+  Source:                 core/convolution_engine/mac_array/gen_tree_level[6].gen_tree_output[3].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[3][6][0][19]/C
+                            (rising edge-triggered cell FDRE clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Destination:            core/convolution_engine/mac_array/accumulators_out_flat_reg[146]/D
+                            (rising edge-triggered cell FDRE clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Path Group:             compute_clock
+  Path Type:              Hold (Min at Slow Process Corner)
+  Requirement:            0.000ns  (compute_clock rise@0.000ns - compute_clock rise@0.000ns)
+  Data Path Delay:        0.293ns  (logic 0.201ns (68.601%)  route 0.092ns (31.399%))
+  Logic Levels:           3  (CARRY8=2 LUT2=1)
+  Clock Path Skew:        0.211ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.240ns
+    Source Clock Delay      (SCD):    1.720ns
+    Clock Pessimism Removal (CPR):    0.309ns
+  Clock Net Delay (Source):      1.138ns (routing 0.155ns, distribution 0.983ns)
+  Clock Net Delay (Destination): 1.365ns (routing 0.171ns, distribution 1.194ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.265     0.265 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.265    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.265 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.293     0.558    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     0.582 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19731, routed)       1.138     1.720    core/convolution_engine/mac_array/clk
+    SLICE_X21Y119        FDRE                                         r  core/convolution_engine/mac_array/gen_tree_level[6].gen_tree_output[3].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[3][6][0][19]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X21Y119        FDRE (Prop_DFF_SLICEL_C_Q)
+                                                      0.059     1.779 r  core/convolution_engine/mac_array/gen_tree_level[6].gen_tree_output[3].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[3][6][0][19]/Q
+                         net (fo=1, routed)           0.058     1.837    core/convolution_engine/mac_array/gen_tree_level[6].gen_tree_output[3].gen_tree_node[0].gen_active_node.gen_pair.tree_pipeline_reg[3][6][0]_26[19]
+    SLICE_X20Y119                                                     r  core/convolution_engine/mac_array/accumulators_out_flat[143]_i_6/I1
+    SLICE_X20Y119        LUT2 (Prop_D6LUT_SLICEM_I1_O)
+                                                      0.022     1.859 r  core/convolution_engine/mac_array/accumulators_out_flat[143]_i_6/O
+                         net (fo=1, routed)           0.020     1.879    core/convolution_engine_n_6937
+    SLICE_X20Y119                                                     r  core/mac_array/accumulators_out_flat_reg[143]_i_1/S[3]
+    SLICE_X20Y119        CARRY8 (Prop_CARRY8_SLICEM_S[3]_CO[7])
+                                                      0.083     1.962 r  core/mac_array/accumulators_out_flat_reg[143]_i_1/CO[7]
+                         net (fo=1, routed)           0.004     1.966    core/mac_array/accumulators_out_flat_reg[143]_i_1_n_0
+    SLICE_X20Y120                                                     r  core/mac_array/accumulators_out_flat_reg[151]_i_1/CI
+    SLICE_X20Y120        CARRY8 (Prop_CARRY8_SLICEM_CI_O[2])
+                                                      0.037     2.003 r  core/mac_array/accumulators_out_flat_reg[151]_i_1/O[2]
+                         net (fo=1, routed)           0.010     2.013    core/convolution_engine/mac_array/accumulators_out_flat_reg[311]_0[122]
+    SLICE_X20Y120        FDRE                                         r  core/convolution_engine/mac_array/accumulators_out_flat_reg[146]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.515     0.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.332     0.847    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     0.875 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19731, routed)       1.365     2.240    core/convolution_engine/mac_array/clk
+    SLICE_X20Y120        FDRE                                         r  core/convolution_engine/mac_array/accumulators_out_flat_reg[146]/C
+                         clock pessimism             -0.309     1.931    
+    SLICE_X20Y120        FDRE (Hold_CFF_SLICEM_C_D)
+                                                      0.060     1.991    core/convolution_engine/mac_array/accumulators_out_flat_reg[146]
+  -------------------------------------------------------------------
+                         required time                         -1.991    
+                         arrival time                           2.013    
+  -------------------------------------------------------------------
+                         slack                                  0.022    
+
+Slack (MET) :             0.022ns  (arrival time - required time)
+  Source:                 core/convolution_engine/mac_array/gen_products[6].gen_product_lane[5].tree_pipeline_reg[6][0][5][10]/C
+                            (rising edge-triggered cell FDRE clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Destination:            core/convolution_engine/mac_array/gen_tree_level[1].gen_tree_output[6].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[6][1][2][10]/D
+                            (rising edge-triggered cell FDRE clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Path Group:             compute_clock
+  Path Type:              Hold (Min at Slow Process Corner)
+  Requirement:            0.000ns  (compute_clock rise@0.000ns - compute_clock rise@0.000ns)
+  Data Path Delay:        0.189ns  (logic 0.106ns (56.085%)  route 0.083ns (43.915%))
+  Logic Levels:           2  (CARRY8=1 LUT2=1)
+  Clock Path Skew:        0.107ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.153ns
+    Source Clock Delay      (SCD):    1.680ns
+    Clock Pessimism Removal (CPR):    0.367ns
+  Clock Net Delay (Source):      1.098ns (routing 0.155ns, distribution 0.943ns)
+  Clock Net Delay (Destination): 1.278ns (routing 0.171ns, distribution 1.107ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.265     0.265 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.265    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.265 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.293     0.558    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     0.582 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19731, routed)       1.098     1.680    core/convolution_engine/mac_array/clk
+    SLICE_X37Y136        FDRE                                         r  core/convolution_engine/mac_array/gen_products[6].gen_product_lane[5].tree_pipeline_reg[6][0][5][10]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X37Y136        FDRE (Prop_CFF_SLICEM_C_Q)
+                                                      0.058     1.738 r  core/convolution_engine/mac_array/gen_products[6].gen_product_lane[5].tree_pipeline_reg[6][0][5][10]/Q
+                         net (fo=1, routed)           0.063     1.801    core/convolution_engine/mac_array/gen_products[6].gen_product_lane[5].tree_pipeline_reg[6][0][5]_51[10]
+    SLICE_X36Y136                                                     r  core/convolution_engine/mac_array/gen_tree_level[1].gen_tree_output[6].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline[6][1][2][15]_i_7/I1
+    SLICE_X36Y136        LUT2 (Prop_C6LUT_SLICEL_I1_O)
+                                                      0.022     1.823 r  core/convolution_engine/mac_array/gen_tree_level[1].gen_tree_output[6].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline[6][1][2][15]_i_7/O
+                         net (fo=1, routed)           0.010     1.833    core/convolution_engine_n_10209
+    SLICE_X36Y136                                                     r  core/mac_array/gen_tree_level[1].gen_tree_output[6].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[6][1][2][15]_i_1/S[2]
+    SLICE_X36Y136        CARRY8 (Prop_CARRY8_SLICEL_S[2]_O[2])
+                                                      0.026     1.859 r  core/mac_array/gen_tree_level[1].gen_tree_output[6].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[6][1][2][15]_i_1/O[2]
+                         net (fo=1, routed)           0.010     1.869    core/convolution_engine/mac_array/gen_tree_level[1].gen_tree_output[6].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[6][1][2][31]_2[10]
+    SLICE_X36Y136        FDRE                                         r  core/convolution_engine/mac_array/gen_tree_level[1].gen_tree_output[6].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[6][1][2][10]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.515     0.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.332     0.847    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     0.875 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19731, routed)       1.278     2.153    core/convolution_engine/mac_array/clk
+    SLICE_X36Y136        FDRE                                         r  core/convolution_engine/mac_array/gen_tree_level[1].gen_tree_output[6].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[6][1][2][10]/C
+                         clock pessimism             -0.367     1.786    
+    SLICE_X36Y136        FDRE (Hold_CFF_SLICEL_C_D)
+                                                      0.060     1.846    core/convolution_engine/mac_array/gen_tree_level[1].gen_tree_output[6].gen_tree_node[2].gen_active_node.gen_pair.tree_pipeline_reg[6][1][2][10]
+  -------------------------------------------------------------------
+                         required time                         -1.846    
+                         arrival time                           1.869    
+  -------------------------------------------------------------------
+                         slack                                  0.022    
+
+Slack (MET) :             0.022ns  (arrival time - required time)
+  Source:                 core/convolution_engine/mac_array/gen_tree_level[1].gen_tree_output[5].gen_tree_node[12].gen_active_node.gen_pair.tree_pipeline_reg[5][1][12][9]/C
+                            (rising edge-triggered cell FDRE clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Destination:            core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[5].gen_tree_node[6].gen_active_node.gen_pair.tree_pipeline_reg[5][2][6][10]/D
+                            (rising edge-triggered cell FDRE clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Path Group:             compute_clock
+  Path Type:              Hold (Min at Slow Process Corner)
+  Requirement:            0.000ns  (compute_clock rise@0.000ns - compute_clock rise@0.000ns)
+  Data Path Delay:        0.184ns  (logic 0.106ns (57.529%)  route 0.078ns (42.471%))
+  Logic Levels:           1  (CARRY8=1)
+  Clock Path Skew:        0.102ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.208ns
+    Source Clock Delay      (SCD):    1.727ns
+    Clock Pessimism Removal (CPR):    0.379ns
+  Clock Net Delay (Source):      1.145ns (routing 0.155ns, distribution 0.990ns)
+  Clock Net Delay (Destination): 1.333ns (routing 0.171ns, distribution 1.162ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.265     0.265 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.265    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.265 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.293     0.558    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     0.582 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19731, routed)       1.145     1.727    core/convolution_engine/mac_array/clk
+    SLICE_X25Y156        FDRE                                         r  core/convolution_engine/mac_array/gen_tree_level[1].gen_tree_output[5].gen_tree_node[12].gen_active_node.gen_pair.tree_pipeline_reg[5][1][12][9]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X25Y156        FDRE (Prop_BFF_SLICEL_C_Q)
+                                                      0.059     1.786 r  core/convolution_engine/mac_array/gen_tree_level[1].gen_tree_output[5].gen_tree_node[12].gen_active_node.gen_pair.tree_pipeline_reg[5][1][12][9]/Q
+                         net (fo=2, routed)           0.068     1.854    core/convolution_engine_n_7923
+    SLICE_X26Y156                                                     r  core/mac_array/gen_tree_level[2].gen_tree_output[5].gen_tree_node[6].gen_active_node.gen_pair.tree_pipeline_reg[5][2][6][15]_i_1/DI[1]
+    SLICE_X26Y156        CARRY8 (Prop_CARRY8_SLICEL_DI[1]_O[2])
+                                                      0.047     1.901 r  core/mac_array/gen_tree_level[2].gen_tree_output[5].gen_tree_node[6].gen_active_node.gen_pair.tree_pipeline_reg[5][2][6][15]_i_1/O[2]
+                         net (fo=1, routed)           0.010     1.911    core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[5].gen_tree_node[6].gen_active_node.gen_pair.tree_pipeline_reg[5][2][6][31]_2[10]
+    SLICE_X26Y156        FDRE                                         r  core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[5].gen_tree_node[6].gen_active_node.gen_pair.tree_pipeline_reg[5][2][6][10]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.515     0.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.332     0.847    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     0.875 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19731, routed)       1.333     2.208    core/convolution_engine/mac_array/clk
+    SLICE_X26Y156        FDRE                                         r  core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[5].gen_tree_node[6].gen_active_node.gen_pair.tree_pipeline_reg[5][2][6][10]/C
+                         clock pessimism             -0.379     1.829    
+    SLICE_X26Y156        FDRE (Hold_CFF_SLICEL_C_D)
+                                                      0.060     1.889    core/convolution_engine/mac_array/gen_tree_level[2].gen_tree_output[5].gen_tree_node[6].gen_active_node.gen_pair.tree_pipeline_reg[5][2][6][10]
+  -------------------------------------------------------------------
+                         required time                         -1.889    
+                         arrival time                           1.911    
+  -------------------------------------------------------------------
+                         slack                                  0.022    
+
+
+
+
