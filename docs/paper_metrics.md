@@ -1,5 +1,9 @@
 # 论文硬件指标检查（seed2021 四组真实训练模型）
 
+2026-10-19新增第五档Pursuit L1～L4无状态：已完成定点参考、16输入RTL核验、综合、布局布线和
+160MHz完整时序；68,293拍、0.426831ms、120块BRAM36等效。五档时间/BRAM统一取
+`results/latency_bram.json`或`.csv`。以下功率和能量仍专指原四档，本轮未要求第五档功耗。
+
 ## ISCAS投稿要求与本篇实验范围
 
 2026-10-17核对[ISCAS 2027征稿说明](https://2027.ieee-iscas.org/call-for-papers)及
@@ -18,7 +22,7 @@
 
 | 指标 | 当前证据 | 本轮安排 |
 | --- | --- | --- |
-| 浮点与定点角误差 | 四组user10完整test已量化；24用户浮点均值已核对；L1～L2的24用户定点0.825481°已有完整结果 | 如需补齐四版本24用户定点表，仅余另外三档×23人＝69模型 |
+| 浮点与定点角误差 | 四档×Pursuit/Saccade×24用户共192模型完整test量化齐全；逐用户等权均值见results/quantization/state_depth/results.json | 已补齐；141份新增CPU评估、51份已有结果核验复用 |
 | FPGA型号、工具与数值位宽 | XCZU3EG-2、Vivado 2025.2.1、权重/膜16位、脉冲8位 | 四组保持相同 |
 | LUT、FF、DSP、BRAM数量与占比 | 四组综合与布线后资源均已完成 | 已补齐 |
 | 工作频率与完整时序检查 | 四组均已通过160 MHz建立、保持、脉宽与约束覆盖检查 | 已补齐，DCP独立复核也全部通过 |
@@ -35,7 +39,8 @@
 四组user10结果单列；24用户平均功耗不列入本篇必做实验。
 同一固定电路的拍数、资源和时钟约束随用户切换保持不变，功耗随权重和输入活动变化。
 主汇总见[summary.json](../results/summary.json)。
-已有24用户定点批次见[量化索引](../results/quantization/multiuser/results.json)，无需重跑L1～L2这组。
+四档双任务24用户完整定点批次见[量化索引](../results/quantization/state_depth/results.json)。
+2026-10-19在carbonite CPU完成待补项；浮点沿用原训练报告，定点每人覆盖完整test。
 
 ## 速度需要写清楚的范围
 

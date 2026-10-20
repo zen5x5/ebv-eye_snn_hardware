@@ -1,0 +1,429 @@
+{
+  "format": "pursuit_static_ann_400event_count_frame",
+  "user": 23,
+  "eye": 0,
+  "roi": [
+    1,
+    30,
+    192,
+    256
+  ],
+  "input_shape": [
+    2,
+    96,
+    128
+  ],
+  "input_dtype": "uint16",
+  "model_input": "one polarity-separated event-count frame per sample",
+  "events_per_sample": 400,
+  "pooled_height": 96,
+  "pooled_width": 128,
+  "window_events": 400,
+  "bins_per_sample": 1,
+  "events_per_bin": 400,
+  "train_window_stride_events": 200,
+  "split_seed": 2021,
+  "split_strategy": "phase/x-sector approximately 4:1:1 over complete windows before train stride; tail windows excluded before split",
+  "tail_window_policy": "excluded_before_candidate_split",
+  "corner_guard_us_per_side": 80000,
+  "closed_eye_cores_relative_ms": [],
+  "record_spec_schema_version": "ebv_eye_pursuit_record_spec",
+  "fixed_hot_pixel_filter": {
+    "method": "fixed_hot_pixel_rate_isolation_periodicity",
+    "config": {
+      "minimum_event_count": 1000,
+      "minimum_mean_rate_hz": 10.0,
+      "minimum_same_polarity_neighbour_ratio": 10.0,
+      "short_interval_us": 200,
+      "minimum_short_interval_fraction": 0.9
+    },
+    "detected_pixels": [
+      {
+        "polarity": 0,
+        "row": 180,
+        "col": 186
+      },
+      {
+        "polarity": 0,
+        "row": 187,
+        "col": 272
+      }
+    ]
+  },
+  "record_spec_path": "code/pursuit/fixed_event_window/preprocessing/record_specs/eye0/user23_eye0.json",
+  "record_spec_sha256": "78a764832ddb90bed3a5c5a923b2e3adae583bdbf4d17306c1a09cd711ff9dc6",
+  "roi_selection": {
+    "method": "joint_pursuit_saccade_event_retention_after_fixed_hot_pixel_filter",
+    "pursuit_event_retention": 0.9456381099305781,
+    "saccade_event_retention": 0.9808496521654321,
+    "joint_min_retention": 0.9456381099305781
+  },
+  "closed_eye_review": {
+    "status": "complete",
+    "method": "event_double_peak_navigation_plus_frame_confirmation",
+    "time_reference": "first_pursuit_frame_relative_ms",
+    "candidate_artifact": "user23_eye0/candidates.json",
+    "review_artifact": "visual_closed_eye_decisions_eye0.json",
+    "confirmed_run_count": 0,
+    "frame_midpoint_evidence_verified": true
+  },
+  "first_pursuit_frame_us": 378859258,
+  "last_pursuit_frame_us": 474578203,
+  "phase_intervals_us": [
+    {
+      "name": "H1",
+      "start": 378859258,
+      "end": 393499107
+    },
+    {
+      "name": "V1",
+      "start": 393659107,
+      "end": 394739093
+    },
+    {
+      "name": "H2",
+      "start": 394899093,
+      "end": 409458929
+    },
+    {
+      "name": "V2",
+      "start": 409618929,
+      "end": 410898914
+    },
+    {
+      "name": "H3",
+      "start": 411058914,
+      "end": 425538755
+    },
+    {
+      "name": "V3",
+      "start": 425698755,
+      "end": 426938739
+    },
+    {
+      "name": "H4",
+      "start": 427098739,
+      "end": 441618573
+    },
+    {
+      "name": "V4",
+      "start": 441778573,
+      "end": 443018556
+    },
+    {
+      "name": "H5",
+      "start": 443178556,
+      "end": 457978380
+    },
+    {
+      "name": "V5",
+      "start": 458138380,
+      "end": 459298364
+    },
+    {
+      "name": "H6",
+      "start": 459458364,
+      "end": 474298207
+    }
+  ],
+  "visible_fragments": [
+    {
+      "name": "H1",
+      "start": 378859258,
+      "end": 393499107,
+      "fragment": 0
+    },
+    {
+      "name": "V1",
+      "start": 393659107,
+      "end": 394739093,
+      "fragment": 1
+    },
+    {
+      "name": "H2",
+      "start": 394899093,
+      "end": 409458929,
+      "fragment": 2
+    },
+    {
+      "name": "V2",
+      "start": 409618929,
+      "end": 410898914,
+      "fragment": 3
+    },
+    {
+      "name": "H3",
+      "start": 411058914,
+      "end": 425538755,
+      "fragment": 4
+    },
+    {
+      "name": "V3",
+      "start": 425698755,
+      "end": 426938739,
+      "fragment": 5
+    },
+    {
+      "name": "H4",
+      "start": 427098739,
+      "end": 441618573,
+      "fragment": 6
+    },
+    {
+      "name": "V4",
+      "start": 441778573,
+      "end": 443018556,
+      "fragment": 7
+    },
+    {
+      "name": "H5",
+      "start": 443178556,
+      "end": 457978380,
+      "fragment": 8
+    },
+    {
+      "name": "V5",
+      "start": 458138380,
+      "end": 459298364,
+      "fragment": 9
+    },
+    {
+      "name": "H6",
+      "start": 459458364,
+      "end": 474298207,
+      "fragment": 10
+    }
+  ],
+  "fragment_window_audit": [
+    {
+      "phase": "H1",
+      "fragment": 0,
+      "events": 387759,
+      "full_windows": 969,
+      "tail_events": 159,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    },
+    {
+      "phase": "V1",
+      "fragment": 1,
+      "events": 21333,
+      "full_windows": 53,
+      "tail_events": 133,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    },
+    {
+      "phase": "H2",
+      "fragment": 2,
+      "events": 192388,
+      "full_windows": 480,
+      "tail_events": 388,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    },
+    {
+      "phase": "V2",
+      "fragment": 3,
+      "events": 19746,
+      "full_windows": 49,
+      "tail_events": 146,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    },
+    {
+      "phase": "H3",
+      "fragment": 4,
+      "events": 143141,
+      "full_windows": 357,
+      "tail_events": 341,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    },
+    {
+      "phase": "V3",
+      "fragment": 5,
+      "events": 11039,
+      "full_windows": 27,
+      "tail_events": 239,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    },
+    {
+      "phase": "H4",
+      "fragment": 6,
+      "events": 87289,
+      "full_windows": 218,
+      "tail_events": 89,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    },
+    {
+      "phase": "V4",
+      "fragment": 7,
+      "events": 7895,
+      "full_windows": 19,
+      "tail_events": 295,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    },
+    {
+      "phase": "H5",
+      "fragment": 8,
+      "events": 88758,
+      "full_windows": 221,
+      "tail_events": 358,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    },
+    {
+      "phase": "V5",
+      "fragment": 9,
+      "events": 11459,
+      "full_windows": 28,
+      "tail_events": 259,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    },
+    {
+      "phase": "H6",
+      "fragment": 10,
+      "events": 79113,
+      "full_windows": 197,
+      "tail_events": 313,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    }
+  ],
+  "candidate_count": 2618,
+  "skipped_cross_split_backfill": 0,
+  "kept_backfill": 0,
+  "base_counts": {
+    "train": 1734,
+    "validation": 442,
+    "test": 442
+  },
+  "cached_counts": {
+    "train": 3057,
+    "validation": 442,
+    "test": 442
+  },
+  "phase_base_counts": {
+    "H1": {
+      "train": 645,
+      "validation": 162,
+      "test": 162
+    },
+    "V1": {
+      "train": 35,
+      "validation": 9,
+      "test": 9
+    },
+    "H2": {
+      "train": 318,
+      "validation": 81,
+      "test": 81
+    },
+    "V2": {
+      "train": 33,
+      "validation": 8,
+      "test": 8
+    },
+    "H3": {
+      "train": 237,
+      "validation": 60,
+      "test": 60
+    },
+    "V3": {
+      "train": 17,
+      "validation": 5,
+      "test": 5
+    },
+    "H4": {
+      "train": 144,
+      "validation": 37,
+      "test": 37
+    },
+    "V4": {
+      "train": 13,
+      "validation": 3,
+      "test": 3
+    },
+    "H5": {
+      "train": 143,
+      "validation": 39,
+      "test": 39
+    },
+    "V5": {
+      "train": 18,
+      "validation": 5,
+      "test": 5
+    },
+    "H6": {
+      "train": 131,
+      "validation": 33,
+      "test": 33
+    }
+  },
+  "cross_split_event_overlap": false,
+  "source_event_path": "/data/xuzx/data/ebv-eye/eye_data/user23/0/events.aerdat",
+  "source_event_audit": {
+    "file_bytes": 165966791,
+    "complete_event_records": 18440754,
+    "trailing_bytes": 5,
+    "roi_event_records": 16021765,
+    "fixed_hot_pixels": [
+      [
+        0,
+        180,
+        186
+      ],
+      [
+        0,
+        187,
+        272
+      ]
+    ],
+    "fixed_hot_pixel_records_removed_from_full_sensor": 1975712,
+    "fixed_hot_pixel_records_removed_from_roi": 1975712
+  },
+  "malformed_frame_filenames": 0,
+  "splits": {
+    "train": {
+      "samples": 3057,
+      "shape": [
+        3057,
+        2,
+        96,
+        128
+      ],
+      "maximum_pixel_count": 29,
+      "compressed_bytes": 2115782,
+      "sha256": "826629c5d2b39570b82a7362c8a4b258cb03132cf6b8db26303c013203f2737d"
+    },
+    "validation": {
+      "samples": 442,
+      "shape": [
+        442,
+        2,
+        96,
+        128
+      ],
+      "maximum_pixel_count": 32,
+      "compressed_bytes": 308428,
+      "sha256": "4c539e521429a6bcfe8e9d6958e4e2f1221153f5c335658cc1edca84fe50cf95"
+    },
+    "test": {
+      "samples": 442,
+      "shape": [
+        442,
+        2,
+        96,
+        128
+      ],
+      "maximum_pixel_count": 24,
+      "compressed_bytes": 308043,
+      "sha256": "b7111249e056952943d3cb28850ec7bc12dd63ef3f92f9064ce2377e24291457"
+    }
+  }
+}

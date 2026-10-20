@@ -1,0 +1,93 @@
+
+****** Vivado v2025.2.1 (64-bit)
+  **** SW Build 6403652 on Thu Mar 19 13:47:00 MDT 2026
+  **** IP Build 6403511 on Thu Mar 19 12:41:45 MDT 2026
+  **** SharedData Build 6403650 on Thu Mar 19 14:02:13 MDT 2026
+  **** Start of session at: Mon Oct 19 21:30:56 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source /home/xen/project/02_eb_snn_gaze_system/ebv-eye_snn_hardware/runs/vectorless_power_20261019/sources/power_vectorless.tcl
+# if {$argc != 2} { error "usage: power_vectorless.tcl POST_ROUTE_DCP OUTPUT_DIRECTORY" }
+# set checkpoint [file normalize [lindex $argv 0]]
+# set output_directory [file normalize [lindex $argv 1]]
+# file mkdir $output_directory
+# set_param general.maxThreads 4
+# open_checkpoint $checkpoint
+Command: open_checkpoint /home/xen/project/02_eb_snn_gaze_system/ebv-eye_snn_hardware/results/implementation/l1_l2_l3_l4_stateless/post_route.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.02 . Memory (MB): peak = 1455.938 ; gain = 0.000 ; free physical = 12841 ; free virtual = 25660
+INFO: [Device 21-403] Loading part xczu3eg-sfvc784-2-e
+Netlist sorting complete. Time (s): cpu = 00:00:00.26 ; elapsed = 00:00:00.26 . Memory (MB): peak = 2512.480 ; gain = 0.000 ; free physical = 14652 ; free virtual = 27474
+INFO: [Netlist 29-17] Analyzing 3413 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 2 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2025.2.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:00.13 ; elapsed = 00:00:00.14 . Memory (MB): peak = 2512.480 ; gain = 0.000 ; free physical = 14589 ; free virtual = 27413
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+INFO: [Designutils 20-5722] Start Reading Physical Databases.
+Reading placement.
+Read Netlist Cache: Time (s): cpu = 00:00:00.11 ; elapsed = 00:00:00.12 . Memory (MB): peak = 3049.770 ; gain = 13.727 ; free physical = 14210 ; free virtual = 27034
+Reading placer database...
+Read Device Cache: Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 3059.770 ; gain = 10.000 ; free physical = 14202 ; free virtual = 27026
+Read PlaceDB: Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 3141.098 ; gain = 78.945 ; free physical = 14125 ; free virtual = 26949
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3141.098 ; gain = 0.000 ; free physical = 14125 ; free virtual = 26949
+Reading routing.
+Read RouteStorage: Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 3595.785 ; gain = 454.688 ; free physical = 13749 ; free virtual = 26574
+Read Physdb Files: Time (s): cpu = 00:00:11 ; elapsed = 00:00:10 . Memory (MB): peak = 3595.785 ; gain = 559.742 ; free physical = 13749 ; free virtual = 26574
+Restored from archive | CPU: 10.920000 secs | Memory: 499.216148 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:11 ; elapsed = 00:00:10 . Memory (MB): peak = 3595.785 ; gain = 559.742 ; free physical = 13749 ; free virtual = 26574
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3595.785 ; gain = 0.000 ; free physical = 13750 ; free virtual = 26575
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 356 instances were transformed.
+  DSP48E2 => DSP48E2 (DSP_ALU, DSP_A_B_DATA, DSP_C_DATA, DSP_MULTIPLIER, DSP_M_DATA, DSP_OUTPUT, DSP_PREADD, DSP_PREADD_DATA): 308 instances
+  IBUF => IBUF (IBUFCTRL, INBUF): 43 instances
+  RAM64M8 => RAM64M8 (RAMD64E(x8)): 5 instances
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2025.2.1 (64-bit) build 6403652
+open_checkpoint: Time (s): cpu = 00:00:39 ; elapsed = 00:00:32 . Memory (MB): peak = 3595.820 ; gain = 2139.883 ; free physical = 13751 ; free virtual = 26576
+# set period [get_property PERIOD [get_clocks compute_clock]]
+# if {$period != 6.25} { error "Expected a 6.25 ns compute clock; found $period" }
+# reset_switching_activity -all
+# reset_switching_activity -default
+# set_operating_conditions -process typical -junction_temp 25
+# report_operating_conditions -all -file [file join $output_directory operating_conditions.rpt]
+# report_power -hier all -hierarchical_depth 0 -advisory -l 20 -file [file join $output_directory power.rpt]
+Command: report_power -hier all -hierarchical_depth 0 -advisory -l 20 -file /home/xen/project/02_eb_snn_gaze_system/ebv-eye_snn_hardware/runs/vectorless_power_20261019/l1_l2_l3_l4_stateless/reports/power.rpt
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+WARNING: [Power 33-332] Found switching activity that implies high-fanout reset nets being asserted for excessive periods of time which may result in inaccurate power analysis.
+Resolution: To review and fix problems, please run Power Constraints Advisor in the GUI from Tools > Power Constraints Advisor or run report_power with the -advisory option to generate a text report.
+0 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+report_power completed successfully
+report_power: Time (s): cpu = 00:00:44 ; elapsed = 00:00:21 . Memory (MB): peak = 4110.723 ; gain = 401.098 ; free physical = 13295 ; free virtual = 26123
+# report_power -hier all -hierarchical_depth 0 -format xml -file [file join $output_directory power.xml]
+Command: report_power -hier all -hierarchical_depth 0 -format xml -file /home/xen/project/02_eb_snn_gaze_system/ebv-eye_snn_hardware/runs/vectorless_power_20261019/l1_l2_l3_l4_stateless/reports/power.xml
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+WARNING: [Power 33-332] Found switching activity that implies high-fanout reset nets being asserted for excessive periods of time which may result in inaccurate power analysis.
+Resolution: To review and fix problems, please run Power Constraints Advisor in the GUI from Tools > Power Constraints Advisor or run report_power with the -advisory option to generate a text report.
+0 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+report_power completed successfully
+report_power: Time (s): cpu = 00:00:11 ; elapsed = 00:00:06 . Memory (MB): peak = 4110.723 ; gain = 0.000 ; free physical = 13182 ; free virtual = 26025
+# report_switching_activity -signal_rate -static_probability -file [file join $output_directory input_activity.rpt] [get_ports *]
+# report_switching_activity -signal_rate -static_probability -type bram_enable -all -file [file join $output_directory bram_activity.rpt]
+# set audit [open [file join $output_directory settings.txt] w]
+# puts $audit "vivado_version=[version -short]"
+# puts $audit "part=[get_property PART [current_design]]"
+# puts $audit "clock_period_ns=$period"
+# puts $audit "method=vectorless_default"
+# puts $audit "simulation_activity_file=none"
+# puts $audit "process=typical"
+# puts $audit "junction_temperature_c=25"
+# puts $audit "voltage=nominal"
+# close $audit
+# exit
+INFO: [Common 17-206] Exiting Vivado at Mon Oct 19 21:32:00 2026...

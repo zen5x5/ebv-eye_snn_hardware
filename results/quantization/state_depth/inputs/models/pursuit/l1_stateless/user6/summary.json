@@ -1,0 +1,217 @@
+{
+  "device": "cuda:0",
+  "timesteps": 2,
+  "alpha": 0.75,
+  "bias_constraint_layers": 0,
+  "temporal_organization": "repeat_identical_complete_400_event_count_frame",
+  "trainable_parameters": 96792,
+  "learnable_thresholds": 312,
+  "membrane_states_per_sample": 45000,
+  "retained_cross_bin_membrane_states": 20424,
+  "removed_cross_bin_membrane_states": 24576,
+  "stateless_channels": {
+    "L1": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  "branch_start_epoch": 100,
+  "train_samples": 28660,
+  "source_train_samples": 14330,
+  "synthetic_train_samples_per_epoch": 14330,
+  "recombination_candidate_edges": 2407517,
+  "local_recombination_mode": "all_physical_source_epoch_random",
+  "physical_stride_train_samples": 6210,
+  "eligible_stride_recombination_sources": 6210,
+  "preferred_recombination_sources": 14315,
+  "adjacent_fallback_recombination_sources": 15,
+  "ineligible_recombination_sources": 0,
+  "selectable_recombination_partners": 14322,
+  "selectable_stride_recombination_partners": 6206,
+  "validation_samples": 2037,
+  "test_samples": 2037,
+  "best_epoch": 194,
+  "best_train": {
+    "samples": 14330,
+    "batches": 896,
+    "mean_pixel_error": 6.533113964850802,
+    "mean_angular_error_deg": 0.32933978495803523,
+    "blocks": {
+      "full_pursuit": {
+        "samples": 14330,
+        "mean_pixel_error": 6.533113964850802,
+        "mean_angular_error_deg": 0.32933978495803523
+      }
+    }
+  },
+  "best_validation": {
+    "samples": 2037,
+    "batches": 128,
+    "mean_pixel_error": 12.166952200713085,
+    "mean_angular_error_deg": 0.6118864522406545,
+    "blocks": {
+      "full_pursuit": {
+        "samples": 2037,
+        "mean_pixel_error": 12.166952200713085,
+        "mean_angular_error_deg": 0.6118864522406545
+      }
+    }
+  },
+  "test": {
+    "samples": 2037,
+    "batches": 128,
+    "mean_pixel_error": 13.819577438167032,
+    "mean_angular_error_deg": 0.7018204157039062,
+    "blocks": {
+      "full_pursuit": {
+        "samples": 2037,
+        "mean_pixel_error": 13.819577438167032,
+        "mean_angular_error_deg": 0.7018204157039062
+      }
+    }
+  },
+  "threshold_statistics": {
+    "blocks.layer1.spike": {
+      "channels": 8,
+      "minimum": 0.9779480695724487,
+      "mean": 1.2627549171447754,
+      "maximum": 1.4457433223724365
+    },
+    "blocks.layer2.spike": {
+      "channels": 16,
+      "minimum": 0.46918395161628723,
+      "mean": 0.8762230277061462,
+      "maximum": 1.0741920471191406
+    },
+    "blocks.layer3.spike": {
+      "channels": 24,
+      "minimum": 0.235276997089386,
+      "mean": 0.6582143306732178,
+      "maximum": 0.9306526184082031
+    },
+    "blocks.layer4.spike": {
+      "channels": 32,
+      "minimum": 0.3521248400211334,
+      "mean": 0.5477659106254578,
+      "maximum": 0.6380661725997925
+    },
+    "blocks.layer5.spike": {
+      "channels": 40,
+      "minimum": 0.3844076097011566,
+      "mean": 0.48247653245925903,
+      "maximum": 0.6181761622428894
+    },
+    "blocks.layer6.spike": {
+      "channels": 40,
+      "minimum": 0.34657415747642517,
+      "mean": 0.4377818703651428,
+      "maximum": 0.5291069746017456
+    },
+    "blocks.layer7.spike": {
+      "channels": 40,
+      "minimum": 0.33938363194465637,
+      "mean": 0.4237566888332367,
+      "maximum": 0.5510625839233398
+    },
+    "blocks.layer8.spike": {
+      "channels": 40,
+      "minimum": 0.3740728199481964,
+      "mean": 0.5358447432518005,
+      "maximum": 0.7491069436073303
+    },
+    "hidden1.spike": {
+      "channels": 60,
+      "minimum": 0.918002724647522,
+      "mean": 1.9074634313583374,
+      "maximum": 4.626225471496582
+    },
+    "hidden2.spike": {
+      "channels": 12,
+      "minimum": 0.9928699135780334,
+      "mean": 2.522573947906494,
+      "maximum": 7.191430568695068
+    }
+  },
+  "folded_bias_statistics": {
+    "L1": {
+      "channels": 8,
+      "minimum": 0.27851659059524536,
+      "mean": 0.5209921598434448,
+      "maximum": 0.9902275204658508,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 8
+    },
+    "L2": {
+      "channels": 16,
+      "minimum": -1.1127558946609497,
+      "mean": 0.6278964281082153,
+      "maximum": 2.8548314571380615,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 11
+    },
+    "L3": {
+      "channels": 24,
+      "minimum": -0.9937304854393005,
+      "mean": 2.314488649368286,
+      "maximum": 14.23584270477295,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 21
+    },
+    "L4": {
+      "channels": 32,
+      "minimum": -4.762051105499268,
+      "mean": 2.3342299461364746,
+      "maximum": 8.762540817260742,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 22
+    },
+    "L5": {
+      "channels": 40,
+      "minimum": -4.299324989318848,
+      "mean": 0.9523895978927612,
+      "maximum": 7.220588684082031,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 22
+    },
+    "L6": {
+      "channels": 40,
+      "minimum": -2.9931559562683105,
+      "mean": 1.959825873374939,
+      "maximum": 5.950328350067139,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 28
+    },
+    "L7": {
+      "channels": 40,
+      "minimum": -3.249284267425537,
+      "mean": 3.187406301498413,
+      "maximum": 7.369274616241455,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 35
+    },
+    "L8": {
+      "channels": 40,
+      "minimum": -0.08133174479007721,
+      "mean": 2.2427332401275635,
+      "maximum": 6.909217357635498,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 38
+    }
+  },
+  "final_learning_rate": 0.000125,
+  "total_seconds": 2722.448465059977
+}

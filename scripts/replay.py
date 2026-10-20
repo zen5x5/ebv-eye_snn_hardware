@@ -1,4 +1,4 @@
-"""Replay retained fixtures through the unchanged four-variant RTL."""
+"""Replay retained fixtures through the five-depth RTL."""
 import argparse
 import json
 import re
@@ -32,8 +32,8 @@ def main():
         assert match is not None, log
         transactions, values, cycles = map(int, match.groups())
         assert cycles == CYCLES[depth]
-        assert transactions == 11242 - sum((3072, 1536, 576)[:depth])
-        assert values == 270000 - sum((73728, 36864, 13824)[:depth])
+        assert transactions == 11242 - sum((3072, 1536, 576, 192)[:depth])
+        assert values == 270000 - sum((73728, 36864, 13824, 4608)[:depth])
         records.append(dict(variant=args.variant, sample=sample, values=values, cycles=cycles, mismatches=0))
     (out/'summary.json').write_text(json.dumps(records, indent=2)+'\n')
     print(json.dumps(records))

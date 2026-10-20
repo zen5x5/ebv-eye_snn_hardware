@@ -1,0 +1,80 @@
+{
+  "device": "cpu",
+  "host": [
+    "carbonite"
+  ],
+  "torch": [
+    "2.13.0+cu130"
+  ],
+  "numpy": [
+    "2.4.6"
+  ],
+  "cpu_threads_per_worker": [
+    2
+  ],
+  "new_models": 141,
+  "retained_models": 51,
+  "new_test_predictions": 158733,
+  "source_sha256": {
+    "hardware/quantization/__init__.py": "5dd8f0eee2fa1a8828699b2a2cc4db450847c3d0a6e2ac454318b7366b34c65f",
+    "hardware/quantization/fixed_point.py": "9639c685c29d6150550579f3b49fba4229d0fee030b6314fabc2a2395c0bfa08",
+    "hardware/quantization/formal.py": "93aba20121ed031a08c9cb57c416df5ae67061bc5b5d6e2e347d3ca0ef6bf07c",
+    "hardware/quantization/integer_reference.py": "6fa9f07ec410286ead145fa5bd2b8aa3fd78390bb233548893f74598c336b482",
+    "hardware/quantization/metrics.py": "56e2a9f148f943a3905d749300354fb6facbde7ed3390d55beb6d43911d5bdd9",
+    "hardware/quantization/model.py": "23fa147e9949878802f71b1128e29a6f8fa5c55bd61d4aefa891b5976be623b8",
+    "hardware/quantization/model_io.py": "d5e66d73407722aebb6ba4bab920ae544db234dee29832b932423bfea3a93213",
+    "hardware/quantization/pack.py": "540005ca465ebf15b7d169f0e563d5cc435473ac0081e990ae797f451ec23bf7",
+    "scripts/quantize_state_depth.py": "e85deb565ddd1b2f6a9841d4691ab59b247aad631ba305f0778df592383156ad",
+    "scripts/verify_state_depth_quantization.py": "f7f99b60b959f4c1d25f2d19642a6fcc08955195d2e80c47ba91fdc2d297b914"
+  },
+  "runtime_counters": {
+    "accumulator_saturated": {
+      "L1": 0,
+      "L2": 130,
+      "L3": 116,
+      "L4": 0,
+      "L5": 0,
+      "L6": 0,
+      "L7": 0,
+      "L8": 0,
+      "H1": 0,
+      "H2": 0
+    },
+    "spike_saturated": {
+      "L1": 0,
+      "L2": 0,
+      "L3": 0,
+      "L4": 0,
+      "L5": 0,
+      "L6": 0,
+      "L7": 0,
+      "L8": 0,
+      "H1": 0,
+      "H2": 0
+    },
+    "accumulator_maximum_absolute": {
+      "L1": 2928009,
+      "L2": 14387992,
+      "L3": 12124946,
+      "L4": 5146701,
+      "L5": 3601756,
+      "L6": 2762095,
+      "L7": 3657024,
+      "L8": 1709771,
+      "H1": 5748901,
+      "H2": 4909707
+    },
+    "spike_maximum": {
+      "L1": 181,
+      "L2": 232,
+      "L3": 145,
+      "L4": 129,
+      "L5": 110,
+      "L6": 56,
+      "L7": 46,
+      "L8": 41,
+      "H1": 195,
+      "H2": 79
+    }
+  }
+}

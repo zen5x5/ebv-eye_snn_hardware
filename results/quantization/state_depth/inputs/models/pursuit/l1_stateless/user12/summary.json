@@ -1,0 +1,217 @@
+{
+  "device": "cuda:0",
+  "timesteps": 2,
+  "alpha": 0.75,
+  "bias_constraint_layers": 0,
+  "temporal_organization": "repeat_identical_complete_400_event_count_frame",
+  "trainable_parameters": 96792,
+  "learnable_thresholds": 312,
+  "membrane_states_per_sample": 45000,
+  "retained_cross_bin_membrane_states": 20424,
+  "removed_cross_bin_membrane_states": 24576,
+  "stateless_channels": {
+    "L1": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  "branch_start_epoch": 100,
+  "train_samples": 22223,
+  "source_train_samples": 11114,
+  "synthetic_train_samples_per_epoch": 11109,
+  "recombination_candidate_edges": 1819934,
+  "local_recombination_mode": "all_physical_source_epoch_random",
+  "physical_stride_train_samples": 4813,
+  "eligible_stride_recombination_sources": 4810,
+  "preferred_recombination_sources": 11090,
+  "adjacent_fallback_recombination_sources": 19,
+  "ineligible_recombination_sources": 5,
+  "selectable_recombination_partners": 11096,
+  "selectable_stride_recombination_partners": 4806,
+  "validation_samples": 1586,
+  "test_samples": 1586,
+  "best_epoch": 196,
+  "best_train": {
+    "samples": 11114,
+    "batches": 695,
+    "mean_pixel_error": 5.009021941564048,
+    "mean_angular_error_deg": 0.26672161521803367,
+    "blocks": {
+      "full_pursuit": {
+        "samples": 11114,
+        "mean_pixel_error": 5.009021941564048,
+        "mean_angular_error_deg": 0.26672161521803367
+      }
+    }
+  },
+  "best_validation": {
+    "samples": 1586,
+    "batches": 100,
+    "mean_pixel_error": 9.161635208762196,
+    "mean_angular_error_deg": 0.4739771596864242,
+    "blocks": {
+      "full_pursuit": {
+        "samples": 1586,
+        "mean_pixel_error": 9.161635208762196,
+        "mean_angular_error_deg": 0.4739771596864242
+      }
+    }
+  },
+  "test": {
+    "samples": 1586,
+    "batches": 100,
+    "mean_pixel_error": 10.077174027059298,
+    "mean_angular_error_deg": 0.5204054410563498,
+    "blocks": {
+      "full_pursuit": {
+        "samples": 1586,
+        "mean_pixel_error": 10.077174027059298,
+        "mean_angular_error_deg": 0.5204054410563498
+      }
+    }
+  },
+  "threshold_statistics": {
+    "blocks.layer1.spike": {
+      "channels": 8,
+      "minimum": 0.9146445393562317,
+      "mean": 1.1306231021881104,
+      "maximum": 1.2105321884155273
+    },
+    "blocks.layer2.spike": {
+      "channels": 16,
+      "minimum": 0.7263725996017456,
+      "mean": 0.864530086517334,
+      "maximum": 1.131880283355713
+    },
+    "blocks.layer3.spike": {
+      "channels": 24,
+      "minimum": 0.3363884389400482,
+      "mean": 0.6444076895713806,
+      "maximum": 0.9346820712089539
+    },
+    "blocks.layer4.spike": {
+      "channels": 32,
+      "minimum": 0.40804389119148254,
+      "mean": 0.5822570323944092,
+      "maximum": 0.763118326663971
+    },
+    "blocks.layer5.spike": {
+      "channels": 40,
+      "minimum": 0.4389171302318573,
+      "mean": 0.5313809514045715,
+      "maximum": 0.6230915188789368
+    },
+    "blocks.layer6.spike": {
+      "channels": 40,
+      "minimum": 0.3997190296649933,
+      "mean": 0.4960819184780121,
+      "maximum": 0.5927614569664001
+    },
+    "blocks.layer7.spike": {
+      "channels": 40,
+      "minimum": 0.3462027311325073,
+      "mean": 0.46196332573890686,
+      "maximum": 0.5854941010475159
+    },
+    "blocks.layer8.spike": {
+      "channels": 40,
+      "minimum": 0.42592695355415344,
+      "mean": 0.6224510073661804,
+      "maximum": 0.9828439950942993
+    },
+    "hidden1.spike": {
+      "channels": 60,
+      "minimum": 0.9682965874671936,
+      "mean": 1.7500169277191162,
+      "maximum": 4.015968322753906
+    },
+    "hidden2.spike": {
+      "channels": 12,
+      "minimum": 1.026633381843567,
+      "mean": 1.5468096733093262,
+      "maximum": 2.352572441101074
+    }
+  },
+  "folded_bias_statistics": {
+    "L1": {
+      "channels": 8,
+      "minimum": 0.10886824876070023,
+      "mean": 0.4877700209617615,
+      "maximum": 0.8816398978233337,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 7
+    },
+    "L2": {
+      "channels": 16,
+      "minimum": -1.9417967796325684,
+      "mean": 0.46223756670951843,
+      "maximum": 1.5964617729187012,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 13
+    },
+    "L3": {
+      "channels": 24,
+      "minimum": -1.1427611112594604,
+      "mean": 1.740684151649475,
+      "maximum": 6.315345287322998,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 21
+    },
+    "L4": {
+      "channels": 32,
+      "minimum": -3.656644821166992,
+      "mean": 1.3564927577972412,
+      "maximum": 8.261728286743164,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 18
+    },
+    "L5": {
+      "channels": 40,
+      "minimum": -4.911232948303223,
+      "mean": -0.5288695096969604,
+      "maximum": 3.0938470363616943,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 12
+    },
+    "L6": {
+      "channels": 40,
+      "minimum": -3.063028573989868,
+      "mean": 1.4175329208374023,
+      "maximum": 5.248098850250244,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 30
+    },
+    "L7": {
+      "channels": 40,
+      "minimum": -1.5834357738494873,
+      "mean": 2.7011985778808594,
+      "maximum": 6.294804096221924,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 37
+    },
+    "L8": {
+      "channels": 40,
+      "minimum": -1.094501256942749,
+      "mean": 2.112041711807251,
+      "maximum": 4.49197244644165,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 38
+    }
+  },
+  "final_learning_rate": 3.125e-05,
+  "total_seconds": 2129.5475810579956
+}

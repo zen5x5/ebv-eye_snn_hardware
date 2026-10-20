@@ -1,0 +1,97 @@
+{
+  "case": "pursuit/full_state/user8",
+  "task": "pursuit",
+  "variant": "full_state",
+  "depth": 0,
+  "user": 8,
+  "representations": 454,
+  "official_float": {
+    "mean_angular_error_deg": 0.9033318472829225,
+    "mean_pixel_error": 17.22472801883315
+  },
+  "input_sha256": {
+    "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user8/eye0/all_physical_source_recombination_t2_alpha0p75_full_state_continue_epoch100_to200/seed2021/configuration.json": "0f295d8297d60d01b2b04d1ae78267de4522d07d35524f8dc8cea92f36989834",
+    "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user8/eye0/all_physical_source_recombination_t2_alpha0p75_full_state_continue_epoch100_to200/seed2021/summary.json": "a7f1116fa109db54dcf0eee644af4ae1530eb38fd242404002f5ba0bdbb90e73",
+    "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user8/eye0/all_physical_source_recombination_t2_alpha0p75_full_state_continue_epoch100_to200/seed2021/best_checkpoint.pt": "a59c95f0b1d8a8c1f44a159215df87f99cd04059bed29ee08dfc7412dcdc483a",
+    "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user8/eye0/manifest.json": "8c3cdab047eddd32babd05c7b62a426d372a68fc3be93b3c333584f7fe77176f",
+    "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user8/eye0/test.npz": "2470aa2a496ff3644ef3357b6ee33d1d3bda788f87d2a31a319bf696d5e99145"
+  },
+  "model": "inputs/models/pursuit/full_state/user8",
+  "test": "inputs/test/pursuit/user8/test.npz",
+  "output": "subjects/pursuit/full_state/user8",
+  "execution": "new_cpu",
+  "checkpoint_epoch": 187,
+  "fixed_point": {
+    "mean_angular_error_deg": 0.8889988842203128,
+    "mean_pixel_error": 16.918806567315592
+  },
+  "runtime_counters": {
+    "accumulator_saturated": {
+      "L1": 0,
+      "L2": 0,
+      "L3": 0,
+      "L4": 0,
+      "L5": 0,
+      "L6": 0,
+      "L7": 0,
+      "L8": 0,
+      "H1": 0,
+      "H2": 0
+    },
+    "spike_saturated": {
+      "L1": 0,
+      "L2": 0,
+      "L3": 0,
+      "L4": 0,
+      "L5": 0,
+      "L6": 0,
+      "L7": 0,
+      "L8": 0,
+      "H1": 0,
+      "H2": 0
+    },
+    "accumulator_maximum_absolute": {
+      "L1": 814182,
+      "L2": 2700131,
+      "L3": 2129682,
+      "L4": 1167632,
+      "L5": 669048,
+      "L6": 537053,
+      "L7": 374381,
+      "L8": 309635,
+      "H1": 1447060,
+      "H2": 2294431
+    },
+    "spike_maximum": {
+      "L1": 94,
+      "L2": 74,
+      "L3": 27,
+      "L4": 30,
+      "L5": 20,
+      "L6": 11,
+      "L7": 10,
+      "L8": 7,
+      "H1": 55,
+      "H2": 70
+    }
+  },
+  "arithmetic_contract": {
+    "weight_bits": 16,
+    "readout_weight_bits": 16,
+    "constant_bits": 24,
+    "accumulator_bits": 24,
+    "spike_bits": 8,
+    "scale_mode": "per_output_channel",
+    "scale_policy": "no_clipping",
+    "maximum_fraction_bits": 15,
+    "state_guard_bits": 0,
+    "alpha_rounding": "floor"
+  },
+  "state_bits": 16,
+  "independent_probe_arrays": 61,
+  "cpu_threads": 2,
+  "host": "carbonite",
+  "torch": "2.13.0+cu130",
+  "numpy": "2.4.6",
+  "runtime_seconds": 6.359711949015036
+}

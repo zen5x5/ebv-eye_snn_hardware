@@ -1,0 +1,427 @@
+{
+  "format": "pursuit_static_ann_400event_count_frame",
+  "user": 14,
+  "eye": 0,
+  "roi": [
+    30,
+    90,
+    192,
+    256
+  ],
+  "input_shape": [
+    2,
+    96,
+    128
+  ],
+  "input_dtype": "uint16",
+  "model_input": "one polarity-separated event-count frame per sample",
+  "events_per_sample": 400,
+  "pooled_height": 96,
+  "pooled_width": 128,
+  "window_events": 400,
+  "bins_per_sample": 1,
+  "events_per_bin": 400,
+  "train_window_stride_events": 200,
+  "split_seed": 2021,
+  "split_strategy": "phase/x-sector approximately 4:1:1 over complete windows before train stride; tail windows excluded before split",
+  "tail_window_policy": "excluded_before_candidate_split",
+  "corner_guard_us_per_side": 80000,
+  "closed_eye_cores_relative_ms": [
+    [
+      6380,
+      6460
+    ]
+  ],
+  "record_spec_schema_version": "ebv_eye_pursuit_record_spec",
+  "fixed_hot_pixel_filter": {
+    "method": "fixed_hot_pixel_rate_isolation_periodicity",
+    "config": {
+      "minimum_event_count": 1000,
+      "minimum_mean_rate_hz": 10.0,
+      "minimum_same_polarity_neighbour_ratio": 10.0,
+      "short_interval_us": 200,
+      "minimum_short_interval_fraction": 0.9
+    },
+    "detected_pixels": []
+  },
+  "record_spec_path": "code/pursuit/fixed_event_window/preprocessing/record_specs/eye0/user14_eye0.json",
+  "record_spec_sha256": "041fcef5ccc12bed05fee437898f2f83ee80726beeef0e2245ec7a7d0c8150af",
+  "roi_selection": {
+    "method": "joint_pursuit_saccade_event_retention_after_fixed_hot_pixel_filter",
+    "pursuit_event_retention": 0.9709445960678752,
+    "saccade_event_retention": 0.9861839977464554,
+    "joint_min_retention": 0.9709445960678752
+  },
+  "closed_eye_review": {
+    "status": "complete",
+    "method": "event_double_peak_navigation_plus_frame_confirmation",
+    "time_reference": "first_pursuit_frame_relative_ms",
+    "candidate_artifact": "user14_eye0/candidates.json",
+    "review_artifact": "visual_closed_eye_decisions_eye0.json",
+    "confirmed_run_count": 1,
+    "frame_midpoint_evidence_verified": true
+  },
+  "first_pursuit_frame_us": 413192970,
+  "last_pursuit_frame_us": 507191989,
+  "phase_intervals_us": [
+    {
+      "name": "H1",
+      "start": 413192970,
+      "end": 427592822
+    },
+    {
+      "name": "V1",
+      "start": 427752822,
+      "end": 428912808
+    },
+    {
+      "name": "H2",
+      "start": 429072808,
+      "end": 443112663
+    },
+    {
+      "name": "V2",
+      "start": 443272663,
+      "end": 444512649
+    },
+    {
+      "name": "H3",
+      "start": 444672649,
+      "end": 459232490
+    },
+    {
+      "name": "V3",
+      "start": 459392490,
+      "end": 460472475
+    },
+    {
+      "name": "H4",
+      "start": 460632475,
+      "end": 474712335
+    },
+    {
+      "name": "V4",
+      "start": 474872335,
+      "end": 476112322
+    },
+    {
+      "name": "H5",
+      "start": 476272322,
+      "end": 490792173
+    },
+    {
+      "name": "V5",
+      "start": 490952173,
+      "end": 492192158
+    },
+    {
+      "name": "H6",
+      "start": 492352158,
+      "end": 506911993
+    }
+  ],
+  "visible_fragments": [
+    {
+      "name": "H1",
+      "start": 413192970,
+      "end": 419572970,
+      "fragment": 0
+    },
+    {
+      "name": "H1",
+      "start": 419652970,
+      "end": 427592822,
+      "fragment": 1
+    },
+    {
+      "name": "V1",
+      "start": 427752822,
+      "end": 428912808,
+      "fragment": 2
+    },
+    {
+      "name": "H2",
+      "start": 429072808,
+      "end": 443112663,
+      "fragment": 3
+    },
+    {
+      "name": "V2",
+      "start": 443272663,
+      "end": 444512649,
+      "fragment": 4
+    },
+    {
+      "name": "H3",
+      "start": 444672649,
+      "end": 459232490,
+      "fragment": 5
+    },
+    {
+      "name": "V3",
+      "start": 459392490,
+      "end": 460472475,
+      "fragment": 6
+    },
+    {
+      "name": "H4",
+      "start": 460632475,
+      "end": 474712335,
+      "fragment": 7
+    },
+    {
+      "name": "V4",
+      "start": 474872335,
+      "end": 476112322,
+      "fragment": 8
+    },
+    {
+      "name": "H5",
+      "start": 476272322,
+      "end": 490792173,
+      "fragment": 9
+    },
+    {
+      "name": "V5",
+      "start": 490952173,
+      "end": 492192158,
+      "fragment": 10
+    },
+    {
+      "name": "H6",
+      "start": 492352158,
+      "end": 506911993,
+      "fragment": 11
+    }
+  ],
+  "fragment_window_audit": [
+    {
+      "phase": "H1",
+      "fragment": 0,
+      "events": 55889,
+      "full_windows": 139,
+      "tail_events": 289,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    },
+    {
+      "phase": "H1",
+      "fragment": 1,
+      "events": 266909,
+      "full_windows": 667,
+      "tail_events": 109,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    },
+    {
+      "phase": "V1",
+      "fragment": 2,
+      "events": 8480,
+      "full_windows": 21,
+      "tail_events": 80,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    },
+    {
+      "phase": "H2",
+      "fragment": 3,
+      "events": 507504,
+      "full_windows": 1268,
+      "tail_events": 304,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    },
+    {
+      "phase": "V2",
+      "fragment": 4,
+      "events": 15258,
+      "full_windows": 38,
+      "tail_events": 58,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    },
+    {
+      "phase": "H3",
+      "fragment": 5,
+      "events": 313223,
+      "full_windows": 783,
+      "tail_events": 23,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    },
+    {
+      "phase": "V3",
+      "fragment": 6,
+      "events": 17348,
+      "full_windows": 43,
+      "tail_events": 148,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    },
+    {
+      "phase": "H4",
+      "fragment": 7,
+      "events": 331003,
+      "full_windows": 827,
+      "tail_events": 203,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    },
+    {
+      "phase": "V4",
+      "fragment": 8,
+      "events": 15562,
+      "full_windows": 38,
+      "tail_events": 362,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    },
+    {
+      "phase": "H5",
+      "fragment": 9,
+      "events": 319177,
+      "full_windows": 797,
+      "tail_events": 377,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    },
+    {
+      "phase": "V5",
+      "fragment": 10,
+      "events": 18585,
+      "full_windows": 46,
+      "tail_events": 185,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    },
+    {
+      "phase": "H6",
+      "fragment": 11,
+      "events": 257680,
+      "full_windows": 644,
+      "tail_events": 80,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    }
+  ],
+  "candidate_count": 5311,
+  "skipped_cross_split_backfill": 0,
+  "kept_backfill": 0,
+  "base_counts": {
+    "train": 3535,
+    "validation": 888,
+    "test": 888
+  },
+  "cached_counts": {
+    "train": 6241,
+    "validation": 888,
+    "test": 888
+  },
+  "phase_base_counts": {
+    "H1": {
+      "train": 538,
+      "validation": 134,
+      "test": 134
+    },
+    "V1": {
+      "train": 13,
+      "validation": 4,
+      "test": 4
+    },
+    "H2": {
+      "train": 844,
+      "validation": 212,
+      "test": 212
+    },
+    "V2": {
+      "train": 26,
+      "validation": 6,
+      "test": 6
+    },
+    "H3": {
+      "train": 521,
+      "validation": 131,
+      "test": 131
+    },
+    "V3": {
+      "train": 29,
+      "validation": 7,
+      "test": 7
+    },
+    "H4": {
+      "train": 551,
+      "validation": 138,
+      "test": 138
+    },
+    "V4": {
+      "train": 26,
+      "validation": 6,
+      "test": 6
+    },
+    "H5": {
+      "train": 529,
+      "validation": 134,
+      "test": 134
+    },
+    "V5": {
+      "train": 30,
+      "validation": 8,
+      "test": 8
+    },
+    "H6": {
+      "train": 428,
+      "validation": 108,
+      "test": 108
+    }
+  },
+  "cross_split_event_overlap": false,
+  "source_event_path": "/data/xuzx/data/ebv-eye/eye_data/user14/0/events.aerdat",
+  "source_event_audit": {
+    "file_bytes": 200374241,
+    "complete_event_records": 22263804,
+    "trailing_bytes": 5,
+    "roi_event_records": 21959978,
+    "fixed_hot_pixels": [],
+    "fixed_hot_pixel_records_removed_from_full_sensor": 0,
+    "fixed_hot_pixel_records_removed_from_roi": 0
+  },
+  "malformed_frame_filenames": 0,
+  "splits": {
+    "train": {
+      "samples": 6241,
+      "shape": [
+        6241,
+        2,
+        96,
+        128
+      ],
+      "maximum_pixel_count": 20,
+      "compressed_bytes": 4372481,
+      "sha256": "4a5c052bc17128e1c4d9f28b86c0eb54ab53136a4c149271b1d832d7c043ffbc"
+    },
+    "validation": {
+      "samples": 888,
+      "shape": [
+        888,
+        2,
+        96,
+        128
+      ],
+      "maximum_pixel_count": 17,
+      "compressed_bytes": 626888,
+      "sha256": "7280be80bab789870510043318b821611e620c711de52d964c47aa4c9a4a3058"
+    },
+    "test": {
+      "samples": 888,
+      "shape": [
+        888,
+        2,
+        96,
+        128
+      ],
+      "maximum_pixel_count": 21,
+      "compressed_bytes": 627395,
+      "sha256": "dc1e9323a2b6228985342380a2b84267fbbcdbba1d05079510670c7af590576b"
+    }
+  }
+}

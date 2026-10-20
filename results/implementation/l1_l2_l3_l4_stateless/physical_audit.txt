@@ -1,0 +1,15 @@
+vivado_version=2025.2.1
+part=xczu3eg-sfvc784-2-e
+clock_period_ns=6.250
+clock_net=compute_clk
+clock_route_status=ROUTED
+clock_buffer_site=BUFGCE_X0Y25
+clock_package_pin=K4
+core_register_count=18269
+critical_warning_count=0
+core_to_core -setup slack=0.091 start=core/convolution_weight_memory_reg_bram_15/CLKBWRCLK end=core/convolution_engine/mac_array/gen_tree_level[1].gen_tree_output[5].gen_tree_node[9].gen_active_node.gen_pair.tree_pipeline_reg[5][1][9]/DSP_A_B_DATA_INST/A[7]
+core_to_core -hold slack=0.018 start=core/convolution_engine/max_pool/currents_delayed_reg[11]/C end=core/convolution_engine/max_pool/current_left_reg[0][11]/D
+input_to_registers -setup slack=3.692 start=host_write_data[19] end=write_data_reg[19]/D
+input_to_registers -hold slack=0.016 start=host_write_data[13] end=write_data_reg[13]/D
+registers_to_output -setup slack=0.476 start=host_read_data_reg[8]/C end=host_read_data[8]
+registers_to_output -hold slack=2.772 start=host_read_data_reg[23]/C end=host_read_data[23]

@@ -1,0 +1,217 @@
+{
+  "device": "cuda:0",
+  "timesteps": 2,
+  "alpha": 0.75,
+  "bias_constraint_layers": 0,
+  "temporal_organization": "repeat_identical_complete_400_event_count_frame",
+  "trainable_parameters": 96792,
+  "learnable_thresholds": 312,
+  "membrane_states_per_sample": 45000,
+  "retained_cross_bin_membrane_states": 20424,
+  "removed_cross_bin_membrane_states": 24576,
+  "stateless_channels": {
+    "L1": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  "branch_start_epoch": 100,
+  "train_samples": 18975,
+  "source_train_samples": 9490,
+  "synthetic_train_samples_per_epoch": 9485,
+  "recombination_candidate_edges": 1908532,
+  "local_recombination_mode": "all_physical_source_epoch_random",
+  "physical_stride_train_samples": 4114,
+  "eligible_stride_recombination_sources": 4111,
+  "preferred_recombination_sources": 9452,
+  "adjacent_fallback_recombination_sources": 33,
+  "ineligible_recombination_sources": 5,
+  "selectable_recombination_partners": 9469,
+  "selectable_stride_recombination_partners": 4106,
+  "validation_samples": 1346,
+  "test_samples": 1346,
+  "best_epoch": 191,
+  "best_train": {
+    "samples": 9490,
+    "batches": 594,
+    "mean_pixel_error": 7.035323436661095,
+    "mean_angular_error_deg": 0.35829925731264123,
+    "blocks": {
+      "full_pursuit": {
+        "samples": 9490,
+        "mean_pixel_error": 7.035323436661095,
+        "mean_angular_error_deg": 0.35829925731264123
+      }
+    }
+  },
+  "best_validation": {
+    "samples": 1346,
+    "batches": 85,
+    "mean_pixel_error": 13.428105350124358,
+    "mean_angular_error_deg": 0.6787506516643677,
+    "blocks": {
+      "full_pursuit": {
+        "samples": 1346,
+        "mean_pixel_error": 13.428105350124358,
+        "mean_angular_error_deg": 0.6787506516643677
+      }
+    }
+  },
+  "test": {
+    "samples": 1346,
+    "batches": 85,
+    "mean_pixel_error": 14.389707530899884,
+    "mean_angular_error_deg": 0.7367546377401871,
+    "blocks": {
+      "full_pursuit": {
+        "samples": 1346,
+        "mean_pixel_error": 14.389707530899884,
+        "mean_angular_error_deg": 0.7367546377401871
+      }
+    }
+  },
+  "threshold_statistics": {
+    "blocks.layer1.spike": {
+      "channels": 8,
+      "minimum": 1.048758625984192,
+      "mean": 1.215059518814087,
+      "maximum": 1.3732280731201172
+    },
+    "blocks.layer2.spike": {
+      "channels": 16,
+      "minimum": 0.5523649454116821,
+      "mean": 0.9258963465690613,
+      "maximum": 1.1829172372817993
+    },
+    "blocks.layer3.spike": {
+      "channels": 24,
+      "minimum": 0.4283785820007324,
+      "mean": 0.7504761219024658,
+      "maximum": 1.0472586154937744
+    },
+    "blocks.layer4.spike": {
+      "channels": 32,
+      "minimum": 0.41256412863731384,
+      "mean": 0.664517879486084,
+      "maximum": 0.7805266976356506
+    },
+    "blocks.layer5.spike": {
+      "channels": 40,
+      "minimum": 0.49523037672042847,
+      "mean": 0.6217122077941895,
+      "maximum": 0.781359851360321
+    },
+    "blocks.layer6.spike": {
+      "channels": 40,
+      "minimum": 0.45991912484169006,
+      "mean": 0.5707699656486511,
+      "maximum": 0.6445801854133606
+    },
+    "blocks.layer7.spike": {
+      "channels": 40,
+      "minimum": 0.4172293245792389,
+      "mean": 0.5311769247055054,
+      "maximum": 0.6856861114501953
+    },
+    "blocks.layer8.spike": {
+      "channels": 40,
+      "minimum": 0.3641240894794464,
+      "mean": 0.6239892244338989,
+      "maximum": 0.8575933575630188
+    },
+    "hidden1.spike": {
+      "channels": 60,
+      "minimum": 0.7510359883308411,
+      "mean": 1.3218666315078735,
+      "maximum": 1.9662034511566162
+    },
+    "hidden2.spike": {
+      "channels": 12,
+      "minimum": 1.0976500511169434,
+      "mean": 1.748152732849121,
+      "maximum": 3.364670515060425
+    }
+  },
+  "folded_bias_statistics": {
+    "L1": {
+      "channels": 8,
+      "minimum": 0.2680157423019409,
+      "mean": 0.45973876118659973,
+      "maximum": 0.7894819378852844,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 8
+    },
+    "L2": {
+      "channels": 16,
+      "minimum": -0.5018563866615295,
+      "mean": 0.44769835472106934,
+      "maximum": 2.405585765838623,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 13
+    },
+    "L3": {
+      "channels": 24,
+      "minimum": -1.7562460899353027,
+      "mean": 1.480528473854065,
+      "maximum": 5.026998519897461,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 20
+    },
+    "L4": {
+      "channels": 32,
+      "minimum": -3.5681681632995605,
+      "mean": 0.833094596862793,
+      "maximum": 5.442543983459473,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 18
+    },
+    "L5": {
+      "channels": 40,
+      "minimum": -4.294878959655762,
+      "mean": -0.17183716595172882,
+      "maximum": 4.225398540496826,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 15
+    },
+    "L6": {
+      "channels": 40,
+      "minimum": -1.993744134902954,
+      "mean": 1.4698104858398438,
+      "maximum": 4.996423721313477,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 31
+    },
+    "L7": {
+      "channels": 40,
+      "minimum": -1.7132563591003418,
+      "mean": 2.0483450889587402,
+      "maximum": 5.101163864135742,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 37
+    },
+    "L8": {
+      "channels": 40,
+      "minimum": -2.4753715991973877,
+      "mean": 1.8463046550750732,
+      "maximum": 3.8658342361450195,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 37
+    }
+  },
+  "final_learning_rate": 6.25e-05,
+  "total_seconds": 1765.8696411470883
+}

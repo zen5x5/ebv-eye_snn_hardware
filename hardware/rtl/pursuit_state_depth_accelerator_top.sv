@@ -1,7 +1,7 @@
 `timescale 1ns/1ps
 `default_nettype none
 
-// Dense L1/L2 once, followed by layer-major paired t0/t1 deep processing.
+// Stateless shallow layers once, then layer-major paired t0/t1 deep processing.
 // Every convolution shares one arithmetic array. Layer boundaries use complete
 // feature memories; no sparse packets or downstream ready/backpressure path.
 module pursuit_state_depth_accelerator_top #(
@@ -211,11 +211,14 @@ module pursuit_state_depth_accelerator_top #(
 
     dense_state_depth_conv_engine #(
         .MAX_PAIRED_PARTIAL_SPATIAL(STATELESS_DEPTH == 0 ? 3072 :
-            STATELESS_DEPTH == 1 ? 768 : STATELESS_DEPTH == 2 ? 192 : 48),
+            STATELESS_DEPTH == 1 ? 768 : STATELESS_DEPTH == 2 ? 192 :
+            STATELESS_DEPTH == 3 ? 48 : 12),
         .MAX_OUTPUT_SPATIAL(STATELESS_DEPTH == 0 ? 3072 :
-            STATELESS_DEPTH == 1 ? 768 : STATELESS_DEPTH == 2 ? 192 : 48),
+            STATELESS_DEPTH == 1 ? 768 : STATELESS_DEPTH == 2 ? 192 :
+            STATELESS_DEPTH == 3 ? 48 : 12),
         .MAX_STATE_WORDS(STATELESS_DEPTH == 0 ? 3072 :
-            STATELESS_DEPTH == 1 ? 1536 : STATELESS_DEPTH == 2 ? 576 : 192)
+            STATELESS_DEPTH == 1 ? 1536 : STATELESS_DEPTH == 2 ? 576 :
+            STATELESS_DEPTH == 3 ? 192 : 60)
     ) convolution_engine (
         .clk(clk), .rst(rst), .start(convolution_start),
         .busy(convolution_busy), .done(convolution_done),
@@ -256,8 +259,9 @@ module pursuit_state_depth_accelerator_top #(
     wire [8:0] feature_dense_read_address;
     wire [7:0] feature_dense_read_data;
     pursuit_state_depth_feature_store #(
-        .T1_A_DEPTH(STATELESS_DEPTH == 0 ? 3072 : STATELESS_DEPTH == 3 ? 60 : 576),
-        .T1_B_DEPTH(STATELESS_DEPTH < 2 ? 1536 : STATELESS_DEPTH == 2 ? 576 : 192)
+        .T1_A_DEPTH(STATELESS_DEPTH == 0 ? 3072 : STATELESS_DEPTH >= 3 ? 60 : 576),
+        .T1_B_DEPTH(STATELESS_DEPTH < 2 ? 1536 : STATELESS_DEPTH == 2 ? 576 :
+            STATELESS_DEPTH == 3 ? 192 : 60)
     ) feature_store (
         .clk(clk),
         .conv_read_enable(conv_input_read_enable && (layer_index >= 1)),

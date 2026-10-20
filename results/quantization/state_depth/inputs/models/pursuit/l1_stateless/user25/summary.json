@@ -1,0 +1,217 @@
+{
+  "device": "cuda:0",
+  "timesteps": 2,
+  "alpha": 0.75,
+  "bias_constraint_layers": 0,
+  "temporal_organization": "repeat_identical_complete_400_event_count_frame",
+  "trainable_parameters": 96792,
+  "learnable_thresholds": 312,
+  "membrane_states_per_sample": 45000,
+  "retained_cross_bin_membrane_states": 20424,
+  "removed_cross_bin_membrane_states": 24576,
+  "stateless_channels": {
+    "L1": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  "branch_start_epoch": 100,
+  "train_samples": 26459,
+  "source_train_samples": 13231,
+  "synthetic_train_samples_per_epoch": 13228,
+  "recombination_candidate_edges": 1914312,
+  "local_recombination_mode": "all_physical_source_epoch_random",
+  "physical_stride_train_samples": 5736,
+  "eligible_stride_recombination_sources": 5734,
+  "preferred_recombination_sources": 13222,
+  "adjacent_fallback_recombination_sources": 6,
+  "ineligible_recombination_sources": 3,
+  "selectable_recombination_partners": 13224,
+  "selectable_stride_recombination_partners": 5734,
+  "validation_samples": 1876,
+  "test_samples": 1876,
+  "best_epoch": 200,
+  "best_train": {
+    "samples": 13231,
+    "batches": 827,
+    "mean_pixel_error": 6.549647890176058,
+    "mean_angular_error_deg": 0.3353895835018705,
+    "blocks": {
+      "full_pursuit": {
+        "samples": 13231,
+        "mean_pixel_error": 6.549647890176058,
+        "mean_angular_error_deg": 0.3353895835018705
+      }
+    }
+  },
+  "best_validation": {
+    "samples": 1876,
+    "batches": 118,
+    "mean_pixel_error": 15.808649055767003,
+    "mean_angular_error_deg": 0.8024826146134022,
+    "blocks": {
+      "full_pursuit": {
+        "samples": 1876,
+        "mean_pixel_error": 15.808649055767003,
+        "mean_angular_error_deg": 0.8024826146134022
+      }
+    }
+  },
+  "test": {
+    "samples": 1876,
+    "batches": 118,
+    "mean_pixel_error": 15.120296809369567,
+    "mean_angular_error_deg": 0.7707208567011014,
+    "blocks": {
+      "full_pursuit": {
+        "samples": 1876,
+        "mean_pixel_error": 15.120296809369567,
+        "mean_angular_error_deg": 0.7707208567011014
+      }
+    }
+  },
+  "threshold_statistics": {
+    "blocks.layer1.spike": {
+      "channels": 8,
+      "minimum": 0.9559109807014465,
+      "mean": 1.1124835014343262,
+      "maximum": 1.2365655899047852
+    },
+    "blocks.layer2.spike": {
+      "channels": 16,
+      "minimum": 0.42252737283706665,
+      "mean": 0.918484628200531,
+      "maximum": 1.1701295375823975
+    },
+    "blocks.layer3.spike": {
+      "channels": 24,
+      "minimum": 0.3261337876319885,
+      "mean": 0.6665915250778198,
+      "maximum": 0.907895565032959
+    },
+    "blocks.layer4.spike": {
+      "channels": 32,
+      "minimum": 0.36512067914009094,
+      "mean": 0.552170991897583,
+      "maximum": 0.6391404271125793
+    },
+    "blocks.layer5.spike": {
+      "channels": 40,
+      "minimum": 0.42891833186149597,
+      "mean": 0.5176377296447754,
+      "maximum": 0.6073015332221985
+    },
+    "blocks.layer6.spike": {
+      "channels": 40,
+      "minimum": 0.37792468070983887,
+      "mean": 0.476728618144989,
+      "maximum": 0.5727832913398743
+    },
+    "blocks.layer7.spike": {
+      "channels": 40,
+      "minimum": 0.35400262475013733,
+      "mean": 0.4541650712490082,
+      "maximum": 0.5554535984992981
+    },
+    "blocks.layer8.spike": {
+      "channels": 40,
+      "minimum": 0.3740934431552887,
+      "mean": 0.610802412033081,
+      "maximum": 0.8444035649299622
+    },
+    "hidden1.spike": {
+      "channels": 60,
+      "minimum": 0.9387572407722473,
+      "mean": 1.5755935907363892,
+      "maximum": 3.7421281337738037
+    },
+    "hidden2.spike": {
+      "channels": 12,
+      "minimum": 0.9722511768341064,
+      "mean": 2.001248359680176,
+      "maximum": 3.542151927947998
+    }
+  },
+  "folded_bias_statistics": {
+    "L1": {
+      "channels": 8,
+      "minimum": 0.14583654701709747,
+      "mean": 0.47306227684020996,
+      "maximum": 0.8194353580474854,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 7
+    },
+    "L2": {
+      "channels": 16,
+      "minimum": -1.0370069742202759,
+      "mean": 0.5431386232376099,
+      "maximum": 4.205407619476318,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 12
+    },
+    "L3": {
+      "channels": 24,
+      "minimum": -2.3399791717529297,
+      "mean": 2.486954927444458,
+      "maximum": 7.144089221954346,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 20
+    },
+    "L4": {
+      "channels": 32,
+      "minimum": -5.465069770812988,
+      "mean": 2.030744791030884,
+      "maximum": 9.53537368774414,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 23
+    },
+    "L5": {
+      "channels": 40,
+      "minimum": -4.228553295135498,
+      "mean": 0.23060102760791779,
+      "maximum": 5.89854097366333,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 19
+    },
+    "L6": {
+      "channels": 40,
+      "minimum": -3.2660694122314453,
+      "mean": 1.8999220132827759,
+      "maximum": 6.276946067810059,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 33
+    },
+    "L7": {
+      "channels": 40,
+      "minimum": -0.8244134783744812,
+      "mean": 2.8395838737487793,
+      "maximum": 6.999943733215332,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 35
+    },
+    "L8": {
+      "channels": 40,
+      "minimum": -1.813913106918335,
+      "mean": 2.3716681003570557,
+      "maximum": 4.23985481262207,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 38
+    }
+  },
+  "final_learning_rate": 3.125e-05,
+  "total_seconds": 2460.552577428054
+}

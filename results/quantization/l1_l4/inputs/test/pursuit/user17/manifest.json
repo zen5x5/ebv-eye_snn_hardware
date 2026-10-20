@@ -1,0 +1,488 @@
+{
+  "format": "pursuit_static_ann_400event_count_frame",
+  "user": 17,
+  "eye": 0,
+  "roi": [
+    0,
+    42,
+    192,
+    256
+  ],
+  "input_shape": [
+    2,
+    96,
+    128
+  ],
+  "input_dtype": "uint16",
+  "model_input": "one polarity-separated event-count frame per sample",
+  "events_per_sample": 400,
+  "pooled_height": 96,
+  "pooled_width": 128,
+  "window_events": 400,
+  "bins_per_sample": 1,
+  "events_per_bin": 400,
+  "train_window_stride_events": 200,
+  "split_seed": 2021,
+  "split_strategy": "phase/x-sector approximately 4:1:1 over complete windows before train stride; tail windows excluded before split",
+  "tail_window_policy": "excluded_before_candidate_split",
+  "corner_guard_us_per_side": 80000,
+  "closed_eye_cores_relative_ms": [
+    [
+      13820,
+      13900
+    ],
+    [
+      41940,
+      42020
+    ]
+  ],
+  "record_spec_schema_version": "ebv_eye_pursuit_record_spec",
+  "fixed_hot_pixel_filter": {
+    "method": "fixed_hot_pixel_rate_isolation_periodicity",
+    "config": {
+      "minimum_event_count": 1000,
+      "minimum_mean_rate_hz": 10.0,
+      "minimum_same_polarity_neighbour_ratio": 10.0,
+      "short_interval_us": 200,
+      "minimum_short_interval_fraction": 0.9
+    },
+    "detected_pixels": [
+      {
+        "polarity": 0,
+        "row": 46,
+        "col": 182
+      },
+      {
+        "polarity": 0,
+        "row": 108,
+        "col": 40
+      },
+      {
+        "polarity": 0,
+        "row": 180,
+        "col": 186
+      },
+      {
+        "polarity": 0,
+        "row": 187,
+        "col": 272
+      }
+    ]
+  },
+  "record_spec_path": "code/pursuit/fixed_event_window/preprocessing/record_specs/eye0/user17_eye0.json",
+  "record_spec_sha256": "202c41916812f98fdc55a0c7e648047b6bce991a8ab8b45c1e84262baa7bad46",
+  "roi_selection": {
+    "method": "joint_pursuit_saccade_event_retention_after_fixed_hot_pixel_filter",
+    "pursuit_event_retention": 0.9733347574763378,
+    "saccade_event_retention": 0.9768749262374908,
+    "joint_min_retention": 0.9733347574763378
+  },
+  "closed_eye_review": {
+    "status": "complete",
+    "method": "event_double_peak_navigation_plus_frame_confirmation",
+    "time_reference": "first_pursuit_frame_relative_ms",
+    "candidate_artifact": "user17_eye0/candidates.json",
+    "review_artifact": "visual_closed_eye_decisions_eye0.json",
+    "confirmed_run_count": 2,
+    "frame_midpoint_evidence_verified": true
+  },
+  "first_pursuit_frame_us": 279221452,
+  "last_pursuit_frame_us": 362660614,
+  "phase_intervals_us": [
+    {
+      "name": "H1",
+      "start": 279221452,
+      "end": 291941323
+    },
+    {
+      "name": "V1",
+      "start": 292101323,
+      "end": 293221311
+    },
+    {
+      "name": "H2",
+      "start": 293381311,
+      "end": 306181170
+    },
+    {
+      "name": "V2",
+      "start": 306341170,
+      "end": 307261157
+    },
+    {
+      "name": "H3",
+      "start": 307421157,
+      "end": 320261020
+    },
+    {
+      "name": "V3",
+      "start": 320421020,
+      "end": 321421008
+    },
+    {
+      "name": "H4",
+      "start": 321581008,
+      "end": 334220879
+    },
+    {
+      "name": "V4",
+      "start": 334380879,
+      "end": 335500866
+    },
+    {
+      "name": "H5",
+      "start": 335660866,
+      "end": 348140744
+    },
+    {
+      "name": "V5",
+      "start": 348300744,
+      "end": 349300734
+    },
+    {
+      "name": "H6",
+      "start": 349460734,
+      "end": 362460616
+    }
+  ],
+  "visible_fragments": [
+    {
+      "name": "H1",
+      "start": 279221452,
+      "end": 291941323,
+      "fragment": 0
+    },
+    {
+      "name": "V1",
+      "start": 292101323,
+      "end": 293041452,
+      "fragment": 1
+    },
+    {
+      "name": "V1",
+      "start": 293121452,
+      "end": 293221311,
+      "fragment": 2
+    },
+    {
+      "name": "H2",
+      "start": 293381311,
+      "end": 306181170,
+      "fragment": 3
+    },
+    {
+      "name": "V2",
+      "start": 306341170,
+      "end": 307261157,
+      "fragment": 4
+    },
+    {
+      "name": "H3",
+      "start": 307421157,
+      "end": 320261020,
+      "fragment": 5
+    },
+    {
+      "name": "V3",
+      "start": 320421020,
+      "end": 321161452,
+      "fragment": 6
+    },
+    {
+      "name": "V3",
+      "start": 321241452,
+      "end": 321421008,
+      "fragment": 7
+    },
+    {
+      "name": "H4",
+      "start": 321581008,
+      "end": 334220879,
+      "fragment": 8
+    },
+    {
+      "name": "V4",
+      "start": 334380879,
+      "end": 335500866,
+      "fragment": 9
+    },
+    {
+      "name": "H5",
+      "start": 335660866,
+      "end": 348140744,
+      "fragment": 10
+    },
+    {
+      "name": "V5",
+      "start": 348300744,
+      "end": 349300734,
+      "fragment": 11
+    },
+    {
+      "name": "H6",
+      "start": 349460734,
+      "end": 362460616,
+      "fragment": 12
+    }
+  ],
+  "fragment_window_audit": [
+    {
+      "phase": "H1",
+      "fragment": 0,
+      "events": 416862,
+      "full_windows": 1042,
+      "tail_events": 62,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    },
+    {
+      "phase": "V1",
+      "fragment": 1,
+      "events": 100022,
+      "full_windows": 250,
+      "tail_events": 22,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    },
+    {
+      "phase": "V1",
+      "fragment": 2,
+      "events": 79451,
+      "full_windows": 198,
+      "tail_events": 251,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    },
+    {
+      "phase": "H2",
+      "fragment": 3,
+      "events": 822140,
+      "full_windows": 2055,
+      "tail_events": 140,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    },
+    {
+      "phase": "V2",
+      "fragment": 4,
+      "events": 9008,
+      "full_windows": 22,
+      "tail_events": 208,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    },
+    {
+      "phase": "H3",
+      "fragment": 5,
+      "events": 411720,
+      "full_windows": 1029,
+      "tail_events": 120,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    },
+    {
+      "phase": "V3",
+      "fragment": 6,
+      "events": 84397,
+      "full_windows": 210,
+      "tail_events": 397,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    },
+    {
+      "phase": "V3",
+      "fragment": 7,
+      "events": 111893,
+      "full_windows": 279,
+      "tail_events": 293,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    },
+    {
+      "phase": "H4",
+      "fragment": 8,
+      "events": 745213,
+      "full_windows": 1863,
+      "tail_events": 13,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    },
+    {
+      "phase": "V4",
+      "fragment": 9,
+      "events": 22011,
+      "full_windows": 55,
+      "tail_events": 11,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    },
+    {
+      "phase": "H5",
+      "fragment": 10,
+      "events": 139669,
+      "full_windows": 349,
+      "tail_events": 69,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    },
+    {
+      "phase": "V5",
+      "fragment": 11,
+      "events": 14479,
+      "full_windows": 36,
+      "tail_events": 79,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    },
+    {
+      "phase": "H6",
+      "fragment": 12,
+      "events": 300816,
+      "full_windows": 752,
+      "tail_events": 16,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    }
+  ],
+  "candidate_count": 8140,
+  "skipped_cross_split_backfill": 0,
+  "kept_backfill": 0,
+  "base_counts": {
+    "train": 5412,
+    "validation": 1364,
+    "test": 1364
+  },
+  "cached_counts": {
+    "train": 9543,
+    "validation": 1364,
+    "test": 1364
+  },
+  "phase_base_counts": {
+    "H1": {
+      "train": 692,
+      "validation": 175,
+      "test": 175
+    },
+    "V1": {
+      "train": 298,
+      "validation": 75,
+      "test": 75
+    },
+    "H2": {
+      "train": 1367,
+      "validation": 344,
+      "test": 344
+    },
+    "V2": {
+      "train": 14,
+      "validation": 4,
+      "test": 4
+    },
+    "H3": {
+      "train": 685,
+      "validation": 172,
+      "test": 172
+    },
+    "V3": {
+      "train": 325,
+      "validation": 82,
+      "test": 82
+    },
+    "H4": {
+      "train": 1241,
+      "validation": 311,
+      "test": 311
+    },
+    "V4": {
+      "train": 37,
+      "validation": 9,
+      "test": 9
+    },
+    "H5": {
+      "train": 231,
+      "validation": 59,
+      "test": 59
+    },
+    "V5": {
+      "train": 24,
+      "validation": 6,
+      "test": 6
+    },
+    "H6": {
+      "train": 498,
+      "validation": 127,
+      "test": 127
+    }
+  },
+  "cross_split_event_overlap": false,
+  "source_event_path": "/data/xuzx/data/ebv-eye/eye_data/user17/0/events.aerdat",
+  "source_event_audit": {
+    "file_bytes": 242384099,
+    "complete_event_records": 26931566,
+    "trailing_bytes": 5,
+    "roi_event_records": 22839831,
+    "fixed_hot_pixels": [
+      [
+        0,
+        46,
+        182
+      ],
+      [
+        0,
+        108,
+        40
+      ],
+      [
+        0,
+        180,
+        186
+      ],
+      [
+        0,
+        187,
+        272
+      ]
+    ],
+    "fixed_hot_pixel_records_removed_from_full_sensor": 3416952,
+    "fixed_hot_pixel_records_removed_from_roi": 2932262
+  },
+  "malformed_frame_filenames": 0,
+  "splits": {
+    "train": {
+      "samples": 9543,
+      "shape": [
+        9543,
+        2,
+        96,
+        128
+      ],
+      "maximum_pixel_count": 27,
+      "compressed_bytes": 6699515,
+      "sha256": "9f34b69b7bc1550776f997f75ca7429a7a97baf0378463dc75230421940c8340"
+    },
+    "validation": {
+      "samples": 1364,
+      "shape": [
+        1364,
+        2,
+        96,
+        128
+      ],
+      "maximum_pixel_count": 22,
+      "compressed_bytes": 962016,
+      "sha256": "2684117850a72cd7004cf357e8bfe3ec085e81aefadf9d92d79916467407dcbd"
+    },
+    "test": {
+      "samples": 1364,
+      "shape": [
+        1364,
+        2,
+        96,
+        128
+      ],
+      "maximum_pixel_count": 19,
+      "compressed_bytes": 962840,
+      "sha256": "caea109aa3e95aa048464604748070722f5eec272ffa29c2979dd8396f8a21b1"
+    }
+  }
+}

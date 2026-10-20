@@ -1,0 +1,183 @@
+{
+  "method": "vectorless_default",
+  "frequency_mhz": 160,
+  "process": "typical",
+  "junction_temperature_c": 25,
+  "voltage": "nominal",
+  "simulation_activity_file": null,
+  "tasks": [
+    "pursuit",
+    "saccade_continuous_xy"
+  ],
+  "task_equivalence": "Identical runtime-programmed circuit at matched depth; no task-specific activity is supplied.",
+  "energy_scope": "Total on-chip estimate multiplied by measured core cycles / 160 MHz; excludes host and board peripherals.",
+  "started_at_utc": "2026-10-19T19:28:57.777686+00:00",
+  "elapsed_seconds": 183.22422875999473,
+  "sources_sha256": {
+    "_shared.py": "77d32ffdf42f21e83c9e8e9b61cb071cfd96e39e083ad6f09626ed6e634533a2",
+    "power_vectorless.py": "a962b01ec946e556fc7cc543c03f16560b7a2f4c296e4b441c4b6298518778c1",
+    "power_vectorless.tcl": "121d1e56c9a0c864510299579f79c7cbb66ea8a0b3b829b4240a6c842b34bc22"
+  },
+  "variants": [
+    {
+      "variant": "full_state",
+      "stateless_depth": 0,
+      "core_cycles": 105305,
+      "core_ms": 0.65815625,
+      "total_w": 0.733,
+      "dynamic_w": 0.511,
+      "device_static_w": 0.221,
+      "total_energy_uj": 482.42853125,
+      "junction_temperature_c": 25.0,
+      "confidence": "Low",
+      "checkpoint_sha256": "0ad22bd4efa6f4b8734e48b5c0eca607775272976ad21cc00f749e0042ce14e3",
+      "settings": {
+        "vivado_version": "2025.2.1",
+        "part": "xczu3eg-sfvc784-2-e",
+        "clock_period_ns": "6.250",
+        "method": "vectorless_default",
+        "simulation_activity_file": "none",
+        "process": "typical",
+        "junction_temperature_c": "25",
+        "voltage": "nominal"
+      },
+      "reports_sha256": {
+        "bram_activity.rpt": "6504aaa81c44e182d6251c1d2cc507be06979f00ec4289cf6e8331c286d1cb7f",
+        "input_activity.rpt": "26f5eb2fd9fee36fda2484c6328945d157d3535fc77f98049fd07e880c171236",
+        "operating_conditions.rpt": "2f4fb6561df95a377e28c5864b105c6479579f72d60338570e30d82360b5da6b",
+        "power.rpt": "54f3c1da10330d272f84043e6aac0281c7a6fd032059cac792f09045202bc7b4",
+        "power.xml": "2f480b43ef1e16b9684e02f24a7a44cd805050978cd833f859b0c346c5b4e5c4",
+        "settings.txt": "4bbc08a2125a1a5fae720b1e800b001bc1148c3b93947ff4bd2ba3124e2f91c6"
+      },
+      "elapsed_seconds": 70.71957094600657
+    },
+    {
+      "variant": "l1_stateless",
+      "stateless_depth": 1,
+      "core_cycles": 90525,
+      "core_ms": 0.56578125,
+      "total_w": 0.595,
+      "dynamic_w": 0.374,
+      "device_static_w": 0.221,
+      "total_energy_uj": 336.63984375,
+      "junction_temperature_c": 25.0,
+      "confidence": "Low",
+      "checkpoint_sha256": "3f0cf7d799553766af6c5f5e034098642d6e94f9a7cd4d2621bb6f893f3024c4",
+      "settings": {
+        "vivado_version": "2025.2.1",
+        "part": "xczu3eg-sfvc784-2-e",
+        "clock_period_ns": "6.250",
+        "method": "vectorless_default",
+        "simulation_activity_file": "none",
+        "process": "typical",
+        "junction_temperature_c": "25",
+        "voltage": "nominal"
+      },
+      "reports_sha256": {
+        "bram_activity.rpt": "55c64be1648e5d38543888c3d683e43a790d7f5b8d01f6bb9e49a6564ec2d142",
+        "input_activity.rpt": "e2f97b189e3c8af3831d93ba289322f2320cb56b2a33c0ff711468aac15e79fc",
+        "operating_conditions.rpt": "2f4fb6561df95a377e28c5864b105c6479579f72d60338570e30d82360b5da6b",
+        "power.rpt": "8cd7c3ccab3f1dfc19cfbb49e7f93e4178978725286f0c2c53f32a34c435e54f",
+        "power.xml": "de9265c98e082c9aa3c1459d4fe527dc2742929a3bd288001b39c20cfa076267",
+        "settings.txt": "4bbc08a2125a1a5fae720b1e800b001bc1148c3b93947ff4bd2ba3124e2f91c6"
+      },
+      "elapsed_seconds": 56.882771010001306
+    },
+    {
+      "variant": "l1_l2_stateless",
+      "stateless_depth": 2,
+      "core_cycles": 78817,
+      "core_ms": 0.49260625,
+      "total_w": 0.602,
+      "dynamic_w": 0.381,
+      "device_static_w": 0.221,
+      "total_energy_uj": 296.54896249999996,
+      "junction_temperature_c": 25.0,
+      "confidence": "Low",
+      "checkpoint_sha256": "2189ad608caf54f433d4308d7507b4322ea852b75089357a2aaeb2d3e6c57eea",
+      "settings": {
+        "vivado_version": "2025.2.1",
+        "part": "xczu3eg-sfvc784-2-e",
+        "clock_period_ns": "6.250",
+        "method": "vectorless_default",
+        "simulation_activity_file": "none",
+        "process": "typical",
+        "junction_temperature_c": "25",
+        "voltage": "nominal"
+      },
+      "reports_sha256": {
+        "bram_activity.rpt": "05bd7734f32f1b967299463240c14e1e35533d782f5ca6536b1a039fa8e14761",
+        "input_activity.rpt": "580048bf7738d8df385cb54e640c4d549a72147b7cde0a9db6924d9416ec1023",
+        "operating_conditions.rpt": "2f4fb6561df95a377e28c5864b105c6479579f72d60338570e30d82360b5da6b",
+        "power.rpt": "75a63c2af9e22f1818f9e7d340b645a0195e9b482e606cf695058d6c0fbdf6e8",
+        "power.xml": "25da3d064d31780fd6c3ab12c8b92de6c10f1b414ab7f9c2965a932223afd157",
+        "settings.txt": "4bbc08a2125a1a5fae720b1e800b001bc1148c3b93947ff4bd2ba3124e2f91c6"
+      },
+      "elapsed_seconds": 61.0232431320037
+    },
+    {
+      "variant": "l1_l2_l3_stateless",
+      "stateless_depth": 3,
+      "core_cycles": 72101,
+      "core_ms": 0.45063125,
+      "total_w": 0.604,
+      "dynamic_w": 0.383,
+      "device_static_w": 0.221,
+      "total_energy_uj": 272.181275,
+      "junction_temperature_c": 25.0,
+      "confidence": "Low",
+      "checkpoint_sha256": "fe7740b079ba58eda4333648e52a04487a0f0f773cd8a65e91835bb735a315a4",
+      "settings": {
+        "vivado_version": "2025.2.1",
+        "part": "xczu3eg-sfvc784-2-e",
+        "clock_period_ns": "6.250",
+        "method": "vectorless_default",
+        "simulation_activity_file": "none",
+        "process": "typical",
+        "junction_temperature_c": "25",
+        "voltage": "nominal"
+      },
+      "reports_sha256": {
+        "bram_activity.rpt": "549347037b2c352182dcd923fc44bb9c4ddf50b740c98316bbe0d79b65631335",
+        "input_activity.rpt": "3c3ffaa8b6c1256d4674cb4309c0b919f6b41fff589c4423d62550a9b9bb6718",
+        "operating_conditions.rpt": "2f4fb6561df95a377e28c5864b105c6479579f72d60338570e30d82360b5da6b",
+        "power.rpt": "6303cceb5035860fdc59e5f0bf7a078b7097008f1df520c1f8fda52cc21d4d76",
+        "power.xml": "056722843a8b294c6b109f0a846bd5730fbb02e331fceda33ece74e502fa57cc",
+        "settings.txt": "4bbc08a2125a1a5fae720b1e800b001bc1148c3b93947ff4bd2ba3124e2f91c6"
+      },
+      "elapsed_seconds": 55.96372962099849
+    },
+    {
+      "variant": "l1_l2_l3_l4_stateless",
+      "stateless_depth": 4,
+      "core_cycles": 68293,
+      "core_ms": 0.42683125,
+      "total_w": 0.691,
+      "dynamic_w": 0.47,
+      "device_static_w": 0.221,
+      "total_energy_uj": 294.94039375,
+      "junction_temperature_c": 25.0,
+      "confidence": "Low",
+      "checkpoint_sha256": "09a72a298c3c0dbf5064252852b1636c9ca9aa5e3f2ff790a6aa65b99340f34e",
+      "settings": {
+        "vivado_version": "2025.2.1",
+        "part": "xczu3eg-sfvc784-2-e",
+        "clock_period_ns": "6.250",
+        "method": "vectorless_default",
+        "simulation_activity_file": "none",
+        "process": "typical",
+        "junction_temperature_c": "25",
+        "voltage": "nominal"
+      },
+      "reports_sha256": {
+        "bram_activity.rpt": "e98b21923b4cf209c47128132131c18f1b28e934d35b355102924ebe09d445a5",
+        "input_activity.rpt": "addb27539ba60eee82573df59b125f7f40a3e074b4989b694869816a90c2997f",
+        "operating_conditions.rpt": "2f4fb6561df95a377e28c5864b105c6479579f72d60338570e30d82360b5da6b",
+        "power.rpt": "b9e877e0a4499365de53b96f9e8b844df36ffb2694153f23e9172ca3fb00ff65",
+        "power.xml": "a362d023c89501a3bee3802d6f0b36cad71c41adaa035bb79ce41e7f58ba26c1",
+        "settings.txt": "4bbc08a2125a1a5fae720b1e800b001bc1148c3b93947ff4bd2ba3124e2f91c6"
+      },
+      "elapsed_seconds": 65.25372871599393
+    }
+  ]
+}

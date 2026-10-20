@@ -1,0 +1,1838 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version      : Vivado v.2025.2.1 (lin64) Build 6403652 Thu Mar 19 13:47:00 MDT 2026
+| Date              : Mon Oct 19 15:02:42 2026
+| Host              : xen-dell-g15-5520 running 64-bit Ubuntu 24.04.5 LTS
+| Command           : report_timing -delay_type max -max_paths 20 -input_pins -file /home/xen/project/02_eb_snn_gaze_system/ebv-eye_snn_hardware/runs/l1_l4_and_task_equivalence_20261019/implementation/reports/post_route_setup_paths.rpt
+| Design            : pursuit_state_depth_timing_top
+| Device            : xczu3eg-sfvc784
+| Speed File        : -2  PRODUCTION 1.31 12-08-2025
+| Design State      : Routed
+| Temperature Grade : E
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (MET) :             0.091ns  (required time - arrival time)
+  Source:                 core/convolution_weight_memory_reg_bram_15/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Destination:            core/convolution_engine/mac_array/gen_tree_level[1].gen_tree_output[5].gen_tree_node[9].gen_active_node.gen_pair.tree_pipeline_reg[5][1][9]/DSP_A_B_DATA_INST/A[7]
+                            (rising edge-triggered cell DSP_A_B_DATA clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Path Group:             compute_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.250ns  (compute_clock rise@6.250ns - compute_clock rise@0.000ns)
+  Data Path Delay:        5.656ns  (logic 1.789ns (31.629%)  route 3.867ns (68.371%))
+  Logic Levels:           4  (RAMB36E2=4)
+  Clock Path Skew:        -0.211ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.814ns = ( 8.064 - 6.250 ) 
+    Source Clock Delay      (SCD):    2.334ns
+    Clock Pessimism Removal (CPR):    0.309ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.459ns (routing 0.171ns, distribution 1.288ns)
+  Clock Net Delay (Destination): 1.232ns (routing 0.155ns, distribution 1.077ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.515     0.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.332     0.847    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     0.875 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19726, routed)       1.459     2.334    core/clk
+    RAMB36_X0Y7          RAMB36E2                                     r  core/convolution_weight_memory_reg_bram_15/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X0Y7          RAMB36E2 (Prop_RAMB36E2_RAMB36_CLKBWRCLK_CASDOUTB[11])
+                                                      1.042     3.376 r  core/convolution_weight_memory_reg_bram_15/CASDOUTB[11]
+                         net (fo=1, routed)           0.026     3.402    core/convolution_weight_memory_reg_bram_15_n_56
+    RAMB36_X0Y8                                                       r  core/convolution_weight_memory_reg_bram_16/CASDINB[11]
+    RAMB36_X0Y8          RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[11]_CASDOUTB[11])
+                                                      0.210     3.612 r  core/convolution_weight_memory_reg_bram_16/CASDOUTB[11]
+                         net (fo=1, routed)           0.026     3.638    core/convolution_weight_memory_reg_bram_16_n_56
+    RAMB36_X0Y9                                                       r  core/convolution_weight_memory_reg_bram_17/CASDINB[11]
+    RAMB36_X0Y9          RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[11]_CASDOUTB[11])
+                                                      0.210     3.848 r  core/convolution_weight_memory_reg_bram_17/CASDOUTB[11]
+                         net (fo=1, routed)           0.026     3.874    core/convolution_weight_memory_reg_bram_17_n_56
+    RAMB36_X0Y10                                                      r  core/convolution_weight_memory_reg_bram_18/CASDINB[11]
+    RAMB36_X0Y10         RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[11]_CASDOUTB[11])
+                                                      0.210     4.084 r  core/convolution_weight_memory_reg_bram_18/CASDOUTB[11]
+                         net (fo=1, routed)           0.026     4.110    core/convolution_weight_memory_reg_bram_18_n_56
+    RAMB36_X0Y11                                                      r  core/convolution_weight_memory_reg_bram_19/CASDINB[11]
+    RAMB36_X0Y11         RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[11]_DOUTBDOUT[11])
+                                                      0.117     4.227 r  core/convolution_weight_memory_reg_bram_19/DOUTBDOUT[11]
+                         net (fo=18, routed)          3.763     7.990    core/convolution_engine/mac_array/gen_tree_level[1].gen_tree_output[5].gen_tree_node[9].gen_active_node.gen_pair.tree_pipeline_reg[5][1][9]/A[7]
+    DSP48E2_X0Y65        DSP_A_B_DATA                                 r  core/convolution_engine/mac_array/gen_tree_level[1].gen_tree_output[5].gen_tree_node[9].gen_active_node.gen_pair.tree_pipeline_reg[5][1][9]/DSP_A_B_DATA_INST/A[7]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock compute_clock rise edge)
+                                                      6.250     6.250 r  
+    K4                                                0.000     6.250 r  clk (IN)
+                         net (fo=0)                   0.000     6.250    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.265     6.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     6.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     6.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.293     6.808    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     6.832 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19726, routed)       1.232     8.064    core/convolution_engine/mac_array/gen_tree_level[1].gen_tree_output[5].gen_tree_node[9].gen_active_node.gen_pair.tree_pipeline_reg[5][1][9]/CLK
+    DSP48E2_X0Y65        DSP_A_B_DATA                                 r  core/convolution_engine/mac_array/gen_tree_level[1].gen_tree_output[5].gen_tree_node[9].gen_active_node.gen_pair.tree_pipeline_reg[5][1][9]/DSP_A_B_DATA_INST/CLK
+                         clock pessimism              0.309     8.373    
+                         clock uncertainty           -0.035     8.338    
+    DSP48E2_X0Y65        DSP_A_B_DATA (Setup_DSP_A_B_DATA_DSP48E2_CLK_A[7])
+                                                     -0.256     8.082    core/convolution_engine/mac_array/gen_tree_level[1].gen_tree_output[5].gen_tree_node[9].gen_active_node.gen_pair.tree_pipeline_reg[5][1][9]/DSP_A_B_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          8.082    
+                         arrival time                          -7.990    
+  -------------------------------------------------------------------
+                         slack                                  0.091    
+
+Slack (MET) :             0.118ns  (required time - arrival time)
+  Source:                 core/convolution_weight_memory_reg_bram_15/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Destination:            core/convolution_engine/mac_array/gen_products[6].gen_product_lane[30].tree_pipeline_reg[6][0][30]/DSP_A_B_DATA_INST/A[12]
+                            (rising edge-triggered cell DSP_A_B_DATA clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Path Group:             compute_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.250ns  (compute_clock rise@6.250ns - compute_clock rise@0.000ns)
+  Data Path Delay:        5.629ns  (logic 1.878ns (33.365%)  route 3.751ns (66.635%))
+  Logic Levels:           4  (RAMB36E2=4)
+  Clock Path Skew:        -0.210ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.815ns = ( 8.065 - 6.250 ) 
+    Source Clock Delay      (SCD):    2.334ns
+    Clock Pessimism Removal (CPR):    0.309ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.459ns (routing 0.171ns, distribution 1.288ns)
+  Clock Net Delay (Destination): 1.233ns (routing 0.155ns, distribution 1.078ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.515     0.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.332     0.847    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     0.875 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19726, routed)       1.459     2.334    core/clk
+    RAMB36_X0Y7          RAMB36E2                                     r  core/convolution_weight_memory_reg_bram_15/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X0Y7          RAMB36E2 (Prop_RAMB36E2_RAMB36_CLKBWRCLK_CASDOUTB[0])
+                                                      1.131     3.465 r  core/convolution_weight_memory_reg_bram_15/CASDOUTB[0]
+                         net (fo=1, routed)           0.028     3.493    core/convolution_weight_memory_reg_bram_15_n_67
+    RAMB36_X0Y8                                                       r  core/convolution_weight_memory_reg_bram_16/CASDINB[0]
+    RAMB36_X0Y8          RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[0]_CASDOUTB[0])
+                                                      0.210     3.703 r  core/convolution_weight_memory_reg_bram_16/CASDOUTB[0]
+                         net (fo=1, routed)           0.028     3.731    core/convolution_weight_memory_reg_bram_16_n_67
+    RAMB36_X0Y9                                                       r  core/convolution_weight_memory_reg_bram_17/CASDINB[0]
+    RAMB36_X0Y9          RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[0]_CASDOUTB[0])
+                                                      0.210     3.941 r  core/convolution_weight_memory_reg_bram_17/CASDOUTB[0]
+                         net (fo=1, routed)           0.028     3.969    core/convolution_weight_memory_reg_bram_17_n_67
+    RAMB36_X0Y10                                                      r  core/convolution_weight_memory_reg_bram_18/CASDINB[0]
+    RAMB36_X0Y10         RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[0]_CASDOUTB[0])
+                                                      0.210     4.179 r  core/convolution_weight_memory_reg_bram_18/CASDOUTB[0]
+                         net (fo=1, routed)           0.028     4.207    core/convolution_weight_memory_reg_bram_18_n_67
+    RAMB36_X0Y11                                                      r  core/convolution_weight_memory_reg_bram_19/CASDINB[0]
+    RAMB36_X0Y11         RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[0]_DOUTBDOUT[0])
+                                                      0.117     4.324 r  core/convolution_weight_memory_reg_bram_19/DOUTBDOUT[0]
+                         net (fo=18, routed)          3.639     7.963    core/convolution_engine/mac_array/gen_products[6].gen_product_lane[30].tree_pipeline_reg[6][0][30]/A[12]
+    DSP48E2_X0Y62        DSP_A_B_DATA                                 r  core/convolution_engine/mac_array/gen_products[6].gen_product_lane[30].tree_pipeline_reg[6][0][30]/DSP_A_B_DATA_INST/A[12]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock compute_clock rise edge)
+                                                      6.250     6.250 r  
+    K4                                                0.000     6.250 r  clk (IN)
+                         net (fo=0)                   0.000     6.250    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.265     6.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     6.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     6.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.293     6.808    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     6.832 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19726, routed)       1.233     8.065    core/convolution_engine/mac_array/gen_products[6].gen_product_lane[30].tree_pipeline_reg[6][0][30]/CLK
+    DSP48E2_X0Y62        DSP_A_B_DATA                                 r  core/convolution_engine/mac_array/gen_products[6].gen_product_lane[30].tree_pipeline_reg[6][0][30]/DSP_A_B_DATA_INST/CLK
+                         clock pessimism              0.309     8.374    
+                         clock uncertainty           -0.035     8.339    
+    DSP48E2_X0Y62        DSP_A_B_DATA (Setup_DSP_A_B_DATA_DSP48E2_CLK_A[12])
+                                                     -0.258     8.081    core/convolution_engine/mac_array/gen_products[6].gen_product_lane[30].tree_pipeline_reg[6][0][30]/DSP_A_B_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          8.081    
+                         arrival time                          -7.963    
+  -------------------------------------------------------------------
+                         slack                                  0.118    
+
+Slack (MET) :             0.123ns  (required time - arrival time)
+  Source:                 core/convolution_weight_memory_reg_bram_15/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Destination:            core/convolution_engine/mac_array/gen_products[5].gen_product_lane[18].tree_pipeline_reg[5][0][18]/DSP_A_B_DATA_INST/A[26]
+                            (rising edge-triggered cell DSP_A_B_DATA clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Path Group:             compute_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.250ns  (compute_clock rise@6.250ns - compute_clock rise@0.000ns)
+  Data Path Delay:        5.593ns  (logic 1.819ns (32.522%)  route 3.774ns (67.478%))
+  Logic Levels:           4  (RAMB36E2=4)
+  Clock Path Skew:        -0.213ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.812ns = ( 8.062 - 6.250 ) 
+    Source Clock Delay      (SCD):    2.334ns
+    Clock Pessimism Removal (CPR):    0.309ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.459ns (routing 0.171ns, distribution 1.288ns)
+  Clock Net Delay (Destination): 1.230ns (routing 0.155ns, distribution 1.075ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.515     0.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.332     0.847    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     0.875 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19726, routed)       1.459     2.334    core/clk
+    RAMB36_X0Y7          RAMB36E2                                     r  core/convolution_weight_memory_reg_bram_15/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X0Y7          RAMB36E2 (Prop_RAMB36E2_RAMB36_CLKBWRCLK_CASDOUTB[3])
+                                                      1.072     3.406 r  core/convolution_weight_memory_reg_bram_15/CASDOUTB[3]
+                         net (fo=1, routed)           0.025     3.431    core/convolution_weight_memory_reg_bram_15_n_64
+    RAMB36_X0Y8                                                       r  core/convolution_weight_memory_reg_bram_16/CASDINB[3]
+    RAMB36_X0Y8          RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[3]_CASDOUTB[3])
+                                                      0.210     3.641 r  core/convolution_weight_memory_reg_bram_16/CASDOUTB[3]
+                         net (fo=1, routed)           0.025     3.666    core/convolution_weight_memory_reg_bram_16_n_64
+    RAMB36_X0Y9                                                       r  core/convolution_weight_memory_reg_bram_17/CASDINB[3]
+    RAMB36_X0Y9          RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[3]_CASDOUTB[3])
+                                                      0.210     3.876 r  core/convolution_weight_memory_reg_bram_17/CASDOUTB[3]
+                         net (fo=1, routed)           0.025     3.901    core/convolution_weight_memory_reg_bram_17_n_64
+    RAMB36_X0Y10                                                      r  core/convolution_weight_memory_reg_bram_18/CASDINB[3]
+    RAMB36_X0Y10         RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[3]_CASDOUTB[3])
+                                                      0.210     4.111 r  core/convolution_weight_memory_reg_bram_18/CASDOUTB[3]
+                         net (fo=1, routed)           0.025     4.136    core/convolution_weight_memory_reg_bram_18_n_64
+    RAMB36_X0Y11                                                      r  core/convolution_weight_memory_reg_bram_19/CASDINB[3]
+    RAMB36_X0Y11         RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[3]_DOUTBDOUT[3])
+                                                      0.117     4.253 r  core/convolution_weight_memory_reg_bram_19/DOUTBDOUT[3]
+                         net (fo=270, routed)         3.674     7.927    core/convolution_engine/mac_array/gen_products[5].gen_product_lane[18].tree_pipeline_reg[5][0][18]/A[26]
+    DSP48E2_X0Y64        DSP_A_B_DATA                                 r  core/convolution_engine/mac_array/gen_products[5].gen_product_lane[18].tree_pipeline_reg[5][0][18]/DSP_A_B_DATA_INST/A[26]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock compute_clock rise edge)
+                                                      6.250     6.250 r  
+    K4                                                0.000     6.250 r  clk (IN)
+                         net (fo=0)                   0.000     6.250    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.265     6.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     6.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     6.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.293     6.808    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     6.832 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19726, routed)       1.230     8.062    core/convolution_engine/mac_array/gen_products[5].gen_product_lane[18].tree_pipeline_reg[5][0][18]/CLK
+    DSP48E2_X0Y64        DSP_A_B_DATA                                 r  core/convolution_engine/mac_array/gen_products[5].gen_product_lane[18].tree_pipeline_reg[5][0][18]/DSP_A_B_DATA_INST/CLK
+                         clock pessimism              0.309     8.371    
+                         clock uncertainty           -0.035     8.336    
+    DSP48E2_X0Y64        DSP_A_B_DATA (Setup_DSP_A_B_DATA_DSP48E2_CLK_A[26])
+                                                     -0.285     8.051    core/convolution_engine/mac_array/gen_products[5].gen_product_lane[18].tree_pipeline_reg[5][0][18]/DSP_A_B_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          8.051    
+                         arrival time                          -7.927    
+  -------------------------------------------------------------------
+                         slack                                  0.123    
+
+Slack (MET) :             0.125ns  (required time - arrival time)
+  Source:                 core/convolution_weight_memory_reg_bram_15/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Destination:            core/convolution_engine/mac_array/gen_products[5].gen_product_lane[18].tree_pipeline_reg[5][0][18]/DSP_A_B_DATA_INST/A[27]
+                            (rising edge-triggered cell DSP_A_B_DATA clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Path Group:             compute_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.250ns  (compute_clock rise@6.250ns - compute_clock rise@0.000ns)
+  Data Path Delay:        5.594ns  (logic 1.819ns (32.516%)  route 3.775ns (67.484%))
+  Logic Levels:           4  (RAMB36E2=4)
+  Clock Path Skew:        -0.213ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.812ns = ( 8.062 - 6.250 ) 
+    Source Clock Delay      (SCD):    2.334ns
+    Clock Pessimism Removal (CPR):    0.309ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.459ns (routing 0.171ns, distribution 1.288ns)
+  Clock Net Delay (Destination): 1.230ns (routing 0.155ns, distribution 1.075ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.515     0.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.332     0.847    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     0.875 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19726, routed)       1.459     2.334    core/clk
+    RAMB36_X0Y7          RAMB36E2                                     r  core/convolution_weight_memory_reg_bram_15/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X0Y7          RAMB36E2 (Prop_RAMB36E2_RAMB36_CLKBWRCLK_CASDOUTB[3])
+                                                      1.072     3.406 r  core/convolution_weight_memory_reg_bram_15/CASDOUTB[3]
+                         net (fo=1, routed)           0.025     3.431    core/convolution_weight_memory_reg_bram_15_n_64
+    RAMB36_X0Y8                                                       r  core/convolution_weight_memory_reg_bram_16/CASDINB[3]
+    RAMB36_X0Y8          RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[3]_CASDOUTB[3])
+                                                      0.210     3.641 r  core/convolution_weight_memory_reg_bram_16/CASDOUTB[3]
+                         net (fo=1, routed)           0.025     3.666    core/convolution_weight_memory_reg_bram_16_n_64
+    RAMB36_X0Y9                                                       r  core/convolution_weight_memory_reg_bram_17/CASDINB[3]
+    RAMB36_X0Y9          RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[3]_CASDOUTB[3])
+                                                      0.210     3.876 r  core/convolution_weight_memory_reg_bram_17/CASDOUTB[3]
+                         net (fo=1, routed)           0.025     3.901    core/convolution_weight_memory_reg_bram_17_n_64
+    RAMB36_X0Y10                                                      r  core/convolution_weight_memory_reg_bram_18/CASDINB[3]
+    RAMB36_X0Y10         RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[3]_CASDOUTB[3])
+                                                      0.210     4.111 r  core/convolution_weight_memory_reg_bram_18/CASDOUTB[3]
+                         net (fo=1, routed)           0.025     4.136    core/convolution_weight_memory_reg_bram_18_n_64
+    RAMB36_X0Y11                                                      r  core/convolution_weight_memory_reg_bram_19/CASDINB[3]
+    RAMB36_X0Y11         RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[3]_DOUTBDOUT[3])
+                                                      0.117     4.253 r  core/convolution_weight_memory_reg_bram_19/DOUTBDOUT[3]
+                         net (fo=270, routed)         3.675     7.928    core/convolution_engine/mac_array/gen_products[5].gen_product_lane[18].tree_pipeline_reg[5][0][18]/A[27]
+    DSP48E2_X0Y64        DSP_A_B_DATA                                 r  core/convolution_engine/mac_array/gen_products[5].gen_product_lane[18].tree_pipeline_reg[5][0][18]/DSP_A_B_DATA_INST/A[27]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock compute_clock rise edge)
+                                                      6.250     6.250 r  
+    K4                                                0.000     6.250 r  clk (IN)
+                         net (fo=0)                   0.000     6.250    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.265     6.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     6.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     6.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.293     6.808    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     6.832 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19726, routed)       1.230     8.062    core/convolution_engine/mac_array/gen_products[5].gen_product_lane[18].tree_pipeline_reg[5][0][18]/CLK
+    DSP48E2_X0Y64        DSP_A_B_DATA                                 r  core/convolution_engine/mac_array/gen_products[5].gen_product_lane[18].tree_pipeline_reg[5][0][18]/DSP_A_B_DATA_INST/CLK
+                         clock pessimism              0.309     8.371    
+                         clock uncertainty           -0.035     8.336    
+    DSP48E2_X0Y64        DSP_A_B_DATA (Setup_DSP_A_B_DATA_DSP48E2_CLK_A[27])
+                                                     -0.282     8.054    core/convolution_engine/mac_array/gen_products[5].gen_product_lane[18].tree_pipeline_reg[5][0][18]/DSP_A_B_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          8.054    
+                         arrival time                          -7.928    
+  -------------------------------------------------------------------
+                         slack                                  0.125    
+
+Slack (MET) :             0.129ns  (required time - arrival time)
+  Source:                 core/convolution_weight_memory_reg_bram_15/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Destination:            core/convolution_engine/mac_array/gen_tree_level[1].gen_tree_output[6].gen_tree_node[15].gen_active_node.gen_pair.tree_pipeline_reg[6][1][15]/DSP_A_B_DATA_INST/A[10]
+                            (rising edge-triggered cell DSP_A_B_DATA clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Path Group:             compute_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.250ns  (compute_clock rise@6.250ns - compute_clock rise@0.000ns)
+  Data Path Delay:        5.590ns  (logic 1.777ns (31.790%)  route 3.813ns (68.210%))
+  Logic Levels:           4  (RAMB36E2=4)
+  Clock Path Skew:        -0.216ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.809ns = ( 8.059 - 6.250 ) 
+    Source Clock Delay      (SCD):    2.334ns
+    Clock Pessimism Removal (CPR):    0.309ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.459ns (routing 0.171ns, distribution 1.288ns)
+  Clock Net Delay (Destination): 1.227ns (routing 0.155ns, distribution 1.072ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.515     0.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.332     0.847    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     0.875 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19726, routed)       1.459     2.334    core/clk
+    RAMB36_X0Y7          RAMB36E2                                     r  core/convolution_weight_memory_reg_bram_15/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X0Y7          RAMB36E2 (Prop_RAMB36E2_RAMB36_CLKBWRCLK_CASDOUTB[14])
+                                                      1.030     3.364 r  core/convolution_weight_memory_reg_bram_15/CASDOUTB[14]
+                         net (fo=1, routed)           0.029     3.393    core/convolution_weight_memory_reg_bram_15_n_53
+    RAMB36_X0Y8                                                       r  core/convolution_weight_memory_reg_bram_16/CASDINB[14]
+    RAMB36_X0Y8          RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[14]_CASDOUTB[14])
+                                                      0.210     3.603 r  core/convolution_weight_memory_reg_bram_16/CASDOUTB[14]
+                         net (fo=1, routed)           0.029     3.632    core/convolution_weight_memory_reg_bram_16_n_53
+    RAMB36_X0Y9                                                       r  core/convolution_weight_memory_reg_bram_17/CASDINB[14]
+    RAMB36_X0Y9          RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[14]_CASDOUTB[14])
+                                                      0.210     3.842 r  core/convolution_weight_memory_reg_bram_17/CASDOUTB[14]
+                         net (fo=1, routed)           0.029     3.871    core/convolution_weight_memory_reg_bram_17_n_53
+    RAMB36_X0Y10                                                      r  core/convolution_weight_memory_reg_bram_18/CASDINB[14]
+    RAMB36_X0Y10         RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[14]_CASDOUTB[14])
+                                                      0.210     4.081 r  core/convolution_weight_memory_reg_bram_18/CASDOUTB[14]
+                         net (fo=1, routed)           0.029     4.110    core/convolution_weight_memory_reg_bram_18_n_53
+    RAMB36_X0Y11                                                      r  core/convolution_weight_memory_reg_bram_19/CASDINB[14]
+    RAMB36_X0Y11         RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[14]_DOUTBDOUT[14])
+                                                      0.117     4.227 r  core/convolution_weight_memory_reg_bram_19/DOUTBDOUT[14]
+                         net (fo=18, routed)          3.697     7.924    core/convolution_engine/mac_array/gen_tree_level[1].gen_tree_output[6].gen_tree_node[15].gen_active_node.gen_pair.tree_pipeline_reg[6][1][15]/A[10]
+    DSP48E2_X0Y63        DSP_A_B_DATA                                 r  core/convolution_engine/mac_array/gen_tree_level[1].gen_tree_output[6].gen_tree_node[15].gen_active_node.gen_pair.tree_pipeline_reg[6][1][15]/DSP_A_B_DATA_INST/A[10]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock compute_clock rise edge)
+                                                      6.250     6.250 r  
+    K4                                                0.000     6.250 r  clk (IN)
+                         net (fo=0)                   0.000     6.250    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.265     6.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     6.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     6.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.293     6.808    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     6.832 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19726, routed)       1.227     8.059    core/convolution_engine/mac_array/gen_tree_level[1].gen_tree_output[6].gen_tree_node[15].gen_active_node.gen_pair.tree_pipeline_reg[6][1][15]/CLK
+    DSP48E2_X0Y63        DSP_A_B_DATA                                 r  core/convolution_engine/mac_array/gen_tree_level[1].gen_tree_output[6].gen_tree_node[15].gen_active_node.gen_pair.tree_pipeline_reg[6][1][15]/DSP_A_B_DATA_INST/CLK
+                         clock pessimism              0.309     8.368    
+                         clock uncertainty           -0.035     8.333    
+    DSP48E2_X0Y63        DSP_A_B_DATA (Setup_DSP_A_B_DATA_DSP48E2_CLK_A[10])
+                                                     -0.280     8.053    core/convolution_engine/mac_array/gen_tree_level[1].gen_tree_output[6].gen_tree_node[15].gen_active_node.gen_pair.tree_pipeline_reg[6][1][15]/DSP_A_B_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          8.053    
+                         arrival time                          -7.924    
+  -------------------------------------------------------------------
+                         slack                                  0.129    
+
+Slack (MET) :             0.137ns  (required time - arrival time)
+  Source:                 core/convolution_weight_memory_reg_bram_30/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Destination:            core/convolution_engine/mac_array/gen_products[5].gen_product_lane[26].tree_pipeline_reg[5][0][26]/DSP_A_B_DATA_INST/A[13]
+                            (rising edge-triggered cell DSP_A_B_DATA clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Path Group:             compute_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.250ns  (compute_clock rise@6.250ns - compute_clock rise@0.000ns)
+  Data Path Delay:        5.741ns  (logic 1.776ns (30.936%)  route 3.965ns (69.064%))
+  Logic Levels:           4  (RAMB36E2=4)
+  Clock Path Skew:        -0.064ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.824ns = ( 8.074 - 6.250 ) 
+    Source Clock Delay      (SCD):    2.197ns
+    Clock Pessimism Removal (CPR):    0.309ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.322ns (routing 0.171ns, distribution 1.151ns)
+  Clock Net Delay (Destination): 1.242ns (routing 0.155ns, distribution 1.087ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.515     0.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.332     0.847    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     0.875 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19726, routed)       1.322     2.197    core/clk
+    RAMB36_X4Y7          RAMB36E2                                     r  core/convolution_weight_memory_reg_bram_30/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X4Y7          RAMB36E2 (Prop_RAMB36E2_RAMB36_CLKBWRCLK_CASDOUTB[21])
+                                                      1.029     3.226 r  core/convolution_weight_memory_reg_bram_30/CASDOUTB[21]
+                         net (fo=1, routed)           0.028     3.254    core/convolution_weight_memory_reg_bram_30_n_46
+    RAMB36_X4Y8                                                       r  core/convolution_weight_memory_reg_bram_31/CASDINB[21]
+    RAMB36_X4Y8          RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[21]_CASDOUTB[21])
+                                                      0.210     3.464 r  core/convolution_weight_memory_reg_bram_31/CASDOUTB[21]
+                         net (fo=1, routed)           0.028     3.492    core/convolution_weight_memory_reg_bram_31_n_46
+    RAMB36_X4Y9                                                       r  core/convolution_weight_memory_reg_bram_32/CASDINB[21]
+    RAMB36_X4Y9          RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[21]_CASDOUTB[21])
+                                                      0.210     3.702 r  core/convolution_weight_memory_reg_bram_32/CASDOUTB[21]
+                         net (fo=1, routed)           0.028     3.730    core/convolution_weight_memory_reg_bram_32_n_46
+    RAMB36_X4Y10                                                      r  core/convolution_weight_memory_reg_bram_33/CASDINB[21]
+    RAMB36_X4Y10         RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[21]_CASDOUTB[21])
+                                                      0.210     3.940 r  core/convolution_weight_memory_reg_bram_33/CASDOUTB[21]
+                         net (fo=1, routed)           0.028     3.968    core/convolution_weight_memory_reg_bram_33_n_46
+    RAMB36_X4Y11                                                      r  core/convolution_weight_memory_reg_bram_34/CASDINB[21]
+    RAMB36_X4Y11         RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[21]_DOUTBDOUT[21])
+                                                      0.117     4.085 r  core/convolution_weight_memory_reg_bram_34/DOUTBDOUT[21]
+                         net (fo=18, routed)          3.853     7.938    core/convolution_engine/mac_array/gen_products[5].gen_product_lane[26].tree_pipeline_reg[5][0][26]/A[13]
+    DSP48E2_X0Y68        DSP_A_B_DATA                                 r  core/convolution_engine/mac_array/gen_products[5].gen_product_lane[26].tree_pipeline_reg[5][0][26]/DSP_A_B_DATA_INST/A[13]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock compute_clock rise edge)
+                                                      6.250     6.250 r  
+    K4                                                0.000     6.250 r  clk (IN)
+                         net (fo=0)                   0.000     6.250    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.265     6.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     6.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     6.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.293     6.808    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     6.832 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19726, routed)       1.242     8.074    core/convolution_engine/mac_array/gen_products[5].gen_product_lane[26].tree_pipeline_reg[5][0][26]/CLK
+    DSP48E2_X0Y68        DSP_A_B_DATA                                 r  core/convolution_engine/mac_array/gen_products[5].gen_product_lane[26].tree_pipeline_reg[5][0][26]/DSP_A_B_DATA_INST/CLK
+                         clock pessimism              0.309     8.383    
+                         clock uncertainty           -0.035     8.347    
+    DSP48E2_X0Y68        DSP_A_B_DATA (Setup_DSP_A_B_DATA_DSP48E2_CLK_A[13])
+                                                     -0.272     8.075    core/convolution_engine/mac_array/gen_products[5].gen_product_lane[26].tree_pipeline_reg[5][0][26]/DSP_A_B_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          8.075    
+                         arrival time                          -7.938    
+  -------------------------------------------------------------------
+                         slack                                  0.137    
+
+Slack (MET) :             0.147ns  (required time - arrival time)
+  Source:                 core/convolution_weight_memory_reg_bram_15/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Destination:            core/convolution_engine/mac_array/gen_products[6].gen_product_lane[30].tree_pipeline_reg[6][0][30]/DSP_A_B_DATA_INST/A[25]
+                            (rising edge-triggered cell DSP_A_B_DATA clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Path Group:             compute_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.250ns  (compute_clock rise@6.250ns - compute_clock rise@0.000ns)
+  Data Path Delay:        5.559ns  (logic 1.819ns (32.723%)  route 3.740ns (67.277%))
+  Logic Levels:           4  (RAMB36E2=4)
+  Clock Path Skew:        -0.210ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.815ns = ( 8.065 - 6.250 ) 
+    Source Clock Delay      (SCD):    2.334ns
+    Clock Pessimism Removal (CPR):    0.309ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.459ns (routing 0.171ns, distribution 1.288ns)
+  Clock Net Delay (Destination): 1.233ns (routing 0.155ns, distribution 1.078ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.515     0.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.332     0.847    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     0.875 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19726, routed)       1.459     2.334    core/clk
+    RAMB36_X0Y7          RAMB36E2                                     r  core/convolution_weight_memory_reg_bram_15/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X0Y7          RAMB36E2 (Prop_RAMB36E2_RAMB36_CLKBWRCLK_CASDOUTB[3])
+                                                      1.072     3.406 r  core/convolution_weight_memory_reg_bram_15/CASDOUTB[3]
+                         net (fo=1, routed)           0.025     3.431    core/convolution_weight_memory_reg_bram_15_n_64
+    RAMB36_X0Y8                                                       r  core/convolution_weight_memory_reg_bram_16/CASDINB[3]
+    RAMB36_X0Y8          RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[3]_CASDOUTB[3])
+                                                      0.210     3.641 r  core/convolution_weight_memory_reg_bram_16/CASDOUTB[3]
+                         net (fo=1, routed)           0.025     3.666    core/convolution_weight_memory_reg_bram_16_n_64
+    RAMB36_X0Y9                                                       r  core/convolution_weight_memory_reg_bram_17/CASDINB[3]
+    RAMB36_X0Y9          RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[3]_CASDOUTB[3])
+                                                      0.210     3.876 r  core/convolution_weight_memory_reg_bram_17/CASDOUTB[3]
+                         net (fo=1, routed)           0.025     3.901    core/convolution_weight_memory_reg_bram_17_n_64
+    RAMB36_X0Y10                                                      r  core/convolution_weight_memory_reg_bram_18/CASDINB[3]
+    RAMB36_X0Y10         RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[3]_CASDOUTB[3])
+                                                      0.210     4.111 r  core/convolution_weight_memory_reg_bram_18/CASDOUTB[3]
+                         net (fo=1, routed)           0.025     4.136    core/convolution_weight_memory_reg_bram_18_n_64
+    RAMB36_X0Y11                                                      r  core/convolution_weight_memory_reg_bram_19/CASDINB[3]
+    RAMB36_X0Y11         RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[3]_DOUTBDOUT[3])
+                                                      0.117     4.253 r  core/convolution_weight_memory_reg_bram_19/DOUTBDOUT[3]
+                         net (fo=270, routed)         3.640     7.893    core/convolution_engine/mac_array/gen_products[6].gen_product_lane[30].tree_pipeline_reg[6][0][30]/A[25]
+    DSP48E2_X0Y62        DSP_A_B_DATA                                 r  core/convolution_engine/mac_array/gen_products[6].gen_product_lane[30].tree_pipeline_reg[6][0][30]/DSP_A_B_DATA_INST/A[25]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock compute_clock rise edge)
+                                                      6.250     6.250 r  
+    K4                                                0.000     6.250 r  clk (IN)
+                         net (fo=0)                   0.000     6.250    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.265     6.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     6.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     6.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.293     6.808    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     6.832 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19726, routed)       1.233     8.065    core/convolution_engine/mac_array/gen_products[6].gen_product_lane[30].tree_pipeline_reg[6][0][30]/CLK
+    DSP48E2_X0Y62        DSP_A_B_DATA                                 r  core/convolution_engine/mac_array/gen_products[6].gen_product_lane[30].tree_pipeline_reg[6][0][30]/DSP_A_B_DATA_INST/CLK
+                         clock pessimism              0.309     8.374    
+                         clock uncertainty           -0.035     8.339    
+    DSP48E2_X0Y62        DSP_A_B_DATA (Setup_DSP_A_B_DATA_DSP48E2_CLK_A[25])
+                                                     -0.299     8.040    core/convolution_engine/mac_array/gen_products[6].gen_product_lane[30].tree_pipeline_reg[6][0][30]/DSP_A_B_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          8.040    
+                         arrival time                          -7.893    
+  -------------------------------------------------------------------
+                         slack                                  0.147    
+
+Slack (MET) :             0.149ns  (required time - arrival time)
+  Source:                 core/convolution_weight_memory_reg_bram_15/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Destination:            core/convolution_engine/mac_array/gen_products[5].gen_product_lane[18].tree_pipeline_reg[5][0][18]/DSP_A_B_DATA_INST/A[28]
+                            (rising edge-triggered cell DSP_A_B_DATA clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Path Group:             compute_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.250ns  (compute_clock rise@6.250ns - compute_clock rise@0.000ns)
+  Data Path Delay:        5.561ns  (logic 1.819ns (32.710%)  route 3.742ns (67.290%))
+  Logic Levels:           4  (RAMB36E2=4)
+  Clock Path Skew:        -0.213ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.812ns = ( 8.062 - 6.250 ) 
+    Source Clock Delay      (SCD):    2.334ns
+    Clock Pessimism Removal (CPR):    0.309ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.459ns (routing 0.171ns, distribution 1.288ns)
+  Clock Net Delay (Destination): 1.230ns (routing 0.155ns, distribution 1.075ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.515     0.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.332     0.847    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     0.875 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19726, routed)       1.459     2.334    core/clk
+    RAMB36_X0Y7          RAMB36E2                                     r  core/convolution_weight_memory_reg_bram_15/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X0Y7          RAMB36E2 (Prop_RAMB36E2_RAMB36_CLKBWRCLK_CASDOUTB[3])
+                                                      1.072     3.406 r  core/convolution_weight_memory_reg_bram_15/CASDOUTB[3]
+                         net (fo=1, routed)           0.025     3.431    core/convolution_weight_memory_reg_bram_15_n_64
+    RAMB36_X0Y8                                                       r  core/convolution_weight_memory_reg_bram_16/CASDINB[3]
+    RAMB36_X0Y8          RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[3]_CASDOUTB[3])
+                                                      0.210     3.641 r  core/convolution_weight_memory_reg_bram_16/CASDOUTB[3]
+                         net (fo=1, routed)           0.025     3.666    core/convolution_weight_memory_reg_bram_16_n_64
+    RAMB36_X0Y9                                                       r  core/convolution_weight_memory_reg_bram_17/CASDINB[3]
+    RAMB36_X0Y9          RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[3]_CASDOUTB[3])
+                                                      0.210     3.876 r  core/convolution_weight_memory_reg_bram_17/CASDOUTB[3]
+                         net (fo=1, routed)           0.025     3.901    core/convolution_weight_memory_reg_bram_17_n_64
+    RAMB36_X0Y10                                                      r  core/convolution_weight_memory_reg_bram_18/CASDINB[3]
+    RAMB36_X0Y10         RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[3]_CASDOUTB[3])
+                                                      0.210     4.111 r  core/convolution_weight_memory_reg_bram_18/CASDOUTB[3]
+                         net (fo=1, routed)           0.025     4.136    core/convolution_weight_memory_reg_bram_18_n_64
+    RAMB36_X0Y11                                                      r  core/convolution_weight_memory_reg_bram_19/CASDINB[3]
+    RAMB36_X0Y11         RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[3]_DOUTBDOUT[3])
+                                                      0.117     4.253 r  core/convolution_weight_memory_reg_bram_19/DOUTBDOUT[3]
+                         net (fo=270, routed)         3.642     7.895    core/convolution_engine/mac_array/gen_products[5].gen_product_lane[18].tree_pipeline_reg[5][0][18]/A[28]
+    DSP48E2_X0Y64        DSP_A_B_DATA                                 r  core/convolution_engine/mac_array/gen_products[5].gen_product_lane[18].tree_pipeline_reg[5][0][18]/DSP_A_B_DATA_INST/A[28]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock compute_clock rise edge)
+                                                      6.250     6.250 r  
+    K4                                                0.000     6.250 r  clk (IN)
+                         net (fo=0)                   0.000     6.250    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.265     6.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     6.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     6.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.293     6.808    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     6.832 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19726, routed)       1.230     8.062    core/convolution_engine/mac_array/gen_products[5].gen_product_lane[18].tree_pipeline_reg[5][0][18]/CLK
+    DSP48E2_X0Y64        DSP_A_B_DATA                                 r  core/convolution_engine/mac_array/gen_products[5].gen_product_lane[18].tree_pipeline_reg[5][0][18]/DSP_A_B_DATA_INST/CLK
+                         clock pessimism              0.309     8.371    
+                         clock uncertainty           -0.035     8.336    
+    DSP48E2_X0Y64        DSP_A_B_DATA (Setup_DSP_A_B_DATA_DSP48E2_CLK_A[28])
+                                                     -0.292     8.044    core/convolution_engine/mac_array/gen_products[5].gen_product_lane[18].tree_pipeline_reg[5][0][18]/DSP_A_B_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          8.044    
+                         arrival time                          -7.895    
+  -------------------------------------------------------------------
+                         slack                                  0.149    
+
+Slack (MET) :             0.150ns  (required time - arrival time)
+  Source:                 core/convolution_weight_memory_reg_bram_30/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Destination:            core/convolution_engine/mac_array/gen_products[6].gen_product_lane[6].tree_pipeline_reg[6][0][6]/DSP_A_B_DATA_INST/A[12]
+                            (rising edge-triggered cell DSP_A_B_DATA clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Path Group:             compute_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.250ns  (compute_clock rise@6.250ns - compute_clock rise@0.000ns)
+  Data Path Delay:        5.588ns  (logic 1.783ns (31.910%)  route 3.805ns (68.090%))
+  Logic Levels:           4  (RAMB36E2=4)
+  Clock Path Skew:        -0.219ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.669ns = ( 7.919 - 6.250 ) 
+    Source Clock Delay      (SCD):    2.197ns
+    Clock Pessimism Removal (CPR):    0.309ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.322ns (routing 0.171ns, distribution 1.151ns)
+  Clock Net Delay (Destination): 1.087ns (routing 0.155ns, distribution 0.932ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.515     0.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.332     0.847    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     0.875 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19726, routed)       1.322     2.197    core/clk
+    RAMB36_X4Y7          RAMB36E2                                     r  core/convolution_weight_memory_reg_bram_30/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X4Y7          RAMB36E2 (Prop_RAMB36E2_RAMB36_CLKBWRCLK_CASDOUTB[20])
+                                                      1.036     3.233 r  core/convolution_weight_memory_reg_bram_30/CASDOUTB[20]
+                         net (fo=1, routed)           0.025     3.258    core/convolution_weight_memory_reg_bram_30_n_47
+    RAMB36_X4Y8                                                       r  core/convolution_weight_memory_reg_bram_31/CASDINB[20]
+    RAMB36_X4Y8          RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[20]_CASDOUTB[20])
+                                                      0.210     3.468 r  core/convolution_weight_memory_reg_bram_31/CASDOUTB[20]
+                         net (fo=1, routed)           0.025     3.493    core/convolution_weight_memory_reg_bram_31_n_47
+    RAMB36_X4Y9                                                       r  core/convolution_weight_memory_reg_bram_32/CASDINB[20]
+    RAMB36_X4Y9          RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[20]_CASDOUTB[20])
+                                                      0.210     3.703 r  core/convolution_weight_memory_reg_bram_32/CASDOUTB[20]
+                         net (fo=1, routed)           0.025     3.728    core/convolution_weight_memory_reg_bram_32_n_47
+    RAMB36_X4Y10                                                      r  core/convolution_weight_memory_reg_bram_33/CASDINB[20]
+    RAMB36_X4Y10         RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[20]_CASDOUTB[20])
+                                                      0.210     3.938 r  core/convolution_weight_memory_reg_bram_33/CASDOUTB[20]
+                         net (fo=1, routed)           0.025     3.963    core/convolution_weight_memory_reg_bram_33_n_47
+    RAMB36_X4Y11                                                      r  core/convolution_weight_memory_reg_bram_34/CASDINB[20]
+    RAMB36_X4Y11         RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[20]_DOUTBDOUT[20])
+                                                      0.117     4.080 r  core/convolution_weight_memory_reg_bram_34/DOUTBDOUT[20]
+                         net (fo=18, routed)          3.705     7.785    core/convolution_engine/mac_array/gen_products[6].gen_product_lane[6].tree_pipeline_reg[6][0][6]/A[12]
+    DSP48E2_X4Y51        DSP_A_B_DATA                                 r  core/convolution_engine/mac_array/gen_products[6].gen_product_lane[6].tree_pipeline_reg[6][0][6]/DSP_A_B_DATA_INST/A[12]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock compute_clock rise edge)
+                                                      6.250     6.250 r  
+    K4                                                0.000     6.250 r  clk (IN)
+                         net (fo=0)                   0.000     6.250    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.265     6.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     6.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     6.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.293     6.808    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     6.832 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19726, routed)       1.087     7.919    core/convolution_engine/mac_array/gen_products[6].gen_product_lane[6].tree_pipeline_reg[6][0][6]/CLK
+    DSP48E2_X4Y51        DSP_A_B_DATA                                 r  core/convolution_engine/mac_array/gen_products[6].gen_product_lane[6].tree_pipeline_reg[6][0][6]/DSP_A_B_DATA_INST/CLK
+                         clock pessimism              0.309     8.228    
+                         clock uncertainty           -0.035     8.193    
+    DSP48E2_X4Y51        DSP_A_B_DATA (Setup_DSP_A_B_DATA_DSP48E2_CLK_A[12])
+                                                     -0.258     7.935    core/convolution_engine/mac_array/gen_products[6].gen_product_lane[6].tree_pipeline_reg[6][0][6]/DSP_A_B_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          7.935    
+                         arrival time                          -7.785    
+  -------------------------------------------------------------------
+                         slack                                  0.150    
+
+Slack (MET) :             0.157ns  (required time - arrival time)
+  Source:                 core/convolution_weight_memory_reg_bram_15/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Destination:            core/convolution_engine/mac_array/gen_tree_level[1].gen_tree_output[6].gen_tree_node[15].gen_active_node.gen_pair.tree_pipeline_reg[6][1][15]/DSP_A_B_DATA_INST/A[7]
+                            (rising edge-triggered cell DSP_A_B_DATA clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Path Group:             compute_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.250ns  (compute_clock rise@6.250ns - compute_clock rise@0.000ns)
+  Data Path Delay:        5.585ns  (logic 1.789ns (32.031%)  route 3.796ns (67.969%))
+  Logic Levels:           4  (RAMB36E2=4)
+  Clock Path Skew:        -0.216ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.809ns = ( 8.059 - 6.250 ) 
+    Source Clock Delay      (SCD):    2.334ns
+    Clock Pessimism Removal (CPR):    0.309ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.459ns (routing 0.171ns, distribution 1.288ns)
+  Clock Net Delay (Destination): 1.227ns (routing 0.155ns, distribution 1.072ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.515     0.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.332     0.847    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     0.875 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19726, routed)       1.459     2.334    core/clk
+    RAMB36_X0Y7          RAMB36E2                                     r  core/convolution_weight_memory_reg_bram_15/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X0Y7          RAMB36E2 (Prop_RAMB36E2_RAMB36_CLKBWRCLK_CASDOUTB[11])
+                                                      1.042     3.376 r  core/convolution_weight_memory_reg_bram_15/CASDOUTB[11]
+                         net (fo=1, routed)           0.026     3.402    core/convolution_weight_memory_reg_bram_15_n_56
+    RAMB36_X0Y8                                                       r  core/convolution_weight_memory_reg_bram_16/CASDINB[11]
+    RAMB36_X0Y8          RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[11]_CASDOUTB[11])
+                                                      0.210     3.612 r  core/convolution_weight_memory_reg_bram_16/CASDOUTB[11]
+                         net (fo=1, routed)           0.026     3.638    core/convolution_weight_memory_reg_bram_16_n_56
+    RAMB36_X0Y9                                                       r  core/convolution_weight_memory_reg_bram_17/CASDINB[11]
+    RAMB36_X0Y9          RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[11]_CASDOUTB[11])
+                                                      0.210     3.848 r  core/convolution_weight_memory_reg_bram_17/CASDOUTB[11]
+                         net (fo=1, routed)           0.026     3.874    core/convolution_weight_memory_reg_bram_17_n_56
+    RAMB36_X0Y10                                                      r  core/convolution_weight_memory_reg_bram_18/CASDINB[11]
+    RAMB36_X0Y10         RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[11]_CASDOUTB[11])
+                                                      0.210     4.084 r  core/convolution_weight_memory_reg_bram_18/CASDOUTB[11]
+                         net (fo=1, routed)           0.026     4.110    core/convolution_weight_memory_reg_bram_18_n_56
+    RAMB36_X0Y11                                                      r  core/convolution_weight_memory_reg_bram_19/CASDINB[11]
+    RAMB36_X0Y11         RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[11]_DOUTBDOUT[11])
+                                                      0.117     4.227 r  core/convolution_weight_memory_reg_bram_19/DOUTBDOUT[11]
+                         net (fo=18, routed)          3.692     7.919    core/convolution_engine/mac_array/gen_tree_level[1].gen_tree_output[6].gen_tree_node[15].gen_active_node.gen_pair.tree_pipeline_reg[6][1][15]/A[7]
+    DSP48E2_X0Y63        DSP_A_B_DATA                                 r  core/convolution_engine/mac_array/gen_tree_level[1].gen_tree_output[6].gen_tree_node[15].gen_active_node.gen_pair.tree_pipeline_reg[6][1][15]/DSP_A_B_DATA_INST/A[7]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock compute_clock rise edge)
+                                                      6.250     6.250 r  
+    K4                                                0.000     6.250 r  clk (IN)
+                         net (fo=0)                   0.000     6.250    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.265     6.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     6.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     6.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.293     6.808    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     6.832 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19726, routed)       1.227     8.059    core/convolution_engine/mac_array/gen_tree_level[1].gen_tree_output[6].gen_tree_node[15].gen_active_node.gen_pair.tree_pipeline_reg[6][1][15]/CLK
+    DSP48E2_X0Y63        DSP_A_B_DATA                                 r  core/convolution_engine/mac_array/gen_tree_level[1].gen_tree_output[6].gen_tree_node[15].gen_active_node.gen_pair.tree_pipeline_reg[6][1][15]/DSP_A_B_DATA_INST/CLK
+                         clock pessimism              0.309     8.368    
+                         clock uncertainty           -0.035     8.333    
+    DSP48E2_X0Y63        DSP_A_B_DATA (Setup_DSP_A_B_DATA_DSP48E2_CLK_A[7])
+                                                     -0.256     8.077    core/convolution_engine/mac_array/gen_tree_level[1].gen_tree_output[6].gen_tree_node[15].gen_active_node.gen_pair.tree_pipeline_reg[6][1][15]/DSP_A_B_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          8.077    
+                         arrival time                          -7.919    
+  -------------------------------------------------------------------
+                         slack                                  0.157    
+
+Slack (MET) :             0.159ns  (required time - arrival time)
+  Source:                 core/convolution_weight_memory_reg_bram_30/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Destination:            core/convolution_engine/mac_array/gen_products[4].gen_product_lane[30].tree_pipeline_reg[4][0][30]/DSP_A_B_DATA_INST/A[7]
+                            (rising edge-triggered cell DSP_A_B_DATA clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Path Group:             compute_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.250ns  (compute_clock rise@6.250ns - compute_clock rise@0.000ns)
+  Data Path Delay:        5.661ns  (logic 1.782ns (31.481%)  route 3.879ns (68.519%))
+  Logic Levels:           4  (RAMB36E2=4)
+  Clock Path Skew:        -0.139ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.749ns = ( 7.999 - 6.250 ) 
+    Source Clock Delay      (SCD):    2.197ns
+    Clock Pessimism Removal (CPR):    0.309ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.322ns (routing 0.171ns, distribution 1.151ns)
+  Clock Net Delay (Destination): 1.167ns (routing 0.155ns, distribution 1.012ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.515     0.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.332     0.847    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     0.875 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19726, routed)       1.322     2.197    core/clk
+    RAMB36_X4Y7          RAMB36E2                                     r  core/convolution_weight_memory_reg_bram_30/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X4Y7          RAMB36E2 (Prop_RAMB36E2_RAMB36_CLKBWRCLK_CASDOUTB[15])
+                                                      1.035     3.232 r  core/convolution_weight_memory_reg_bram_30/CASDOUTB[15]
+                         net (fo=1, routed)           0.029     3.261    core/convolution_weight_memory_reg_bram_30_n_52
+    RAMB36_X4Y8                                                       r  core/convolution_weight_memory_reg_bram_31/CASDINB[15]
+    RAMB36_X4Y8          RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[15]_CASDOUTB[15])
+                                                      0.210     3.471 r  core/convolution_weight_memory_reg_bram_31/CASDOUTB[15]
+                         net (fo=1, routed)           0.029     3.500    core/convolution_weight_memory_reg_bram_31_n_52
+    RAMB36_X4Y9                                                       r  core/convolution_weight_memory_reg_bram_32/CASDINB[15]
+    RAMB36_X4Y9          RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[15]_CASDOUTB[15])
+                                                      0.210     3.710 r  core/convolution_weight_memory_reg_bram_32/CASDOUTB[15]
+                         net (fo=1, routed)           0.029     3.739    core/convolution_weight_memory_reg_bram_32_n_52
+    RAMB36_X4Y10                                                      r  core/convolution_weight_memory_reg_bram_33/CASDINB[15]
+    RAMB36_X4Y10         RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[15]_CASDOUTB[15])
+                                                      0.210     3.949 r  core/convolution_weight_memory_reg_bram_33/CASDOUTB[15]
+                         net (fo=1, routed)           0.029     3.978    core/convolution_weight_memory_reg_bram_33_n_52
+    RAMB36_X4Y11                                                      r  core/convolution_weight_memory_reg_bram_34/CASDINB[15]
+    RAMB36_X4Y11         RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[15]_DOUTBDOUT[15])
+                                                      0.117     4.095 r  core/convolution_weight_memory_reg_bram_34/DOUTBDOUT[15]
+                         net (fo=18, routed)          3.763     7.858    core/convolution_engine/mac_array/gen_products[4].gen_product_lane[30].tree_pipeline_reg[4][0][30]/A[7]
+    DSP48E2_X2Y67        DSP_A_B_DATA                                 r  core/convolution_engine/mac_array/gen_products[4].gen_product_lane[30].tree_pipeline_reg[4][0][30]/DSP_A_B_DATA_INST/A[7]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock compute_clock rise edge)
+                                                      6.250     6.250 r  
+    K4                                                0.000     6.250 r  clk (IN)
+                         net (fo=0)                   0.000     6.250    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.265     6.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     6.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     6.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.293     6.808    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     6.832 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19726, routed)       1.167     7.999    core/convolution_engine/mac_array/gen_products[4].gen_product_lane[30].tree_pipeline_reg[4][0][30]/CLK
+    DSP48E2_X2Y67        DSP_A_B_DATA                                 r  core/convolution_engine/mac_array/gen_products[4].gen_product_lane[30].tree_pipeline_reg[4][0][30]/DSP_A_B_DATA_INST/CLK
+                         clock pessimism              0.309     8.308    
+                         clock uncertainty           -0.035     8.273    
+    DSP48E2_X2Y67        DSP_A_B_DATA (Setup_DSP_A_B_DATA_DSP48E2_CLK_A[7])
+                                                     -0.256     8.017    core/convolution_engine/mac_array/gen_products[4].gen_product_lane[30].tree_pipeline_reg[4][0][30]/DSP_A_B_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          8.017    
+                         arrival time                          -7.858    
+  -------------------------------------------------------------------
+                         slack                                  0.159    
+
+Slack (MET) :             0.159ns  (required time - arrival time)
+  Source:                 core/convolution_weight_memory_reg_bram_5/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Destination:            core/convolution_engine/mac_array/gen_products[5].gen_product_lane[14].tree_pipeline_reg[5][0][14]/DSP_A_B_DATA_INST/A[19]
+                            (rising edge-triggered cell DSP_A_B_DATA clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Path Group:             compute_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.250ns  (compute_clock rise@6.250ns - compute_clock rise@0.000ns)
+  Data Path Delay:        5.549ns  (logic 1.789ns (32.242%)  route 3.760ns (67.758%))
+  Logic Levels:           4  (RAMB36E2=4)
+  Clock Path Skew:        -0.241ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.664ns = ( 7.914 - 6.250 ) 
+    Source Clock Delay      (SCD):    2.214ns
+    Clock Pessimism Removal (CPR):    0.309ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.339ns (routing 0.171ns, distribution 1.168ns)
+  Clock Net Delay (Destination): 1.082ns (routing 0.155ns, distribution 0.927ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.515     0.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.332     0.847    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     0.875 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19726, routed)       1.339     2.214    core/clk
+    RAMB36_X3Y7          RAMB36E2                                     r  core/convolution_weight_memory_reg_bram_5/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X3Y7          RAMB36E2 (Prop_RAMB36E2_RAMB36_CLKBWRCLK_CASDOUTB[11])
+                                                      1.042     3.256 r  core/convolution_weight_memory_reg_bram_5/CASDOUTB[11]
+                         net (fo=1, routed)           0.026     3.282    core/convolution_weight_memory_reg_bram_5_n_56
+    RAMB36_X3Y8                                                       r  core/convolution_weight_memory_reg_bram_6/CASDINB[11]
+    RAMB36_X3Y8          RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[11]_CASDOUTB[11])
+                                                      0.210     3.492 r  core/convolution_weight_memory_reg_bram_6/CASDOUTB[11]
+                         net (fo=1, routed)           0.026     3.518    core/convolution_weight_memory_reg_bram_6_n_56
+    RAMB36_X3Y9                                                       r  core/convolution_weight_memory_reg_bram_7/CASDINB[11]
+    RAMB36_X3Y9          RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[11]_CASDOUTB[11])
+                                                      0.210     3.728 r  core/convolution_weight_memory_reg_bram_7/CASDOUTB[11]
+                         net (fo=1, routed)           0.026     3.754    core/convolution_weight_memory_reg_bram_7_n_56
+    RAMB36_X3Y10                                                      r  core/convolution_weight_memory_reg_bram_8/CASDINB[11]
+    RAMB36_X3Y10         RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[11]_CASDOUTB[11])
+                                                      0.210     3.964 r  core/convolution_weight_memory_reg_bram_8/CASDOUTB[11]
+                         net (fo=1, routed)           0.026     3.990    core/convolution_weight_memory_reg_bram_8_n_56
+    RAMB36_X3Y11                                                      r  core/convolution_weight_memory_reg_bram_9/CASDINB[11]
+    RAMB36_X3Y11         RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[11]_DOUTBDOUT[11])
+                                                      0.117     4.107 r  core/convolution_weight_memory_reg_bram_9/DOUTBDOUT[11]
+                         net (fo=270, routed)         3.656     7.763    core/convolution_engine/mac_array/gen_products[5].gen_product_lane[14].tree_pipeline_reg[5][0][14]/A[19]
+    DSP48E2_X4Y67        DSP_A_B_DATA                                 r  core/convolution_engine/mac_array/gen_products[5].gen_product_lane[14].tree_pipeline_reg[5][0][14]/DSP_A_B_DATA_INST/A[19]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock compute_clock rise edge)
+                                                      6.250     6.250 r  
+    K4                                                0.000     6.250 r  clk (IN)
+                         net (fo=0)                   0.000     6.250    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.265     6.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     6.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     6.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.293     6.808    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     6.832 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19726, routed)       1.082     7.914    core/convolution_engine/mac_array/gen_products[5].gen_product_lane[14].tree_pipeline_reg[5][0][14]/CLK
+    DSP48E2_X4Y67        DSP_A_B_DATA                                 r  core/convolution_engine/mac_array/gen_products[5].gen_product_lane[14].tree_pipeline_reg[5][0][14]/DSP_A_B_DATA_INST/CLK
+                         clock pessimism              0.309     8.223    
+                         clock uncertainty           -0.035     8.188    
+    DSP48E2_X4Y67        DSP_A_B_DATA (Setup_DSP_A_B_DATA_DSP48E2_CLK_A[19])
+                                                     -0.266     7.922    core/convolution_engine/mac_array/gen_products[5].gen_product_lane[14].tree_pipeline_reg[5][0][14]/DSP_A_B_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          7.922    
+                         arrival time                          -7.763    
+  -------------------------------------------------------------------
+                         slack                                  0.159    
+
+Slack (MET) :             0.161ns  (required time - arrival time)
+  Source:                 core/convolution_weight_memory_reg_bram_15/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Destination:            core/convolution_engine/mac_array/gen_products[5].gen_product_lane[18].tree_pipeline_reg[5][0][18]/DSP_A_B_DATA_INST/A[29]
+                            (rising edge-triggered cell DSP_A_B_DATA clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Path Group:             compute_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.250ns  (compute_clock rise@6.250ns - compute_clock rise@0.000ns)
+  Data Path Delay:        5.565ns  (logic 1.819ns (32.685%)  route 3.746ns (67.315%))
+  Logic Levels:           4  (RAMB36E2=4)
+  Clock Path Skew:        -0.213ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.812ns = ( 8.062 - 6.250 ) 
+    Source Clock Delay      (SCD):    2.334ns
+    Clock Pessimism Removal (CPR):    0.309ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.459ns (routing 0.171ns, distribution 1.288ns)
+  Clock Net Delay (Destination): 1.230ns (routing 0.155ns, distribution 1.075ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.515     0.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.332     0.847    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     0.875 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19726, routed)       1.459     2.334    core/clk
+    RAMB36_X0Y7          RAMB36E2                                     r  core/convolution_weight_memory_reg_bram_15/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X0Y7          RAMB36E2 (Prop_RAMB36E2_RAMB36_CLKBWRCLK_CASDOUTB[3])
+                                                      1.072     3.406 r  core/convolution_weight_memory_reg_bram_15/CASDOUTB[3]
+                         net (fo=1, routed)           0.025     3.431    core/convolution_weight_memory_reg_bram_15_n_64
+    RAMB36_X0Y8                                                       r  core/convolution_weight_memory_reg_bram_16/CASDINB[3]
+    RAMB36_X0Y8          RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[3]_CASDOUTB[3])
+                                                      0.210     3.641 r  core/convolution_weight_memory_reg_bram_16/CASDOUTB[3]
+                         net (fo=1, routed)           0.025     3.666    core/convolution_weight_memory_reg_bram_16_n_64
+    RAMB36_X0Y9                                                       r  core/convolution_weight_memory_reg_bram_17/CASDINB[3]
+    RAMB36_X0Y9          RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[3]_CASDOUTB[3])
+                                                      0.210     3.876 r  core/convolution_weight_memory_reg_bram_17/CASDOUTB[3]
+                         net (fo=1, routed)           0.025     3.901    core/convolution_weight_memory_reg_bram_17_n_64
+    RAMB36_X0Y10                                                      r  core/convolution_weight_memory_reg_bram_18/CASDINB[3]
+    RAMB36_X0Y10         RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[3]_CASDOUTB[3])
+                                                      0.210     4.111 r  core/convolution_weight_memory_reg_bram_18/CASDOUTB[3]
+                         net (fo=1, routed)           0.025     4.136    core/convolution_weight_memory_reg_bram_18_n_64
+    RAMB36_X0Y11                                                      r  core/convolution_weight_memory_reg_bram_19/CASDINB[3]
+    RAMB36_X0Y11         RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[3]_DOUTBDOUT[3])
+                                                      0.117     4.253 r  core/convolution_weight_memory_reg_bram_19/DOUTBDOUT[3]
+                         net (fo=270, routed)         3.646     7.899    core/convolution_engine/mac_array/gen_products[5].gen_product_lane[18].tree_pipeline_reg[5][0][18]/A[29]
+    DSP48E2_X0Y64        DSP_A_B_DATA                                 r  core/convolution_engine/mac_array/gen_products[5].gen_product_lane[18].tree_pipeline_reg[5][0][18]/DSP_A_B_DATA_INST/A[29]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock compute_clock rise edge)
+                                                      6.250     6.250 r  
+    K4                                                0.000     6.250 r  clk (IN)
+                         net (fo=0)                   0.000     6.250    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.265     6.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     6.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     6.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.293     6.808    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     6.832 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19726, routed)       1.230     8.062    core/convolution_engine/mac_array/gen_products[5].gen_product_lane[18].tree_pipeline_reg[5][0][18]/CLK
+    DSP48E2_X0Y64        DSP_A_B_DATA                                 r  core/convolution_engine/mac_array/gen_products[5].gen_product_lane[18].tree_pipeline_reg[5][0][18]/DSP_A_B_DATA_INST/CLK
+                         clock pessimism              0.309     8.371    
+                         clock uncertainty           -0.035     8.336    
+    DSP48E2_X0Y64        DSP_A_B_DATA (Setup_DSP_A_B_DATA_DSP48E2_CLK_A[29])
+                                                     -0.275     8.061    core/convolution_engine/mac_array/gen_products[5].gen_product_lane[18].tree_pipeline_reg[5][0][18]/DSP_A_B_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          8.061    
+                         arrival time                          -7.899    
+  -------------------------------------------------------------------
+                         slack                                  0.161    
+
+Slack (MET) :             0.162ns  (required time - arrival time)
+  Source:                 core/convolution_weight_memory_reg_bram_5/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Destination:            core/convolution_engine/mac_array/gen_products[2].gen_product_lane[10].tree_pipeline_reg[2][0][10]/DSP_A_B_DATA_INST/A[5]
+                            (rising edge-triggered cell DSP_A_B_DATA clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Path Group:             compute_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.250ns  (compute_clock rise@6.250ns - compute_clock rise@0.000ns)
+  Data Path Delay:        5.560ns  (logic 1.829ns (32.894%)  route 3.731ns (67.106%))
+  Logic Levels:           4  (RAMB36E2=4)
+  Clock Path Skew:        -0.226ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.679ns = ( 7.929 - 6.250 ) 
+    Source Clock Delay      (SCD):    2.214ns
+    Clock Pessimism Removal (CPR):    0.309ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.339ns (routing 0.171ns, distribution 1.168ns)
+  Clock Net Delay (Destination): 1.097ns (routing 0.155ns, distribution 0.942ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.515     0.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.332     0.847    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     0.875 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19726, routed)       1.339     2.214    core/clk
+    RAMB36_X3Y7          RAMB36E2                                     r  core/convolution_weight_memory_reg_bram_5/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X3Y7          RAMB36E2 (Prop_RAMB36E2_RAMB36_CLKBWRCLK_CASDOUTB[1])
+                                                      1.082     3.296 r  core/convolution_weight_memory_reg_bram_5/CASDOUTB[1]
+                         net (fo=1, routed)           0.026     3.322    core/convolution_weight_memory_reg_bram_5_n_66
+    RAMB36_X3Y8                                                       r  core/convolution_weight_memory_reg_bram_6/CASDINB[1]
+    RAMB36_X3Y8          RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[1]_CASDOUTB[1])
+                                                      0.210     3.532 r  core/convolution_weight_memory_reg_bram_6/CASDOUTB[1]
+                         net (fo=1, routed)           0.026     3.558    core/convolution_weight_memory_reg_bram_6_n_66
+    RAMB36_X3Y9                                                       r  core/convolution_weight_memory_reg_bram_7/CASDINB[1]
+    RAMB36_X3Y9          RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[1]_CASDOUTB[1])
+                                                      0.210     3.768 r  core/convolution_weight_memory_reg_bram_7/CASDOUTB[1]
+                         net (fo=1, routed)           0.026     3.794    core/convolution_weight_memory_reg_bram_7_n_66
+    RAMB36_X3Y10                                                      r  core/convolution_weight_memory_reg_bram_8/CASDINB[1]
+    RAMB36_X3Y10         RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[1]_CASDOUTB[1])
+                                                      0.210     4.004 r  core/convolution_weight_memory_reg_bram_8/CASDOUTB[1]
+                         net (fo=1, routed)           0.026     4.030    core/convolution_weight_memory_reg_bram_8_n_66
+    RAMB36_X3Y11                                                      r  core/convolution_weight_memory_reg_bram_9/CASDINB[1]
+    RAMB36_X3Y11         RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[1]_DOUTBDOUT[1])
+                                                      0.117     4.147 r  core/convolution_weight_memory_reg_bram_9/DOUTBDOUT[1]
+                         net (fo=18, routed)          3.627     7.774    core/convolution_engine/mac_array/gen_products[2].gen_product_lane[10].tree_pipeline_reg[2][0][10]/A[5]
+    DSP48E2_X3Y49        DSP_A_B_DATA                                 r  core/convolution_engine/mac_array/gen_products[2].gen_product_lane[10].tree_pipeline_reg[2][0][10]/DSP_A_B_DATA_INST/A[5]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock compute_clock rise edge)
+                                                      6.250     6.250 r  
+    K4                                                0.000     6.250 r  clk (IN)
+                         net (fo=0)                   0.000     6.250    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.265     6.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     6.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     6.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.293     6.808    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     6.832 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19726, routed)       1.097     7.929    core/convolution_engine/mac_array/gen_products[2].gen_product_lane[10].tree_pipeline_reg[2][0][10]/CLK
+    DSP48E2_X3Y49        DSP_A_B_DATA                                 r  core/convolution_engine/mac_array/gen_products[2].gen_product_lane[10].tree_pipeline_reg[2][0][10]/DSP_A_B_DATA_INST/CLK
+                         clock pessimism              0.309     8.238    
+                         clock uncertainty           -0.035     8.203    
+    DSP48E2_X3Y49        DSP_A_B_DATA (Setup_DSP_A_B_DATA_DSP48E2_CLK_A[5])
+                                                     -0.267     7.936    core/convolution_engine/mac_array/gen_products[2].gen_product_lane[10].tree_pipeline_reg[2][0][10]/DSP_A_B_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          7.936    
+                         arrival time                          -7.774    
+  -------------------------------------------------------------------
+                         slack                                  0.162    
+
+Slack (MET) :             0.163ns  (required time - arrival time)
+  Source:                 core/convolution_weight_memory_reg_bram_15/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Destination:            core/convolution_engine/mac_array/gen_products[5].gen_product_lane[34].tree_pipeline_reg[5][0][34]/DSP_A_B_DATA_INST/A[12]
+                            (rising edge-triggered cell DSP_A_B_DATA clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Path Group:             compute_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.250ns  (compute_clock rise@6.250ns - compute_clock rise@0.000ns)
+  Data Path Delay:        5.589ns  (logic 1.878ns (33.599%)  route 3.711ns (66.401%))
+  Logic Levels:           4  (RAMB36E2=4)
+  Clock Path Skew:        -0.204ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.821ns = ( 8.071 - 6.250 ) 
+    Source Clock Delay      (SCD):    2.334ns
+    Clock Pessimism Removal (CPR):    0.309ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.459ns (routing 0.171ns, distribution 1.288ns)
+  Clock Net Delay (Destination): 1.239ns (routing 0.155ns, distribution 1.084ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.515     0.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.332     0.847    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     0.875 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19726, routed)       1.459     2.334    core/clk
+    RAMB36_X0Y7          RAMB36E2                                     r  core/convolution_weight_memory_reg_bram_15/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X0Y7          RAMB36E2 (Prop_RAMB36E2_RAMB36_CLKBWRCLK_CASDOUTB[0])
+                                                      1.131     3.465 r  core/convolution_weight_memory_reg_bram_15/CASDOUTB[0]
+                         net (fo=1, routed)           0.028     3.493    core/convolution_weight_memory_reg_bram_15_n_67
+    RAMB36_X0Y8                                                       r  core/convolution_weight_memory_reg_bram_16/CASDINB[0]
+    RAMB36_X0Y8          RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[0]_CASDOUTB[0])
+                                                      0.210     3.703 r  core/convolution_weight_memory_reg_bram_16/CASDOUTB[0]
+                         net (fo=1, routed)           0.028     3.731    core/convolution_weight_memory_reg_bram_16_n_67
+    RAMB36_X0Y9                                                       r  core/convolution_weight_memory_reg_bram_17/CASDINB[0]
+    RAMB36_X0Y9          RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[0]_CASDOUTB[0])
+                                                      0.210     3.941 r  core/convolution_weight_memory_reg_bram_17/CASDOUTB[0]
+                         net (fo=1, routed)           0.028     3.969    core/convolution_weight_memory_reg_bram_17_n_67
+    RAMB36_X0Y10                                                      r  core/convolution_weight_memory_reg_bram_18/CASDINB[0]
+    RAMB36_X0Y10         RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[0]_CASDOUTB[0])
+                                                      0.210     4.179 r  core/convolution_weight_memory_reg_bram_18/CASDOUTB[0]
+                         net (fo=1, routed)           0.028     4.207    core/convolution_weight_memory_reg_bram_18_n_67
+    RAMB36_X0Y11                                                      r  core/convolution_weight_memory_reg_bram_19/CASDINB[0]
+    RAMB36_X0Y11         RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[0]_DOUTBDOUT[0])
+                                                      0.117     4.324 r  core/convolution_weight_memory_reg_bram_19/DOUTBDOUT[0]
+                         net (fo=18, routed)          3.599     7.923    core/convolution_engine/mac_array/gen_products[5].gen_product_lane[34].tree_pipeline_reg[5][0][34]/A[12]
+    DSP48E2_X0Y52        DSP_A_B_DATA                                 r  core/convolution_engine/mac_array/gen_products[5].gen_product_lane[34].tree_pipeline_reg[5][0][34]/DSP_A_B_DATA_INST/A[12]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock compute_clock rise edge)
+                                                      6.250     6.250 r  
+    K4                                                0.000     6.250 r  clk (IN)
+                         net (fo=0)                   0.000     6.250    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.265     6.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     6.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     6.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.293     6.808    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     6.832 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19726, routed)       1.239     8.071    core/convolution_engine/mac_array/gen_products[5].gen_product_lane[34].tree_pipeline_reg[5][0][34]/CLK
+    DSP48E2_X0Y52        DSP_A_B_DATA                                 r  core/convolution_engine/mac_array/gen_products[5].gen_product_lane[34].tree_pipeline_reg[5][0][34]/DSP_A_B_DATA_INST/CLK
+                         clock pessimism              0.309     8.380    
+                         clock uncertainty           -0.035     8.345    
+    DSP48E2_X0Y52        DSP_A_B_DATA (Setup_DSP_A_B_DATA_DSP48E2_CLK_A[12])
+                                                     -0.258     8.087    core/convolution_engine/mac_array/gen_products[5].gen_product_lane[34].tree_pipeline_reg[5][0][34]/DSP_A_B_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          8.087    
+                         arrival time                          -7.923    
+  -------------------------------------------------------------------
+                         slack                                  0.163    
+
+Slack (MET) :             0.170ns  (required time - arrival time)
+  Source:                 core/convolution_weight_memory_reg_bram_15/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Destination:            core/convolution_engine/mac_array/gen_products[6].gen_product_lane[30].tree_pipeline_reg[6][0][30]/DSP_A_B_DATA_INST/A[24]
+                            (rising edge-triggered cell DSP_A_B_DATA clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Path Group:             compute_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.250ns  (compute_clock rise@6.250ns - compute_clock rise@0.000ns)
+  Data Path Delay:        5.553ns  (logic 1.819ns (32.759%)  route 3.734ns (67.241%))
+  Logic Levels:           4  (RAMB36E2=4)
+  Clock Path Skew:        -0.210ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.815ns = ( 8.065 - 6.250 ) 
+    Source Clock Delay      (SCD):    2.334ns
+    Clock Pessimism Removal (CPR):    0.309ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.459ns (routing 0.171ns, distribution 1.288ns)
+  Clock Net Delay (Destination): 1.233ns (routing 0.155ns, distribution 1.078ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.515     0.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.332     0.847    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     0.875 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19726, routed)       1.459     2.334    core/clk
+    RAMB36_X0Y7          RAMB36E2                                     r  core/convolution_weight_memory_reg_bram_15/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X0Y7          RAMB36E2 (Prop_RAMB36E2_RAMB36_CLKBWRCLK_CASDOUTB[3])
+                                                      1.072     3.406 r  core/convolution_weight_memory_reg_bram_15/CASDOUTB[3]
+                         net (fo=1, routed)           0.025     3.431    core/convolution_weight_memory_reg_bram_15_n_64
+    RAMB36_X0Y8                                                       r  core/convolution_weight_memory_reg_bram_16/CASDINB[3]
+    RAMB36_X0Y8          RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[3]_CASDOUTB[3])
+                                                      0.210     3.641 r  core/convolution_weight_memory_reg_bram_16/CASDOUTB[3]
+                         net (fo=1, routed)           0.025     3.666    core/convolution_weight_memory_reg_bram_16_n_64
+    RAMB36_X0Y9                                                       r  core/convolution_weight_memory_reg_bram_17/CASDINB[3]
+    RAMB36_X0Y9          RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[3]_CASDOUTB[3])
+                                                      0.210     3.876 r  core/convolution_weight_memory_reg_bram_17/CASDOUTB[3]
+                         net (fo=1, routed)           0.025     3.901    core/convolution_weight_memory_reg_bram_17_n_64
+    RAMB36_X0Y10                                                      r  core/convolution_weight_memory_reg_bram_18/CASDINB[3]
+    RAMB36_X0Y10         RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[3]_CASDOUTB[3])
+                                                      0.210     4.111 r  core/convolution_weight_memory_reg_bram_18/CASDOUTB[3]
+                         net (fo=1, routed)           0.025     4.136    core/convolution_weight_memory_reg_bram_18_n_64
+    RAMB36_X0Y11                                                      r  core/convolution_weight_memory_reg_bram_19/CASDINB[3]
+    RAMB36_X0Y11         RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[3]_DOUTBDOUT[3])
+                                                      0.117     4.253 r  core/convolution_weight_memory_reg_bram_19/DOUTBDOUT[3]
+                         net (fo=270, routed)         3.634     7.887    core/convolution_engine/mac_array/gen_products[6].gen_product_lane[30].tree_pipeline_reg[6][0][30]/A[24]
+    DSP48E2_X0Y62        DSP_A_B_DATA                                 r  core/convolution_engine/mac_array/gen_products[6].gen_product_lane[30].tree_pipeline_reg[6][0][30]/DSP_A_B_DATA_INST/A[24]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock compute_clock rise edge)
+                                                      6.250     6.250 r  
+    K4                                                0.000     6.250 r  clk (IN)
+                         net (fo=0)                   0.000     6.250    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.265     6.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     6.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     6.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.293     6.808    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     6.832 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19726, routed)       1.233     8.065    core/convolution_engine/mac_array/gen_products[6].gen_product_lane[30].tree_pipeline_reg[6][0][30]/CLK
+    DSP48E2_X0Y62        DSP_A_B_DATA                                 r  core/convolution_engine/mac_array/gen_products[6].gen_product_lane[30].tree_pipeline_reg[6][0][30]/DSP_A_B_DATA_INST/CLK
+                         clock pessimism              0.309     8.374    
+                         clock uncertainty           -0.035     8.339    
+    DSP48E2_X0Y62        DSP_A_B_DATA (Setup_DSP_A_B_DATA_DSP48E2_CLK_A[24])
+                                                     -0.282     8.057    core/convolution_engine/mac_array/gen_products[6].gen_product_lane[30].tree_pipeline_reg[6][0][30]/DSP_A_B_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          8.057    
+                         arrival time                          -7.887    
+  -------------------------------------------------------------------
+                         slack                                  0.170    
+
+Slack (MET) :             0.172ns  (required time - arrival time)
+  Source:                 core/convolution_weight_memory_reg_bram_15/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Destination:            core/convolution_engine/mac_array/gen_products[4].gen_product_lane[24].tree_pipeline_reg[4][0][24]/DSP_A_B_DATA_INST/A[5]
+                            (rising edge-triggered cell DSP_A_B_DATA clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Path Group:             compute_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.250ns  (compute_clock rise@6.250ns - compute_clock rise@0.000ns)
+  Data Path Delay:        5.508ns  (logic 1.786ns (32.426%)  route 3.722ns (67.574%))
+  Logic Levels:           4  (RAMB36E2=4)
+  Clock Path Skew:        -0.267ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.758ns = ( 8.008 - 6.250 ) 
+    Source Clock Delay      (SCD):    2.334ns
+    Clock Pessimism Removal (CPR):    0.309ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.459ns (routing 0.171ns, distribution 1.288ns)
+  Clock Net Delay (Destination): 1.176ns (routing 0.155ns, distribution 1.021ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.515     0.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.332     0.847    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     0.875 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19726, routed)       1.459     2.334    core/clk
+    RAMB36_X0Y7          RAMB36E2                                     r  core/convolution_weight_memory_reg_bram_15/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X0Y7          RAMB36E2 (Prop_RAMB36E2_RAMB36_CLKBWRCLK_CASDOUTB[25])
+                                                      1.039     3.373 r  core/convolution_weight_memory_reg_bram_15/CASDOUTB[25]
+                         net (fo=1, routed)           0.026     3.399    core/convolution_weight_memory_reg_bram_15_n_42
+    RAMB36_X0Y8                                                       r  core/convolution_weight_memory_reg_bram_16/CASDINB[25]
+    RAMB36_X0Y8          RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[25]_CASDOUTB[25])
+                                                      0.210     3.609 r  core/convolution_weight_memory_reg_bram_16/CASDOUTB[25]
+                         net (fo=1, routed)           0.026     3.635    core/convolution_weight_memory_reg_bram_16_n_42
+    RAMB36_X0Y9                                                       r  core/convolution_weight_memory_reg_bram_17/CASDINB[25]
+    RAMB36_X0Y9          RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[25]_CASDOUTB[25])
+                                                      0.210     3.845 r  core/convolution_weight_memory_reg_bram_17/CASDOUTB[25]
+                         net (fo=1, routed)           0.026     3.871    core/convolution_weight_memory_reg_bram_17_n_42
+    RAMB36_X0Y10                                                      r  core/convolution_weight_memory_reg_bram_18/CASDINB[25]
+    RAMB36_X0Y10         RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[25]_CASDOUTB[25])
+                                                      0.210     4.081 r  core/convolution_weight_memory_reg_bram_18/CASDOUTB[25]
+                         net (fo=1, routed)           0.026     4.107    core/convolution_weight_memory_reg_bram_18_n_42
+    RAMB36_X0Y11                                                      r  core/convolution_weight_memory_reg_bram_19/CASDINB[25]
+    RAMB36_X0Y11         RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[25]_DOUTBDOUT[25])
+                                                      0.117     4.224 r  core/convolution_weight_memory_reg_bram_19/DOUTBDOUT[25]
+                         net (fo=18, routed)          3.618     7.842    core/convolution_engine/mac_array/gen_products[4].gen_product_lane[24].tree_pipeline_reg[4][0][24]/A[5]
+    DSP48E2_X1Y63        DSP_A_B_DATA                                 r  core/convolution_engine/mac_array/gen_products[4].gen_product_lane[24].tree_pipeline_reg[4][0][24]/DSP_A_B_DATA_INST/A[5]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock compute_clock rise edge)
+                                                      6.250     6.250 r  
+    K4                                                0.000     6.250 r  clk (IN)
+                         net (fo=0)                   0.000     6.250    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.265     6.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     6.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     6.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.293     6.808    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     6.832 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19726, routed)       1.176     8.008    core/convolution_engine/mac_array/gen_products[4].gen_product_lane[24].tree_pipeline_reg[4][0][24]/CLK
+    DSP48E2_X1Y63        DSP_A_B_DATA                                 r  core/convolution_engine/mac_array/gen_products[4].gen_product_lane[24].tree_pipeline_reg[4][0][24]/DSP_A_B_DATA_INST/CLK
+                         clock pessimism              0.309     8.317    
+                         clock uncertainty           -0.035     8.281    
+    DSP48E2_X1Y63        DSP_A_B_DATA (Setup_DSP_A_B_DATA_DSP48E2_CLK_A[5])
+                                                     -0.267     8.014    core/convolution_engine/mac_array/gen_products[4].gen_product_lane[24].tree_pipeline_reg[4][0][24]/DSP_A_B_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          8.014    
+                         arrival time                          -7.842    
+  -------------------------------------------------------------------
+                         slack                                  0.172    
+
+Slack (MET) :             0.177ns  (required time - arrival time)
+  Source:                 core/convolution_weight_memory_reg_bram_5/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Destination:            core/convolution_engine/mac_array/gen_products[5].gen_product_lane[30].tree_pipeline_reg[5][0][30]/DSP_A_B_DATA_INST/A[8]
+                            (rising edge-triggered cell DSP_A_B_DATA clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Path Group:             compute_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.250ns  (compute_clock rise@6.250ns - compute_clock rise@0.000ns)
+  Data Path Delay:        5.696ns  (logic 1.805ns (31.691%)  route 3.891ns (68.309%))
+  Logic Levels:           4  (RAMB36E2=4)
+  Clock Path Skew:        -0.076ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.829ns = ( 8.079 - 6.250 ) 
+    Source Clock Delay      (SCD):    2.214ns
+    Clock Pessimism Removal (CPR):    0.309ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.339ns (routing 0.171ns, distribution 1.168ns)
+  Clock Net Delay (Destination): 1.247ns (routing 0.155ns, distribution 1.092ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.515     0.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.332     0.847    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     0.875 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19726, routed)       1.339     2.214    core/clk
+    RAMB36_X3Y7          RAMB36E2                                     r  core/convolution_weight_memory_reg_bram_5/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X3Y7          RAMB36E2 (Prop_RAMB36E2_RAMB36_CLKBWRCLK_CASDOUTB[4])
+                                                      1.058     3.272 r  core/convolution_weight_memory_reg_bram_5/CASDOUTB[4]
+                         net (fo=1, routed)           0.021     3.293    core/convolution_weight_memory_reg_bram_5_n_63
+    RAMB36_X3Y8                                                       r  core/convolution_weight_memory_reg_bram_6/CASDINB[4]
+    RAMB36_X3Y8          RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[4]_CASDOUTB[4])
+                                                      0.210     3.503 r  core/convolution_weight_memory_reg_bram_6/CASDOUTB[4]
+                         net (fo=1, routed)           0.021     3.524    core/convolution_weight_memory_reg_bram_6_n_63
+    RAMB36_X3Y9                                                       r  core/convolution_weight_memory_reg_bram_7/CASDINB[4]
+    RAMB36_X3Y9          RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[4]_CASDOUTB[4])
+                                                      0.210     3.734 r  core/convolution_weight_memory_reg_bram_7/CASDOUTB[4]
+                         net (fo=1, routed)           0.021     3.755    core/convolution_weight_memory_reg_bram_7_n_63
+    RAMB36_X3Y10                                                      r  core/convolution_weight_memory_reg_bram_8/CASDINB[4]
+    RAMB36_X3Y10         RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[4]_CASDOUTB[4])
+                                                      0.210     3.965 r  core/convolution_weight_memory_reg_bram_8/CASDOUTB[4]
+                         net (fo=1, routed)           0.021     3.986    core/convolution_weight_memory_reg_bram_8_n_63
+    RAMB36_X3Y11                                                      r  core/convolution_weight_memory_reg_bram_9/CASDINB[4]
+    RAMB36_X3Y11         RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[4]_DOUTBDOUT[4])
+                                                      0.117     4.103 r  core/convolution_weight_memory_reg_bram_9/DOUTBDOUT[4]
+                         net (fo=18, routed)          3.807     7.910    core/convolution_engine/mac_array/gen_products[5].gen_product_lane[30].tree_pipeline_reg[5][0][30]/A[8]
+    DSP48E2_X0Y70        DSP_A_B_DATA                                 r  core/convolution_engine/mac_array/gen_products[5].gen_product_lane[30].tree_pipeline_reg[5][0][30]/DSP_A_B_DATA_INST/A[8]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock compute_clock rise edge)
+                                                      6.250     6.250 r  
+    K4                                                0.000     6.250 r  clk (IN)
+                         net (fo=0)                   0.000     6.250    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.265     6.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     6.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     6.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.293     6.808    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     6.832 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19726, routed)       1.247     8.079    core/convolution_engine/mac_array/gen_products[5].gen_product_lane[30].tree_pipeline_reg[5][0][30]/CLK
+    DSP48E2_X0Y70        DSP_A_B_DATA                                 r  core/convolution_engine/mac_array/gen_products[5].gen_product_lane[30].tree_pipeline_reg[5][0][30]/DSP_A_B_DATA_INST/CLK
+                         clock pessimism              0.309     8.388    
+                         clock uncertainty           -0.035     8.353    
+    DSP48E2_X0Y70        DSP_A_B_DATA (Setup_DSP_A_B_DATA_DSP48E2_CLK_A[8])
+                                                     -0.266     8.087    core/convolution_engine/mac_array/gen_products[5].gen_product_lane[30].tree_pipeline_reg[5][0][30]/DSP_A_B_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          8.087    
+                         arrival time                          -7.910    
+  -------------------------------------------------------------------
+                         slack                                  0.177    
+
+Slack (MET) :             0.178ns  (required time - arrival time)
+  Source:                 core/convolution_weight_memory_reg_bram_30/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Destination:            core/convolution_engine/mac_array/gen_products[6].gen_product_lane[22].tree_pipeline_reg[6][0][22]/DSP_A_B_DATA_INST/A[7]
+                            (rising edge-triggered cell DSP_A_B_DATA clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Path Group:             compute_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.250ns  (compute_clock rise@6.250ns - compute_clock rise@0.000ns)
+  Data Path Delay:        5.700ns  (logic 1.782ns (31.264%)  route 3.918ns (68.736%))
+  Logic Levels:           4  (RAMB36E2=4)
+  Clock Path Skew:        -0.081ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.807ns = ( 8.057 - 6.250 ) 
+    Source Clock Delay      (SCD):    2.197ns
+    Clock Pessimism Removal (CPR):    0.309ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.322ns (routing 0.171ns, distribution 1.151ns)
+  Clock Net Delay (Destination): 1.225ns (routing 0.155ns, distribution 1.070ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.515     0.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.332     0.847    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     0.875 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19726, routed)       1.322     2.197    core/clk
+    RAMB36_X4Y7          RAMB36E2                                     r  core/convolution_weight_memory_reg_bram_30/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X4Y7          RAMB36E2 (Prop_RAMB36E2_RAMB36_CLKBWRCLK_CASDOUTB[15])
+                                                      1.035     3.232 r  core/convolution_weight_memory_reg_bram_30/CASDOUTB[15]
+                         net (fo=1, routed)           0.029     3.261    core/convolution_weight_memory_reg_bram_30_n_52
+    RAMB36_X4Y8                                                       r  core/convolution_weight_memory_reg_bram_31/CASDINB[15]
+    RAMB36_X4Y8          RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[15]_CASDOUTB[15])
+                                                      0.210     3.471 r  core/convolution_weight_memory_reg_bram_31/CASDOUTB[15]
+                         net (fo=1, routed)           0.029     3.500    core/convolution_weight_memory_reg_bram_31_n_52
+    RAMB36_X4Y9                                                       r  core/convolution_weight_memory_reg_bram_32/CASDINB[15]
+    RAMB36_X4Y9          RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[15]_CASDOUTB[15])
+                                                      0.210     3.710 r  core/convolution_weight_memory_reg_bram_32/CASDOUTB[15]
+                         net (fo=1, routed)           0.029     3.739    core/convolution_weight_memory_reg_bram_32_n_52
+    RAMB36_X4Y10                                                      r  core/convolution_weight_memory_reg_bram_33/CASDINB[15]
+    RAMB36_X4Y10         RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[15]_CASDOUTB[15])
+                                                      0.210     3.949 r  core/convolution_weight_memory_reg_bram_33/CASDOUTB[15]
+                         net (fo=1, routed)           0.029     3.978    core/convolution_weight_memory_reg_bram_33_n_52
+    RAMB36_X4Y11                                                      r  core/convolution_weight_memory_reg_bram_34/CASDINB[15]
+    RAMB36_X4Y11         RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[15]_DOUTBDOUT[15])
+                                                      0.117     4.095 r  core/convolution_weight_memory_reg_bram_34/DOUTBDOUT[15]
+                         net (fo=18, routed)          3.802     7.897    core/convolution_engine/mac_array/gen_products[6].gen_product_lane[22].tree_pipeline_reg[6][0][22]/A[7]
+    DSP48E2_X0Y58        DSP_A_B_DATA                                 r  core/convolution_engine/mac_array/gen_products[6].gen_product_lane[22].tree_pipeline_reg[6][0][22]/DSP_A_B_DATA_INST/A[7]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock compute_clock rise edge)
+                                                      6.250     6.250 r  
+    K4                                                0.000     6.250 r  clk (IN)
+                         net (fo=0)                   0.000     6.250    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.265     6.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     6.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     6.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.293     6.808    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     6.832 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19726, routed)       1.225     8.057    core/convolution_engine/mac_array/gen_products[6].gen_product_lane[22].tree_pipeline_reg[6][0][22]/CLK
+    DSP48E2_X0Y58        DSP_A_B_DATA                                 r  core/convolution_engine/mac_array/gen_products[6].gen_product_lane[22].tree_pipeline_reg[6][0][22]/DSP_A_B_DATA_INST/CLK
+                         clock pessimism              0.309     8.366    
+                         clock uncertainty           -0.035     8.331    
+    DSP48E2_X0Y58        DSP_A_B_DATA (Setup_DSP_A_B_DATA_DSP48E2_CLK_A[7])
+                                                     -0.256     8.075    core/convolution_engine/mac_array/gen_products[6].gen_product_lane[22].tree_pipeline_reg[6][0][22]/DSP_A_B_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          8.075    
+                         arrival time                          -7.897    
+  -------------------------------------------------------------------
+                         slack                                  0.178    
+
+Slack (MET) :             0.180ns  (required time - arrival time)
+  Source:                 core/convolution_weight_memory_reg_bram_15/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Destination:            core/convolution_engine/weight_registers_reg[264][5]/D
+                            (rising edge-triggered cell FDRE clocked by compute_clock  {rise@0.000ns fall@3.125ns period=6.250ns})
+  Path Group:             compute_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.250ns  (compute_clock rise@6.250ns - compute_clock rise@0.000ns)
+  Data Path Delay:        5.674ns  (logic 1.786ns (31.477%)  route 3.888ns (68.523%))
+  Logic Levels:           4  (RAMB36E2=4)
+  Clock Path Skew:        -0.386ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.639ns = ( 7.889 - 6.250 ) 
+    Source Clock Delay      (SCD):    2.334ns
+    Clock Pessimism Removal (CPR):    0.309ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.459ns (routing 0.171ns, distribution 1.288ns)
+  Clock Net Delay (Destination): 1.057ns (routing 0.155ns, distribution 0.902ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock compute_clock rise edge)
+                                                      0.000     0.000 r  
+    K4                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.515     0.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     0.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.332     0.847    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     0.875 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19726, routed)       1.459     2.334    core/clk
+    RAMB36_X0Y7          RAMB36E2                                     r  core/convolution_weight_memory_reg_bram_15/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X0Y7          RAMB36E2 (Prop_RAMB36E2_RAMB36_CLKBWRCLK_CASDOUTB[25])
+                                                      1.039     3.373 r  core/convolution_weight_memory_reg_bram_15/CASDOUTB[25]
+                         net (fo=1, routed)           0.026     3.399    core/convolution_weight_memory_reg_bram_15_n_42
+    RAMB36_X0Y8                                                       r  core/convolution_weight_memory_reg_bram_16/CASDINB[25]
+    RAMB36_X0Y8          RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[25]_CASDOUTB[25])
+                                                      0.210     3.609 r  core/convolution_weight_memory_reg_bram_16/CASDOUTB[25]
+                         net (fo=1, routed)           0.026     3.635    core/convolution_weight_memory_reg_bram_16_n_42
+    RAMB36_X0Y9                                                       r  core/convolution_weight_memory_reg_bram_17/CASDINB[25]
+    RAMB36_X0Y9          RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[25]_CASDOUTB[25])
+                                                      0.210     3.845 r  core/convolution_weight_memory_reg_bram_17/CASDOUTB[25]
+                         net (fo=1, routed)           0.026     3.871    core/convolution_weight_memory_reg_bram_17_n_42
+    RAMB36_X0Y10                                                      r  core/convolution_weight_memory_reg_bram_18/CASDINB[25]
+    RAMB36_X0Y10         RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[25]_CASDOUTB[25])
+                                                      0.210     4.081 r  core/convolution_weight_memory_reg_bram_18/CASDOUTB[25]
+                         net (fo=1, routed)           0.026     4.107    core/convolution_weight_memory_reg_bram_18_n_42
+    RAMB36_X0Y11                                                      r  core/convolution_weight_memory_reg_bram_19/CASDINB[25]
+    RAMB36_X0Y11         RAMB36E2 (Prop_RAMB36E2_RAMB36_CASDINB[25]_DOUTBDOUT[25])
+                                                      0.117     4.224 r  core/convolution_weight_memory_reg_bram_19/DOUTBDOUT[25]
+                         net (fo=18, routed)          3.784     8.008    core/convolution_engine/conv_weight_read_data[133]
+    SLICE_X43Y162        FDRE                                         r  core/convolution_engine/weight_registers_reg[264][5]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock compute_clock rise edge)
+                                                      6.250     6.250 r  
+    K4                                                0.000     6.250 r  clk (IN)
+                         net (fo=0)                   0.000     6.250    clk_IBUF_inst/I
+    K4                                                                r  clk_IBUF_inst/INBUF_INST/PAD
+    K4                   INBUF (Prop_INBUF_HPIOB_M_PAD_O)
+                                                      0.265     6.515 r  clk_IBUF_inst/INBUF_INST/O
+                         net (fo=1, routed)           0.000     6.515    clk_IBUF_inst/OUT
+    K4                                                                r  clk_IBUF_inst/IBUFCTRL_INST/I
+    K4                   IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     6.515 r  clk_IBUF_inst/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.293     6.808    clk_IBUF
+    BUFGCE_X0Y25                                                      r  compute_clock_buffer/I
+    BUFGCE_X0Y25         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     6.832 r  compute_clock_buffer/O
+    X1Y1 (CLOCK_ROOT)    net (fo=19726, routed)       1.057     7.889    core/convolution_engine/clk
+    SLICE_X43Y162        FDRE                                         r  core/convolution_engine/weight_registers_reg[264][5]/C
+                         clock pessimism              0.309     8.198    
+                         clock uncertainty           -0.035     8.163    
+    SLICE_X43Y162        FDRE (Setup_GFF2_SLICEM_C_D)
+                                                      0.025     8.188    core/convolution_engine/weight_registers_reg[264][5]
+  -------------------------------------------------------------------
+                         required time                          8.188    
+                         arrival time                          -8.008    
+  -------------------------------------------------------------------
+                         slack                                  0.180    
+
+
+
+

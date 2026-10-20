@@ -1,0 +1,318 @@
+{
+  "task": "saccade",
+  "depth": 1,
+  "seed": 2021,
+  "checkpoint_epoch": 193,
+  "samples": 16,
+  "source": "/data/xuzx/result/ebv-eye/saccade/fixed_event_window/snn/user10/eye0/all_physical_source_recombination_ordinary_t2_alpha0p75_l1_stateless_continue_epoch100_to200/seed2021",
+  "data": "/data/xuzx/data/ebv-eye/cache/formal_eye0/saccade/fixed_event_window_400_stride200_96x128/user10/eye0/validation.npz",
+  "source_sha256": {
+    "/data/xuzx/result/ebv-eye/saccade/fixed_event_window/snn/user10/eye0/all_physical_source_recombination_ordinary_t2_alpha0p75_l1_stateless_continue_epoch100_to200/seed2021/best_checkpoint.pt": "817caf3291c85f0cd7c21a3e86d4623c1f3d58bdf0f27b97b3b0cc6b31778e14",
+    "/data/xuzx/result/ebv-eye/saccade/fixed_event_window/snn/user10/eye0/all_physical_source_recombination_ordinary_t2_alpha0p75_l1_stateless_continue_epoch100_to200/seed2021/configuration.json": "d3b20f75d8b326d8a9cefd80c76d7e656c77d28d2cfe8be2acec8bd43f72d1e4",
+    "/data/xuzx/result/ebv-eye/saccade/fixed_event_window/snn/user10/eye0/all_physical_source_recombination_ordinary_t2_alpha0p75_l1_stateless_continue_epoch100_to200/seed2021/summary.json": "ef231b40af7c36519c8a1ccd3f2f9ca31b169eeb1c71ca6598e51ed47c4c7190",
+    "/data/xuzx/data/ebv-eye/cache/formal_eye0/saccade/fixed_event_window_400_stride200_96x128/user10/eye0/validation.npz": "c2fc66a91d2ae87dd794b0df6c10f35a491b08f0c32a11c56895027f1724ec9f",
+    "/data/xuzx/data/ebv-eye/cache/formal_eye0/saccade/fixed_event_window_400_stride200_96x128/user10/eye0/manifest.json": "75236b72026c0b18fe8ea5bb3919d2c37144a8a82e915d9ee4c2d68b90889dbc"
+  },
+  "source_unchanged": true,
+  "arithmetic": {
+    "weight_bits": 16,
+    "readout_weight_bits": 16,
+    "constant_bits": 24,
+    "accumulator_bits": 24,
+    "spike_bits": 8,
+    "scale_mode": "per_output_channel",
+    "scale_policy": "no_clipping",
+    "maximum_fraction_bits": 15,
+    "state_guard_bits": 0,
+    "alpha_rounding": "floor"
+  },
+  "independent_reference_arrays": 61,
+  "independent_reference_values": 4320032,
+  "runtime_counters": {
+    "accumulator_saturated": {
+      "L1": 0,
+      "L2": 0,
+      "L3": 0,
+      "L4": 0,
+      "L5": 0,
+      "L6": 0,
+      "L7": 0,
+      "L8": 0,
+      "H1": 0,
+      "H2": 0
+    },
+    "spike_saturated": {
+      "L1": 0,
+      "L2": 0,
+      "L3": 0,
+      "L4": 0,
+      "L5": 0,
+      "L6": 0,
+      "L7": 0,
+      "L8": 0,
+      "H1": 0,
+      "H2": 0
+    },
+    "accumulator_maximum_absolute": {
+      "L1": 1589220,
+      "L2": 6952656,
+      "L3": 4419839,
+      "L4": 2750859,
+      "L5": 1566489,
+      "L6": 1039430,
+      "L7": 776896,
+      "L8": 376358,
+      "H1": 2639151,
+      "H2": 1548054
+    },
+    "spike_maximum": {
+      "L1": 135,
+      "L2": 93,
+      "L3": 78,
+      "L4": 56,
+      "L5": 40,
+      "L6": 18,
+      "L7": 18,
+      "L8": 11,
+      "H1": 80,
+      "H2": 47
+    }
+  },
+  "mem_sha256": {
+    "sample_00/input.mem": "2ca736d5f7219866d8ca1725ed31b67fc72f86e154eaf1706ccfcb4ad4c8a066",
+    "sample_00/current.mem": "c273c53a32051ad7be9fbbd666d9fd237cd8ed7dcfd1ed243fbeeb8cc262084a",
+    "sample_00/spike.mem": "3c25554648f5273ba4cce1a4d2a3e9ffcd0cbc59768d137cb79efb96a63f1608",
+    "sample_00/membrane.mem": "95acbde57805d3b5dc9ab3261e3db1b80ce7d638dc1df365bcf963247c58723e",
+    "sample_00/result.mem": "c35bf4400c3e51344597d2f226cf42a026e950b356b18337ba74da91968462b4",
+    "sample_01/input.mem": "09eb372e796adb94fb0af43db8d2af58c2427cb9c3a763c3c1fad8478ad646ca",
+    "sample_01/current.mem": "405db6f7926e98d3cc394cfce646cbfb976df71c274d810a755f20718ea93ee0",
+    "sample_01/spike.mem": "cc32b9fd9a9514ee3f531bc5c5ca6efa2e8f4b0554895094c590509583986dfe",
+    "sample_01/membrane.mem": "965b26b727187fdcafceab69a19c0bba9c1b323d24b0327d7861aa788cde93f6",
+    "sample_01/result.mem": "68d20c5963c7761f17d5840a5c0936596ad3129a417e3377df3674e9aa2201f1",
+    "sample_02/input.mem": "3836900eefa05cc7611a021b3cba01b747cbd939a005e00b2ca6c50d0e4e0063",
+    "sample_02/current.mem": "6212899c07356883ca47ccf69cba4a92ff91c5447f5c0d9ac9390979e52fda61",
+    "sample_02/spike.mem": "1c80e36cde3ff6913f0f76a7cda02f18cd429ff585d55065ed7e841df32500a9",
+    "sample_02/membrane.mem": "175dd39ee202d2146490b4bdcd9385941a1fd700f7554d885fdd80ffc9332f07",
+    "sample_02/result.mem": "003ebc7c1b86826563102e25949e01dd5f9a1ec03e43fd933a334ed5f9498791",
+    "sample_03/input.mem": "3231efbd2f3cb6045307abc227d55e498f5c21b75ff61df6ed0687a4c0ef5df1",
+    "sample_03/current.mem": "b9f5da4de8149b0021f2886afece941fed87d8716726246224d53abade27457b",
+    "sample_03/spike.mem": "7c9bce5f6aa4c8318e2d6134f82f4fa447bd65119a48581832f2c945e4a7f964",
+    "sample_03/membrane.mem": "89affb34e8845dc064003b1c115d3ed29d0e592a7871d5069e0f903f6ca0d67d",
+    "sample_03/result.mem": "27487d3ad8637fea2556b5fe346633420b56c9a230aa37f081ada9ea9c1f386d",
+    "sample_04/input.mem": "768724f95633474a63fa7b827e95e1bf8c679a63a0879b6e6f56ffcd7b8ad156",
+    "sample_04/current.mem": "6290b1aa4d9ddbcf683462959ebdc2a134e521aec94a035db401ed0d2f60527a",
+    "sample_04/spike.mem": "a1564ad4a6f9ed57e8c8bd2a3a41822512184fbb6ffe263cdc99110ac674fce7",
+    "sample_04/membrane.mem": "2b3192556a3c2c2fa2320675651c491620186c0a50d280f7a05dbfa0493718aa",
+    "sample_04/result.mem": "4f6e975afa62f875a0f92e59a205a551ae64a4ebc380fe918610badab60938d1",
+    "sample_05/input.mem": "5b3ca71298d4cbfcbd8983d835b9f8723900b800fa48ddfb9061c044fec9913a",
+    "sample_05/current.mem": "65439b645f7124cbd00af212e862e7375059c8cbc17f32d14d7f84ed2884dfe0",
+    "sample_05/spike.mem": "6cec9b7b456a77abc26973e51ca783f3a65c747e28e7fcfa9f87e1bde31cea74",
+    "sample_05/membrane.mem": "4c3faee304334e2e134eef6badfb7f551d1cade12fb1d29429b80402b16afbaf",
+    "sample_05/result.mem": "e87da2b88d2d3df84eb00722f85c8a0eb3ac447a0dc6f968406bf31dfd8ea7ce",
+    "sample_06/input.mem": "a76874ea4516295efbe26b3332a3e4afa558283d2fa842aaefeb48d9a58f0dc1",
+    "sample_06/current.mem": "a37525aeae459b89bf2d930b5a444feadb80fc57d3d8363d0b80f1ecce3403d5",
+    "sample_06/spike.mem": "12490316081960d7357b5ddd8b8dbb0873e4569c07fd65d58ab8b0511bd80d39",
+    "sample_06/membrane.mem": "50933270b5894abb2cb17d25b87eaab9c12de5ba2ef892cb84e948ca6b700d03",
+    "sample_06/result.mem": "bbfefb4d68b589f2b34ad3c4e26af714fc87499f7ee736327b71a6d300f43c67",
+    "sample_07/input.mem": "f48f02b96b6b2c7d709389ec8947bcb3e2329eef873f3c67b34f59384a1bc3a5",
+    "sample_07/current.mem": "b22e18a71d26b3f60750c87ec14899d616f6d875a62b2c900018ff8812a09161",
+    "sample_07/spike.mem": "88a0947426093a7c0336c028c56ed0959e21f0407706a23f40357fd3dba4ffe8",
+    "sample_07/membrane.mem": "7feba01e26a4ff7a6ed41515afa610ab710040862f10d8d9c9ef0bbf62c61c79",
+    "sample_07/result.mem": "00ee5c2ca26f788e818b0f2b0fde80b7c4ae0ba4da9065373722ab9564688510",
+    "sample_08/input.mem": "cd2fafe20afb9e2ca5dc5826ba8bd6acfe8aa3a3d5f1c36d162ad53b0e1225ed",
+    "sample_08/current.mem": "2041b64c539b0cafb5a585522544b199861be4b5accdf8005492469098fe7e7d",
+    "sample_08/spike.mem": "5f3e4cf5a81a1c2f0516b8d0d07d5a64caf035422d3b42c0ff2450eb78d0c7d7",
+    "sample_08/membrane.mem": "eceee3e30250af10da41b5ce250c78618fb899b1ce661b57a6a0348406f79937",
+    "sample_08/result.mem": "42b399a8726bad9fe5d52ea273bc691d2173815a4bf4092127bad4fc184de8aa",
+    "sample_09/input.mem": "35163e888721e4b17e0a6e7a7a7bd7f1617cee9b71d46efe213ea7a8edddaf66",
+    "sample_09/current.mem": "033eeac0d55c0d91a4ea1bdabea3fc4d49824e35b65894661ebe48b1cd89e3bb",
+    "sample_09/spike.mem": "b055e98e49f6b1527bf0723a6f330dae2acd43c9a7ac306fe396f334ad8035bf",
+    "sample_09/membrane.mem": "23a62498c69f09dfc31ae1f28e21a45f4bdd2202ec7da5ecb4af1879cade62f1",
+    "sample_09/result.mem": "fd734298c71abe731002ca37b4e35dd00a9c4d9db9ecc9302e19a4be56e01382",
+    "sample_10/input.mem": "8a47e0d8ad281b66f6e5d37b64056b00c450edacc9a1d7dc4ce0413057279064",
+    "sample_10/current.mem": "53576228b0cdd754c12058b4639cb6a225c38ae0a90b7a2c509719e2ff7435cf",
+    "sample_10/spike.mem": "e7beb3709fc1d3cd5b7e035bc66429b960b3da7c9873cc19531aa03b19601b8c",
+    "sample_10/membrane.mem": "18f13f9fb2e61ab44e51220922a473f79e553a4b3fcb2775e59284b9e786f8f3",
+    "sample_10/result.mem": "8bde3d3e5d0619e5cf1b7c37f004bba8ba52938f73c6887c06c1f2ed728c9d0b",
+    "sample_11/input.mem": "055d009d65fd41c6b3e6552c197e6bb59b55154c85fa7471cfe7bb26afbe00a5",
+    "sample_11/current.mem": "a7709350243046d15aac26e23d3a29ee4fb796311c7d0717abf00b46b607fd17",
+    "sample_11/spike.mem": "49028352c195347cf42a9f3839c21e342d4561a6aa10779aead6e8449154f625",
+    "sample_11/membrane.mem": "bc4b5123bb7f3d88013a274b11c26b0019eb8451b43f75bc88f6e66d2ef6aa00",
+    "sample_11/result.mem": "90e570d1ff960cf3f48dca687bb6f7c0892ccb1416d4ff40a3cc51d805a796bc",
+    "sample_12/input.mem": "f46b2c3a9a6ea383c6d31996960022f182b02e45c19f77505b035f9f921fac71",
+    "sample_12/current.mem": "44d91ebf23ce0af9578d57caa53f12c6f1c42cdd8ee5c2affafd36d32e1134e2",
+    "sample_12/spike.mem": "b73307a0c3b0649a28ecac6cd59bd4bfca4094b116f4aa018e9eefd923481e21",
+    "sample_12/membrane.mem": "c5893813493699c5e7fee7a0af358f44b67e384241894537d004fe9eb4c64acf",
+    "sample_12/result.mem": "94b037163a9c96cc52ca3c7a27a72779b6d1357ae561af495c8a06b14074398d",
+    "sample_13/input.mem": "c2adf8ea4ddad089a430fb3e96ca8868c6425c29b34acf5ad023e1383ce3750d",
+    "sample_13/current.mem": "60d97ae9b293b4245237e90bb2d2d76f90178461806e1771756e3b26b0a12a56",
+    "sample_13/spike.mem": "bd4c9581abe81961e40f5f4abdba14a3dae1a362572812c18252c8ddd7561931",
+    "sample_13/membrane.mem": "9c5dada341abe2412b3e713eb2787486959f02608bb1210afe42091fd5db8ca6",
+    "sample_13/result.mem": "4b276198dda8b570bd23a6bd45604fe422e74e80a82b6243fadcf9d0e3e24f3f",
+    "sample_14/input.mem": "c490915eba8da360dadff6109e85a3f1187bea7a7a75b0d84494c5512ce3923d",
+    "sample_14/current.mem": "df96e5aac12cb26cbb3143927139aec1d468eeba24ac717fd03ff15327c135f0",
+    "sample_14/spike.mem": "bcd1ca07d1da8873a1fd6c18244d518f1d61fca5fa6b5ae3712e90c1cc155ca7",
+    "sample_14/membrane.mem": "1ff11616e1878b146f6d2c97ce1c8a1a1566dd60f4162ba6fff43c89d0b6da69",
+    "sample_14/result.mem": "2fdf028d38470e2dbe06f54f1c728adafbd79ae4e502a0fcf0a563486c1ff3ec",
+    "sample_15/input.mem": "13b881ed2da13e93aa7dfa9939ff25b3d940ffbf6d660d81ae0154efea52166b",
+    "sample_15/current.mem": "24effb409db6cc6454a0bf2435dde6423de64baa198e2cfea6e37f7c5ec83c49",
+    "sample_15/spike.mem": "28dbc4482470ba7d73da96a280ed212bfdcc35891ecece80b101fe83578c0fa6",
+    "sample_15/membrane.mem": "5b9eeb9a485ebb968ddc36c687071bb0b47efab021f058e79b09fc9c69ecfd54",
+    "sample_15/result.mem": "530b89fc8e248eed708aa226b98985cee4b1012310ada0d8dd48536cd47f4fee"
+  },
+  "model_parameter_shapes": {
+    "L1.weight_integer": [
+      8,
+      2,
+      3,
+      3
+    ],
+    "L1.constant_integer": [
+      8
+    ],
+    "L1.weight_fraction_bits": [
+      8
+    ],
+    "L1.current_and_state_fraction_bits": [
+      8
+    ],
+    "L2.weight_integer": [
+      16,
+      8,
+      3,
+      3
+    ],
+    "L2.constant_integer": [
+      16
+    ],
+    "L2.weight_fraction_bits": [
+      16
+    ],
+    "L2.current_and_state_fraction_bits": [
+      16
+    ],
+    "L3.weight_integer": [
+      24,
+      16,
+      3,
+      3
+    ],
+    "L3.constant_integer": [
+      24
+    ],
+    "L3.weight_fraction_bits": [
+      24
+    ],
+    "L3.current_and_state_fraction_bits": [
+      24
+    ],
+    "L4.weight_integer": [
+      32,
+      24,
+      3,
+      3
+    ],
+    "L4.constant_integer": [
+      32
+    ],
+    "L4.weight_fraction_bits": [
+      32
+    ],
+    "L4.current_and_state_fraction_bits": [
+      32
+    ],
+    "L5.weight_integer": [
+      40,
+      32,
+      3,
+      3
+    ],
+    "L5.constant_integer": [
+      40
+    ],
+    "L5.weight_fraction_bits": [
+      40
+    ],
+    "L5.current_and_state_fraction_bits": [
+      40
+    ],
+    "L6.weight_integer": [
+      40,
+      40,
+      3,
+      3
+    ],
+    "L6.constant_integer": [
+      40
+    ],
+    "L6.weight_fraction_bits": [
+      40
+    ],
+    "L6.current_and_state_fraction_bits": [
+      40
+    ],
+    "L7.weight_integer": [
+      40,
+      40,
+      3,
+      3
+    ],
+    "L7.constant_integer": [
+      40
+    ],
+    "L7.weight_fraction_bits": [
+      40
+    ],
+    "L7.current_and_state_fraction_bits": [
+      40
+    ],
+    "L8.weight_integer": [
+      40,
+      40,
+      3,
+      3
+    ],
+    "L8.constant_integer": [
+      40
+    ],
+    "L8.weight_fraction_bits": [
+      40
+    ],
+    "L8.current_and_state_fraction_bits": [
+      40
+    ],
+    "H1.weight_integer": [
+      60,
+      480
+    ],
+    "H1.constant_integer": [
+      60
+    ],
+    "H1.weight_fraction_bits": [
+      60
+    ],
+    "H1.current_and_state_fraction_bits": [
+      60
+    ],
+    "H2.weight_integer": [
+      12,
+      60
+    ],
+    "H2.constant_integer": [
+      12
+    ],
+    "H2.weight_fraction_bits": [
+      12
+    ],
+    "H2.current_and_state_fraction_bits": [
+      12
+    ],
+    "readout.weight_integer": [
+      2,
+      12
+    ],
+    "readout.weight_fraction_bits": [
+      2
+    ]
+  }
+}

@@ -1,0 +1,217 @@
+{
+  "device": "cuda:0",
+  "timesteps": 2,
+  "alpha": 0.75,
+  "bias_constraint_layers": 0,
+  "temporal_organization": "repeat_identical_complete_400_event_count_frame",
+  "trainable_parameters": 96792,
+  "learnable_thresholds": 312,
+  "membrane_states_per_sample": 45000,
+  "retained_cross_bin_membrane_states": 20424,
+  "removed_cross_bin_membrane_states": 24576,
+  "stateless_channels": {
+    "L1": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  "branch_start_epoch": 100,
+  "train_samples": 28795,
+  "source_train_samples": 14400,
+  "synthetic_train_samples_per_epoch": 14395,
+  "recombination_candidate_edges": 3447596,
+  "local_recombination_mode": "all_physical_source_epoch_random",
+  "physical_stride_train_samples": 6241,
+  "eligible_stride_recombination_sources": 6237,
+  "preferred_recombination_sources": 14371,
+  "adjacent_fallback_recombination_sources": 24,
+  "ineligible_recombination_sources": 5,
+  "selectable_recombination_partners": 14375,
+  "selectable_stride_recombination_partners": 6232,
+  "validation_samples": 2045,
+  "test_samples": 2045,
+  "best_epoch": 199,
+  "best_train": {
+    "samples": 14400,
+    "batches": 900,
+    "mean_pixel_error": 6.184811387529933,
+    "mean_angular_error_deg": 0.3306283201607099,
+    "blocks": {
+      "full_pursuit": {
+        "samples": 14400,
+        "mean_pixel_error": 6.184811387529933,
+        "mean_angular_error_deg": 0.3306283201607099
+      }
+    }
+  },
+  "best_validation": {
+    "samples": 2045,
+    "batches": 128,
+    "mean_pixel_error": 11.239981688947069,
+    "mean_angular_error_deg": 0.5938275963231958,
+    "blocks": {
+      "full_pursuit": {
+        "samples": 2045,
+        "mean_pixel_error": 11.239981688947069,
+        "mean_angular_error_deg": 0.5938275963231958
+      }
+    }
+  },
+  "test": {
+    "samples": 2045,
+    "batches": 128,
+    "mean_pixel_error": 11.984689256563454,
+    "mean_angular_error_deg": 0.6413021505216004,
+    "blocks": {
+      "full_pursuit": {
+        "samples": 2045,
+        "mean_pixel_error": 11.984689256563454,
+        "mean_angular_error_deg": 0.6413021505216004
+      }
+    }
+  },
+  "threshold_statistics": {
+    "blocks.layer1.spike": {
+      "channels": 8,
+      "minimum": 0.9617980122566223,
+      "mean": 1.199512243270874,
+      "maximum": 1.3618378639221191
+    },
+    "blocks.layer2.spike": {
+      "channels": 16,
+      "minimum": 0.3746909499168396,
+      "mean": 0.8605368733406067,
+      "maximum": 1.1422518491744995
+    },
+    "blocks.layer3.spike": {
+      "channels": 24,
+      "minimum": 0.23972992599010468,
+      "mean": 0.613238513469696,
+      "maximum": 0.8596527576446533
+    },
+    "blocks.layer4.spike": {
+      "channels": 32,
+      "minimum": 0.3608568608760834,
+      "mean": 0.5133876800537109,
+      "maximum": 0.6565496325492859
+    },
+    "blocks.layer5.spike": {
+      "channels": 40,
+      "minimum": 0.42506226897239685,
+      "mean": 0.48984891176223755,
+      "maximum": 0.5591453313827515
+    },
+    "blocks.layer6.spike": {
+      "channels": 40,
+      "minimum": 0.3617866337299347,
+      "mean": 0.4428248405456543,
+      "maximum": 0.5273345708847046
+    },
+    "blocks.layer7.spike": {
+      "channels": 40,
+      "minimum": 0.3141017258167267,
+      "mean": 0.40762558579444885,
+      "maximum": 0.504372239112854
+    },
+    "blocks.layer8.spike": {
+      "channels": 40,
+      "minimum": 0.23190876841545105,
+      "mean": 0.5058475732803345,
+      "maximum": 0.8392347097396851
+    },
+    "hidden1.spike": {
+      "channels": 60,
+      "minimum": 0.8083115816116333,
+      "mean": 1.8457825183868408,
+      "maximum": 4.14412260055542
+    },
+    "hidden2.spike": {
+      "channels": 12,
+      "minimum": 1.0055077075958252,
+      "mean": 2.429069995880127,
+      "maximum": 4.621605396270752
+    }
+  },
+  "folded_bias_statistics": {
+    "L1": {
+      "channels": 8,
+      "minimum": 0.15285244584083557,
+      "mean": 0.5137268900871277,
+      "maximum": 0.9739799499511719,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 7
+    },
+    "L2": {
+      "channels": 16,
+      "minimum": -1.2437258958816528,
+      "mean": 0.5962439179420471,
+      "maximum": 3.646965980529785,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 13
+    },
+    "L3": {
+      "channels": 24,
+      "minimum": -2.7919042110443115,
+      "mean": 2.316603183746338,
+      "maximum": 7.726473808288574,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 20
+    },
+    "L4": {
+      "channels": 32,
+      "minimum": -5.468281269073486,
+      "mean": 2.182224750518799,
+      "maximum": 10.433341026306152,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 23
+    },
+    "L5": {
+      "channels": 40,
+      "minimum": -6.6664581298828125,
+      "mean": -0.9865676164627075,
+      "maximum": 4.353484630584717,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 12
+    },
+    "L6": {
+      "channels": 40,
+      "minimum": -3.794309616088867,
+      "mean": 1.3958561420440674,
+      "maximum": 7.438838958740234,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 29
+    },
+    "L7": {
+      "channels": 40,
+      "minimum": -3.365224838256836,
+      "mean": 2.5940604209899902,
+      "maximum": 7.018024921417236,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 33
+    },
+    "L8": {
+      "channels": 40,
+      "minimum": -1.031512975692749,
+      "mean": 2.5997817516326904,
+      "maximum": 6.780056953430176,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 37
+    }
+  },
+  "final_learning_rate": 3.125e-05,
+  "total_seconds": 2786.448223919142
+}

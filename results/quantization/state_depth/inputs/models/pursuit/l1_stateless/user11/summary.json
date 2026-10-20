@@ -1,0 +1,217 @@
+{
+  "device": "cuda:0",
+  "timesteps": 2,
+  "alpha": 0.75,
+  "bias_constraint_layers": 0,
+  "temporal_organization": "repeat_identical_complete_400_event_count_frame",
+  "trainable_parameters": 96792,
+  "learnable_thresholds": 312,
+  "membrane_states_per_sample": 45000,
+  "retained_cross_bin_membrane_states": 20424,
+  "removed_cross_bin_membrane_states": 24576,
+  "stateless_channels": {
+    "L1": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  "branch_start_epoch": 100,
+  "train_samples": 20890,
+  "source_train_samples": 10451,
+  "synthetic_train_samples_per_epoch": 10439,
+  "recombination_candidate_edges": 1098735,
+  "local_recombination_mode": "all_physical_source_epoch_random",
+  "physical_stride_train_samples": 4529,
+  "eligible_stride_recombination_sources": 4523,
+  "preferred_recombination_sources": 10410,
+  "adjacent_fallback_recombination_sources": 29,
+  "ineligible_recombination_sources": 12,
+  "selectable_recombination_partners": 10414,
+  "selectable_stride_recombination_partners": 4514,
+  "validation_samples": 1486,
+  "test_samples": 1486,
+  "best_epoch": 185,
+  "best_train": {
+    "samples": 10451,
+    "batches": 654,
+    "mean_pixel_error": 7.255384074694608,
+    "mean_angular_error_deg": 0.35976890340923645,
+    "blocks": {
+      "full_pursuit": {
+        "samples": 10451,
+        "mean_pixel_error": 7.255384074694608,
+        "mean_angular_error_deg": 0.35976890340923645
+      }
+    }
+  },
+  "best_validation": {
+    "samples": 1486,
+    "batches": 93,
+    "mean_pixel_error": 16.718561944588117,
+    "mean_angular_error_deg": 0.8275989751641113,
+    "blocks": {
+      "full_pursuit": {
+        "samples": 1486,
+        "mean_pixel_error": 16.718561944588117,
+        "mean_angular_error_deg": 0.8275989751641113
+      }
+    }
+  },
+  "test": {
+    "samples": 1486,
+    "batches": 93,
+    "mean_pixel_error": 17.874164794437576,
+    "mean_angular_error_deg": 0.8899954262240959,
+    "blocks": {
+      "full_pursuit": {
+        "samples": 1486,
+        "mean_pixel_error": 17.874164794437576,
+        "mean_angular_error_deg": 0.8899954262240959
+      }
+    }
+  },
+  "threshold_statistics": {
+    "blocks.layer1.spike": {
+      "channels": 8,
+      "minimum": 0.9818784594535828,
+      "mean": 1.1204317808151245,
+      "maximum": 1.2376675605773926
+    },
+    "blocks.layer2.spike": {
+      "channels": 16,
+      "minimum": 0.3822709918022156,
+      "mean": 0.876434326171875,
+      "maximum": 1.1377480030059814
+    },
+    "blocks.layer3.spike": {
+      "channels": 24,
+      "minimum": 0.268439918756485,
+      "mean": 0.6818930506706238,
+      "maximum": 0.9213372468948364
+    },
+    "blocks.layer4.spike": {
+      "channels": 32,
+      "minimum": 0.3513050377368927,
+      "mean": 0.5849133133888245,
+      "maximum": 0.6984514594078064
+    },
+    "blocks.layer5.spike": {
+      "channels": 40,
+      "minimum": 0.449171245098114,
+      "mean": 0.5460904240608215,
+      "maximum": 0.6280726194381714
+    },
+    "blocks.layer6.spike": {
+      "channels": 40,
+      "minimum": 0.40311378240585327,
+      "mean": 0.5188373923301697,
+      "maximum": 0.6024099588394165
+    },
+    "blocks.layer7.spike": {
+      "channels": 40,
+      "minimum": 0.3997098207473755,
+      "mean": 0.4906938076019287,
+      "maximum": 0.6523281335830688
+    },
+    "blocks.layer8.spike": {
+      "channels": 40,
+      "minimum": 0.38575541973114014,
+      "mean": 0.6596201658248901,
+      "maximum": 0.8498318195343018
+    },
+    "hidden1.spike": {
+      "channels": 60,
+      "minimum": 0.8177424073219299,
+      "mean": 1.235622763633728,
+      "maximum": 1.7903366088867188
+    },
+    "hidden2.spike": {
+      "channels": 12,
+      "minimum": 1.0009123086929321,
+      "mean": 1.5036249160766602,
+      "maximum": 2.6432137489318848
+    }
+  },
+  "folded_bias_statistics": {
+    "L1": {
+      "channels": 8,
+      "minimum": 0.3158859312534332,
+      "mean": 0.49573493003845215,
+      "maximum": 0.6768709421157837,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 8
+    },
+    "L2": {
+      "channels": 16,
+      "minimum": -1.0742017030715942,
+      "mean": 0.5696538090705872,
+      "maximum": 4.015439033508301,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 11
+    },
+    "L3": {
+      "channels": 24,
+      "minimum": -1.5762921571731567,
+      "mean": 1.9473780393600464,
+      "maximum": 8.64397144317627,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 19
+    },
+    "L4": {
+      "channels": 32,
+      "minimum": -1.3881354331970215,
+      "mean": 2.1484146118164062,
+      "maximum": 7.137742519378662,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 25
+    },
+    "L5": {
+      "channels": 40,
+      "minimum": -4.205925941467285,
+      "mean": 1.0039207935333252,
+      "maximum": 5.364567279815674,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 23
+    },
+    "L6": {
+      "channels": 40,
+      "minimum": -2.605719804763794,
+      "mean": 1.7760741710662842,
+      "maximum": 5.818315505981445,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 30
+    },
+    "L7": {
+      "channels": 40,
+      "minimum": -2.822263717651367,
+      "mean": 2.1719155311584473,
+      "maximum": 7.503317832946777,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 35
+    },
+    "L8": {
+      "channels": 40,
+      "minimum": -0.2427656501531601,
+      "mean": 2.200570583343506,
+      "maximum": 4.009730815887451,
+      "robust_upper_bound": 0.25,
+      "constraint_enabled": false,
+      "channels_above_bound": 39
+    }
+  },
+  "final_learning_rate": 6.25e-05,
+  "total_seconds": 2342.1267356341705
+}

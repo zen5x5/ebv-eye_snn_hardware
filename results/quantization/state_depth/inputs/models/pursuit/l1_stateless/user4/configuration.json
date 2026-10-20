@@ -1,0 +1,117 @@
+{
+  "cache_dir": "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user4/eye0",
+  "input": {
+    "events_per_cached_window": 400,
+    "cached_bins_per_sample": 1,
+    "temporal_steps": 2,
+    "temporal_organization": "repeat_identical_complete_400_event_count_frame",
+    "events_represented_per_step": 400,
+    "logical_replayed_event_count": 800,
+    "channels": 2,
+    "height": 96,
+    "width": 128
+  },
+  "model": {
+    "architecture": "eight_layer_8_16_24_32_40_40_40_40_spiking_hidden60_12_learnable_threshold_maxpool_96x128",
+    "conv_channels": [
+      2,
+      8,
+      16,
+      24,
+      32,
+      40,
+      40,
+      40,
+      40
+    ],
+    "conv_blocks": "Conv2d(bias=False,stride=1)+BatchNorm2d+MaxPool(if L1-L5)+LIF",
+    "spiking_hidden_head": "Flatten480-Linear60(bias=True)-LIF-Linear12(bias=True)-LIF",
+    "readout": "mean H2 spikes over time then Linear12-to-2(bias=False)",
+    "alpha": 0.75,
+    "alpha_trainable": false,
+    "effective_threshold": "positive per-output-channel exp(log_threshold)",
+    "threshold_initial_value": 1.0,
+    "threshold_trainable": true,
+    "spike_function": "MultiSpike",
+    "surrogate_gradient": "PeriodicExponential",
+    "reset": "MembraneSubtract",
+    "minimum_membrane_potential": -1.0,
+    "backend": "Exodus",
+    "state_reset": "before every independent sample batch forward",
+    "stateless_channels": {
+      "L1": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "retained_cross_bin_membrane_states": 20424,
+    "removed_cross_bin_membrane_states": 24576,
+    "folded_bn_bias_constraint": {
+      "enabled": false,
+      "layers": "none",
+      "normalized_upper_bound": 0.25,
+      "projection": "after every optimizer update"
+    }
+  },
+  "target": {
+    "x": "(col - 960) / 960",
+    "y": "(row - 540) / 540",
+    "output_activation": "none"
+  },
+  "training": {
+    "seed": 2021,
+    "batch_size": 16,
+    "drop_last": true,
+    "epochs": 200,
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "loss": "pixel_scaled_mse",
+    "checkpoint_metric": "validation_mean_angular_error_deg",
+    "learning_rate_schedule": {
+      "metric": "validation_mean_angular_error_deg",
+      "consecutive_epochs_without_improvement": 10,
+      "factor": 0.5,
+      "minimum_learning_rate": 1e-05
+    },
+    "early_stopping": false,
+    "full_training_state_snapshot_epoch": 200,
+    "augmentation": {
+      "train_original_samples_retained": true,
+      "local_nonadjacent_200_plus_200": true,
+      "mode": "all_physical_source_epoch_random",
+      "source_windows": "every physical train sample, including stride-200 samples; partners are in the same group and within the configured label distance limit, prefer an absolute start-index difference greater than 400 events, and use exactly 400 only when no preferred partner exists",
+      "allowed_absolute_start_differences_events": null,
+      "preferred_absolute_start_difference_events": ">400",
+      "adjacent_fallback_start_difference_events": 400,
+      "overlapping_start_difference_rejected_below_events": 400,
+      "intervening_window_split": "unrestricted and never read; may be train, validation or test",
+      "events_from_each_source": 200,
+      "sampling": "one partner per eligible physical source, selected from the preferred pool or the adjacent fallback pool; partner and two without-replacement 200-event subsets are deterministic by seed/epoch/source and refreshed each epoch",
+      "sequential_source_cache": null,
+      "maximum_source_label_distance_px": 32.0,
+      "synthetic_target": "arithmetic mean of the two source row/col labels",
+      "validation_and_test_augmented": false
+    },
+    "resume_training_state": "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user4/eye0/all_physical_source_recombination_t2_alpha0p75_full_state_epoch100/seed2021/training_state_epoch100.pt",
+    "branch_start_epoch": 100,
+    "branch_initial_validation": {
+      "samples": 346,
+      "batches": 22,
+      "mean_pixel_error": 27.57317225294823,
+      "mean_angular_error_deg": 1.442883610009415,
+      "blocks": {
+        "full_pursuit": {
+          "samples": 346,
+          "mean_pixel_error": 27.57317225294823,
+          "mean_angular_error_deg": 1.442883610009415
+        }
+      }
+    }
+  }
+}

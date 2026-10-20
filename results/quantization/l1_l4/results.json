@@ -1,0 +1,2352 @@
+{
+  "status": "complete",
+  "models": 24,
+  "new_models": 24,
+  "retained_models": 0,
+  "aggregates": [
+    {
+      "task": "pursuit",
+      "variant": "l1_l2_l3_l4_stateless",
+      "subjects": 24,
+      "representations": 25716,
+      "official_float": {
+        "mean_angular_error_deg": 0.8341314497331875,
+        "mean_pixel_error": 16.310984822153017
+      },
+      "fixed_point": {
+        "mean_angular_error_deg": 0.8327973161956191,
+        "mean_pixel_error": 16.285174896721298
+      }
+    }
+  ],
+  "subjects": [
+    {
+      "case": "pursuit/l1_l2_l3_l4_stateless/user4",
+      "task": "pursuit",
+      "variant": "l1_l2_l3_l4_stateless",
+      "depth": 4,
+      "user": 4,
+      "representations": 346,
+      "official_float": {
+        "mean_angular_error_deg": 1.021755106257264,
+        "mean_pixel_error": 20.13433697268453
+      },
+      "input_sha256": {
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user4/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/configuration.json": "0b1d9ac02f605f3dd5767056b0a6ab93f0302db0f9aedfd591b13f762c16fa76",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user4/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/summary.json": "144f9937ad642dc74942e88df3b3334a092df35ae462ca32f83726b209836a09",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user4/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/best_checkpoint.pt": "35005676485ae8cb73e4378d56ab7939c6560b46f8724cb32851f6a2b5382f1a",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user4/eye0/manifest.json": "4e7d804e393cc49ef61a064c9c3cd7271d5132a829142a90c3f448f6c1d5bb00",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user4/eye0/test.npz": "e30209a510ce7f9815a178acecb66f6ee5f7635587e644ab140a529682ad16d9"
+      },
+      "model": "inputs/models/pursuit/l1_l2_l3_l4_stateless/user4",
+      "test": "inputs/test/pursuit/user4/test.npz",
+      "output": "subjects/pursuit/l1_l2_l3_l4_stateless/user4",
+      "execution": "new_cpu",
+      "checkpoint_epoch": 194,
+      "fixed_point": {
+        "mean_angular_error_deg": 1.0035913251348003,
+        "mean_pixel_error": 19.837069594492114
+      },
+      "runtime_counters": {
+        "accumulator_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "spike_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "accumulator_maximum_absolute": {
+          "L1": 1563019,
+          "L2": 3579683,
+          "L3": 2208808,
+          "L4": 1385817,
+          "L5": 679525,
+          "L6": 419479,
+          "L7": 401041,
+          "L8": 217903,
+          "H1": 1445362,
+          "H2": 1528125
+        },
+        "spike_maximum": {
+          "L1": 87,
+          "L2": 47,
+          "L3": 38,
+          "L4": 29,
+          "L5": 21,
+          "L6": 12,
+          "L7": 9,
+          "L8": 7,
+          "H1": 44,
+          "H2": 47
+        }
+      },
+      "arithmetic_contract": {
+        "weight_bits": 16,
+        "readout_weight_bits": 16,
+        "constant_bits": 24,
+        "accumulator_bits": 24,
+        "spike_bits": 8,
+        "scale_mode": "per_output_channel",
+        "scale_policy": "no_clipping",
+        "maximum_fraction_bits": 15,
+        "state_guard_bits": 0,
+        "alpha_rounding": "floor"
+      },
+      "state_bits": 16,
+      "independent_probe_arrays": 61,
+      "cpu_threads": 2,
+      "host": "carbonite",
+      "torch": "2.13.0+cu130",
+      "numpy": "2.4.6",
+      "runtime_seconds": 4.193616127013229
+    },
+    {
+      "case": "pursuit/l1_l2_l3_l4_stateless/user5",
+      "task": "pursuit",
+      "variant": "l1_l2_l3_l4_stateless",
+      "depth": 4,
+      "user": 5,
+      "representations": 292,
+      "official_float": {
+        "mean_angular_error_deg": 1.4286768522674906,
+        "mean_pixel_error": 27.68190144757702
+      },
+      "input_sha256": {
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user5/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/configuration.json": "6306f5a5876d2d7fea15fff7416d8b75ebe31383a8ff04d2a24770234ee6e5de",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user5/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/summary.json": "ee36199304306a4b76ade94043301f15376190f338f3b4c3667e9017bbcc7582",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user5/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/best_checkpoint.pt": "5d2deef3c3784376bea8c0e6ed703ba0e4d8ac93d1012513b653f7ecdf7d583d",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user5/eye0/manifest.json": "1dabdac8bdc2b613441e03aa4cacd1aa1543e3037eacafb1fe5f46832f526053",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user5/eye0/test.npz": "adf6c347510bce22d9d23ef185afd3c0cb008359e481a78cc65628f7f8be7406"
+      },
+      "model": "inputs/models/pursuit/l1_l2_l3_l4_stateless/user5",
+      "test": "inputs/test/pursuit/user5/test.npz",
+      "output": "subjects/pursuit/l1_l2_l3_l4_stateless/user5",
+      "execution": "new_cpu",
+      "checkpoint_epoch": 196,
+      "fixed_point": {
+        "mean_angular_error_deg": 1.4297415159674876,
+        "mean_pixel_error": 27.792667692749504
+      },
+      "runtime_counters": {
+        "accumulator_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "spike_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "accumulator_maximum_absolute": {
+          "L1": 1846641,
+          "L2": 3303314,
+          "L3": 2906300,
+          "L4": 2233473,
+          "L5": 719877,
+          "L6": 485424,
+          "L7": 472998,
+          "L8": 242092,
+          "H1": 1130608,
+          "H2": 1628454
+        },
+        "spike_maximum": {
+          "L1": 112,
+          "L2": 100,
+          "L3": 59,
+          "L4": 42,
+          "L5": 22,
+          "L6": 11,
+          "L7": 10,
+          "L8": 7,
+          "H1": 40,
+          "H2": 50
+        }
+      },
+      "arithmetic_contract": {
+        "weight_bits": 16,
+        "readout_weight_bits": 16,
+        "constant_bits": 24,
+        "accumulator_bits": 24,
+        "spike_bits": 8,
+        "scale_mode": "per_output_channel",
+        "scale_policy": "no_clipping",
+        "maximum_fraction_bits": 15,
+        "state_guard_bits": 0,
+        "alpha_rounding": "floor"
+      },
+      "state_bits": 16,
+      "independent_probe_arrays": 61,
+      "cpu_threads": 2,
+      "host": "carbonite",
+      "torch": "2.13.0+cu130",
+      "numpy": "2.4.6",
+      "runtime_seconds": 3.5016671099874657
+    },
+    {
+      "case": "pursuit/l1_l2_l3_l4_stateless/user6",
+      "task": "pursuit",
+      "variant": "l1_l2_l3_l4_stateless",
+      "depth": 4,
+      "user": 6,
+      "representations": 2037,
+      "official_float": {
+        "mean_angular_error_deg": 0.7124680282907432,
+        "mean_pixel_error": 14.062694120287134
+      },
+      "input_sha256": {
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user6/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/configuration.json": "621e1334f689dfa645ebfd05ff58b2970d3dc26877d8f296b15bf61fab4c71ee",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user6/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/summary.json": "b414d6807a0175d9129dc8da9b1e8457e65e3a599a6a879319e7c2ee98deef68",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user6/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/best_checkpoint.pt": "a24504afef597ba7d4a781516d6de75b3755c3f4358d90f609b54ccb8e2a1172",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user6/eye0/manifest.json": "71b42d47c5b0d2a6bf9bc9dfcee0bd6170e484aa240ee4087b9f417ce02b58f5",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user6/eye0/test.npz": "d16f70b83c97d2c05559f7f66317f0ad1c40a0936d6b6fa756bee6f12752606c"
+      },
+      "model": "inputs/models/pursuit/l1_l2_l3_l4_stateless/user6",
+      "test": "inputs/test/pursuit/user6/test.npz",
+      "output": "subjects/pursuit/l1_l2_l3_l4_stateless/user6",
+      "execution": "new_cpu",
+      "checkpoint_epoch": 173,
+      "fixed_point": {
+        "mean_angular_error_deg": 0.7179506473096455,
+        "mean_pixel_error": 14.180646659529662
+      },
+      "runtime_counters": {
+        "accumulator_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 2,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "spike_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "accumulator_maximum_absolute": {
+          "L1": 1869636,
+          "L2": 5650000,
+          "L3": 8453381,
+          "L4": 4634397,
+          "L5": 2790897,
+          "L6": 2391106,
+          "L7": 1773617,
+          "L8": 716875,
+          "H1": 4059975,
+          "H2": 1602755
+        },
+        "spike_maximum": {
+          "L1": 114,
+          "L2": 159,
+          "L3": 139,
+          "L4": 116,
+          "L5": 85,
+          "L6": 43,
+          "L7": 34,
+          "L8": 22,
+          "H1": 124,
+          "H2": 49
+        }
+      },
+      "arithmetic_contract": {
+        "weight_bits": 16,
+        "readout_weight_bits": 16,
+        "constant_bits": 24,
+        "accumulator_bits": 24,
+        "spike_bits": 8,
+        "scale_mode": "per_output_channel",
+        "scale_policy": "no_clipping",
+        "maximum_fraction_bits": 15,
+        "state_guard_bits": 0,
+        "alpha_rounding": "floor"
+      },
+      "state_bits": 16,
+      "independent_probe_arrays": 61,
+      "cpu_threads": 2,
+      "host": "carbonite",
+      "torch": "2.13.0+cu130",
+      "numpy": "2.4.6",
+      "runtime_seconds": 30.339821676985594
+    },
+    {
+      "case": "pursuit/l1_l2_l3_l4_stateless/user7",
+      "task": "pursuit",
+      "variant": "l1_l2_l3_l4_stateless",
+      "depth": 4,
+      "user": 7,
+      "representations": 1405,
+      "official_float": {
+        "mean_angular_error_deg": 0.7857472033568018,
+        "mean_pixel_error": 15.637300933680077
+      },
+      "input_sha256": {
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user7/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/configuration.json": "4a36201dd54d181ef5d00e6a4e11c56b511155eb2ae9fdad51af317b990d4cae",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user7/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/summary.json": "43e8297518d3b909f4f9ba6a5d20c4f15735816876401102fe5ba590bc42a2ed",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user7/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/best_checkpoint.pt": "c027e0d8d15b77616e95820f87e8dca8be3cf723b265a8c546036a7deb8709ea",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user7/eye0/manifest.json": "b627afcad11b6ad152c801206ee0d25d6ca6e8853c60e67d808c3befd7e5b09c",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user7/eye0/test.npz": "89ab40a9a7f795b1a0a11badd073ab7f57b2937a251fa077b0cd64397c73fdd0"
+      },
+      "model": "inputs/models/pursuit/l1_l2_l3_l4_stateless/user7",
+      "test": "inputs/test/pursuit/user7/test.npz",
+      "output": "subjects/pursuit/l1_l2_l3_l4_stateless/user7",
+      "execution": "new_cpu",
+      "checkpoint_epoch": 198,
+      "fixed_point": {
+        "mean_angular_error_deg": 0.7845874938930356,
+        "mean_pixel_error": 15.5842476219615
+      },
+      "runtime_counters": {
+        "accumulator_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "spike_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "accumulator_maximum_absolute": {
+          "L1": 1051689,
+          "L2": 7064791,
+          "L3": 5173628,
+          "L4": 2184497,
+          "L5": 1158815,
+          "L6": 1017979,
+          "L7": 1221261,
+          "L8": 689631,
+          "H1": 4717268,
+          "H2": 2103067
+        },
+        "spike_maximum": {
+          "L1": 97,
+          "L2": 90,
+          "L3": 68,
+          "L4": 59,
+          "L5": 34,
+          "L6": 27,
+          "L7": 21,
+          "L8": 18,
+          "H1": 144,
+          "H2": 50
+        }
+      },
+      "arithmetic_contract": {
+        "weight_bits": 16,
+        "readout_weight_bits": 16,
+        "constant_bits": 24,
+        "accumulator_bits": 24,
+        "spike_bits": 8,
+        "scale_mode": "per_output_channel",
+        "scale_policy": "no_clipping",
+        "maximum_fraction_bits": 15,
+        "state_guard_bits": 0,
+        "alpha_rounding": "floor"
+      },
+      "state_bits": 16,
+      "independent_probe_arrays": 61,
+      "cpu_threads": 2,
+      "host": "carbonite",
+      "torch": "2.13.0+cu130",
+      "numpy": "2.4.6",
+      "runtime_seconds": 18.903753238002537
+    },
+    {
+      "case": "pursuit/l1_l2_l3_l4_stateless/user8",
+      "task": "pursuit",
+      "variant": "l1_l2_l3_l4_stateless",
+      "depth": 4,
+      "user": 8,
+      "representations": 454,
+      "official_float": {
+        "mean_angular_error_deg": 0.9239946643940875,
+        "mean_pixel_error": 17.639067229917394
+      },
+      "input_sha256": {
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user8/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/configuration.json": "9ec0d2808042fa607323ad4f0ead1d190e6c0550019d4d2ff8e1b6efb5a32843",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user8/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/summary.json": "f23a04f06e88327ae4c7a8a2c19b301eb64fcf7b67b071edbeca29457a803f03",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user8/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/best_checkpoint.pt": "2edada9f2746f7682e9d9181a073953154e4da5020e232484aa66d9712233cf8",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user8/eye0/manifest.json": "8c3cdab047eddd32babd05c7b62a426d372a68fc3be93b3c333584f7fe77176f",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user8/eye0/test.npz": "2470aa2a496ff3644ef3357b6ee33d1d3bda788f87d2a31a319bf696d5e99145"
+      },
+      "model": "inputs/models/pursuit/l1_l2_l3_l4_stateless/user8",
+      "test": "inputs/test/pursuit/user8/test.npz",
+      "output": "subjects/pursuit/l1_l2_l3_l4_stateless/user8",
+      "execution": "new_cpu",
+      "checkpoint_epoch": 169,
+      "fixed_point": {
+        "mean_angular_error_deg": 0.9117701169130256,
+        "mean_pixel_error": 17.33278683983145
+      },
+      "runtime_counters": {
+        "accumulator_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "spike_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "accumulator_maximum_absolute": {
+          "L1": 780151,
+          "L2": 2812442,
+          "L3": 2201483,
+          "L4": 1234437,
+          "L5": 659551,
+          "L6": 520911,
+          "L7": 393544,
+          "L8": 322316,
+          "H1": 1350077,
+          "H2": 2228330
+        },
+        "spike_maximum": {
+          "L1": 92,
+          "L2": 78,
+          "L3": 30,
+          "L4": 32,
+          "L5": 20,
+          "L6": 11,
+          "L7": 9,
+          "L8": 7,
+          "H1": 56,
+          "H2": 68
+        }
+      },
+      "arithmetic_contract": {
+        "weight_bits": 16,
+        "readout_weight_bits": 16,
+        "constant_bits": 24,
+        "accumulator_bits": 24,
+        "spike_bits": 8,
+        "scale_mode": "per_output_channel",
+        "scale_policy": "no_clipping",
+        "maximum_fraction_bits": 15,
+        "state_guard_bits": 0,
+        "alpha_rounding": "floor"
+      },
+      "state_bits": 16,
+      "independent_probe_arrays": 61,
+      "cpu_threads": 2,
+      "host": "carbonite",
+      "torch": "2.13.0+cu130",
+      "numpy": "2.4.6",
+      "runtime_seconds": 6.102454115985893
+    },
+    {
+      "case": "pursuit/l1_l2_l3_l4_stateless/user9",
+      "task": "pursuit",
+      "variant": "l1_l2_l3_l4_stateless",
+      "depth": 4,
+      "user": 9,
+      "representations": 2045,
+      "official_float": {
+        "mean_angular_error_deg": 0.6385582404999031,
+        "mean_pixel_error": 12.005688125652906
+      },
+      "input_sha256": {
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user9/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/configuration.json": "34944490382090044eb6c723cd9b79c9f2ffafc1b3a1101d824320e2026d8fc5",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user9/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/summary.json": "a6319023e72cf08eca03a809c65c5b8d5f9efc662f5bc40f5e07459d9c269120",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user9/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/best_checkpoint.pt": "b1152f5c7a620ba9d3a06d698eb849ee05f64523688158931b39397ca326a8cc",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user9/eye0/manifest.json": "410a944efb130b94bf37858cd9c1e76511b97a2d6acd84d8bd2aedc149fb6c1e",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user9/eye0/test.npz": "471145c4bfd2c32f15e6aed0bf66bbbdb8bfcd94c738a3f3d2491fdc6d9de69e"
+      },
+      "model": "inputs/models/pursuit/l1_l2_l3_l4_stateless/user9",
+      "test": "inputs/test/pursuit/user9/test.npz",
+      "output": "subjects/pursuit/l1_l2_l3_l4_stateless/user9",
+      "execution": "new_cpu",
+      "checkpoint_epoch": 199,
+      "fixed_point": {
+        "mean_angular_error_deg": 0.6386325041873355,
+        "mean_pixel_error": 11.983129019665522
+      },
+      "runtime_counters": {
+        "accumulator_saturated": {
+          "L1": 0,
+          "L2": 2,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "spike_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "accumulator_maximum_absolute": {
+          "L1": 880359,
+          "L2": 8575029,
+          "L3": 7101521,
+          "L4": 2990903,
+          "L5": 1614381,
+          "L6": 1872924,
+          "L7": 1605042,
+          "L8": 1325082,
+          "H1": 4929906,
+          "H2": 2191186
+        },
+        "spike_maximum": {
+          "L1": 97,
+          "L2": 160,
+          "L3": 94,
+          "L4": 90,
+          "L5": 45,
+          "L6": 34,
+          "L7": 34,
+          "L8": 29,
+          "H1": 150,
+          "H2": 50
+        }
+      },
+      "arithmetic_contract": {
+        "weight_bits": 16,
+        "readout_weight_bits": 16,
+        "constant_bits": 24,
+        "accumulator_bits": 24,
+        "spike_bits": 8,
+        "scale_mode": "per_output_channel",
+        "scale_policy": "no_clipping",
+        "maximum_fraction_bits": 15,
+        "state_guard_bits": 0,
+        "alpha_rounding": "floor"
+      },
+      "state_bits": 16,
+      "independent_probe_arrays": 61,
+      "cpu_threads": 2,
+      "host": "carbonite",
+      "torch": "2.13.0+cu130",
+      "numpy": "2.4.6",
+      "runtime_seconds": 27.052429542003665
+    },
+    {
+      "case": "pursuit/l1_l2_l3_l4_stateless/user10",
+      "task": "pursuit",
+      "variant": "l1_l2_l3_l4_stateless",
+      "depth": 4,
+      "user": 10,
+      "representations": 1194,
+      "official_float": {
+        "mean_angular_error_deg": 0.5110306448008323,
+        "mean_pixel_error": 9.786030372046246
+      },
+      "input_sha256": {
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user10/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/configuration.json": "e3d64ebd1d657c883c0b16df6220c9db48e8ae93c24263c2291f4920218f522f",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user10/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/summary.json": "3a021c2051b208f8badb11f839bd48df839626d9519250787f2349311938f2c7",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user10/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/best_checkpoint.pt": "22f4f3fe68ee28b0f6e7b5f03d619de0e3fd8aedf98ab3280fbceeff3f7b2a96",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user10/eye0/manifest.json": "5df37d9ee685863f75e81e814ee9a6eb29bc32d3b042fceb9db6d1268f4c0e48",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user10/eye0/test.npz": "48e291a55e04de5dc422b5957f9c7d0f0e9835602787e9bcbad1fc0b15b37b38"
+      },
+      "model": "inputs/models/pursuit/l1_l2_l3_l4_stateless/user10",
+      "test": "inputs/test/pursuit/user10/test.npz",
+      "output": "subjects/pursuit/l1_l2_l3_l4_stateless/user10",
+      "execution": "new_cpu",
+      "checkpoint_epoch": 198,
+      "fixed_point": {
+        "mean_angular_error_deg": 0.5026309046782964,
+        "mean_pixel_error": 9.643944929680513
+      },
+      "runtime_counters": {
+        "accumulator_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "spike_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "accumulator_maximum_absolute": {
+          "L1": 1447565,
+          "L2": 4704218,
+          "L3": 5164343,
+          "L4": 2422150,
+          "L5": 1492872,
+          "L6": 1204784,
+          "L7": 1269329,
+          "L8": 627171,
+          "H1": 2815446,
+          "H2": 2406194
+        },
+        "spike_maximum": {
+          "L1": 126,
+          "L2": 58,
+          "L3": 78,
+          "L4": 57,
+          "L5": 41,
+          "L6": 37,
+          "L7": 18,
+          "L8": 15,
+          "H1": 100,
+          "H2": 73
+        }
+      },
+      "arithmetic_contract": {
+        "weight_bits": 16,
+        "readout_weight_bits": 16,
+        "constant_bits": 24,
+        "accumulator_bits": 24,
+        "spike_bits": 8,
+        "scale_mode": "per_output_channel",
+        "scale_policy": "no_clipping",
+        "maximum_fraction_bits": 15,
+        "state_guard_bits": 0,
+        "alpha_rounding": "floor"
+      },
+      "state_bits": 16,
+      "independent_probe_arrays": 61,
+      "cpu_threads": 2,
+      "host": "carbonite",
+      "torch": "2.13.0+cu130",
+      "numpy": "2.4.6",
+      "runtime_seconds": 17.95743525598664
+    },
+    {
+      "case": "pursuit/l1_l2_l3_l4_stateless/user11",
+      "task": "pursuit",
+      "variant": "l1_l2_l3_l4_stateless",
+      "depth": 4,
+      "user": 11,
+      "representations": 1486,
+      "official_float": {
+        "mean_angular_error_deg": 0.8880940890679209,
+        "mean_pixel_error": 17.85500845042324
+      },
+      "input_sha256": {
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user11/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/configuration.json": "85a17b1995c6c721d76ba998339cfedbacb43cf2cbc482ecfabe6679fd00364c",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user11/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/summary.json": "d9c13469f0834a1c9bfc45f5ea4f3eb0979735223a13344c8c2bcd1405145ab8",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user11/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/best_checkpoint.pt": "45dc2dab41b45494ed212820963c12437283a52fa9b2d996b1e613f66f5aafcb",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user11/eye0/manifest.json": "aac0d0615fc626f9f036cc8571ed38e952e5b36a155a23380a72bbb707de87c1",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user11/eye0/test.npz": "4137b312eac8a96b4c89551f5740661efe8e28d981c20a5345db301e248b9221"
+      },
+      "model": "inputs/models/pursuit/l1_l2_l3_l4_stateless/user11",
+      "test": "inputs/test/pursuit/user11/test.npz",
+      "output": "subjects/pursuit/l1_l2_l3_l4_stateless/user11",
+      "execution": "new_cpu",
+      "checkpoint_epoch": 200,
+      "fixed_point": {
+        "mean_angular_error_deg": 0.8775000931645724,
+        "mean_pixel_error": 17.610390130927243
+      },
+      "runtime_counters": {
+        "accumulator_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "spike_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "accumulator_maximum_absolute": {
+          "L1": 2147362,
+          "L2": 7184836,
+          "L3": 5788743,
+          "L4": 3419176,
+          "L5": 1968060,
+          "L6": 1461148,
+          "L7": 1386144,
+          "L8": 561807,
+          "H1": 3455899,
+          "H2": 2016940
+        },
+        "spike_maximum": {
+          "L1": 131,
+          "L2": 124,
+          "L3": 113,
+          "L4": 91,
+          "L5": 60,
+          "L6": 36,
+          "L7": 28,
+          "L8": 16,
+          "H1": 105,
+          "H2": 62
+        }
+      },
+      "arithmetic_contract": {
+        "weight_bits": 16,
+        "readout_weight_bits": 16,
+        "constant_bits": 24,
+        "accumulator_bits": 24,
+        "spike_bits": 8,
+        "scale_mode": "per_output_channel",
+        "scale_policy": "no_clipping",
+        "maximum_fraction_bits": 15,
+        "state_guard_bits": 0,
+        "alpha_rounding": "floor"
+      },
+      "state_bits": 16,
+      "independent_probe_arrays": 61,
+      "cpu_threads": 2,
+      "host": "carbonite",
+      "torch": "2.13.0+cu130",
+      "numpy": "2.4.6",
+      "runtime_seconds": 18.256463597004768
+    },
+    {
+      "case": "pursuit/l1_l2_l3_l4_stateless/user12",
+      "task": "pursuit",
+      "variant": "l1_l2_l3_l4_stateless",
+      "depth": 4,
+      "user": 12,
+      "representations": 1586,
+      "official_float": {
+        "mean_angular_error_deg": 0.546987871298846,
+        "mean_pixel_error": 10.659738750247493
+      },
+      "input_sha256": {
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user12/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/configuration.json": "6f2c9193bc0356af2edc6e77337b01bb2c91db1ece7b58d46632b4e609dbcd8f",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user12/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/summary.json": "414c8b21c5f445439b526431812d151b76c9e29a07ceea56f579cc237ebaefb5",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user12/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/best_checkpoint.pt": "d68c190de0e8218ff813cad4db8b9be60f80a7d5c6e58f0c20390ea702639b25",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user12/eye0/manifest.json": "e7c4a7222cb142cb3b9ea38f3a1d9b94a6cffe48ed4f6d3b6db5258c86ecbc9d",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user12/eye0/test.npz": "f29e1261bb2fb6dd9e514f095c88be9b8f8de52961a6e37f871f865c3136315b"
+      },
+      "model": "inputs/models/pursuit/l1_l2_l3_l4_stateless/user12",
+      "test": "inputs/test/pursuit/user12/test.npz",
+      "output": "subjects/pursuit/l1_l2_l3_l4_stateless/user12",
+      "execution": "new_cpu",
+      "checkpoint_epoch": 196,
+      "fixed_point": {
+        "mean_angular_error_deg": 0.5461466335362215,
+        "mean_pixel_error": 10.633056538268695
+      },
+      "runtime_counters": {
+        "accumulator_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "spike_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "accumulator_maximum_absolute": {
+          "L1": 993739,
+          "L2": 3983037,
+          "L3": 4885279,
+          "L4": 2143693,
+          "L5": 1192857,
+          "L6": 1023883,
+          "L7": 1348849,
+          "L8": 569646,
+          "H1": 2331698,
+          "H2": 1699425
+        },
+        "spike_maximum": {
+          "L1": 89,
+          "L2": 114,
+          "L3": 65,
+          "L4": 59,
+          "L5": 36,
+          "L6": 27,
+          "L7": 27,
+          "L8": 14,
+          "H1": 90,
+          "H2": 52
+        }
+      },
+      "arithmetic_contract": {
+        "weight_bits": 16,
+        "readout_weight_bits": 16,
+        "constant_bits": 24,
+        "accumulator_bits": 24,
+        "spike_bits": 8,
+        "scale_mode": "per_output_channel",
+        "scale_policy": "no_clipping",
+        "maximum_fraction_bits": 15,
+        "state_guard_bits": 0,
+        "alpha_rounding": "floor"
+      },
+      "state_bits": 16,
+      "independent_probe_arrays": 61,
+      "cpu_threads": 2,
+      "host": "carbonite",
+      "torch": "2.13.0+cu130",
+      "numpy": "2.4.6",
+      "runtime_seconds": 20.091225590003887
+    },
+    {
+      "case": "pursuit/l1_l2_l3_l4_stateless/user13",
+      "task": "pursuit",
+      "variant": "l1_l2_l3_l4_stateless",
+      "depth": 4,
+      "user": 13,
+      "representations": 627,
+      "official_float": {
+        "mean_angular_error_deg": 0.9319752183827487,
+        "mean_pixel_error": 18.573621739801226
+      },
+      "input_sha256": {
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user13/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/configuration.json": "e5d6d1f179241220db7019a7478931f4ce4dc53b6f405367fff58ec8deabade5",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user13/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/summary.json": "fe6688ae22416493e7f457ba7dfb7a362616d1982e25177ee9e89afc28886a03",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user13/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/best_checkpoint.pt": "bcd97b6069c41e97ae1b3047c346262772d72cbe4d0a7fadce4d8d39d63664fc",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user13/eye0/manifest.json": "a3ac69ce6f9d0570329bec1f5aa77c6b32cc219f33fbb5f07ba53f053e9f9673",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user13/eye0/test.npz": "a81287f84b0add54176ee54fa745f0c4f5787931f3b2a8d5f78ff471633defe2"
+      },
+      "model": "inputs/models/pursuit/l1_l2_l3_l4_stateless/user13",
+      "test": "inputs/test/pursuit/user13/test.npz",
+      "output": "subjects/pursuit/l1_l2_l3_l4_stateless/user13",
+      "execution": "new_cpu",
+      "checkpoint_epoch": 182,
+      "fixed_point": {
+        "mean_angular_error_deg": 0.9382613128930709,
+        "mean_pixel_error": 18.647270895527342
+      },
+      "runtime_counters": {
+        "accumulator_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "spike_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "accumulator_maximum_absolute": {
+          "L1": 1062827,
+          "L2": 3689837,
+          "L3": 2378377,
+          "L4": 1522511,
+          "L5": 1068522,
+          "L6": 603987,
+          "L7": 507972,
+          "L8": 302546,
+          "H1": 1886798,
+          "H2": 1978417
+        },
+        "spike_maximum": {
+          "L1": 96,
+          "L2": 60,
+          "L3": 44,
+          "L4": 41,
+          "L5": 33,
+          "L6": 15,
+          "L7": 13,
+          "L8": 9,
+          "H1": 58,
+          "H2": 60
+        }
+      },
+      "arithmetic_contract": {
+        "weight_bits": 16,
+        "readout_weight_bits": 16,
+        "constant_bits": 24,
+        "accumulator_bits": 24,
+        "spike_bits": 8,
+        "scale_mode": "per_output_channel",
+        "scale_policy": "no_clipping",
+        "maximum_fraction_bits": 15,
+        "state_guard_bits": 0,
+        "alpha_rounding": "floor"
+      },
+      "state_bits": 16,
+      "independent_probe_arrays": 61,
+      "cpu_threads": 2,
+      "host": "carbonite",
+      "torch": "2.13.0+cu130",
+      "numpy": "2.4.6",
+      "runtime_seconds": 8.007808219001163
+    },
+    {
+      "case": "pursuit/l1_l2_l3_l4_stateless/user14",
+      "task": "pursuit",
+      "variant": "l1_l2_l3_l4_stateless",
+      "depth": 4,
+      "user": 14,
+      "representations": 888,
+      "official_float": {
+        "mean_angular_error_deg": 0.7402626476502298,
+        "mean_pixel_error": 14.22642037574504
+      },
+      "input_sha256": {
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user14/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/configuration.json": "a426c1fabbad395becc326ea098e136ccd3da12e398132feb48b16919cf468ce",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user14/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/summary.json": "8843303b49e8222ab2dade3425828835c5a895014c052034b4efabcba889892e",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user14/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/best_checkpoint.pt": "3f033da41af0628ecbd9b584b534f650788c3a4cb65487a097b56c7f51fb0a89",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user14/eye0/manifest.json": "68853b8377663f3861d6d83e848b8c6ef602aa3e56af3dd33c71d4d9f6e61ac3",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user14/eye0/test.npz": "dc1e9323a2b6228985342380a2b84267fbbcdbba1d05079510670c7af590576b"
+      },
+      "model": "inputs/models/pursuit/l1_l2_l3_l4_stateless/user14",
+      "test": "inputs/test/pursuit/user14/test.npz",
+      "output": "subjects/pursuit/l1_l2_l3_l4_stateless/user14",
+      "execution": "new_cpu",
+      "checkpoint_epoch": 170,
+      "fixed_point": {
+        "mean_angular_error_deg": 0.7466774508415348,
+        "mean_pixel_error": 14.331365703589752
+      },
+      "runtime_counters": {
+        "accumulator_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "spike_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "accumulator_maximum_absolute": {
+          "L1": 1098819,
+          "L2": 5279934,
+          "L3": 4163832,
+          "L4": 2162960,
+          "L5": 1547978,
+          "L6": 1036226,
+          "L7": 930365,
+          "L8": 413036,
+          "H1": 2002666,
+          "H2": 2438518
+        },
+        "spike_maximum": {
+          "L1": 154,
+          "L2": 104,
+          "L3": 71,
+          "L4": 54,
+          "L5": 47,
+          "L6": 23,
+          "L7": 15,
+          "L8": 12,
+          "H1": 61,
+          "H2": 74
+        }
+      },
+      "arithmetic_contract": {
+        "weight_bits": 16,
+        "readout_weight_bits": 16,
+        "constant_bits": 24,
+        "accumulator_bits": 24,
+        "spike_bits": 8,
+        "scale_mode": "per_output_channel",
+        "scale_policy": "no_clipping",
+        "maximum_fraction_bits": 15,
+        "state_guard_bits": 0,
+        "alpha_rounding": "floor"
+      },
+      "state_bits": 16,
+      "independent_probe_arrays": 61,
+      "cpu_threads": 2,
+      "host": "carbonite",
+      "torch": "2.13.0+cu130",
+      "numpy": "2.4.6",
+      "runtime_seconds": 11.702610957989236
+    },
+    {
+      "case": "pursuit/l1_l2_l3_l4_stateless/user15",
+      "task": "pursuit",
+      "variant": "l1_l2_l3_l4_stateless",
+      "depth": 4,
+      "user": 15,
+      "representations": 426,
+      "official_float": {
+        "mean_angular_error_deg": 0.7399388292428334,
+        "mean_pixel_error": 14.578131451503213
+      },
+      "input_sha256": {
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user15/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/configuration.json": "feb34ed98eef64baf2cdb642018d3219b82470450df2b83ebe3aca0c3eb9fef3",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user15/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/summary.json": "070e58107450b51da711dc8770c815d5dfe55c1e7f6c5082c0bec5c5f44ea858",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user15/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/best_checkpoint.pt": "8210c89c93d01199803ecae283bcf4dca032c330bf011ec6234a1b86d3e10d87",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user15/eye0/manifest.json": "4e713234d4333eef7276b9cf3600423cf9bddd63df269703d5c6014ba7a65b6a",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user15/eye0/test.npz": "1c58c94d5e894b1c52f409ed4b2b90008a6df3b251c535279e8276bf01fd9010"
+      },
+      "model": "inputs/models/pursuit/l1_l2_l3_l4_stateless/user15",
+      "test": "inputs/test/pursuit/user15/test.npz",
+      "output": "subjects/pursuit/l1_l2_l3_l4_stateless/user15",
+      "execution": "new_cpu",
+      "checkpoint_epoch": 186,
+      "fixed_point": {
+        "mean_angular_error_deg": 0.7299176886355647,
+        "mean_pixel_error": 14.357397540783184
+      },
+      "runtime_counters": {
+        "accumulator_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "spike_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "accumulator_maximum_absolute": {
+          "L1": 1193503,
+          "L2": 3649989,
+          "L3": 3629241,
+          "L4": 1796184,
+          "L5": 1116439,
+          "L6": 605073,
+          "L7": 676873,
+          "L8": 240580,
+          "H1": 1365930,
+          "H2": 1743741
+        },
+        "spike_maximum": {
+          "L1": 90,
+          "L2": 71,
+          "L3": 54,
+          "L4": 54,
+          "L5": 34,
+          "L6": 18,
+          "L7": 13,
+          "L8": 7,
+          "H1": 43,
+          "H2": 53
+        }
+      },
+      "arithmetic_contract": {
+        "weight_bits": 16,
+        "readout_weight_bits": 16,
+        "constant_bits": 24,
+        "accumulator_bits": 24,
+        "spike_bits": 8,
+        "scale_mode": "per_output_channel",
+        "scale_policy": "no_clipping",
+        "maximum_fraction_bits": 15,
+        "state_guard_bits": 0,
+        "alpha_rounding": "floor"
+      },
+      "state_bits": 16,
+      "independent_probe_arrays": 61,
+      "cpu_threads": 2,
+      "host": "carbonite",
+      "torch": "2.13.0+cu130",
+      "numpy": "2.4.6",
+      "runtime_seconds": 5.568205696996301
+    },
+    {
+      "case": "pursuit/l1_l2_l3_l4_stateless/user16",
+      "task": "pursuit",
+      "variant": "l1_l2_l3_l4_stateless",
+      "depth": 4,
+      "user": 16,
+      "representations": 829,
+      "official_float": {
+        "mean_angular_error_deg": 0.7817783476616311,
+        "mean_pixel_error": 14.796358032432915
+      },
+      "input_sha256": {
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user16/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/configuration.json": "be1cf7c11c0a7171b34727ebc25b3a80e6da646a507446940a6693f4a298ebbf",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user16/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/summary.json": "3ed55df4adbc251a93dc318e6c6dd57041033285b67bbc498f5fe487048cb932",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user16/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/best_checkpoint.pt": "44980b699e016c26208a9fbaeb91d1ff828f84f2e6f343c359437687f4901112",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user16/eye0/manifest.json": "15ba497dcdee7d34a8028b8dc9f0397cac910418e33b4747f9ab5174c71f0e8c",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user16/eye0/test.npz": "a62501ccc9696a1f7378ed493a75a549afee4277aa39d477cb2e2706aece106f"
+      },
+      "model": "inputs/models/pursuit/l1_l2_l3_l4_stateless/user16",
+      "test": "inputs/test/pursuit/user16/test.npz",
+      "output": "subjects/pursuit/l1_l2_l3_l4_stateless/user16",
+      "execution": "new_cpu",
+      "checkpoint_epoch": 194,
+      "fixed_point": {
+        "mean_angular_error_deg": 0.7822795057234063,
+        "mean_pixel_error": 14.837730445498531
+      },
+      "runtime_counters": {
+        "accumulator_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "spike_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "accumulator_maximum_absolute": {
+          "L1": 1284029,
+          "L2": 3373207,
+          "L3": 2919016,
+          "L4": 1725135,
+          "L5": 1071245,
+          "L6": 764388,
+          "L7": 894394,
+          "L8": 708255,
+          "H1": 1900526,
+          "H2": 1865196
+        },
+        "spike_maximum": {
+          "L1": 95,
+          "L2": 60,
+          "L3": 52,
+          "L4": 36,
+          "L5": 24,
+          "L6": 19,
+          "L7": 15,
+          "L8": 16,
+          "H1": 59,
+          "H2": 57
+        }
+      },
+      "arithmetic_contract": {
+        "weight_bits": 16,
+        "readout_weight_bits": 16,
+        "constant_bits": 24,
+        "accumulator_bits": 24,
+        "spike_bits": 8,
+        "scale_mode": "per_output_channel",
+        "scale_policy": "no_clipping",
+        "maximum_fraction_bits": 15,
+        "state_guard_bits": 0,
+        "alpha_rounding": "floor"
+      },
+      "state_bits": 16,
+      "independent_probe_arrays": 61,
+      "cpu_threads": 2,
+      "host": "carbonite",
+      "torch": "2.13.0+cu130",
+      "numpy": "2.4.6",
+      "runtime_seconds": 10.581440936017316
+    },
+    {
+      "case": "pursuit/l1_l2_l3_l4_stateless/user17",
+      "task": "pursuit",
+      "variant": "l1_l2_l3_l4_stateless",
+      "depth": 4,
+      "user": 17,
+      "representations": 1364,
+      "official_float": {
+        "mean_angular_error_deg": 0.5259706647411163,
+        "mean_pixel_error": 10.26358337161784
+      },
+      "input_sha256": {
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user17/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/configuration.json": "b9e0d2c01c021294b68702c6965223505db426a6d871228571cd0e5032561d10",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user17/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/summary.json": "86ff27ed3fb5c0c24bdd6f99e5e325a2bc52dc4c7ef227c5141f418ca7a630a4",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user17/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/best_checkpoint.pt": "1524fa56bae830b34d55a63ce3f3dd7f46076fa0f6cdfe7564153e865383899f",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user17/eye0/manifest.json": "67d8708efcd202f252fc204dd809c9175e5da056c481f7ffe4734862d2e27dc8",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user17/eye0/test.npz": "caea109aa3e95aa048464604748070722f5eec272ffa29c2979dd8396f8a21b1"
+      },
+      "model": "inputs/models/pursuit/l1_l2_l3_l4_stateless/user17",
+      "test": "inputs/test/pursuit/user17/test.npz",
+      "output": "subjects/pursuit/l1_l2_l3_l4_stateless/user17",
+      "execution": "new_cpu",
+      "checkpoint_epoch": 189,
+      "fixed_point": {
+        "mean_angular_error_deg": 0.5361831664451492,
+        "mean_pixel_error": 10.45548223446752
+      },
+      "runtime_counters": {
+        "accumulator_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "spike_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "accumulator_maximum_absolute": {
+          "L1": 1435694,
+          "L2": 4306435,
+          "L3": 4250862,
+          "L4": 3404225,
+          "L5": 1378801,
+          "L6": 892360,
+          "L7": 887176,
+          "L8": 449362,
+          "H1": 2154235,
+          "H2": 2194695
+        },
+        "spike_maximum": {
+          "L1": 119,
+          "L2": 81,
+          "L3": 56,
+          "L4": 51,
+          "L5": 42,
+          "L6": 26,
+          "L7": 20,
+          "L8": 13,
+          "H1": 68,
+          "H2": 67
+        }
+      },
+      "arithmetic_contract": {
+        "weight_bits": 16,
+        "readout_weight_bits": 16,
+        "constant_bits": 24,
+        "accumulator_bits": 24,
+        "spike_bits": 8,
+        "scale_mode": "per_output_channel",
+        "scale_policy": "no_clipping",
+        "maximum_fraction_bits": 15,
+        "state_guard_bits": 0,
+        "alpha_rounding": "floor"
+      },
+      "state_bits": 16,
+      "independent_probe_arrays": 61,
+      "cpu_threads": 2,
+      "host": "carbonite",
+      "torch": "2.13.0+cu130",
+      "numpy": "2.4.6",
+      "runtime_seconds": 18.137442012986867
+    },
+    {
+      "case": "pursuit/l1_l2_l3_l4_stateless/user18",
+      "task": "pursuit",
+      "variant": "l1_l2_l3_l4_stateless",
+      "depth": 4,
+      "user": 18,
+      "representations": 454,
+      "official_float": {
+        "mean_angular_error_deg": 0.9040287681055227,
+        "mean_pixel_error": 17.882707415731204
+      },
+      "input_sha256": {
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user18/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/configuration.json": "4a34869c789b1651391c906ddcc9aa6c83aebc5eafb31457233d6d881bd1cadc",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user18/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/summary.json": "17049697af7387c4d659f076b7799232efe914315964dc4fe5e6c105c805843a",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user18/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/best_checkpoint.pt": "a550dffceb59c858bfdbcccfb703d1a8457d19a46617199e9075cf8b9ea45534",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user18/eye0/manifest.json": "80dae47f09703f2f50d06da96e9b8075807e0485e6760d59f026a0465e61f7b2",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user18/eye0/test.npz": "20289560e450fc7083fc6cba50c3a0bd1e18f0a625a16f6b019411d4ef449f8e"
+      },
+      "model": "inputs/models/pursuit/l1_l2_l3_l4_stateless/user18",
+      "test": "inputs/test/pursuit/user18/test.npz",
+      "output": "subjects/pursuit/l1_l2_l3_l4_stateless/user18",
+      "execution": "new_cpu",
+      "checkpoint_epoch": 171,
+      "fixed_point": {
+        "mean_angular_error_deg": 0.902306233762989,
+        "mean_pixel_error": 17.902184425954303
+      },
+      "runtime_counters": {
+        "accumulator_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "spike_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "accumulator_maximum_absolute": {
+          "L1": 1110725,
+          "L2": 2899454,
+          "L3": 2785363,
+          "L4": 1798750,
+          "L5": 815775,
+          "L6": 754041,
+          "L7": 600321,
+          "L8": 426945,
+          "H1": 2044435,
+          "H2": 2233312
+        },
+        "spike_maximum": {
+          "L1": 100,
+          "L2": 62,
+          "L3": 56,
+          "L4": 52,
+          "L5": 24,
+          "L6": 17,
+          "L7": 13,
+          "L8": 10,
+          "H1": 62,
+          "H2": 68
+        }
+      },
+      "arithmetic_contract": {
+        "weight_bits": 16,
+        "readout_weight_bits": 16,
+        "constant_bits": 24,
+        "accumulator_bits": 24,
+        "spike_bits": 8,
+        "scale_mode": "per_output_channel",
+        "scale_policy": "no_clipping",
+        "maximum_fraction_bits": 15,
+        "state_guard_bits": 0,
+        "alpha_rounding": "floor"
+      },
+      "state_bits": 16,
+      "independent_probe_arrays": 61,
+      "cpu_threads": 2,
+      "host": "carbonite",
+      "torch": "2.13.0+cu130",
+      "numpy": "2.4.6",
+      "runtime_seconds": 6.0154089179995935
+    },
+    {
+      "case": "pursuit/l1_l2_l3_l4_stateless/user19",
+      "task": "pursuit",
+      "variant": "l1_l2_l3_l4_stateless",
+      "depth": 4,
+      "user": 19,
+      "representations": 189,
+      "official_float": {
+        "mean_angular_error_deg": 1.3671515620949248,
+        "mean_pixel_error": 27.059395775908516
+      },
+      "input_sha256": {
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user19/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/configuration.json": "3a0826f9fe97946483681bd5320f36f12b301eaf1cc40f7583c65f4f6d4dd676",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user19/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/summary.json": "e7e66e50ce0d2f02d28982378b9d01fc8029b09bc393393df564f27fb40c27c4",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user19/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/best_checkpoint.pt": "378cac3a313f2a2af815a0a07d4915876eef7d04cb2e84eac26fc5b08cd53e78",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user19/eye0/manifest.json": "ca148f3f1d45e1ed97e7dd682a46f097d4d1404fef0dca31e0865d581a6f7ecf",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user19/eye0/test.npz": "98fa4b0c22df39b09868d234ddb69668cd1ece063e0d2be56c56716d455b4af0"
+      },
+      "model": "inputs/models/pursuit/l1_l2_l3_l4_stateless/user19",
+      "test": "inputs/test/pursuit/user19/test.npz",
+      "output": "subjects/pursuit/l1_l2_l3_l4_stateless/user19",
+      "execution": "new_cpu",
+      "checkpoint_epoch": 157,
+      "fixed_point": {
+        "mean_angular_error_deg": 1.3552211782880248,
+        "mean_pixel_error": 26.81365805299918
+      },
+      "runtime_counters": {
+        "accumulator_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "spike_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "accumulator_maximum_absolute": {
+          "L1": 1339186,
+          "L2": 3043673,
+          "L3": 2594460,
+          "L4": 896712,
+          "L5": 616297,
+          "L6": 318204,
+          "L7": 257544,
+          "L8": 204902,
+          "H1": 1177568,
+          "H2": 1356763
+        },
+        "spike_maximum": {
+          "L1": 80,
+          "L2": 61,
+          "L3": 39,
+          "L4": 27,
+          "L5": 19,
+          "L6": 9,
+          "L7": 8,
+          "L8": 5,
+          "H1": 36,
+          "H2": 42
+        }
+      },
+      "arithmetic_contract": {
+        "weight_bits": 16,
+        "readout_weight_bits": 16,
+        "constant_bits": 24,
+        "accumulator_bits": 24,
+        "spike_bits": 8,
+        "scale_mode": "per_output_channel",
+        "scale_policy": "no_clipping",
+        "maximum_fraction_bits": 15,
+        "state_guard_bits": 0,
+        "alpha_rounding": "floor"
+      },
+      "state_bits": 16,
+      "independent_probe_arrays": 61,
+      "cpu_threads": 2,
+      "host": "carbonite",
+      "torch": "2.13.0+cu130",
+      "numpy": "2.4.6",
+      "runtime_seconds": 2.4638706439873204
+    },
+    {
+      "case": "pursuit/l1_l2_l3_l4_stateless/user20",
+      "task": "pursuit",
+      "variant": "l1_l2_l3_l4_stateless",
+      "depth": 4,
+      "user": 20,
+      "representations": 2684,
+      "official_float": {
+        "mean_angular_error_deg": 0.7312384743386416,
+        "mean_pixel_error": 13.804899022957496
+      },
+      "input_sha256": {
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user20/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/configuration.json": "7e288583af63145c85dd78f413d83509839261d43979efea73d0cdc43781dc40",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user20/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/summary.json": "ca64f5ab3aa6a03ef9f2306fb343b76a65e570b4529cb5164d20737021da2e6c",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user20/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/best_checkpoint.pt": "ece11688ee41f2e69f362d445b0ef3ffe8cca60ee57dc49976cca0114e3d1970",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user20/eye0/manifest.json": "887062c7bbf6f7528f2da809a038a0ae4eb0c37ab5f8bb3d5e57d3816c0922b3",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user20/eye0/test.npz": "78d99ce8bcac0a0724eb1cd303861b6d1105df5d41e2bbcd20e16dc634b8db15"
+      },
+      "model": "inputs/models/pursuit/l1_l2_l3_l4_stateless/user20",
+      "test": "inputs/test/pursuit/user20/test.npz",
+      "output": "subjects/pursuit/l1_l2_l3_l4_stateless/user20",
+      "execution": "new_cpu",
+      "checkpoint_epoch": 193,
+      "fixed_point": {
+        "mean_angular_error_deg": 0.733028792551892,
+        "mean_pixel_error": 13.822920995785001
+      },
+      "runtime_counters": {
+        "accumulator_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 46,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "spike_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "accumulator_maximum_absolute": {
+          "L1": 1675287,
+          "L2": 8294680,
+          "L3": 11277241,
+          "L4": 4674429,
+          "L5": 2585022,
+          "L6": 1861773,
+          "L7": 2057029,
+          "L8": 1190152,
+          "H1": 3754410,
+          "H2": 2158304
+        },
+        "spike_maximum": {
+          "L1": 114,
+          "L2": 165,
+          "L3": 100,
+          "L4": 124,
+          "L5": 75,
+          "L6": 47,
+          "L7": 32,
+          "L8": 20,
+          "H1": 115,
+          "H2": 61
+        }
+      },
+      "arithmetic_contract": {
+        "weight_bits": 16,
+        "readout_weight_bits": 16,
+        "constant_bits": 24,
+        "accumulator_bits": 24,
+        "spike_bits": 8,
+        "scale_mode": "per_output_channel",
+        "scale_policy": "no_clipping",
+        "maximum_fraction_bits": 15,
+        "state_guard_bits": 0,
+        "alpha_rounding": "floor"
+      },
+      "state_bits": 16,
+      "independent_probe_arrays": 61,
+      "cpu_threads": 2,
+      "host": "carbonite",
+      "torch": "2.13.0+cu130",
+      "numpy": "2.4.6",
+      "runtime_seconds": 29.512727626017295
+    },
+    {
+      "case": "pursuit/l1_l2_l3_l4_stateless/user21",
+      "task": "pursuit",
+      "variant": "l1_l2_l3_l4_stateless",
+      "depth": 4,
+      "user": 21,
+      "representations": 596,
+      "official_float": {
+        "mean_angular_error_deg": 0.6835648946076531,
+        "mean_pixel_error": 13.358155198188987
+      },
+      "input_sha256": {
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user21/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/configuration.json": "540c3e901c9353b75d93ebab3720ac0317fb874ce26acb7a88d08e7bd69a22d6",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user21/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/summary.json": "3f592b29ab855041c4e336555017dc88d96492c781b54d5afc5dbc93b3db8c39",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user21/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/best_checkpoint.pt": "9b61982a5fdf6b0f85a584b4dcd715e4137230b0addd1cbd1581ba95c2c340b3",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user21/eye0/manifest.json": "8ba7b421914df0c7fa2cb50a418887015277dda01cab5e2abad7490f957728ec",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user21/eye0/test.npz": "153007c1bcb405ca9d541cd5f2d4783654ba85b7db5d05c35571a313d543b9da"
+      },
+      "model": "inputs/models/pursuit/l1_l2_l3_l4_stateless/user21",
+      "test": "inputs/test/pursuit/user21/test.npz",
+      "output": "subjects/pursuit/l1_l2_l3_l4_stateless/user21",
+      "execution": "new_cpu",
+      "checkpoint_epoch": 197,
+      "fixed_point": {
+        "mean_angular_error_deg": 0.664637164545046,
+        "mean_pixel_error": 13.016033113153847
+      },
+      "runtime_counters": {
+        "accumulator_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "spike_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "accumulator_maximum_absolute": {
+          "L1": 1027315,
+          "L2": 2352311,
+          "L3": 3154765,
+          "L4": 1301055,
+          "L5": 871262,
+          "L6": 617208,
+          "L7": 532207,
+          "L8": 264397,
+          "H1": 1431950,
+          "H2": 1885461
+        },
+        "spike_maximum": {
+          "L1": 82,
+          "L2": 64,
+          "L3": 39,
+          "L4": 39,
+          "L5": 27,
+          "L6": 15,
+          "L7": 14,
+          "L8": 8,
+          "H1": 53,
+          "H2": 57
+        }
+      },
+      "arithmetic_contract": {
+        "weight_bits": 16,
+        "readout_weight_bits": 16,
+        "constant_bits": 24,
+        "accumulator_bits": 24,
+        "spike_bits": 8,
+        "scale_mode": "per_output_channel",
+        "scale_policy": "no_clipping",
+        "maximum_fraction_bits": 15,
+        "state_guard_bits": 0,
+        "alpha_rounding": "floor"
+      },
+      "state_bits": 16,
+      "independent_probe_arrays": 61,
+      "cpu_threads": 2,
+      "host": "carbonite",
+      "torch": "2.13.0+cu130",
+      "numpy": "2.4.6",
+      "runtime_seconds": 7.457660496991593
+    },
+    {
+      "case": "pursuit/l1_l2_l3_l4_stateless/user22",
+      "task": "pursuit",
+      "variant": "l1_l2_l3_l4_stateless",
+      "depth": 4,
+      "user": 22,
+      "representations": 1461,
+      "official_float": {
+        "mean_angular_error_deg": 0.6543721276399801,
+        "mean_pixel_error": 12.884211630791855
+      },
+      "input_sha256": {
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user22/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/configuration.json": "bb5e868782c579a9bebcf9f74d0a3516059999fd85b6e8cd8de77eca902b2a96",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user22/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/summary.json": "e460c18319abc427d3cb43406cba46f8479530d8d1d3d4e8e52e619c4e1582e0",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user22/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/best_checkpoint.pt": "c85e976c8d9e3b0db9fe4db9ff55ede14169060a5886b4ac337ead9771aabea8",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user22/eye0/manifest.json": "f45af629cb004fab7f318e9669c7d89d5cdd698ca8f4a1788f85d2f8020a1b4d",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user22/eye0/test.npz": "7bb64e007ec40f56f305dd5c11f7c7702c3872cf9600e7061ab5c2b56226dbe9"
+      },
+      "model": "inputs/models/pursuit/l1_l2_l3_l4_stateless/user22",
+      "test": "inputs/test/pursuit/user22/test.npz",
+      "output": "subjects/pursuit/l1_l2_l3_l4_stateless/user22",
+      "execution": "new_cpu",
+      "checkpoint_epoch": 195,
+      "fixed_point": {
+        "mean_angular_error_deg": 0.6591270195968544,
+        "mean_pixel_error": 13.013287708725425
+      },
+      "runtime_counters": {
+        "accumulator_saturated": {
+          "L1": 0,
+          "L2": 26,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "spike_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "accumulator_maximum_absolute": {
+          "L1": 1394674,
+          "L2": 14394803,
+          "L3": 7891813,
+          "L4": 2695073,
+          "L5": 1891282,
+          "L6": 1307342,
+          "L7": 1057746,
+          "L8": 906417,
+          "H1": 2084704,
+          "H2": 3342068
+        },
+        "spike_maximum": {
+          "L1": 118,
+          "L2": 105,
+          "L3": 85,
+          "L4": 77,
+          "L5": 58,
+          "L6": 25,
+          "L7": 20,
+          "L8": 19,
+          "H1": 127,
+          "H2": 71
+        }
+      },
+      "arithmetic_contract": {
+        "weight_bits": 16,
+        "readout_weight_bits": 16,
+        "constant_bits": 24,
+        "accumulator_bits": 24,
+        "spike_bits": 8,
+        "scale_mode": "per_output_channel",
+        "scale_policy": "no_clipping",
+        "maximum_fraction_bits": 15,
+        "state_guard_bits": 0,
+        "alpha_rounding": "floor"
+      },
+      "state_bits": 16,
+      "independent_probe_arrays": 61,
+      "cpu_threads": 2,
+      "host": "carbonite",
+      "torch": "2.13.0+cu130",
+      "numpy": "2.4.6",
+      "runtime_seconds": 16.61577424200368
+    },
+    {
+      "case": "pursuit/l1_l2_l3_l4_stateless/user23",
+      "task": "pursuit",
+      "variant": "l1_l2_l3_l4_stateless",
+      "depth": 4,
+      "user": 23,
+      "representations": 442,
+      "official_float": {
+        "mean_angular_error_deg": 0.8753296690508386,
+        "mean_pixel_error": 18.040620973881552
+      },
+      "input_sha256": {
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user23/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/configuration.json": "e487423f9d3ac3c934ab4837b5942936eae5634c05eef793326ef881612b016d",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user23/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/summary.json": "dca388562ed671e0b39ddbdca8a96143b0309970b402f9ea7b3c085f04a16415",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user23/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/best_checkpoint.pt": "c06ce45eb70354fced03ac8e6c428e47d576b53d655ba60bc7dd099355e97446",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user23/eye0/manifest.json": "1eb38cf0a68c016f595c9e5fb585a85d9896869bd5498dea14f20c09f679503f",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user23/eye0/test.npz": "b7111249e056952943d3cb28850ec7bc12dd63ef3f92f9064ce2377e24291457"
+      },
+      "model": "inputs/models/pursuit/l1_l2_l3_l4_stateless/user23",
+      "test": "inputs/test/pursuit/user23/test.npz",
+      "output": "subjects/pursuit/l1_l2_l3_l4_stateless/user23",
+      "execution": "new_cpu",
+      "checkpoint_epoch": 190,
+      "fixed_point": {
+        "mean_angular_error_deg": 0.8880577845313495,
+        "mean_pixel_error": 18.278613444217502
+      },
+      "runtime_counters": {
+        "accumulator_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "spike_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "accumulator_maximum_absolute": {
+          "L1": 903855,
+          "L2": 4412671,
+          "L3": 2170439,
+          "L4": 1369378,
+          "L5": 729581,
+          "L6": 491874,
+          "L7": 409561,
+          "L8": 197275,
+          "H1": 1836609,
+          "H2": 1993660
+        },
+        "spike_maximum": {
+          "L1": 89,
+          "L2": 65,
+          "L3": 35,
+          "L4": 32,
+          "L5": 22,
+          "L6": 15,
+          "L7": 10,
+          "L8": 5,
+          "H1": 56,
+          "H2": 61
+        }
+      },
+      "arithmetic_contract": {
+        "weight_bits": 16,
+        "readout_weight_bits": 16,
+        "constant_bits": 24,
+        "accumulator_bits": 24,
+        "spike_bits": 8,
+        "scale_mode": "per_output_channel",
+        "scale_policy": "no_clipping",
+        "maximum_fraction_bits": 15,
+        "state_guard_bits": 0,
+        "alpha_rounding": "floor"
+      },
+      "state_bits": 16,
+      "independent_probe_arrays": 61,
+      "cpu_threads": 2,
+      "host": "carbonite",
+      "torch": "2.13.0+cu130",
+      "numpy": "2.4.6",
+      "runtime_seconds": 6.744143591000466
+    },
+    {
+      "case": "pursuit/l1_l2_l3_l4_stateless/user24",
+      "task": "pursuit",
+      "variant": "l1_l2_l3_l4_stateless",
+      "depth": 4,
+      "user": 24,
+      "representations": 1287,
+      "official_float": {
+        "mean_angular_error_deg": 0.7019622655789475,
+        "mean_pixel_error": 13.437473740263696
+      },
+      "input_sha256": {
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user24/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/configuration.json": "9b8c1b788a261e7a0142ca6779bd4d860523a9ecc0243d15d3bfc2a1b8e648e3",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user24/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/summary.json": "b7f756ba74874cea156449395199d26465e4d9f3f048d7248ff7544106f2d639",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user24/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/best_checkpoint.pt": "f1e3a1b0b238eae38e552c11fce5f69caead07e1bd7ad51de549e13165155dfe",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user24/eye0/manifest.json": "0f4536cd228422d0d873fba98c7a4798f6fb0c1b4c7ea06dec292257333038e0",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user24/eye0/test.npz": "91746b816892934100870a9689bf033002be15ccc74738f2e4494bbf8d2cdcf6"
+      },
+      "model": "inputs/models/pursuit/l1_l2_l3_l4_stateless/user24",
+      "test": "inputs/test/pursuit/user24/test.npz",
+      "output": "subjects/pursuit/l1_l2_l3_l4_stateless/user24",
+      "execution": "new_cpu",
+      "checkpoint_epoch": 169,
+      "fixed_point": {
+        "mean_angular_error_deg": 0.7070579788386326,
+        "mean_pixel_error": 13.536051470898174
+      },
+      "runtime_counters": {
+        "accumulator_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "spike_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "accumulator_maximum_absolute": {
+          "L1": 1547386,
+          "L2": 5622554,
+          "L3": 4953772,
+          "L4": 2447995,
+          "L5": 1134358,
+          "L6": 985904,
+          "L7": 831416,
+          "L8": 335914,
+          "H1": 2155919,
+          "H2": 2237318
+        },
+        "spike_maximum": {
+          "L1": 112,
+          "L2": 95,
+          "L3": 75,
+          "L4": 62,
+          "L5": 35,
+          "L6": 20,
+          "L7": 15,
+          "L8": 10,
+          "H1": 80,
+          "H2": 68
+        }
+      },
+      "arithmetic_contract": {
+        "weight_bits": 16,
+        "readout_weight_bits": 16,
+        "constant_bits": 24,
+        "accumulator_bits": 24,
+        "spike_bits": 8,
+        "scale_mode": "per_output_channel",
+        "scale_policy": "no_clipping",
+        "maximum_fraction_bits": 15,
+        "state_guard_bits": 0,
+        "alpha_rounding": "floor"
+      },
+      "state_bits": 16,
+      "independent_probe_arrays": 61,
+      "cpu_threads": 2,
+      "host": "carbonite",
+      "torch": "2.13.0+cu130",
+      "numpy": "2.4.6",
+      "runtime_seconds": 15.234637455985649
+    },
+    {
+      "case": "pursuit/l1_l2_l3_l4_stateless/user25",
+      "task": "pursuit",
+      "variant": "l1_l2_l3_l4_stateless",
+      "depth": 4,
+      "user": 25,
+      "representations": 1876,
+      "official_float": {
+        "mean_angular_error_deg": 0.7756338376960934,
+        "mean_pixel_error": 15.220213481421665
+      },
+      "input_sha256": {
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user25/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/configuration.json": "a5019395d3d0ff04a8944a6d30dc49973739a69c74b71c46b9b92be2fbfa4b1e",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user25/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/summary.json": "a7b238653ab3497261c02dddd5104a1014874bd7ed7caf05458bee1ebcf42141",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user25/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/best_checkpoint.pt": "55478051ede822da39e548670a5595a8bb60da7ebe9d1067f7fd8b1a23b8db03",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user25/eye0/manifest.json": "156211bde7c0ea0cf99af78d6d61a0a5ab047d0ad4ea3040c040a2118c7ecf8e",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user25/eye0/test.npz": "9eae859fcadc7fc2bc176b9c985815ca1cd91645ceb46ffe96c8e576ce0b63bb"
+      },
+      "model": "inputs/models/pursuit/l1_l2_l3_l4_stateless/user25",
+      "test": "inputs/test/pursuit/user25/test.npz",
+      "output": "subjects/pursuit/l1_l2_l3_l4_stateless/user25",
+      "execution": "new_cpu",
+      "checkpoint_epoch": 199,
+      "fixed_point": {
+        "mean_angular_error_deg": 0.7745624868662814,
+        "mean_pixel_error": 15.18642315568407
+      },
+      "runtime_counters": {
+        "accumulator_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "spike_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "accumulator_maximum_absolute": {
+          "L1": 926524,
+          "L2": 6330424,
+          "L3": 5415660,
+          "L4": 3149122,
+          "L5": 1255209,
+          "L6": 1078576,
+          "L7": 1119561,
+          "L8": 715092,
+          "H1": 2373271,
+          "H2": 2371581
+        },
+        "spike_maximum": {
+          "L1": 113,
+          "L2": 83,
+          "L3": 74,
+          "L4": 78,
+          "L5": 37,
+          "L6": 33,
+          "L7": 25,
+          "L8": 15,
+          "H1": 145,
+          "H2": 73
+        }
+      },
+      "arithmetic_contract": {
+        "weight_bits": 16,
+        "readout_weight_bits": 16,
+        "constant_bits": 24,
+        "accumulator_bits": 24,
+        "spike_bits": 8,
+        "scale_mode": "per_output_channel",
+        "scale_policy": "no_clipping",
+        "maximum_fraction_bits": 15,
+        "state_guard_bits": 0,
+        "alpha_rounding": "floor"
+      },
+      "state_bits": 16,
+      "independent_probe_arrays": 61,
+      "cpu_threads": 2,
+      "host": "carbonite",
+      "torch": "2.13.0+cu130",
+      "numpy": "2.4.6",
+      "runtime_seconds": 18.728850085986778
+    },
+    {
+      "case": "pursuit/l1_l2_l3_l4_stateless/user26",
+      "task": "pursuit",
+      "variant": "l1_l2_l3_l4_stateless",
+      "depth": 4,
+      "user": 26,
+      "representations": 402,
+      "official_float": {
+        "mean_angular_error_deg": 1.3574020862764684,
+        "mean_pixel_error": 26.349085365065296
+      },
+      "input_sha256": {
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user26/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/configuration.json": "26804f5a63b4e6774ccbd63f437156a236c495386686e35c51c636cebd2b98c2",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user26/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/summary.json": "63f144947dba1dcb05c573f7deaf89099c7991deb9e743e35a6ef268739aa344",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user26/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/best_checkpoint.pt": "3e7dfe514a03bf7fcd07ac4ba38749d1903ca3a3d8092b97e1b937300debea06",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user26/eye0/manifest.json": "d9b51af4fd258dc11b9ab41bb82d43c15a2895cc06bfcac1679a372244e303e3",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user26/eye0/test.npz": "627cd4abfeb26e14a02dc3d4133b5e3142ec59dec40c9624ec1f78223b86f0eb"
+      },
+      "model": "inputs/models/pursuit/l1_l2_l3_l4_stateless/user26",
+      "test": "inputs/test/pursuit/user26/test.npz",
+      "output": "subjects/pursuit/l1_l2_l3_l4_stateless/user26",
+      "execution": "new_cpu",
+      "checkpoint_epoch": 190,
+      "fixed_point": {
+        "mean_angular_error_deg": 1.3720943954433389,
+        "mean_pixel_error": 26.670554554073306
+      },
+      "runtime_counters": {
+        "accumulator_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "spike_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "accumulator_maximum_absolute": {
+          "L1": 1572584,
+          "L2": 4175017,
+          "L3": 3661055,
+          "L4": 1528912,
+          "L5": 842162,
+          "L6": 452723,
+          "L7": 451295,
+          "L8": 261848,
+          "H1": 1432680,
+          "H2": 1195168
+        },
+        "spike_maximum": {
+          "L1": 123,
+          "L2": 77,
+          "L3": 50,
+          "L4": 36,
+          "L5": 26,
+          "L6": 14,
+          "L7": 10,
+          "L8": 8,
+          "H1": 44,
+          "H2": 36
+        }
+      },
+      "arithmetic_contract": {
+        "weight_bits": 16,
+        "readout_weight_bits": 16,
+        "constant_bits": 24,
+        "accumulator_bits": 24,
+        "spike_bits": 8,
+        "scale_mode": "per_output_channel",
+        "scale_policy": "no_clipping",
+        "maximum_fraction_bits": 15,
+        "state_guard_bits": 0,
+        "alpha_rounding": "floor"
+      },
+      "state_bits": 16,
+      "independent_probe_arrays": 61,
+      "cpu_threads": 2,
+      "host": "carbonite",
+      "torch": "2.13.0+cu130",
+      "numpy": "2.4.6",
+      "runtime_seconds": 4.861963054980151
+    },
+    {
+      "case": "pursuit/l1_l2_l3_l4_stateless/user27",
+      "task": "pursuit",
+      "variant": "l1_l2_l3_l4_stateless",
+      "depth": 4,
+      "user": 27,
+      "representations": 1346,
+      "official_float": {
+        "mean_angular_error_deg": 0.7912327002949825,
+        "mean_pixel_error": 15.526991753845875
+      },
+      "input_sha256": {
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user27/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/configuration.json": "e4d4f4f1a4e24741dc970ec4adcc92465e7e92702f814534a94d92796c0cff5f",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user27/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/summary.json": "a0b31ec0e83d202ab4ca0be956a4cffd8e1f5d02c16ead972d5a0cb8c7e63773",
+        "/data/xuzx/result/ebv-eye/pursuit/fixed_event_window/snn/user27/eye0/all_physical_source_recombination_t2_alpha0p75_l1_l2_l3_l4_stateless_continue_epoch100_to200/seed2021/best_checkpoint.pt": "414ad8775abca79b71c39d9051652d5a99f16fcaa6b809714ef2e819f0fe555e",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user27/eye0/manifest.json": "676002a90b3bed8f2e3c56e00b2b880bfe31aa03d06e56fa219b237f1a033693",
+        "/data/xuzx/data/ebv-eye/cache/formal_eye0/pursuit/fixed_event_window_400_stride200_96x128/user27/eye0/test.npz": "3f149087b54a6b8f087658ec2ee9f1a5da485ff3357c18899979a5f2ab91c428"
+      },
+      "model": "inputs/models/pursuit/l1_l2_l3_l4_stateless/user27",
+      "test": "inputs/test/pursuit/user27/test.npz",
+      "output": "subjects/pursuit/l1_l2_l3_l4_stateless/user27",
+      "execution": "new_cpu",
+      "checkpoint_epoch": 180,
+      "fixed_point": {
+        "mean_angular_error_deg": 0.7851721949473054,
+        "mean_pixel_error": 15.377284752847816
+      },
+      "runtime_counters": {
+        "accumulator_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "spike_saturated": {
+          "L1": 0,
+          "L2": 0,
+          "L3": 0,
+          "L4": 0,
+          "L5": 0,
+          "L6": 0,
+          "L7": 0,
+          "L8": 0,
+          "H1": 0,
+          "H2": 0
+        },
+        "accumulator_maximum_absolute": {
+          "L1": 1138468,
+          "L2": 5398664,
+          "L3": 5546996,
+          "L4": 2692231,
+          "L5": 1769223,
+          "L6": 1350303,
+          "L7": 1195312,
+          "L8": 557428,
+          "H1": 2443510,
+          "H2": 1720844
+        },
+        "spike_maximum": {
+          "L1": 115,
+          "L2": 101,
+          "L3": 78,
+          "L4": 75,
+          "L5": 44,
+          "L6": 38,
+          "L7": 22,
+          "L8": 15,
+          "H1": 75,
+          "H2": 42
+        }
+      },
+      "arithmetic_contract": {
+        "weight_bits": 16,
+        "readout_weight_bits": 16,
+        "constant_bits": 24,
+        "accumulator_bits": 24,
+        "spike_bits": 8,
+        "scale_mode": "per_output_channel",
+        "scale_policy": "no_clipping",
+        "maximum_fraction_bits": 15,
+        "state_guard_bits": 0,
+        "alpha_rounding": "floor"
+      },
+      "state_bits": 16,
+      "independent_probe_arrays": 61,
+      "cpu_threads": 2,
+      "host": "carbonite",
+      "torch": "2.13.0+cu130",
+      "numpy": "2.4.6",
+      "runtime_seconds": 16.35959092300618
+    }
+  ]
+}

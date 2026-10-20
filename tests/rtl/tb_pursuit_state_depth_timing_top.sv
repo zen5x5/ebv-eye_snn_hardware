@@ -160,7 +160,7 @@ module tb_pursuit_state_depth_timing_top #(parameter integer STATELESS_DEPTH = 2
         wait(dut.done);
         #0.1;
         if (!dut.result_valid || dut.range_error_seen) $fatal(1, "invalid final status");
-        if (transactions != (11242 - (STATELESS_DEPTH >= 1 ? 3072 : 0) - (STATELESS_DEPTH >= 2 ? 1536 : 0) - (STATELESS_DEPTH >= 3 ? 576 : 0)) || values_checked != (270000 - (STATELESS_DEPTH >= 1 ? 73728 : 0) - (STATELESS_DEPTH >= 2 ? 36864 : 0) - (STATELESS_DEPTH >= 3 ? 13824 : 0))) $fatal(1, "trace count mismatch");
+        if (transactions != (11242 - (STATELESS_DEPTH >= 1 ? 3072 : 0) - (STATELESS_DEPTH >= 2 ? 1536 : 0) - (STATELESS_DEPTH >= 3 ? 576 : 0) - (STATELESS_DEPTH >= 4 ? 192 : 0)) || values_checked != (270000 - (STATELESS_DEPTH >= 1 ? 73728 : 0) - (STATELESS_DEPTH >= 2 ? 36864 : 0) - (STATELESS_DEPTH >= 3 ? 13824 : 0) - (STATELESS_DEPTH >= 4 ? 4608 : 0))) $fatal(1, "trace count mismatch");
         repeat (2) @(posedge clk);
         for (i = 0; i < 4; i = i + 1) begin
             bus_read(8'h20 + i, read_value);

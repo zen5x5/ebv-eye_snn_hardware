@@ -6,8 +6,9 @@ import shutil
 import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
-VARIANTS = ('full_state', 'l1_stateless', 'l1_l2_stateless', 'l1_l2_l3_stateless')
-CYCLES = (105305, 90525, 78817, 72101)
+VARIANTS = ('full_state', 'l1_stateless', 'l1_l2_stateless', 'l1_l2_l3_stateless',
+            'l1_l2_l3_l4_stateless')
+CYCLES = (105305, 90525, 78817, 72101, 68293)
 LAYERS = tuple(f'L{i}' for i in range(1, 9)) + ('H1', 'H2')
 
 

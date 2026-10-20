@@ -1,0 +1,69 @@
+{
+  "status": "passed",
+  "scope": "Table II continuous_xy Saccade versus Pursuit, same state-depth configuration",
+  "trained_model_configurations_checked": 192,
+  "saccade_rtl_samples_checked": 64,
+  "runtime_loaded_weights": true,
+  "task_specific_synthesized_logic": false,
+  "same_latency_and_bram": true,
+  "comparisons": [
+    {
+      "variant": "full_state",
+      "models_audited": 48,
+      "saccade_rtl_samples": 16,
+      "core_cycles": 105305,
+      "latency_ms": 0.65815625,
+      "bram36_equivalent": 170.5,
+      "same_cycle_count": true,
+      "same_layer_cycles_and_memory_access_counts": true,
+      "same_parameter_shapes_and_hardware_image_layout": true,
+      "separately_trained_weights_confirmed": true,
+      "common_implementation_checkpoint": "results/implementation/full_state/post_route.dcp",
+      "common_implementation_sha256": "0ad22bd4efa6f4b8734e48b5c0eca607775272976ad21cc00f749e0042ce14e3"
+    },
+    {
+      "variant": "l1_stateless",
+      "models_audited": 48,
+      "saccade_rtl_samples": 16,
+      "core_cycles": 90525,
+      "latency_ms": 0.56578125,
+      "bram36_equivalent": 132.5,
+      "same_cycle_count": true,
+      "same_layer_cycles_and_memory_access_counts": true,
+      "same_parameter_shapes_and_hardware_image_layout": true,
+      "separately_trained_weights_confirmed": true,
+      "common_implementation_checkpoint": "results/implementation/l1_stateless/post_route.dcp",
+      "common_implementation_sha256": "3f0cf7d799553766af6c5f5e034098642d6e94f9a7cd4d2621bb6f893f3024c4"
+    },
+    {
+      "variant": "l1_l2_stateless",
+      "models_audited": 48,
+      "saccade_rtl_samples": 16,
+      "core_cycles": 78817,
+      "latency_ms": 0.49260625,
+      "bram36_equivalent": 122.0,
+      "same_cycle_count": true,
+      "same_layer_cycles_and_memory_access_counts": true,
+      "same_parameter_shapes_and_hardware_image_layout": true,
+      "separately_trained_weights_confirmed": true,
+      "common_implementation_checkpoint": "results/implementation/l1_l2_stateless/post_route.dcp",
+      "common_implementation_sha256": "2189ad608caf54f433d4308d7507b4322ea852b75089357a2aaeb2d3e6c57eea"
+    },
+    {
+      "variant": "l1_l2_l3_stateless",
+      "models_audited": 48,
+      "saccade_rtl_samples": 16,
+      "core_cycles": 72101,
+      "latency_ms": 0.45063125,
+      "bram36_equivalent": 120.0,
+      "same_cycle_count": true,
+      "same_layer_cycles_and_memory_access_counts": true,
+      "same_parameter_shapes_and_hardware_image_layout": true,
+      "separately_trained_weights_confirmed": true,
+      "common_implementation_checkpoint": "results/implementation/l1_l2_l3_stateless/post_route.dcp",
+      "common_implementation_sha256": "fe7740b079ba58eda4333648e52a04487a0f0f773cd8a65e91835bb735a315a4"
+    }
+  ],
+  "fixed_schedule": "spike values change arithmetic data, not iteration bounds or memory capacity",
+  "l1_l4_rule": "the depth-4 implementation is also shared when network dimensions, arithmetic and stateless depth match"
+}

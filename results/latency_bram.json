@@ -1,0 +1,48 @@
+{
+  "scope": "five matched 400-event, T2 state-depth implementations",
+  "timing_passed_for_all_variants": true,
+  "latency_scope": "core computation after inputs and weights are on chip",
+  "variants": [
+    {
+      "variant": "full_state",
+      "stateless_depth": 0,
+      "core_cycles": 105305,
+      "frequency_mhz": 160,
+      "core_latency_ms": 0.65815625,
+      "bram36_equivalent": 170.5
+    },
+    {
+      "variant": "l1_stateless",
+      "stateless_depth": 1,
+      "core_cycles": 90525,
+      "frequency_mhz": 160,
+      "core_latency_ms": 0.56578125,
+      "bram36_equivalent": 132.5
+    },
+    {
+      "variant": "l1_l2_stateless",
+      "stateless_depth": 2,
+      "core_cycles": 78817,
+      "frequency_mhz": 160,
+      "core_latency_ms": 0.49260625,
+      "bram36_equivalent": 122.0
+    },
+    {
+      "variant": "l1_l2_l3_stateless",
+      "stateless_depth": 3,
+      "core_cycles": 72101,
+      "frequency_mhz": 160,
+      "core_latency_ms": 0.45063125,
+      "bram36_equivalent": 120.0
+    },
+    {
+      "variant": "l1_l2_l3_l4_stateless",
+      "stateless_depth": 4,
+      "core_cycles": 68293,
+      "frequency_mhz": 160,
+      "core_latency_ms": 0.42683125,
+      "bram36_equivalent": 120.0
+    }
+  ],
+  "l1_l4_evidence": "results/implementation/l1_l2_l3_l4_stateless/summary.json"
+}

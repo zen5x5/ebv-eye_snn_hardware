@@ -1,0 +1,407 @@
+{
+  "format": "pursuit_static_ann_400event_count_frame",
+  "user": 19,
+  "eye": 0,
+  "roi": [
+    7,
+    69,
+    192,
+    256
+  ],
+  "input_shape": [
+    2,
+    96,
+    128
+  ],
+  "input_dtype": "uint16",
+  "model_input": "one polarity-separated event-count frame per sample",
+  "events_per_sample": 400,
+  "pooled_height": 96,
+  "pooled_width": 128,
+  "window_events": 400,
+  "bins_per_sample": 1,
+  "events_per_bin": 400,
+  "train_window_stride_events": 200,
+  "split_seed": 2021,
+  "split_strategy": "phase/x-sector approximately 4:1:1 over complete windows before train stride; tail windows excluded before split",
+  "tail_window_policy": "excluded_before_candidate_split",
+  "corner_guard_us_per_side": 80000,
+  "closed_eye_cores_relative_ms": [],
+  "record_spec_schema_version": "ebv_eye_pursuit_record_spec",
+  "fixed_hot_pixel_filter": {
+    "method": "fixed_hot_pixel_rate_isolation_periodicity",
+    "config": {
+      "minimum_event_count": 1000,
+      "minimum_mean_rate_hz": 10.0,
+      "minimum_same_polarity_neighbour_ratio": 10.0,
+      "short_interval_us": 200,
+      "minimum_short_interval_fraction": 0.9
+    },
+    "detected_pixels": []
+  },
+  "record_spec_path": "code/pursuit/fixed_event_window/preprocessing/record_specs/eye0/user19_eye0.json",
+  "record_spec_sha256": "722fbffe0255e2ded720f1415b58c80c973a2968143c32fbc1cbb57a1f3f1a36",
+  "roi_selection": {
+    "method": "joint_pursuit_saccade_event_retention_after_fixed_hot_pixel_filter",
+    "pursuit_event_retention": 0.8960520933436935,
+    "saccade_event_retention": 0.9706222776515265,
+    "joint_min_retention": 0.8960520933436935
+  },
+  "closed_eye_review": {
+    "status": "complete",
+    "method": "event_double_peak_navigation_plus_frame_confirmation",
+    "time_reference": "first_pursuit_frame_relative_ms",
+    "candidate_artifact": "user19_eye0/candidates.json",
+    "review_artifact": "visual_closed_eye_decisions_eye0.json",
+    "confirmed_run_count": 0,
+    "frame_midpoint_evidence_verified": true
+  },
+  "first_pursuit_frame_us": 445881253,
+  "last_pursuit_frame_us": 536560389,
+  "phase_intervals_us": [
+    {
+      "name": "H1",
+      "start": 445881253,
+      "end": 459601137
+    },
+    {
+      "name": "V1",
+      "start": 459761137,
+      "end": 461001121
+    },
+    {
+      "name": "H2",
+      "start": 461161121,
+      "end": 475200980
+    },
+    {
+      "name": "V2",
+      "start": 475360980,
+      "end": 476480966
+    },
+    {
+      "name": "H3",
+      "start": 476640966,
+      "end": 490160835
+    },
+    {
+      "name": "V3",
+      "start": 490320835,
+      "end": 491480822
+    },
+    {
+      "name": "H4",
+      "start": 491640822,
+      "end": 505680685
+    },
+    {
+      "name": "V4",
+      "start": 505840685,
+      "end": 506880674
+    },
+    {
+      "name": "H5",
+      "start": 507040674,
+      "end": 520840538
+    },
+    {
+      "name": "V5",
+      "start": 521000538,
+      "end": 522160525
+    },
+    {
+      "name": "H6",
+      "start": 522320525,
+      "end": 536360391
+    }
+  ],
+  "visible_fragments": [
+    {
+      "name": "H1",
+      "start": 445881253,
+      "end": 459601137,
+      "fragment": 0
+    },
+    {
+      "name": "V1",
+      "start": 459761137,
+      "end": 461001121,
+      "fragment": 1
+    },
+    {
+      "name": "H2",
+      "start": 461161121,
+      "end": 475200980,
+      "fragment": 2
+    },
+    {
+      "name": "V2",
+      "start": 475360980,
+      "end": 476480966,
+      "fragment": 3
+    },
+    {
+      "name": "H3",
+      "start": 476640966,
+      "end": 490160835,
+      "fragment": 4
+    },
+    {
+      "name": "V3",
+      "start": 490320835,
+      "end": 491480822,
+      "fragment": 5
+    },
+    {
+      "name": "H4",
+      "start": 491640822,
+      "end": 505680685,
+      "fragment": 6
+    },
+    {
+      "name": "V4",
+      "start": 505840685,
+      "end": 506880674,
+      "fragment": 7
+    },
+    {
+      "name": "H5",
+      "start": 507040674,
+      "end": 520840538,
+      "fragment": 8
+    },
+    {
+      "name": "V5",
+      "start": 521000538,
+      "end": 522160525,
+      "fragment": 9
+    },
+    {
+      "name": "H6",
+      "start": 522320525,
+      "end": 536360391,
+      "fragment": 10
+    }
+  ],
+  "fragment_window_audit": [
+    {
+      "phase": "H1",
+      "fragment": 0,
+      "events": 98039,
+      "full_windows": 245,
+      "tail_events": 39,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    },
+    {
+      "phase": "V1",
+      "fragment": 1,
+      "events": 6680,
+      "full_windows": 16,
+      "tail_events": 280,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    },
+    {
+      "phase": "H2",
+      "fragment": 2,
+      "events": 68322,
+      "full_windows": 170,
+      "tail_events": 322,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    },
+    {
+      "phase": "V2",
+      "fragment": 3,
+      "events": 4834,
+      "full_windows": 12,
+      "tail_events": 34,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    },
+    {
+      "phase": "H3",
+      "fragment": 4,
+      "events": 57273,
+      "full_windows": 143,
+      "tail_events": 73,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    },
+    {
+      "phase": "V3",
+      "fragment": 5,
+      "events": 6979,
+      "full_windows": 17,
+      "tail_events": 179,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    },
+    {
+      "phase": "H4",
+      "fragment": 6,
+      "events": 63349,
+      "full_windows": 158,
+      "tail_events": 149,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    },
+    {
+      "phase": "V4",
+      "fragment": 7,
+      "events": 8607,
+      "full_windows": 21,
+      "tail_events": 207,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    },
+    {
+      "phase": "H5",
+      "fragment": 8,
+      "events": 75533,
+      "full_windows": 188,
+      "tail_events": 333,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    },
+    {
+      "phase": "V5",
+      "fragment": 9,
+      "events": 9038,
+      "full_windows": 22,
+      "tail_events": 238,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    },
+    {
+      "phase": "H6",
+      "fragment": 10,
+      "events": 50798,
+      "full_windows": 126,
+      "tail_events": 398,
+      "backfill_candidate": false,
+      "tail_window_included_in_candidates": false
+    }
+  ],
+  "candidate_count": 1118,
+  "skipped_cross_split_backfill": 0,
+  "kept_backfill": 0,
+  "base_counts": {
+    "train": 740,
+    "validation": 189,
+    "test": 189
+  },
+  "cached_counts": {
+    "train": 1302,
+    "validation": 189,
+    "test": 189
+  },
+  "phase_base_counts": {
+    "H1": {
+      "train": 165,
+      "validation": 40,
+      "test": 40
+    },
+    "V1": {
+      "train": 10,
+      "validation": 3,
+      "test": 3
+    },
+    "H2": {
+      "train": 112,
+      "validation": 29,
+      "test": 29
+    },
+    "V2": {
+      "train": 8,
+      "validation": 2,
+      "test": 2
+    },
+    "H3": {
+      "train": 93,
+      "validation": 25,
+      "test": 25
+    },
+    "V3": {
+      "train": 11,
+      "validation": 3,
+      "test": 3
+    },
+    "H4": {
+      "train": 104,
+      "validation": 27,
+      "test": 27
+    },
+    "V4": {
+      "train": 13,
+      "validation": 4,
+      "test": 4
+    },
+    "H5": {
+      "train": 126,
+      "validation": 31,
+      "test": 31
+    },
+    "V5": {
+      "train": 14,
+      "validation": 4,
+      "test": 4
+    },
+    "H6": {
+      "train": 84,
+      "validation": 21,
+      "test": 21
+    }
+  },
+  "cross_split_event_overlap": false,
+  "source_event_path": "/data/xuzx/data/ebv-eye/eye_data/user19/0/events.aerdat",
+  "source_event_audit": {
+    "file_bytes": 72280220,
+    "complete_event_records": 8031135,
+    "trailing_bytes": 5,
+    "roi_event_records": 7725220,
+    "fixed_hot_pixels": [],
+    "fixed_hot_pixel_records_removed_from_full_sensor": 0,
+    "fixed_hot_pixel_records_removed_from_roi": 0
+  },
+  "malformed_frame_filenames": 0,
+  "splits": {
+    "train": {
+      "samples": 1302,
+      "shape": [
+        1302,
+        2,
+        96,
+        128
+      ],
+      "maximum_pixel_count": 30,
+      "compressed_bytes": 822057,
+      "sha256": "13cf8d3e8b3465dcb99d4b90431c28d6143b74a575ac92ebbc94507cccd685bd"
+    },
+    "validation": {
+      "samples": 189,
+      "shape": [
+        189,
+        2,
+        96,
+        128
+      ],
+      "maximum_pixel_count": 27,
+      "compressed_bytes": 120985,
+      "sha256": "2abff38b4e4a374e7d0a304fb16ad4a26381e5dbd9a5e567a525741a4dc0118d"
+    },
+    "test": {
+      "samples": 189,
+      "shape": [
+        189,
+        2,
+        96,
+        128
+      ],
+      "maximum_pixel_count": 26,
+      "compressed_bytes": 120700,
+      "sha256": "98fa4b0c22df39b09868d234ddb69668cd1ece063e0d2be56c56716d455b4af0"
+    }
+  }
+}
